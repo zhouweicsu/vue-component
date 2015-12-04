@@ -1,0 +1,57 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>demo pagination</title>
+    <script type="text/javascript" src="static/js/vue.js"></script>
+</head>
+<body>
+    <div id="demo">
+        <my-pagination total="100" ></my-pagination>
+    </div>
+    <template id="t-pagination">
+        <div class="ui-pagination">
+            <span class="total">共<em>{{total}}</em>条</span>
+            <span class="pages" @click="go">
+                <a href="#" class="ui-page" :class="{disabled: pn == 0}" data-page="{{ pn > 0 ? pn-1 : pn}}">上一页</a>
+                <a v-for="n in pages" href="#" class="ui-page" :class="{current: n == pn}" data-page="{{n}}">{{n+1}}</a>
+                <a href="#" class="ui-page" :class="{disabled: pn == pages}" data-page="{{ pn < pages ? pn+1 : pn}}">下一页</a>
+            </span>
+        </div>
+    </template>
+    <script type="text/javascript">
+        var MyPagination = Vue.extend({
+            props: {
+                'total':{
+                    required: true
+                },
+                'pn': null,
+                'ps': null
+            },
+            template: "#t-pagination",
+            data: function () {
+                return {
+                    pn: 0,
+                    ps: 20
+                }
+            },
+            created : function () {
+                this.pages = Math.ceil(this.total / this.ps);
+            },
+            methods: {
+                go: function (event) {
+                    console.log(event.target.dataset.page);
+                    this.pn = event.target.dataset.page;
+                    this.$dispatch("updatepage", this.pn);
+                }
+            }
+        });
+
+        Vue.component('my-pagination', MyPagination);
+
+        var demo = new Vue({
+            el: "#demo"
+        });
+    </script>
+</div>
+</body>
+</html>

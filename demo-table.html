@@ -1,0 +1,128 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>demo table</title>
+    <script type="text/javascript" src="static/js/vue.js"></script>
+    <script type="text/javascript" src="static/js/vue-resource.js"></script>
+    <script src="http://doc.qiwoo.org/mock/script?id=156"></script>
+</head>
+<body>
+    <div id="demo">
+        <data-table url="/ssp/test"></data-table>
+    </div>
+
+    <template id="t-pagination">
+        <div class="ui-pagination">
+            <span class="total">共<em>{{total}}</em>条</span>
+            <span class="pages" @click.prevent="go">
+                <a href="#" class="ui-page" :class="{disabled: pn == 0}" data-page="{{ pn > 0 ? pn-1 : pn}}">上一页</a>
+                <a v-for="n in pages" href="#" class="ui-page" :class="{current: n == pn}" data-page="{{n}}">{{n+1}}</a>
+                <a href="#" class="ui-page" :class="{disabled: pn == pages-1}" data-page="{{ pn < pages-1 ? pn+1 : pn}}">下一页</a>
+            </span>
+        </div>
+    </template>
+
+    <template id="t-table">
+        <table v-if="list.length > 0" >
+            <tbody>
+                <tr>
+                    <th>应用名称</th>
+                    <th>应用ID</th>
+                    <th>应用包名</th>
+                    <th>应用类型</th>
+                    <th>操作</th>
+                </tr>
+                <tr v-for="item in list" track-by="aid">
+                    <td>{{item.appname}}</td>
+                    <td>{{item.aid}}</td>
+                    <td>{{item.pname}}</td>
+                    <td>{{item.category}}</td>
+                    <td><a href="javascript:;">编辑</a> | <a href="javascript:;">删除</a></td>
+                </tr>
+            </tbody>
+        </table>
+        <div v-else>请添加应用</div>
+        <my-pagination :total="total" @updatepage=updatepage></my-pagination>
+    </template>
+    <script type="text/javascript">
+    //分页组件
+        var MyPagination = Vue.extend({
+            props: [ 'total', 'pn', 'ps' ],
+            template: "#t-pagination",
+            data: function () {
+                return {
+                    total: 0,
+                    pn: 0,
+                    ps: 20
+                }
+            },
+            computed :  {
+                pages : function () {
+                    return Math.ceil(this.total / this.ps) || 0;
+                }
+            },
+            methods: {
+                go: function (event) {
+                    var target = event.target;
+                    if(/\b(disabled|current)\b/.test(target.className)){
+                        return;
+                    }
+                    this.pn = parseInt(target.dataset.page);
+                    this.$dispatch("updatepage", this.pn);
+                }
+            }
+        });
+
+        Vue.component('my-pagination', MyPagination);
+
+    //数据表单
+        var DataTable = Vue.extend({
+            props: {
+                'url':{
+                    required: true
+                },
+                'list': Array
+            },
+            data: function () {
+                return {
+                    total: 0
+                }
+            },
+            template: "#t-table",
+            component: {
+                'my-pagination': MyPagination
+            },
+            created: function () {
+                this.updatepage(0);
+            },
+            methods: {
+                updatepage: function ( pn ) {
+                    var resource = this.$resource(this.url+"?pn="+pn);
+                    // GET request
+                    resource.get({}, function (data, status, request) {
+                        if(data.errno){
+                            alert(data.errmsg);
+                            this.list = {};
+                            this.total = 0;
+                            return false;
+                        }
+                        this.list = data.list;
+                        this.total = data.total;
+                    }).error(function (data, status, request) {
+                        // handle error
+                        this.list = {};
+                        this.total = 0;
+                    })
+                }
+            }
+        });
+
+        Vue.component('data-table', DataTable);
+
+        var demo = new Vue({
+            el: "#demo"
+        });
+    </script>
+</div>
+</body>
+</html>
