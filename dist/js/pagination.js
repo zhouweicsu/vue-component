@@ -54,6 +54,8 @@
 	
 	var _pagination2 = _interopRequireDefault(_pagination);
 	
+	__webpack_require__(7);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	_vue2.default.component('pagination', _pagination2.default);
@@ -9574,6 +9576,12 @@
 /***/ function(module, exports) {
 
 	module.exports = "<slot></slot>\n    <div class=\"ui-pagination\">\n        <span class=\"total\">共<em>{{total}}</em>条</span>\n        <span class=\"pages\" @click.prevent=\"go\" v-show=\"pages > 1\">\n            <a href=\"#\" class=\"ui-page\" :class=\"{disabled: pn == 0}\" data-page=\"{{ pn > 0 ? pn-1 : pn}}\">上一页</a>\n            <a href=\"#\" class=\"ui-page\" :class=\"{current: pn == 0}\" data-page=\"0\" v-show=\"spanRange[0]\">1</a>\n            <em class=\"ui-page ellipsis\" v-show=\"showStartEllipse\">⋯</em>\n            <a v-for=\"n in spanRange\" href=\"#\" class=\"ui-page\" :class=\"{current: n == pn}\" data-page=\"{{n}}\">{{n+1}}</a>\n            <em  class=\"ui-page ellipsis\" v-show=\"showEndEllipse\">⋯</em>\n            <a href=\"#\" class=\"ui-page\" :class=\"{current: pn == pages-1}\" data-page=\"{{pages - 1}}\" v-show=\"showEndPage\">{{pages}}</a>\n            <a href=\"#\" class=\"ui-page\" :class=\"{disabled: pn == pages-1}\" data-page=\"{{ pn < pages-1 ? pn+1 : pn}}\">下一页</a>\n        </span>\n    </div>";
+
+/***/ },
+/* 7 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
 
 /***/ }
 /******/ ]);
