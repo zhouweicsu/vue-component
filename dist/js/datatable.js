@@ -46,13 +46,13 @@
 
 	'use strict';
 	
-	var _vue = __webpack_require__(3);
+	var _vue = __webpack_require__(4);
 	
 	var _vue2 = _interopRequireDefault(_vue);
 	
-	__webpack_require__(5);
+	__webpack_require__(14);
 	
-	var _dataTable = __webpack_require__(9);
+	var _dataTable = __webpack_require__(16);
 	
 	var _dataTable2 = _interopRequireDefault(_dataTable);
 	
@@ -90,7 +90,8 @@
 /***/ },
 /* 1 */,
 /* 2 */,
-/* 3 */
+/* 3 */,
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/*!
@@ -9395,10 +9396,10 @@
 	}
 	
 	module.exports = Vue;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ },
-/* 4 */
+/* 5 */
 /***/ function(module, exports) {
 
 	// shim for using process in browser
@@ -9495,22 +9496,28 @@
 
 
 /***/ },
-/* 5 */
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ },
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */
+/* 15 */,
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(10)
+	module.exports = __webpack_require__(17)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(22)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(29)
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
@@ -9524,7 +9531,7 @@
 	})()}
 
 /***/ },
-/* 10 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9533,15 +9540,15 @@
 	    value: true
 	});
 	
-	var _vue = __webpack_require__(3);
+	var _vue = __webpack_require__(4);
 	
 	var _vue2 = _interopRequireDefault(_vue);
 	
-	var _pagination = __webpack_require__(11);
+	var _pagination = __webpack_require__(18);
 	
 	var _pagination2 = _interopRequireDefault(_pagination);
 	
-	var _vueResource = __webpack_require__(14);
+	var _vueResource = __webpack_require__(21);
 	
 	var _vueResource2 = _interopRequireDefault(_vueResource);
 	
@@ -9624,13 +9631,13 @@
 	// </script>
 
 /***/ },
-/* 11 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(12)
+	module.exports = __webpack_require__(19)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(13)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(20)
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
@@ -9644,7 +9651,7 @@
 	})()}
 
 /***/ },
-/* 12 */
+/* 19 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -9725,13 +9732,13 @@
 	// </script>
 
 /***/ },
-/* 13 */
+/* 20 */
 /***/ function(module, exports) {
 
 	module.exports = "<slot></slot>\n    <div class=\"ui-pagination\">\n        <span class=\"total\">共<em>{{total}}</em>条</span>\n        <span class=\"pages\" @click.prevent=\"go\" v-show=\"pages > 1\">\n            <a href=\"#\" class=\"ui-page\" :class=\"{disabled: pn == 0}\" data-page=\"{{ pn > 0 ? pn-1 : pn}}\">上一页</a>\n            <a href=\"#\" class=\"ui-page\" :class=\"{current: pn == 0}\" data-page=\"0\" v-show=\"spanRange[0]\">1</a>\n            <em class=\"ui-page ellipsis\" v-show=\"showStartEllipse\">⋯</em>\n            <a v-for=\"n in spanRange\" href=\"#\" class=\"ui-page\" :class=\"{current: n == pn}\" data-page=\"{{n}}\">{{n+1}}</a>\n            <em  class=\"ui-page ellipsis\" v-show=\"showEndEllipse\">⋯</em>\n            <a href=\"#\" class=\"ui-page\" :class=\"{current: pn == pages-1}\" data-page=\"{{pages - 1}}\" v-show=\"showEndPage\">{{pages}}</a>\n            <a href=\"#\" class=\"ui-page\" :class=\"{disabled: pn == pages-1}\" data-page=\"{{ pn < pages-1 ? pn+1 : pn}}\">下一页</a>\n        </span>\n    </div>";
 
 /***/ },
-/* 14 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -9740,11 +9747,11 @@
 	
 	function install(Vue) {
 	
-	    var _ = __webpack_require__(15)(Vue);
+	    var _ = __webpack_require__(22)(Vue);
 	
-	    Vue.url = __webpack_require__(16)(_);
-	    Vue.http = __webpack_require__(17)(_);
-	    Vue.resource = __webpack_require__(21)(_);
+	    Vue.url = __webpack_require__(23)(_);
+	    Vue.http = __webpack_require__(24)(_);
+	    Vue.resource = __webpack_require__(28)(_);
 	
 	    Object.defineProperties(Vue.prototype, {
 	
@@ -9776,7 +9783,7 @@
 	module.exports = install;
 
 /***/ },
-/* 15 */
+/* 22 */
 /***/ function(module, exports) {
 
 	/**
@@ -9862,7 +9869,7 @@
 
 
 /***/ },
-/* 16 */
+/* 23 */
 /***/ function(module, exports) {
 
 	/**
@@ -10025,16 +10032,16 @@
 
 
 /***/ },
-/* 17 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * Service for sending network requests.
 	 */
 	
-	var xhr = __webpack_require__(18);
-	var jsonp = __webpack_require__(20);
-	var Promise = __webpack_require__(19);
+	var xhr = __webpack_require__(25);
+	var jsonp = __webpack_require__(27);
+	var Promise = __webpack_require__(26);
 	
 	module.exports = function (_) {
 	
@@ -10191,14 +10198,14 @@
 
 
 /***/ },
-/* 18 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * XMLHttp request.
 	 */
 	
-	var Promise = __webpack_require__(19);
+	var Promise = __webpack_require__(26);
 	var XDomain = window.XDomainRequest;
 	
 	module.exports = function (_, options) {
@@ -10248,7 +10255,7 @@
 
 
 /***/ },
-/* 19 */
+/* 26 */
 /***/ function(module, exports) {
 
 	/**
@@ -10464,14 +10471,14 @@
 
 
 /***/ },
-/* 20 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 * JSONP request.
 	 */
 	
-	var Promise = __webpack_require__(19);
+	var Promise = __webpack_require__(26);
 	
 	module.exports = function (_, options) {
 	
@@ -10520,7 +10527,7 @@
 
 
 /***/ },
-/* 21 */
+/* 28 */
 /***/ function(module, exports) {
 
 	/**
@@ -10637,7 +10644,7 @@
 
 
 /***/ },
-/* 22 */
+/* 29 */
 /***/ function(module, exports) {
 
 	module.exports = "<slot></slot>\n    <pagination :total=\"total\" :pn=\"pn\" :ps=\"ps\" @updatepage=\"getPageData\"></pagination>";
