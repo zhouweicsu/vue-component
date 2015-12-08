@@ -4,7 +4,6 @@ vue conponent
 # How to use
 
 ```
- npm install;
- webpack;
- python -m SimpleHTTPServer;
+$ npm install;
+$ webpack;
 ```

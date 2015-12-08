@@ -1,0 +1,29 @@
+/*
+ * 页面变量配置
+ */
+
+// 颜色设置
+// ============================================================================
+
+$primary-color: #384655;
+$paper-color: #f0f3f6;
+$text-color: #666;
+$green-color: #65c178;
+$yellow-color: #ef9b6d;
+$red-color: #ef9b6d;
+$gray-color: #999;
+$link-color: adjust-color($primary-color, $saturation:30%, $lightness: 20%);
+$hover-link-color: adjust-color($link-color, $saturation:10%, $lightness: 10%);
+
+
+// 字体设置
+// ============================================================================
+
+$text-font: Helvetica, "Microsoft Yahei", Sans-Serif;
+$heading-font: Helvetica, STXihei, "Microsoft Jhenghei", "Microsoft Yahei", Simhei, Sans-Serif;
+
+
+// 布局设置
+// ============================================================================
+
+$min-window-width: 1200px;

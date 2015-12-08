@@ -4,7 +4,8 @@ var vueLoader = require('vue-loader');
 
 module.exports =  {
     entry: {
-        pagination: "./demo/pagination/pagination.js"
+        pagination: "./demo/pagination/pagination.js",
+        datatable: "./demo/datatable/datatable.js"
     },
     output: {
         filename: `./dist/js/[name].js`
