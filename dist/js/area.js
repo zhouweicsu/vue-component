@@ -61,7 +61,12 @@
 	_vue2.default.component('area', _area2.default);
 	
 	var demo = new _vue2.default({
-	    el: "#demo"
+	    el: "#demo",
+	    data: function data() {
+	        return {
+	            initarea: '1,3,5,35,36,37'
+	        };
+	    }
 	});
 
 /***/ },
@@ -9502,6 +9507,10 @@
 	    value: true
 	});
 	
+	var _stringify = __webpack_require__(32);
+	
+	var _stringify2 = _interopRequireDefault(_stringify);
+	
 	var _vue = __webpack_require__(4);
 	
 	var _vue2 = _interopRequireDefault(_vue);
@@ -9517,23 +9526,23 @@
 	//         <div class="area-picker-ctn">
 	//             <div class="area" v-for="area in areacode">
 	//                 <div class="fl">
-	//                     <label for="id{{area.id}}_{{area.level}}">
-	//                         <input class="area-sel" :change="selectArea" type="checkbox" id="id{{area.id}}_{{area.level}}" data-child={{area.province.length}} data-childsel=0 value="area.id">
+	//                     <label>
+	//                         <input @change="syncArea(area, $event)" v-model="checkedAreas" type="checkbox" value={{area.id}}>
 	//                         {{area.name}}
 	//                     </label>
 	//                 </div>
 	//                 <dl>
 	//                     <dd v-for="pro in area.province">
-	//                         <label for="id{{pro.id}}_{{pro.level}}">
-	//                             <input class="province-sel" type="checkbox" id="id{{pro.id}}_{{pro.level}}" data-child={{pro.citys.length}} data-childsel=0 value={{pro.id}}>
-	//                             {{pro.name}}(<span class="sel-num">0</span>/<span class="all-num">{{pro.citys.length}}</span>)
+	//                         <label>
+	//                             <input @change="syncProvince(pro, $event)" v-model="checkedProvinces" type="checkbox" value={{pro.id}}>
+	//                             {{pro.name}}(<span>{{pro.citys | checkedLenFilter}}</span>/<span>{{pro.citys.length}}</span>)
 	//                         </label>
 	//                         <div class="citys">
 	//                             <h4>{{pro.name}}</h4>
 	//                             <ul>
 	//                                 <li v-for="city in pro.citys">
-	//                                     <label  for="id{{city.id}}_{{city.level}}">
-	//                                         <input class="city-sel" type="checkbox" id="{{city.id}}_{{city.level}}" value="{{city.id}}">
+	//                                     <label>
+	//                                         <input @change="syncCity(city, $event)" v-model="checkedCitys" type="checkbox" value="{{city.id}}">
 	//                                         {{city.name}}
 	//                                     </label>
 	//                                 </li>
@@ -9543,32 +9552,134 @@
 	//                 </dl>
 	//             </div>
 	//             <div class="area last">
-	//                 <label for="all_sel">
-	//                     <input id="all_sel" class="all-sel" type="checkbox" data-child={{areacode.length}} data-childsel=0>
+	//                 <label>
+	//                     <input @change="init('0', $event)" type="checkbox" checked="{{checkedAll}}">
 	//                     全部
 	//                 </label>
-	//             </div>
-	//             <div class="submit-wrap">
-	//                 <a class="picker-save btn btn-primary btn-round" href="javascript:;">确定</a>
-	//                 <a class="picker-ignore btn btn-primary btn-round" href="javascript:;">取消</a>
 	//             </div>
 	//         </div>
 	//     </div>
 	// </template>
 	
 	// <script type="text/javascript">
+	
+	_vue2.default.filter('checkedLenFilter', function (arr) {
+	    return arr.filter(function (city) {
+	        return city.checked;
+	    }).length;
+	});
+	
 	exports.default = {
 	    props: {
-	        initArea: '0'
+	        initarea: {
+	            default: '0' //0: select all citys, '1,3,34' array: select this citys
+	        }
+	    },
+	    computed: {
+	        checkedAll: function checkedAll() {
+	            return this.checkedAreas.length == this.areacode.length;
+	        }
 	    },
 	    data: function data() {
 	        return {
-	            areacode: _areacode2.default
-	        };
+	            areacode: JSON.parse((0, _stringify2.default)(_areacode2.default)),
+	            checkedAreas: [], //checked areas list
+	            checkedProvinces: [], //checked provinces list
+	            checkedCitys: [] };
+	    },
+	    //checked citys list
+	    created: function created() {
+	        this.init(this.initarea);
 	    },
 	
 	    methods: {
-	        selectArea: function selectArea() {}
+	        init: function init(cityList, event) {
+	            //初始化选中城市，以及处理“全部”按钮的点击事件
+	            var me = this;
+	            var bool = event ? event.target.checked : true;
+	            var initAll = cityList == '0' && bool ? true : false;
+	            cityList = cityList.split(',');
+	            me.areacode.map(function (area) {
+	                var selectPros = 0;
+	                area.province.map(function (province) {
+	                    var selectCitys = 0;
+	                    province.citys.map(function (city) {
+	                        if (initAll || cityList.indexOf(city.id) > -1) {
+	                            me.syncCheckedList(me.checkedCitys, city, initAll ? bool : true);
+	                            selectCitys += 1;
+	                        } else {
+	                            me.syncCheckedList(me.checkedCitys, city, false);
+	                        }
+	                    });
+	                    if (selectCitys == province.citys.length) {
+	                        me.syncCheckedList(me.checkedProvinces, province, true);
+	                        selectPros += 1;
+	                    } else {
+	                        me.syncCheckedList(me.checkedProvinces, province, false);
+	                    }
+	                });
+	                me.syncCheckedList(me.checkedAreas, area, selectPros == area.province.length);
+	            });
+	
+	            !event && (this.areacode = JSON.parse((0, _stringify2.default)(this.areacode))); //初始化之后，刷新数组
+	        },
+	        syncArea: function syncArea(carea, event) {
+	            var me = this;
+	            var bool = event ? event.target.checked : true;
+	            me.areacode.forEach(function (area) {
+	                if (area.id == carea.id) {
+	                    area.province.map(function (province) {
+	                        me.syncCheckedList(me.checkedProvinces, province, bool);
+	                        province.citys.map(function (city) {
+	                            me.syncCheckedList(me.checkedCitys, city, bool);
+	                        });
+	                    });
+	                }
+	            });
+	        },
+	        syncProvince: function syncProvince(cpro, event, proSelected) {
+	            var me = this;
+	            var bool = event ? event.target.checked : proSelected;
+	            me.syncCheckedList(me.checkedProvinces, cpro, typeof proSelected != 'undefined' ? proSelected : bool);
+	            me.areacode.forEach(function (area) {
+	                var selectedPros = 0;
+	                area.province.forEach(function (province) {
+	                    if (province.id == cpro.id) {
+	                        if (typeof proSelected == 'undefined') {
+	                            province.citys.map(function (city) {
+	                                me.syncCheckedList(me.checkedCitys, city, bool);
+	                            });
+	                        }
+	                        province.checked = bool;
+	                    }
+	                    selectedPros += +province.checked;
+	                });
+	                me.syncCheckedList(me.checkedAreas, area, selectedPros == area.province.length);
+	            });
+	        },
+	        syncCity: function syncCity(ccity, event) {
+	            var me = this;
+	            var bool = event ? event.target.checked : true;
+	            me.areacode.forEach(function (area) {
+	                //判断该城市所属省份的其他城市是否都已选，若都已选则选中该省份的checkbox
+	                area.province.forEach(function (province) {
+	                    var selectedCitys = 0;
+	                    province.citys.forEach(function (city) {
+	                        if (city.id == ccity.id) {
+	                            me.syncCheckedList(me.checkedCitys, city, bool);
+	                        }
+	                        selectedCitys += +city.checked;
+	                    });
+	                    me.syncProvince(province, null, selectedCitys == province.citys.length);
+	                });
+	            });
+	        },
+	        syncCheckedList: function syncCheckedList(array, item, bool) {
+	            item.checked = bool;
+	            var index = array.indexOf(item.id);
+	            bool && index < 0 ? array.push(item.id) : '';
+	            !bool && index >= 0 ? array.splice(index, 1) : '';
+	        }
 	    }
 	};
 	// </script>
@@ -9588,13 +9699,56 @@
 /* 9 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"area-picker-wrap\">\n        <div class=\"area-picker-ctn\">\n            <div class=\"area\" v-for=\"area in areacode\">\n                <div class=\"fl\">\n                    <label for=\"id{{area.id}}_{{area.level}}\">\n                        <input class=\"area-sel\" :change=\"selectArea\" type=\"checkbox\" id=\"id{{area.id}}_{{area.level}}\" data-child={{area.province.length}} data-childsel=0 value=\"area.id\">\n                        {{area.name}}\n                    </label>\n                </div>\n                <dl>\n                    <dd v-for=\"pro in area.province\">\n                        <label for=\"id{{pro.id}}_{{pro.level}}\">\n                            <input class=\"province-sel\" type=\"checkbox\" id=\"id{{pro.id}}_{{pro.level}}\" data-child={{pro.citys.length}} data-childsel=0 value={{pro.id}}>\n                            {{pro.name}}(<span class=\"sel-num\">0</span>/<span class=\"all-num\">{{pro.citys.length}}</span>)\n                        </label>\n                        <div class=\"citys\">\n                            <h4>{{pro.name}}</h4>\n                            <ul>\n                                <li v-for=\"city in pro.citys\">\n                                    <label  for=\"id{{city.id}}_{{city.level}}\">\n                                        <input class=\"city-sel\" type=\"checkbox\" id=\"{{city.id}}_{{city.level}}\" value=\"{{city.id}}\">\n                                        {{city.name}}\n                                    </label>\n                                </li>\n                            </ul>\n                        </div>\n                    </dd>\n                </dl>\n            </div>\n            <div class=\"area last\">\n                <label for=\"all_sel\">\n                    <input id=\"all_sel\" class=\"all-sel\" type=\"checkbox\" data-child={{areacode.length}} data-childsel=0>\n                    全部\n                </label>\n            </div>\n            <div class=\"submit-wrap\">\n                <a class=\"picker-save btn btn-primary btn-round\" href=\"javascript:;\">确定</a>\n                <a class=\"picker-ignore btn btn-primary btn-round\" href=\"javascript:;\">取消</a>\n            </div>\n        </div>\n    </div>";
+	module.exports = "<div class=\"area-picker-wrap\">\n        <div class=\"area-picker-ctn\">\n            <div class=\"area\" v-for=\"area in areacode\">\n                <div class=\"fl\">\n                    <label>\n                        <input @change=\"syncArea(area, $event)\" v-model=\"checkedAreas\" type=\"checkbox\" value={{area.id}}>\n                        {{area.name}}\n                    </label>\n                </div>\n                <dl>\n                    <dd v-for=\"pro in area.province\">\n                        <label>\n                            <input @change=\"syncProvince(pro, $event)\" v-model=\"checkedProvinces\" type=\"checkbox\" value={{pro.id}}>\n                            {{pro.name}}(<span>{{pro.citys | checkedLenFilter}}</span>/<span>{{pro.citys.length}}</span>)\n                        </label>\n                        <div class=\"citys\">\n                            <h4>{{pro.name}}</h4>\n                            <ul>\n                                <li v-for=\"city in pro.citys\">\n                                    <label>\n                                        <input @change=\"syncCity(city, $event)\" v-model=\"checkedCitys\" type=\"checkbox\" value=\"{{city.id}}\">\n                                        {{city.name}}\n                                    </label>\n                                </li>\n                            </ul>\n                        </div>\n                    </dd>\n                </dl>\n            </div>\n            <div class=\"area last\">\n                <label>\n                    <input @change=\"init('0', $event)\" type=\"checkbox\" checked=\"{{checkedAll}}\">\n                    全部\n                </label>\n            </div>\n        </div>\n    </div>";
 
 /***/ },
 /* 10 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */,
+/* 15 */,
+/* 16 */,
+/* 17 */,
+/* 18 */,
+/* 19 */,
+/* 20 */,
+/* 21 */,
+/* 22 */,
+/* 23 */,
+/* 24 */,
+/* 25 */,
+/* 26 */,
+/* 27 */,
+/* 28 */,
+/* 29 */,
+/* 30 */,
+/* 31 */,
+/* 32 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = { "default": __webpack_require__(33), __esModule: true };
+
+/***/ },
+/* 33 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var core = __webpack_require__(34);
+	module.exports = function stringify(it){ // eslint-disable-line no-unused-vars
+	  return (core.JSON && core.JSON.stringify || JSON.stringify).apply(JSON, arguments);
+	};
+
+/***/ },
+/* 34 */
+/***/ function(module, exports) {
+
+	var core = module.exports = {version: '1.2.6'};
+	if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
 
 /***/ }
 /******/ ]);
