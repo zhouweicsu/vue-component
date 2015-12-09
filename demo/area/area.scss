@@ -1,0 +1,65 @@
+//colors
+$color_storm_dust_approx: #666;
+$color_celeste_approx: #ccc;
+$concrete: #f2f2f2;
+$color_mountain_mist_approx: #999;
+
+.area-picker-wrap {
+    color: $color_storm_dust_approx;
+    font-size: 12px;
+    width: 730px;
+    .area {
+        border-bottom: $color_celeste_approx 1px dashed;
+        clear: both;
+        padding: 8px 0;
+        &.last {
+            border-bottom: none;
+            margin-bottom: 10px;
+        }
+        .fl {
+            float: left;
+            height: 16px;
+            line-height: 16px;
+            margin-top: 2px;
+        }
+        dl {
+            width: auto;
+            margin-left: 40px;
+        }
+        dd {
+            width: 160px;
+            display: inline-block;
+            margin: 0 0 0 10px;
+            position: relative;
+            height: 16px;
+            line-height: 16px;
+            &:hover .citys {
+                display: block;
+            }
+        }
+    }
+    .citys {
+        display: none;
+        width: 234%;
+        position: absolute;
+        z-index: 1;
+        background: $concrete;
+        border: 1px solid $color_mountain_mist_approx;
+        h4 {
+            border-bottom: 1px solid $color_mountain_mist_approx;
+            padding: 5px;
+        }
+        ul {
+            overflow: hidden;
+            padding: 10px;
+        }
+        li {
+            float: left;
+            margin: 0 10px 0 0;
+            min-width: 100px;
+        }
+    }
+    .submit-wrap {
+        text-align: center;
+    }
+}

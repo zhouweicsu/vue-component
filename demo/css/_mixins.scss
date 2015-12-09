@@ -1,0 +1,18 @@
+/*
+ * 常用的mixin
+ */
+
+// 水平居中
+@mixin center-block {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+// 清除浮动
+@mixin clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}

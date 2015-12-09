@@ -14,6 +14,9 @@
         props: {
             url: {
                 required: true
+            },
+            datafilter : {
+                type: Function
             }
         },
         data () {
@@ -32,6 +35,7 @@
         },
         methods: {
             getPageData (pn) {
+                var self = this;
                 this.pn = pn;
                 var resource = this.$resource(this.url + (/\?/.test(this.url) ? '&' : '?') + 'pn=' + pn + '&ps=' + this.ps);
                 // GET request
@@ -42,12 +46,15 @@
                         this.total = 0;
                         return false;
                     }
+                    if (typeof this.datafilter === 'function') {
+                        data.list = this.datafilter(data);
+                    }
                     this.$parent.$set('list', data.list);
-                    this.total = data.total;
+                    this.total = data.total || 0;
                 }).error(function (data, status, request) {
                     // handle error
-                    this.$parent.$set('list', []);
-                    this.total = 0;
+                    self.$parent.$set('list', []);
+                    self.total = 0;
                 })
             },
             refresh () {
