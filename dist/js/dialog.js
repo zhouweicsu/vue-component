@@ -55,15 +55,30 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	$("#confirm").bind("click", function () {
-	    _dialog2.default.confirm('1111111');
+	    //Dialog.confirm('确定删除这个应用嘛？');
+	
+	    _dialog2.default.confirm('确定删除这个应用嘛？', function () {
+	        alert('您点击了确定按钮');
+	    }, function () {
+	        alert('您点击了quxiao按钮');
+	    });
+	});
+	
+	$("#warn").bind("click", function () {
+	    _dialog2.default.warn('警告 - warn', function () {
+	        alert('warning');
+	    });
 	});
 	
 	$("#alert").bind("click", function () {
-	    _dialog2.default.alert('1111111');
+	    _dialog2.default.alert('alert');
 	});
 	
 	$("#dialog").bind("click", function () {
-	    _dialog2.default.dialog('1111111');
+	    _dialog2.default.dialog({
+	        title: 'Dialog',
+	        bodyEl: '#dialogContent'
+	    });
 	});
 
 /***/ },
@@ -98,34 +113,86 @@
 	    return div;
 	};
 	
-	_dialog2.default.confirm = function (msg) {
+	_dialog2.default.confirm = function (msg, okFn, cancelFn) {
 	    var wrap = _dialog2.default._domWrap();
-	    $(wrap).html('<dialog type="confirm" msg="' + msg + '" ></dialog>');
 	    var d = new _vue2.default({
-	        el: wrap
+	        el: wrap,
+	        replace: false,
+	        template: '\n            <dialog type="confirm" msg="' + msg + '" ></dialog>\n        ',
+	        events: {
+	            okEvent: function okEvent() {
+	                if (okFn) {
+	                    okFn();
+	                }
+	            },
+	            cancelEvent: function cancelEvent() {
+	                if (cancelFn) {
+	                    cancelFn();
+	                }
+	            }
+	        }
+	    });
+	};
+	
+	_dialog2.default.warn = function (msg, okFn) {
+	    var wrap = _dialog2.default._domWrap();
+	    var d = new _vue2.default({
+	        el: wrap,
+	        replace: false,
+	        template: '\n            <dialog type="warn" msg="' + msg + '" ></dialog>\n        ',
+	        events: {
+	            okEvent: function okEvent() {
+	                if (okFn) {
+	                    okFn();
+	                }
+	            }
+	        }
 	    });
 	};
 	
 	_dialog2.default.alert = function (msg) {
 	    var wrap = _dialog2.default._domWrap();
-	    $(wrap).html('<dialog type="alert" msg="' + msg + '" ></dialog>');
 	    var d = new _vue2.default({
-	        el: wrap
+	        el: wrap,
+	        replace: false,
+	        template: '\n            <dialog type="alert" msg="' + msg + '" ></dialog>\n        ',
+	        events: {
+	            okEvent: function okEvent() {},
+	            cancelEvent: function cancelEvent() {}
+	        }
 	    });
 	};
 	
-	_dialog2.default.dialog = function (msg) {
+	/*
+	* configObj - 配置参数
+	* {
+	*   title: dialogTile,
+	*   bodyEl: dialogContent Element
+	* }
+	*
+	* */
+	_dialog2.default.dialog = function (configObj) {
+	    var config = configObj || { title: '', bodyEl: '' };
+	
+	    var $bodyEl = $(config.bodyEl);
+	    var slot;
+	    if (!$bodyEl.length) {
+	        slot = '<span>请输入dialog content element</span>';
+	    } else {
+	        var $temporary = $('<div></div>');
+	        $bodyEl.eq(0).show().appendTo($temporary);
+	        slot = $temporary.html();
+	    }
 	    var wrap = _dialog2.default._domWrap();
-	    $(wrap).html('<dialog type="dialog" msg="' + msg + '" ></dialog>');
 	    var d = new _vue2.default({
-	        el: wrap
+	        el: wrap,
+	        replace: false,
+	        template: '\n            <dialog type="dialog" title="' + config.title + '">' + slot + '</dialog>\n        ',
+	        events: {
+	            okEvent: function okEvent() {},
+	            cancelEvent: function cancelEvent() {}
+	        }
 	    });
-	    /*
-	    d.on('close', function() {
-	        d.destroy();
-	    });
-	    d.show();
-	    */
 	};
 	
 	exports.default = _dialog2.default;
@@ -9584,9 +9651,6 @@
 	    },
 	    template: "#dialog",
 	    methods: {
-	        showDialog: function showDialog() {
-	            console.log(this);
-	        },
 	        setup: function setup() {
 	            var me = this;
 	
@@ -9609,15 +9673,21 @@
 	            header.css('width', w); // hack: fix ie7 bug
 	        },
 	        _closeDialog: function _closeDialog() {
-	            $(".dialog").parent().hide();
+	            $(".dialog-wrap").parent().hide();
 	        },
 	        _removeDialog: function _removeDialog() {
-	            $(".dialog").parent().remove();
+	            $(".dialog-wrap").parent().remove();
 	        },
-	        _confirmOk: function _confirmOk() {
+	        confirmOk: function confirmOk() {
+	            this.$dispatch("okEvent");
 	            this._removeDialog();
 	        },
-	        _confirmCancel: function _confirmCancel() {
+	        confirmCancel: function confirmCancel() {
+	            this.$dispatch("cancelEvent");
+	            this._removeDialog();
+	        },
+	        closeDialog: function closeDialog() {
+	
 	            this._removeDialog();
 	        }
 	    },
@@ -9627,27 +9697,29 @@
 	};
 	// </script>
 	// <template id="dialog">
-	//     <div class="dialog">
+	// <div class="dialog-wrap">
+	//     <div class="dialog public-dialog">
 	//         <div class="dialog-hd" v-if="title">
 	//             {{title}}
-	//             <a class="fa fa-times close"></a>
+	//             <a class="fa fa-times close" @click="closeDialog"></a>
 	//         </div>
 	//         <div class="dialog-bd">
-	//             <slot></slot>
 	//             <div>
 	//                 <div class="msg-wrap">
-	//                     <i class="fa fa-exclamation-triangle icon icon-warn"></i>
-	//                     <i class="fa fa-exclamation-triangle icon icon-confirm"></i>
-	//                     <span>{{msg}}</span>
+	//                     <slot></slot>
+	//                     <i class="fa fa-exclamation-triangle icon icon-warn" v-if="type == 'warn'"></i>
+	//                     <i class="fa fa-exclamation-triangle icon icon-confirm" v-if="type == 'confirm'"></i>
+	//                     <span v-if="type != 'dialog'">{{msg}}</span>
 	//                 </div>
-	//                 <div class="btn-wrap">
-	//                     <a href="javascript:void(0)" class="btn btn-primary dialog-confirm" @click="_confirmOk">确定</a>
-	//                     <a href="javascript:void(0)" class="btn btn-default dialog-cancel" @click="_confirmCancel" v-if="type == 'confirm'">取消</a>
+	//                 <div class="btn-wrap" v-if="type != 'dialog'">
+	//                     <a href="javascript:void(0)" class="btn btn-primary dialog-confirm" @click="confirmOk">确定</a>
+	//                     <a href="javascript:void(0)" class="btn btn-default dialog-cancel" @click="confirmCancel" v-if="type == 'confirm'">取消</a>
 	//                 </div>
 	//             </div>
 	//         </div>
 	//     </div>
 	//     <div class="dialog-mask" data-count="0"></div>
+	// </div>
 	// </template>
 
 	// <script>
@@ -9656,7 +9728,7 @@
 /* 8 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"dialog\">\n        <div class=\"dialog-hd\" v-if=\"title\">\n            {{title}}\n            <a class=\"fa fa-times close\"></a>\n        </div>\n        <div class=\"dialog-bd\">\n            <slot></slot>\n            <div>\n                <div class=\"msg-wrap\">\n                    <i class=\"fa fa-exclamation-triangle icon icon-warn\"></i> \n                    <i class=\"fa fa-exclamation-triangle icon icon-confirm\"></i>\n                    <span>{{msg}}</span>\n                </div>\n                <div class=\"btn-wrap\">\n                    <a href=\"javascript:void(0)\" class=\"btn btn-primary dialog-confirm\" @click=\"_confirmOk\">确定</a>\n                    <a href=\"javascript:void(0)\" class=\"btn btn-default dialog-cancel\" @click=\"_confirmCancel\" v-if=\"type == 'confirm'\">取消</a>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"dialog-mask\" data-count=\"0\"></div>";
+	module.exports = "<div class=\"dialog-wrap\">\n    <div class=\"dialog public-dialog\">\n        <div class=\"dialog-hd\" v-if=\"title\">\n            {{title}}\n            <a class=\"fa fa-times close\" @click=\"closeDialog\"></a>\n        </div>\n        <div class=\"dialog-bd\">\n            <div>\n                <div class=\"msg-wrap\">\n                    <slot></slot>\n                    <i class=\"fa fa-exclamation-triangle icon icon-warn\" v-if=\"type == 'warn'\"></i> \n                    <i class=\"fa fa-exclamation-triangle icon icon-confirm\" v-if=\"type == 'confirm'\"></i>\n                    <span v-if=\"type != 'dialog'\">{{msg}}</span>\n                </div>\n                <div class=\"btn-wrap\" v-if=\"type != 'dialog'\">\n                    <a href=\"javascript:void(0)\" class=\"btn btn-primary dialog-confirm\" @click=\"confirmOk\">确定</a>\n                    <a href=\"javascript:void(0)\" class=\"btn btn-default dialog-cancel\" @click=\"confirmCancel\" v-if=\"type == 'confirm'\">取消</a>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"dialog-mask\" data-count=\"0\"></div>\n</div>";
 
 /***/ },
 /* 9 */

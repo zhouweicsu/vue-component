@@ -1,25 +1,27 @@
 <template id="dialog">
-    <div class="dialog">
+<div class="dialog-wrap">
+    <div class="dialog public-dialog">
         <div class="dialog-hd" v-if="title">
             {{title}}
-            <a class="fa fa-times close"></a>
+            <a class="fa fa-times close" @click="closeDialog"></a>
         </div>
         <div class="dialog-bd">
-            <slot></slot>
             <div>
                 <div class="msg-wrap">
-                    <i class="fa fa-exclamation-triangle icon icon-warn"></i> 
-                    <i class="fa fa-exclamation-triangle icon icon-confirm"></i>
-                    <span>{{msg}}</span>
+                    <slot></slot>
+                    <i class="fa fa-exclamation-triangle icon icon-warn" v-if="type == 'warn'"></i> 
+                    <i class="fa fa-exclamation-triangle icon icon-confirm" v-if="type == 'confirm'"></i>
+                    <span v-if="type != 'dialog'">{{msg}}</span>
                 </div>
-                <div class="btn-wrap">
-                    <a href="javascript:void(0)" class="btn btn-primary dialog-confirm" @click="_confirmOk">确定</a>
-                    <a href="javascript:void(0)" class="btn btn-default dialog-cancel" @click="_confirmCancel" v-if="type == 'confirm'">取消</a>
+                <div class="btn-wrap" v-if="type != 'dialog'">
+                    <a href="javascript:void(0)" class="btn btn-primary dialog-confirm" @click="confirmOk">确定</a>
+                    <a href="javascript:void(0)" class="btn btn-default dialog-cancel" @click="confirmCancel" v-if="type == 'confirm'">取消</a>
                 </div>
             </div>
         </div>
     </div>
     <div class="dialog-mask" data-count="0"></div>
+</div>
 </template>
 
 
@@ -38,9 +40,6 @@
         },
         template: "#dialog",
         methods: {
-            showDialog () {
-                console.log(this);
-            },
             setup () {
                var me = this;
 
@@ -64,16 +63,22 @@
                header.css('width', w); // hack: fix ie7 bug
             },
             _closeDialog () {
-                $(".dialog").parent().hide();
+                $(".dialog-wrap").parent().hide();
             },
             _removeDialog () {
-                $(".dialog").parent().remove();
+                $(".dialog-wrap").parent().remove();
             },
-            _confirmOk () {
+            confirmOk () {
+                this.$dispatch("okEvent");
                 this._removeDialog();
             },
-            _confirmCancel () {
+            confirmCancel () {
+                this.$dispatch("cancelEvent");
                 this._removeDialog();
+            },
+            closeDialog () {
+
+                    this._removeDialog();
             }
         },
         ready () {
