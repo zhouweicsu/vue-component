@@ -79,14 +79,15 @@ Dialog.alert = function(msg) {
 Dialog.dialog = function(configObj) {
     var config = configObj || {title: '', bodyEl: ''};
 
-    var $bodyEl = $(config.bodyEl);
+    var $bodyEl = document.querySelector(config.bodyEl);
     var slot;
-    if(!$bodyEl.length){
+    if(!$bodyEl){
         slot = '<span>请输入dialog content element</span>';
     } else {
-        var $temporary = $('<div></div>');
-        $bodyEl.eq(0).show().appendTo($temporary);
-        slot = $temporary.html();
+        var $temporary = document.createElement('div');
+        $bodyEl.style.display = "block";
+        $temporary.appendChild($bodyEl);
+        slot = $temporary.innerHTML;
     }
     var wrap = Dialog._domWrap();
     var d = new Vue({

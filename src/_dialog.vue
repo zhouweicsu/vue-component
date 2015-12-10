@@ -41,32 +41,23 @@
         template: "#dialog",
         methods: {
             setup () {
-               var me = this;
-
-               this.$element = $(".dialog");
+               this.$element = document.querySelectorAll(".dialog");
                this.element = this.$element[0];
-               this.$mask = $(".dialog-mask");
 
                this._centerDialog();
-               //this._bindEvents();
-
             },
             _centerDialog () {
-               var header = this.$element.find('.dialog-hd');
-               header.css('width', 0);
-               var w = this.$element.width();
-               var h = this.$element.height();
-               this.$element.css({
-                       'margin-left': '-' + w / 2 + 'px',
-                       'margin-top': '-' + h / 2 + 'px'
-                       });
-               header.css('width', w); // hack: fix ie7 bug
-            },
-            _closeDialog () {
-                $(".dialog-wrap").parent().hide();
+                var header = this.element.querySelector('.dialog-hd');
+                //header.style.width = 0;
+                var w = this.element.offsetWidth;
+                var h = this.element.offsetHeight;
+                this.element.style.marginLeft = '-' + w / 2 + 'px';
+                this.element.style.marginTop = '-' + h / 2 + 'px';
+                //header.style.width = w;
             },
             _removeDialog () {
-                $(".dialog-wrap").parent().remove();
+                var dialogWrap = document.querySelector(".dialog-wrap")
+                dialogWrap.parentNode.removeChild(dialogWrap);
             },
             confirmOk () {
                 this.$dispatch("okEvent");
@@ -77,8 +68,7 @@
                 this._removeDialog();
             },
             closeDialog () {
-
-                    this._removeDialog();
+                this._removeDialog();
             }
         },
         ready () {
