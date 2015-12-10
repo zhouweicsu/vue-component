@@ -40,165 +40,50 @@
 /******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _dialog = __webpack_require__(3);
+	var _dialog = __webpack_require__(34);
 	
 	var _dialog2 = _interopRequireDefault(_dialog);
 	
-	__webpack_require__(9);
+	__webpack_require__(38);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	$("#confirm").bind("click", function () {
-	    //Dialog.confirm('确定删除这个应用嘛？');
-	
+	document.querySelector("#confirm").addEventListener("click", function () {
+	    alert(111);
 	    _dialog2.default.confirm('确定删除这个应用嘛？', function () {
 	        alert('您点击了确定按钮');
 	    }, function () {
 	        alert('您点击了quxiao按钮');
 	    });
-	});
+	}, false);
 	
-	$("#warn").bind("click", function () {
+	document.querySelector("#warn").addEventListener("click", function () {
 	    _dialog2.default.warn('警告 - warn', function () {
 	        alert('warning');
 	    });
-	});
+	}, false);
 	
-	$("#alert").bind("click", function () {
+	document.querySelector("#alert").addEventListener("click", function () {
 	    _dialog2.default.alert('alert');
-	});
+	}, false);
 	
-	$("#dialog").bind("click", function () {
+	document.querySelector("#dialog").addEventListener("click", function () {
 	    _dialog2.default.dialog({
 	        title: 'Dialog',
 	        bodyEl: '#dialogContent'
 	    });
-	});
+	}, false);
 
 /***/ },
-/* 1 */,
-/* 2 */,
-/* 3 */
-/***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _vue = __webpack_require__(4);
-	
-	var _vue2 = _interopRequireDefault(_vue);
-	
-	var _dialog = __webpack_require__(6);
-	
-	var _dialog2 = _interopRequireDefault(_dialog);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	_vue2.default.component('dialog', _dialog2.default);
-	
-	_dialog2.default._domWrap = function () {
-	    var id = "dialog" + new Date().getTime();
-	    var div = document.createElement('div');
-	    div.id = id;
-	    document.body.appendChild(div);
-	    return div;
-	};
-	
-	_dialog2.default.confirm = function (msg, okFn, cancelFn) {
-	    var wrap = _dialog2.default._domWrap();
-	    var d = new _vue2.default({
-	        el: wrap,
-	        replace: false,
-	        template: '\n            <dialog type="confirm" msg="' + msg + '" ></dialog>\n        ',
-	        events: {
-	            okEvent: function okEvent() {
-	                if (okFn) {
-	                    okFn();
-	                }
-	            },
-	            cancelEvent: function cancelEvent() {
-	                if (cancelFn) {
-	                    cancelFn();
-	                }
-	            }
-	        }
-	    });
-	};
-	
-	_dialog2.default.warn = function (msg, okFn) {
-	    var wrap = _dialog2.default._domWrap();
-	    var d = new _vue2.default({
-	        el: wrap,
-	        replace: false,
-	        template: '\n            <dialog type="warn" msg="' + msg + '" ></dialog>\n        ',
-	        events: {
-	            okEvent: function okEvent() {
-	                if (okFn) {
-	                    okFn();
-	                }
-	            }
-	        }
-	    });
-	};
-	
-	_dialog2.default.alert = function (msg) {
-	    var wrap = _dialog2.default._domWrap();
-	    var d = new _vue2.default({
-	        el: wrap,
-	        replace: false,
-	        template: '\n            <dialog type="alert" msg="' + msg + '" ></dialog>\n        ',
-	        events: {
-	            okEvent: function okEvent() {},
-	            cancelEvent: function cancelEvent() {}
-	        }
-	    });
-	};
-	
-	/*
-	* configObj - 配置参数
-	* {
-	*   title: dialogTile,
-	*   bodyEl: dialogContent Element
-	* }
-	*
-	* */
-	_dialog2.default.dialog = function (configObj) {
-	    var config = configObj || { title: '', bodyEl: '' };
-	
-	    var $bodyEl = $(config.bodyEl);
-	    var slot;
-	    if (!$bodyEl.length) {
-	        slot = '<span>请输入dialog content element</span>';
-	    } else {
-	        var $temporary = $('<div></div>');
-	        $bodyEl.eq(0).show().appendTo($temporary);
-	        slot = $temporary.html();
-	    }
-	    var wrap = _dialog2.default._domWrap();
-	    var d = new _vue2.default({
-	        el: wrap,
-	        replace: false,
-	        template: '\n            <dialog type="dialog" title="' + config.title + '">' + slot + '</dialog>\n        ',
-	        events: {
-	            okEvent: function okEvent() {},
-	            cancelEvent: function cancelEvent() {}
-	        }
-	    });
-	};
-	
-	exports.default = _dialog2.default;
-
-/***/ },
-/* 4 */
+/***/ 5:
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/*!
@@ -9503,10 +9388,11 @@
 	}
 	
 	module.exports = Vue;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
 /***/ },
-/* 5 */
+
+/***/ 6:
 /***/ function(module, exports) {
 
 	// shim for using process in browser
@@ -9603,13 +9489,130 @@
 
 
 /***/ },
-/* 6 */
+
+/***/ 34:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(7)
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _vue = __webpack_require__(5);
+	
+	var _vue2 = _interopRequireDefault(_vue);
+	
+	var _dialog = __webpack_require__(35);
+	
+	var _dialog2 = _interopRequireDefault(_dialog);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	_vue2.default.component('dialog', _dialog2.default);
+	
+	_dialog2.default._domWrap = function () {
+	    var id = "dialog" + new Date().getTime();
+	    var div = document.createElement('div');
+	    div.id = id;
+	    document.body.appendChild(div);
+	    return div;
+	};
+	
+	_dialog2.default.confirm = function (msg, okFn, cancelFn) {
+	    var wrap = _dialog2.default._domWrap();
+	    var d = new _vue2.default({
+	        el: wrap,
+	        replace: false,
+	        template: '\n            <dialog type="confirm" msg="' + msg + '" ></dialog>\n        ',
+	        events: {
+	            okEvent: function okEvent() {
+	                if (okFn) {
+	                    okFn();
+	                }
+	            },
+	            cancelEvent: function cancelEvent() {
+	                if (cancelFn) {
+	                    cancelFn();
+	                }
+	            }
+	        }
+	    });
+	};
+	
+	_dialog2.default.warn = function (msg, okFn) {
+	    var wrap = _dialog2.default._domWrap();
+	    var d = new _vue2.default({
+	        el: wrap,
+	        replace: false,
+	        template: '\n            <dialog type="warn" msg="' + msg + '" ></dialog>\n        ',
+	        events: {
+	            okEvent: function okEvent() {
+	                if (okFn) {
+	                    okFn();
+	                }
+	            }
+	        }
+	    });
+	};
+	
+	_dialog2.default.alert = function (msg) {
+	    var wrap = _dialog2.default._domWrap();
+	    var d = new _vue2.default({
+	        el: wrap,
+	        replace: false,
+	        template: '\n            <dialog type="alert" msg="' + msg + '" ></dialog>\n        ',
+	        events: {
+	            okEvent: function okEvent() {},
+	            cancelEvent: function cancelEvent() {}
+	        }
+	    });
+	};
+	
+	/*
+	* configObj - 配置参数
+	* {
+	*   title: dialogTile,
+	*   bodyEl: dialogContent Element
+	* }
+	*
+	* */
+	_dialog2.default.dialog = function (configObj) {
+	    var config = configObj || { title: '', bodyEl: '' };
+	
+	    var $bodyEl = document.querySelector(config.bodyEl);
+	    var slot;
+	    if (!$bodyEl) {
+	        slot = '<span>请输入dialog content element</span>';
+	    } else {
+	        var $temporary = document.createElement('div');
+	        $bodyEl.style.display = "block";
+	        $temporary.appendChild($bodyEl);
+	        slot = $temporary.innerHTML;
+	    }
+	    var wrap = _dialog2.default._domWrap();
+	    var d = new _vue2.default({
+	        el: wrap,
+	        replace: false,
+	        template: '\n            <dialog type="dialog" title="' + config.title + '">' + slot + '</dialog>\n        ',
+	        events: {
+	            okEvent: function okEvent() {},
+	            cancelEvent: function cancelEvent() {}
+	        }
+	    });
+	};
+	
+	exports.default = _dialog2.default;
+
+/***/ },
+
+/***/ 35:
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(36)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(8)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(37)
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
@@ -9623,7 +9626,8 @@
 	})()}
 
 /***/ },
-/* 7 */
+
+/***/ 36:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9632,7 +9636,7 @@
 	    value: true
 	});
 	
-	var _vue = __webpack_require__(4);
+	var _vue = __webpack_require__(5);
 	
 	var _vue2 = _interopRequireDefault(_vue);
 	
@@ -9652,31 +9656,23 @@
 	    template: "#dialog",
 	    methods: {
 	        setup: function setup() {
-	            var me = this;
-	
-	            this.$element = $(".dialog");
+	            this.$element = document.querySelectorAll(".dialog");
 	            this.element = this.$element[0];
-	            this.$mask = $(".dialog-mask");
 	
 	            this._centerDialog();
-	            //this._bindEvents();
 	        },
 	        _centerDialog: function _centerDialog() {
-	            var header = this.$element.find('.dialog-hd');
-	            header.css('width', 0);
-	            var w = this.$element.width();
-	            var h = this.$element.height();
-	            this.$element.css({
-	                'margin-left': '-' + w / 2 + 'px',
-	                'margin-top': '-' + h / 2 + 'px'
-	            });
-	            header.css('width', w); // hack: fix ie7 bug
-	        },
-	        _closeDialog: function _closeDialog() {
-	            $(".dialog-wrap").parent().hide();
+	            var header = this.element.querySelector('.dialog-hd');
+	            //header.style.width = 0;
+	            var w = this.element.offsetWidth;
+	            var h = this.element.offsetHeight;
+	            this.element.style.marginLeft = '-' + w / 2 + 'px';
+	            this.element.style.marginTop = '-' + h / 2 + 'px';
+	            //header.style.width = w;
 	        },
 	        _removeDialog: function _removeDialog() {
-	            $(".dialog-wrap").parent().remove();
+	            var dialogWrap = document.querySelector(".dialog-wrap");
+	            dialogWrap.parentNode.removeChild(dialogWrap);
 	        },
 	        confirmOk: function confirmOk() {
 	            this.$dispatch("okEvent");
@@ -9687,7 +9683,6 @@
 	            this._removeDialog();
 	        },
 	        closeDialog: function closeDialog() {
-	
 	            this._removeDialog();
 	        }
 	    },
@@ -9725,17 +9720,20 @@
 	// <script>
 
 /***/ },
-/* 8 */
+
+/***/ 37:
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"dialog-wrap\">\n    <div class=\"dialog public-dialog\">\n        <div class=\"dialog-hd\" v-if=\"title\">\n            {{title}}\n            <a class=\"fa fa-times close\" @click=\"closeDialog\"></a>\n        </div>\n        <div class=\"dialog-bd\">\n            <div>\n                <div class=\"msg-wrap\">\n                    <slot></slot>\n                    <i class=\"fa fa-exclamation-triangle icon icon-warn\" v-if=\"type == 'warn'\"></i> \n                    <i class=\"fa fa-exclamation-triangle icon icon-confirm\" v-if=\"type == 'confirm'\"></i>\n                    <span v-if=\"type != 'dialog'\">{{msg}}</span>\n                </div>\n                <div class=\"btn-wrap\" v-if=\"type != 'dialog'\">\n                    <a href=\"javascript:void(0)\" class=\"btn btn-primary dialog-confirm\" @click=\"confirmOk\">确定</a>\n                    <a href=\"javascript:void(0)\" class=\"btn btn-default dialog-cancel\" @click=\"confirmCancel\" v-if=\"type == 'confirm'\">取消</a>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"dialog-mask\" data-count=\"0\"></div>\n</div>";
 
 /***/ },
-/* 9 */
+
+/***/ 38:
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ }
-/******/ ]);
+
+/******/ });
 //# sourceMappingURL=dialog.js.map

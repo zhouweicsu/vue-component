@@ -47,23 +47,15 @@
 
 	'use strict';
 	
-	var _vue = __webpack_require__(4);
+	var _vue = __webpack_require__(5);
 	
 	var _vue2 = _interopRequireDefault(_vue);
 	
-<<<<<<< HEAD
-	var _pagination = __webpack_require__(13);
+	var _pagination = __webpack_require__(22);
 	
 	var _pagination2 = _interopRequireDefault(_pagination);
 	
-	__webpack_require__(16);
-=======
-	var _pagination = __webpack_require__(18);
-	
-	var _pagination2 = _interopRequireDefault(_pagination);
-	
-	__webpack_require__(30);
->>>>>>> 82fb33a13ab9a9acf1ae72b200fbf330ee30f535
+	__webpack_require__(40);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -74,15 +66,8 @@
 	});
 
 /***/ },
-<<<<<<< HEAD
-/* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */
-=======
 
-/***/ 4:
->>>>>>> 82fb33a13ab9a9acf1ae72b200fbf330ee30f535
+/***/ 5:
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/*!
@@ -9387,15 +9372,11 @@
 	}
 	
 	module.exports = Vue;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
 /***/ },
-<<<<<<< HEAD
-/* 5 */
-=======
 
-/***/ 5:
->>>>>>> 82fb33a13ab9a9acf1ae72b200fbf330ee30f535
+/***/ 6:
 /***/ function(module, exports) {
 
 	// shim for using process in browser
@@ -9492,31 +9473,14 @@
 
 
 /***/ },
-<<<<<<< HEAD
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */
+
+/***/ 22:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(14)
+	module.exports = __webpack_require__(23)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(15)
-=======
-
-/***/ 18:
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(19)
-	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(20)
->>>>>>> 82fb33a13ab9a9acf1ae72b200fbf330ee30f535
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(24)
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
@@ -9530,12 +9494,8 @@
 	})()}
 
 /***/ },
-<<<<<<< HEAD
-/* 14 */
-=======
 
-/***/ 19:
->>>>>>> 82fb33a13ab9a9acf1ae72b200fbf330ee30f535
+/***/ 23:
 /***/ function(module, exports) {
 
 	"use strict";
@@ -9616,23 +9576,15 @@
 	// </script>
 
 /***/ },
-<<<<<<< HEAD
-/* 15 */
-=======
 
-/***/ 20:
->>>>>>> 82fb33a13ab9a9acf1ae72b200fbf330ee30f535
+/***/ 24:
 /***/ function(module, exports) {
 
 	module.exports = "<slot></slot>\n    <div class=\"ui-pagination\">\n        <span class=\"total\">共<em>{{total}}</em>条</span>\n        <span class=\"pages\" @click.prevent=\"go\" v-show=\"pages > 1\">\n            <a href=\"#\" class=\"ui-page\" :class=\"{disabled: pn == 0}\" data-page=\"{{ pn > 0 ? pn-1 : pn}}\">上一页</a>\n            <a href=\"#\" class=\"ui-page\" :class=\"{current: pn == 0}\" data-page=\"0\" v-show=\"spanRange[0]\">1</a>\n            <em class=\"ui-page ellipsis\" v-show=\"showStartEllipse\">⋯</em>\n            <a v-for=\"n in spanRange\" href=\"#\" class=\"ui-page\" :class=\"{current: n == pn}\" data-page=\"{{n}}\">{{n+1}}</a>\n            <em  class=\"ui-page ellipsis\" v-show=\"showEndEllipse\">⋯</em>\n            <a href=\"#\" class=\"ui-page\" :class=\"{current: pn == pages-1}\" data-page=\"{{pages - 1}}\" v-show=\"showEndPage\">{{pages}}</a>\n            <a href=\"#\" class=\"ui-page\" :class=\"{disabled: pn == pages-1}\" data-page=\"{{ pn < pages-1 ? pn+1 : pn}}\">下一页</a>\n        </span>\n    </div>";
 
 /***/ },
-<<<<<<< HEAD
-/* 16 */
-=======
 
-/***/ 30:
->>>>>>> 82fb33a13ab9a9acf1ae72b200fbf330ee30f535
+/***/ 40:
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
