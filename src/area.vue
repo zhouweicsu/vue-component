@@ -1,4 +1,4 @@
-<template>
+<template id="area">
     <div class="area-picker-wrap">
         <div class="area-picker-ctn">
             <div class="area" v-for="area in areacode">
@@ -40,6 +40,7 @@
 
 <script type="text/javascript">
 import Vue from 'vue'
+import Dialog from './dialog.js'
 import areacode from './areacode.js'
 
 Vue.filter('checkedLenFilter', arr=>arr.filter(city=>city.checked).length);
@@ -47,7 +48,8 @@ Vue.filter('checkedLenFilter', arr=>arr.filter(city=>city.checked).length);
 export default {
         props: {
             initarea: {
-                default: '0'        //0: select all citys, '1,3,34' array: select this citys
+                default: '0',        //0: select all citys, '1,3,34' array: select this citys
+                title: '选择城市',           //默认标题
             }
         },
         computed: {
@@ -65,6 +67,10 @@ export default {
         },
         created (){
             this.init(this.initarea);
+            Dialog.dialog({
+                title: this.title,
+                bodyEl: '#area'
+            });
         },
         methods: {
             init (cityList, event){ //初始化选中城市，以及处理“全部”按钮的点击事件
@@ -132,7 +138,7 @@ export default {
             syncCity (ccity, event) {
                 let me = this;
                 let bool = event ? event.target.checked : true;
-                me.areacode.forEach(function(area){                //判断该城市所属省份的其他城市是否都已选，若都已选则选中该省份的checkbox
+                me.areacode.forEasavech(function(area){                //判断该城市所属省份的其他城市是否都已选，若都已选则选中该省份的checkbox
                     area.province.forEach(function(province){
                         let selectedCitys = 0;
                         province.citys.forEach(function(city){
@@ -150,6 +156,14 @@ export default {
                 let index = array.indexOf(item.id);
                 (bool && index < 0) ? array.push(item.id) : '';
                 (!bool && index >= 0) ? array.splice(index,1) : '';
+            }
+        },
+        events: {
+            okEvent () {
+            
+            },
+            cancleEvent () {
+                
             }
         }
 }
