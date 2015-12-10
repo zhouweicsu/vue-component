@@ -10,11 +10,14 @@
     <button id="confirm">confirm</button>
     <button id="warn">warn</button>
     <button id="alert">alert</button>
-    <button id="dialog">dialog</button>
-    
+    <button id="dialog" @click="openDialog">dialog</button>
     <div id="dialogContent" style="display: none">
         <p>这里的内容等待被插入到dialog body</p>
     </div>
+
+    <dialog v-ref:d1 title="标题">
+        <p> test dialog </p>
+    </dialog>
 
     <script type="text/javascript" src="../../dist/js/dialog.js"></script>
 </div>

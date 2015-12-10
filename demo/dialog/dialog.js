@@ -1,10 +1,9 @@
 import Dialog from '../../src/dialog/dialog.js'
+import Vue from 'vue'
 
 document.querySelector("#confirm").addEventListener("click",function(){
-    Dialog.confirm('确定删除这个应用嘛？',function(){
-        alert('您点击了确定按钮');
-    },function(){
-        alert('您点击了quxiao按钮');
+    Dialog.confirm('确定删除这个应用嘛？',function(result){
+        alert(`您点击了${result}按钮`);
     });
 },false);
 
@@ -19,9 +18,14 @@ document.querySelector("#alert").addEventListener("click",function(){
 },false);
 
 document.querySelector("#dialog").addEventListener("click",function(){
-    Dialog.dialog({
-        title: 'Dialog', 
-        bodyEl: '#dialogContent'
-    });
 },false);
+
+new Vue({
+    el: 'body',
+    methods: {
+        openDialog: function() {
+            this.$refs.d1.show();
+        }
+    }
+});
 

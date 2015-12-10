@@ -40,7 +40,7 @@
 
 <script type="text/javascript">
 import Vue from 'vue'
-import Dialog from './dialog.js'
+import Dialog from './dialog/dialog.js'
 import areacode from './areacode.js'
 
 Vue.filter('checkedLenFilter', arr=>arr.filter(city=>city.checked).length);
