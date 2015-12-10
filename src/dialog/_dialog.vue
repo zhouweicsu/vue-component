@@ -1,23 +1,12 @@
 <template id="dialog">
-<div class="dialog-box" style="display: none">
+<div class="dialog-box" :style="{display: visible ? 'block' : 'none'}">
     <div class="dialog public-dialog">
         <div class="dialog-hd" v-if="title">
             {{title}}
-            <a class="fa fa-times close" @click="closeDialog"></a>
+            <a class="fa fa-times close" @click="hide"></a>
         </div>
         <div class="dialog-bd">
-            <div>
-                <div class="msg-wrap">
-                    <slot></slot>
-                    <i class="fa fa-exclamation-triangle icon icon-warn" v-if="type == 'warn'"></i> 
-                    <i class="fa fa-exclamation-triangle icon icon-confirm" v-if="type == 'confirm'"></i>
-                    <span v-if="type != 'dialog'">{{msg}}</span>
-                </div>
-                <div class="btn-wrap" v-if="type != 'dialog'">
-                    <a href="javascript:void(0)" class="btn btn-primary dialog-confirm" @click="confirmOk">确定</a>
-                    <a href="javascript:void(0)" class="btn btn-default dialog-cancel" @click="confirmCancel" v-if="type == 'confirm'">取消</a>
-                </div>
-            </div>
+            <slot></slot>
         </div>
     </div>
     <div class="dialog-mask" data-count="0"></div>
@@ -34,93 +23,35 @@
             },
             title: "",
             msg: "",
-            wrapid: "",
-            showDialog: {
-                default : true
-            }
+            visible: false
         },
         template: "#dialog",
         methods: {
-            setup () {
-               var elements = document.querySelectorAll(".dialog");
-               var len = elements.length;
-               this.element = elements[len-1];
-               this._centerDialog();
-            },
             _centerDialog () {
-                var header = this.element.querySelector('.dialog-hd');
-                //header.style.width = 0;
-                var w = this.element.offsetWidth;
-                var h = this.element.offsetHeight;
-                this.element.style.marginLeft = '-' + w / 2 + 'px';
-                this.element.style.marginTop = '-' + h / 2 + 'px';
-                //header.style.width = w;
+                var elem = this.$el.querySelector('.dialog');
+                var w = elem.offsetWidth;
+                var h = elem.offsetHeight;
+                elem.style.marginLeft = '-' + w / 2 + 'px';
+                elem.style.marginTop = '-' + h / 2 + 'px';
             },
             _removeDialog () {
-                var dialogWrap = document.querySelector("#"+ this.wrapid);
-                dialogWrap.parentNode.removeChild(dialogWrap);
+                this.$el.parentNode.removeChild(this.$el);
+                //TODO: remove event handlers
             },
-            confirmOk () {
-                this.$dispatch("okEvent");
-                this._removeDialog();
+            show () {
+                this.visible = true;
+                Vue.nextTick(this._centerDialog);
             },
-            confirmCancel () {
-                this.$dispatch("cancelEvent");
-                this._removeDialog();
-            },
-            openDialog () {
-                var dialogWrap = document.querySelector("#"+ this.wrapid);
-                dialogWrap.style.display = "none";
-            },
-            closeDialog () {
-                var dialogWrap = document.querySelector("#"+ this.wrapid);
-                dialogWrap.style.display = "block";
-            },
-            destroyDialog () {
-                this._removeDialog();
+            hide () {
+                this.visible = false;
             }
         },
-        ready () {
-            this.setup();
-            var dialogBox = document.querySelector("#"+ this.wrapid).querySelector(".dialog-box");
-            if(this.showDialog){
-                dialogBox.style.display = "block";
-            } else {
-                dialogBox.style.display = "none";
-            }
+        ready() {
+            this._centerDialog();
+        },
+        destroy() {
+            this._removeDialog();
         }
     }
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

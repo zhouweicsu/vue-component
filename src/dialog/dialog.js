@@ -4,104 +4,51 @@ import './dialog.scss'
 
 Vue.component('dialog', Dialog);
 
-Dialog._domWrap = function() {
-    var id = "dialog" + (new Date()).getTime();
-    var div = document.createElement('div');
-    div.id = id;
-    document.body.appendChild(div);
-    return div;
-}
+var template = `
+    <dialog type="confirm" visible="true">
+        <div class="msg-wrap">
+            <i class="fa fa-exclamation-triangle icon icon-warn" v-if="type == 'warn'"></i>
+            <i class="fa fa-exclamation-triangle icon icon-confirm" v-if="type == 'confirm'"></i>
+            <span>{{msg}}</span>
+        </div>
+        <div class="btn-wrap">
+            <a href="javascript:void(0)" class="btn btn-primary dialog-confirm" @click="onclicked(true)">确定</a>
+            <a href="javascript:void(0)" class="btn btn-default dialog-cancel" @click="onclicked(false)" v-if="type == 'confirm'">取消</a>
+        </div>
+    </dialog>
+`;
 
-Dialog.confirm = function(msg,okFn,cancelFn) {
-    var wrap = Dialog._domWrap();
-    var d = new Vue({
-        el: wrap,
+var openDialog = function(type, msg, callback) {
+    var container = document.createElement('div');
+    document.body.appendChild(container);
+    var vm = new Vue({
+        el: container,
         replace: false,
-        template: `
-            <dialog type="confirm" msg="${msg}" wrapid="${wrap.id}" ></dialog>
-        `,
-        events: {
-            okEvent: function(){
-                if(okFn){
-                    okFn();
-                }
-            },
-            cancelEvent: function(){
-                if(cancelFn){
-                    cancelFn();
-                }
+        template: template,
+        data: {
+            msg: msg,
+            type: type
+        },
+        methods: {
+            onclicked(result) {
+                callback && callback(result);
+                document.body.removeChild(container);
+                vm.$destroy();
             }
         }
     });
 }
 
-Dialog.warn = function(msg,okFn) {
-    var wrap = Dialog._domWrap();
-    var d = new Vue({
-        el: wrap,
-        replace: false,
-        template: `
-            <dialog type="warn" msg="${msg}" wrapid="${wrap.id}" ></dialog>
-        `,
-        events: {
-            okEvent: function(){
-                if(okFn){
-                    okFn();
-                }
-            }
-        }
-    });
+Dialog.confirm = function(msg, callback) {
+    openDialog('confirm', msg, callback);
 }
 
-Dialog.alert = function(msg) {
-    var wrap = Dialog._domWrap();
-    var d = new Vue({
-        el: wrap,
-        replace: false,
-        template: `
-            <dialog type="alert" msg="${msg}" wrapid="${wrap.id}" ></dialog>
-        `,
-        events: {
-            okEvent: function(){},
-            cancelEvent: function(){}
-        }
-    });
+Dialog.warn = function(msg, callback) {
+    openDialog('warn', msg, callback);
 }
 
-
-/*
-* configObj - 配置参数
-* {
-*   title: dialogTile,
-*   bodyEl: dialogContent Element
-* }
-*
-* */
-Dialog.dialog = function(configObj) {
-    var config = configObj || {title: '', bodyEl: ''};
-
-    var $bodyEl = document.querySelector(config.bodyEl);
-    var slot;
-    if(!$bodyEl){
-        slot = '<span>请输入dialog content element</span>';
-    } else {
-        var $temporary = document.createElement('div');
-        $bodyEl.style.display = "block";
-        $temporary.appendChild($bodyEl);
-        slot = $temporary.innerHTML;
-    }
-    var wrap = Dialog._domWrap();
-    var d = new Vue({
-        el: wrap,
-        replace: false,
-        template: `
-            <dialog type="dialog" title="${config.title}">${slot}</dialog>
-        `,
-        events: {
-            okEvent: function(){},
-            cancelEvent: function(){}
-        }
-    });
+Dialog.alert = function(msg, callback) {
+    openDialog('alert', msg, callback);
 }
 
 export default Dialog;
