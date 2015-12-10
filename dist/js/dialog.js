@@ -45,18 +45,15 @@
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	var _dialog = __webpack_require__(34);
 	
 	var _dialog2 = _interopRequireDefault(_dialog);
 	
-	__webpack_require__(38);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	document.querySelector("#confirm").addEventListener("click", function () {
-	    alert(111);
 	    _dialog2.default.confirm('确定删除这个应用嘛？', function () {
 	        alert('您点击了确定按钮');
 	    }, function () {
@@ -9507,6 +9504,8 @@
 	
 	var _dialog2 = _interopRequireDefault(_dialog);
 	
+	__webpack_require__(38);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	_vue2.default.component('dialog', _dialog2.default);
@@ -9524,7 +9523,7 @@
 	    var d = new _vue2.default({
 	        el: wrap,
 	        replace: false,
-	        template: '\n            <dialog type="confirm" msg="' + msg + '" ></dialog>\n        ',
+	        template: '\n            <dialog type="confirm" msg="' + msg + '" wrapid="' + wrap.id + '" ></dialog>\n        ',
 	        events: {
 	            okEvent: function okEvent() {
 	                if (okFn) {
@@ -9545,7 +9544,7 @@
 	    var d = new _vue2.default({
 	        el: wrap,
 	        replace: false,
-	        template: '\n            <dialog type="warn" msg="' + msg + '" ></dialog>\n        ',
+	        template: '\n            <dialog type="warn" msg="' + msg + '" wrapid="' + wrap.id + '" ></dialog>\n        ',
 	        events: {
 	            okEvent: function okEvent() {
 	                if (okFn) {
@@ -9561,7 +9560,7 @@
 	    var d = new _vue2.default({
 	        el: wrap,
 	        replace: false,
-	        template: '\n            <dialog type="alert" msg="' + msg + '" ></dialog>\n        ',
+	        template: '\n            <dialog type="alert" msg="' + msg + '" wrapid="' + wrap.id + '" ></dialog>\n        ',
 	        events: {
 	            okEvent: function okEvent() {},
 	            cancelEvent: function cancelEvent() {}
@@ -9617,7 +9616,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "/home/gaonan-iri/github/vue-component/src/_dialog.vue"
+	  var id = "/home/gaonan-iri/github/vue-component/src/dialog/_dialog.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -9645,20 +9644,21 @@
 	exports.default = {
 	    props: {
 	        type: {
-	            default: 'confirm'
+	            default: 'dialog'
 	        },
 	        title: "",
 	        msg: "",
-	        showMask: {
+	        wrapid: "",
+	        showDialog: {
 	            default: true
 	        }
 	    },
 	    template: "#dialog",
 	    methods: {
 	        setup: function setup() {
-	            this.$element = document.querySelectorAll(".dialog");
-	            this.element = this.$element[0];
-	
+	            var elements = document.querySelectorAll(".dialog");
+	            var len = elements.length;
+	            this.element = elements[len - 1];
 	            this._centerDialog();
 	        },
 	        _centerDialog: function _centerDialog() {
@@ -9671,7 +9671,7 @@
 	            //header.style.width = w;
 	        },
 	        _removeDialog: function _removeDialog() {
-	            var dialogWrap = document.querySelector(".dialog-wrap");
+	            var dialogWrap = document.querySelector("#" + this.wrapid);
 	            dialogWrap.parentNode.removeChild(dialogWrap);
 	        },
 	        confirmOk: function confirmOk() {
@@ -9682,17 +9682,31 @@
 	            this.$dispatch("cancelEvent");
 	            this._removeDialog();
 	        },
+	        openDialog: function openDialog() {
+	            var dialogWrap = document.querySelector("#" + this.wrapid);
+	            dialogWrap.style.display = "none";
+	        },
 	        closeDialog: function closeDialog() {
+	            var dialogWrap = document.querySelector("#" + this.wrapid);
+	            dialogWrap.style.display = "block";
+	        },
+	        destroyDialog: function destroyDialog() {
 	            this._removeDialog();
 	        }
 	    },
 	    ready: function ready() {
 	        this.setup();
+	        var dialogBox = document.querySelector("#" + this.wrapid).querySelector(".dialog-box");
+	        if (this.showDialog) {
+	            dialogBox.style.display = "block";
+	        } else {
+	            dialogBox.style.display = "none";
+	        }
 	    }
 	};
 	// </script>
 	// <template id="dialog">
-	// <div class="dialog-wrap">
+	// <div class="dialog-box" style="display: none">
 	//     <div class="dialog public-dialog">
 	//         <div class="dialog-hd" v-if="title">
 	//             {{title}}
@@ -9724,7 +9738,7 @@
 /***/ 37:
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"dialog-wrap\">\n    <div class=\"dialog public-dialog\">\n        <div class=\"dialog-hd\" v-if=\"title\">\n            {{title}}\n            <a class=\"fa fa-times close\" @click=\"closeDialog\"></a>\n        </div>\n        <div class=\"dialog-bd\">\n            <div>\n                <div class=\"msg-wrap\">\n                    <slot></slot>\n                    <i class=\"fa fa-exclamation-triangle icon icon-warn\" v-if=\"type == 'warn'\"></i> \n                    <i class=\"fa fa-exclamation-triangle icon icon-confirm\" v-if=\"type == 'confirm'\"></i>\n                    <span v-if=\"type != 'dialog'\">{{msg}}</span>\n                </div>\n                <div class=\"btn-wrap\" v-if=\"type != 'dialog'\">\n                    <a href=\"javascript:void(0)\" class=\"btn btn-primary dialog-confirm\" @click=\"confirmOk\">确定</a>\n                    <a href=\"javascript:void(0)\" class=\"btn btn-default dialog-cancel\" @click=\"confirmCancel\" v-if=\"type == 'confirm'\">取消</a>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"dialog-mask\" data-count=\"0\"></div>\n</div>";
+	module.exports = "<div class=\"dialog-box\" style=\"display: none\">\n    <div class=\"dialog public-dialog\">\n        <div class=\"dialog-hd\" v-if=\"title\">\n            {{title}}\n            <a class=\"fa fa-times close\" @click=\"closeDialog\"></a>\n        </div>\n        <div class=\"dialog-bd\">\n            <div>\n                <div class=\"msg-wrap\">\n                    <slot></slot>\n                    <i class=\"fa fa-exclamation-triangle icon icon-warn\" v-if=\"type == 'warn'\"></i> \n                    <i class=\"fa fa-exclamation-triangle icon icon-confirm\" v-if=\"type == 'confirm'\"></i>\n                    <span v-if=\"type != 'dialog'\">{{msg}}</span>\n                </div>\n                <div class=\"btn-wrap\" v-if=\"type != 'dialog'\">\n                    <a href=\"javascript:void(0)\" class=\"btn btn-primary dialog-confirm\" @click=\"confirmOk\">确定</a>\n                    <a href=\"javascript:void(0)\" class=\"btn btn-default dialog-cancel\" @click=\"confirmCancel\" v-if=\"type == 'confirm'\">取消</a>\n                </div>\n            </div>\n        </div>\n    </div>\n    <div class=\"dialog-mask\" data-count=\"0\"></div>\n</div>";
 
 /***/ },
 

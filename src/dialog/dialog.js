@@ -1,5 +1,6 @@
 import Vue from 'vue'
-import Dialog from '../src/_dialog.vue'
+import Dialog from './_dialog.vue'
+import './dialog.scss'
 
 Vue.component('dialog', Dialog);
 
@@ -17,7 +18,7 @@ Dialog.confirm = function(msg,okFn,cancelFn) {
         el: wrap,
         replace: false,
         template: `
-            <dialog type="confirm" msg="${msg}" ></dialog>
+            <dialog type="confirm" msg="${msg}" wrapid="${wrap.id}" ></dialog>
         `,
         events: {
             okEvent: function(){
@@ -40,7 +41,7 @@ Dialog.warn = function(msg,okFn) {
         el: wrap,
         replace: false,
         template: `
-            <dialog type="warn" msg="${msg}" ></dialog>
+            <dialog type="warn" msg="${msg}" wrapid="${wrap.id}" ></dialog>
         `,
         events: {
             okEvent: function(){
@@ -58,7 +59,7 @@ Dialog.alert = function(msg) {
         el: wrap,
         replace: false,
         template: `
-            <dialog type="alert" msg="${msg}" ></dialog>
+            <dialog type="alert" msg="${msg}" wrapid="${wrap.id}" ></dialog>
         `,
         events: {
             okEvent: function(){},

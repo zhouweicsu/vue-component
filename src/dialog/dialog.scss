@@ -45,6 +45,8 @@ padding: 0; }
 .public-dialog .msg-wrap {
     padding: 2em;
     min-width: 15em;
+}
+.public-dialog .msg-wrap span{
 max-width: 40em; }
 .public-dialog .btn-wrap {
     text-align: center;
@@ -70,49 +72,49 @@ display: none; }
 /*
  * 表单元素样式
  */
-.btn {
-    display: inline-block;
-    padding: 0.36em 0.8em;
-    margin-bottom: 0;
-    margin-right: 0.5em;
-    font-weight: 400;
-    line-height: 1.5;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    cursor: pointer;
-    user-select: none;
-background-image: none; }
-.btn-default {
-    color: #999;
-    background-color: #fafafa;
-border: 1px solid #e0e0e0; }
-.btn-default:hover {
-    color: #fff;
-    background-color: #A0A0A0;
-border: 1px solid #e0e0e0; }
+    .btn {
+        display: inline-block;
+        padding: 0.36em 0.8em;
+        margin-bottom: 0;
+        margin-right: 0.5em;
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        cursor: pointer;
+        user-select: none;
+    background-image: none; }
+    .btn-default {
+        color: #999;
+        background-color: #fafafa;
+    border: 1px solid #e0e0e0; }
+    .btn-default:hover {
+        color: #fff;
+        background-color: #A0A0A0;
+    border: 1px solid #e0e0e0; }
 
-.btn-primary {
-    color: #fff;
-    background-color: #65c178;
-border: 1px solid #65c178; }
-.btn-primary:hover {
-    color: #fff;
-    background-color: #46ad5b;
-border: 1px solid #46ad5b; }
+    .btn-primary {
+        color: #fff;
+        background-color: #65c178;
+    border: 1px solid #65c178; }
+    .btn-primary:hover {
+        color: #fff;
+        background-color: #46ad5b;
+    border: 1px solid #46ad5b; }
 
-.btn-info {
-    color: #fff;
-background-color: #384655; }
-.btn-info:hover {
-    color: #fff;
-background-color: #242d36; }
+    .btn-info {
+        color: #fff;
+    background-color: #384655; }
+    .btn-info:hover {
+        color: #fff;
+    background-color: #242d36; }
 
-.btn-icon {
-    background: transparent;
-    font-size: 18px;
-border: none; }
-.btn-icon:hover {
-    background: transparent;
-border: none; }
+    .btn-icon {
+        background: transparent;
+        font-size: 18px;
+    border: none; }
+    .btn-icon:hover {
+        background: transparent;
+    border: none; }
 

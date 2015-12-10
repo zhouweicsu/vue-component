@@ -1,9 +1,6 @@
-import Dialog from '../../src/dialog.js'
-import './dialog.scss'
-
+import Dialog from '../../src/dialog/dialog.js'
 
 document.querySelector("#confirm").addEventListener("click",function(){
-    alert(111);
     Dialog.confirm('确定删除这个应用嘛？',function(){
         alert('您点击了确定按钮');
     },function(){

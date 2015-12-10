@@ -1,5 +1,5 @@
 <template id="dialog">
-<div class="dialog-wrap">
+<div class="dialog-box" style="display: none">
     <div class="dialog public-dialog">
         <div class="dialog-hd" v-if="title">
             {{title}}
@@ -30,20 +30,21 @@
     export default {
         props: {
             type: {
-                default : 'confirm'
+                default : 'dialog'
             },
             title: "",
             msg: "",
-            showMask: {
+            wrapid: "",
+            showDialog: {
                 default : true
             }
         },
         template: "#dialog",
         methods: {
             setup () {
-               this.$element = document.querySelectorAll(".dialog");
-               this.element = this.$element[0];
-
+               var elements = document.querySelectorAll(".dialog");
+               var len = elements.length;
+               this.element = elements[len-1];  
                this._centerDialog();
             },
             _centerDialog () {
@@ -56,7 +57,7 @@
                 //header.style.width = w;
             },
             _removeDialog () {
-                var dialogWrap = document.querySelector(".dialog-wrap")
+                var dialogWrap = document.querySelector("#"+ this.wrapid);
                 dialogWrap.parentNode.removeChild(dialogWrap);
             },
             confirmOk () {
@@ -67,12 +68,26 @@
                 this.$dispatch("cancelEvent");
                 this._removeDialog();
             },
+            openDialog () {
+                var dialogWrap = document.querySelector("#"+ this.wrapid);
+                dialogWrap.style.display = "none";
+            },
             closeDialog () {
+                var dialogWrap = document.querySelector("#"+ this.wrapid);
+                dialogWrap.style.display = "block";
+            },
+            destroyDialog () {
                 this._removeDialog();
             }
         },
         ready () {
             this.setup();
+            var dialogBox = document.querySelector("#"+ this.wrapid).querySelector(".dialog-box");
+            if(this.showDialog){
+                dialogBox.style.display = "block";
+            } else {
+                dialogBox.style.display = "none";
+            }
         }
     }
 </script>
