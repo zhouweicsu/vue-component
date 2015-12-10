@@ -1,46 +1,51 @@
 <template id="area">
-    <div class="area-picker-wrap">
-        <div class="area-picker-ctn">
-            <div class="area" v-for="area in areacode">
-                <div class="fl">
+<div>
+    <a class="btn btn-primary" @click="initAreaDialog" href="javascript:;">{{title}}</a>
+    <dialog type="dialog">
+        <div class="area-picker-wrap">
+            <div class="area-picker-ctn">
+                <div class="area" v-for="area in areacode">
+                    <div class="fl">
+                        <label>
+                            <input @change="syncArea(area, $event)" v-model="checkedAreas" type="checkbox" value={{area.id}}>
+                            {{area.name}}
+                        </label>
+                    </div>
+                    <dl>
+                        <dd v-for="pro in area.province">
+                            <label>
+                                <input @change="syncProvince(pro, $event)" v-model="checkedProvinces" type="checkbox" value={{pro.id}}>
+                                {{pro.name}}(<span>{{pro.citys | checkedLenFilter}}</span>/<span>{{pro.citys.length}}</span>)
+                            </label>
+                            <div class="citys">
+                                <h4>{{pro.name}}</h4>
+                                <ul>
+                                    <li v-for="city in pro.citys">
+                                        <label>
+                                            <input @change="syncCity(city, $event)" v-model="checkedCitys" type="checkbox" value="{{city.id}}">
+                                            {{city.name}}
+                                        </label>
+                                    </li>
+                                </ul>
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="area last">
                     <label>
-                        <input @change="syncArea(area, $event)" v-model="checkedAreas" type="checkbox" value={{area.id}}>
-                        {{area.name}}
+                        <input @change="init('0', $event)" type="checkbox" checked="{{checkedAll}}">
+                        全部
                     </label>
                 </div>
-                <dl>
-                    <dd v-for="pro in area.province">
-                        <label>
-                            <input @change="syncProvince(pro, $event)" v-model="checkedProvinces" type="checkbox" value={{pro.id}}>
-                            {{pro.name}}(<span>{{pro.citys | checkedLenFilter}}</span>/<span>{{pro.citys.length}}</span>)
-                        </label>
-                        <div class="citys">
-                            <h4>{{pro.name}}</h4>
-                            <ul>
-                                <li v-for="city in pro.citys">
-                                    <label>
-                                        <input @change="syncCity(city, $event)" v-model="checkedCitys" type="checkbox" value="{{city.id}}">
-                                        {{city.name}}
-                                    </label>
-                                </li>
-                            </ul>
-                        </div>
-                    </dd>
-                </dl>
-            </div>
-            <div class="area last">
-                <label>
-                    <input @change="init('0', $event)" type="checkbox" checked="{{checkedAll}}">
-                    全部
-                </label>
             </div>
         </div>
-    </div>
+    </dialog>
+</div>
 </template>
 
 <script type="text/javascript">
 import Vue from 'vue'
-import Dialog from './dialog.js'
+import Dialog from '../dialog/dialog.js'
 import areacode from './areacode.js'
 
 Vue.filter('checkedLenFilter', arr=>arr.filter(city=>city.checked).length);
@@ -48,8 +53,10 @@ Vue.filter('checkedLenFilter', arr=>arr.filter(city=>city.checked).length);
 export default {
         props: {
             initarea: {
-                default: '0',        //0: select all citys, '1,3,34' array: select this citys
-                title: '选择城市',           //默认标题
+                default: '0'        //0: select all citys, '1,3,34' array: select this citys
+            },
+            title: {
+                default: '选择城市'
             }
         },
         computed: {
@@ -63,16 +70,14 @@ export default {
                 checkedAreas: [],         //checked areas list
                 checkedProvinces: [],         //checked provinces list
                 checkedCitys: [],        //checked citys list
+                backupCitys: ''             //back up checked citys
             }
         },
-        created (){
-            this.init(this.initarea);
-            Dialog.dialog({
-                title: this.title,
-                bodyEl: '#area'
-            });
-        },
         methods: {
+            initAreaDialog () {
+                this.init(this.initarea);           //初始化默认选中的城市
+                this.backupCitys = JSON.parse(JSON.stringify(this.checkedCitys));
+            },
             init (cityList, event){ //初始化选中城市，以及处理“全部”按钮的点击事件
                 let me = this;
                 let bool = event ? event.target.checked : true;
@@ -114,6 +119,7 @@ export default {
                         });
                     }
                 });
+                this.areacode = JSON.parse(JSON.stringify(this.areacode))
             },
             syncProvince (cpro, event, proSelected) {
                 let me = this;
@@ -138,7 +144,7 @@ export default {
             syncCity (ccity, event) {
                 let me = this;
                 let bool = event ? event.target.checked : true;
-                me.areacode.forEasavech(function(area){                //判断该城市所属省份的其他城市是否都已选，若都已选则选中该省份的checkbox
+                me.areacode.forEach(function(area){                //判断该城市所属省份的其他城市是否都已选，若都已选则选中该省份的checkbox
                     area.province.forEach(function(province){
                         let selectedCitys = 0;
                         province.citys.forEach(function(city){
@@ -160,11 +166,13 @@ export default {
         },
         events: {
             okEvent () {
-            
+                this.$dispatch('syncCheckedList', this.backupCitys);
             },
             cancleEvent () {
-                
+                this.$dispatch('syncCheckedCitys', this.selectedCitys)
             }
         }
 }
 </script>
+
+<style lang="sass" src="./area.scss"></style>

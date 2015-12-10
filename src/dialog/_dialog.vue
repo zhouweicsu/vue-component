@@ -44,7 +44,7 @@
             setup () {
                var elements = document.querySelectorAll(".dialog");
                var len = elements.length;
-               this.element = elements[len-1];  
+               this.element = elements[len-1];
                this._centerDialog();
             },
             _centerDialog () {

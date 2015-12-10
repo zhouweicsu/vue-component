@@ -1,0 +1,81 @@
+//colors
+$color_mercury_approx: #e6e6e6;
+$color_sushi_approx: #81c13d;
+$color_forbidden_approx: #ef9b6d;
+$color_mountain_mist_approx: #999;
+$white: white;
+
+.time-picker-hint {
+    float: right;
+    margin-top: 3px;
+    span {
+        margin-left: 10px;
+    }
+    i {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+        border-radius: 3px;
+        background: $color_mercury_approx;
+        vertical-align: middle;
+        position: relative;
+        top: -1px;
+    }
+    .active i {
+        background: $color_sushi_approx;
+    }
+    .forbidden i {
+        background: $color_forbidden_approx;
+    }
+}
+.time-picker-ft {
+    padding-left: 70px;
+    color: $color_mountain_mist_approx;
+    margin-top: 5px;
+    p {
+        margin-bottom: 0;
+    }
+}
+.time-picker-submit-wrap {
+    text-align: center;
+    margin-top: 10px;
+}
+.time-picker-shortcuts {
+    margin-bottom: 10px;
+}
+.time-picker-day {
+    width: 65px;
+}
+.time-picker-hour {
+    color: $color_mercury_approx;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    &.active {
+        color: $color_sushi_approx;
+    }
+    &.forbidden {
+        color: $color_forbidden_approx;
+    }
+}
+.time-picker-btns {
+    padding: 3px;
+    span {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+        border-radius: 3px;
+        background: $color_mercury_approx;
+        color: $white;
+        text-align: center;
+        cursor: pointer;
+    }
+    &.active span {
+        background: $color_sushi_approx;
+    }
+    &.forbidden span {
+        background: $color_forbidden_approx;
+    }
+}

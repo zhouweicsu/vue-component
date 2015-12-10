@@ -7,6 +7,7 @@ module.exports =  {
         pagination: "./demo/pagination/pagination.js",
         dialog: "./demo/dialog/dialog.js",
         datatable: "./demo/datatable/datatable.js",
+        timepicker: "./demo/timepicker/timepicker.js",
         area: "./demo/area/area.js"
     },
     output: {
