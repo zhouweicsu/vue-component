@@ -1,4 +1,7 @@
 <template>
+<div>
+    <a class="btn btn-primary" href="javascript:;" @click="showDialog">选择时段</a>
+    <dialog :visible.sync="dialogVisible" title="选择时段">
     <div class="time-picker-wrap">
         <div class="time-picker-hd">
             <div class="time-picker-hint">
@@ -16,7 +19,7 @@
             <thead>
                 <tr>
                     <th class="time-picker-day"></th>
-                    <th v-for="hour in 24" class="time-picker-hour" :class="{active: isHourAllChecked[hour]==7}" @click="selectHour(hour)" hour="{{hour}}">
+                    <th v-for="hour in 24" class="time-picker-hour" :class="{active: isHourAllChecked[hour]==7}" @click="selectHour(hour)">
                         <i class="fa fa-arrow-down"></i>
                     </th>
                 </tr>
@@ -24,12 +27,12 @@
             <tbody>
                 <tr v-for="day in 7">
                     <td class="time-picker-day">
-                        <span>
-                            <input type="checkbox" value="{{day}}" @change="selectDay(day, $event.target.checked)" v-model="isDayAllChecked[day]==24" >
+                        <label>
+                            <input type="checkbox" @change="selectDay(day, $event.target.checked)" v-model="isDayAllChecked[day]" :disabled="disabledWeekday[day]">
                             {{weekDay[day]}}
-                        </span>
+                        </label>
                     </td>
-                    <td v-for="hour in 24" class="time-picker-btns" :class="{'forbidden':+fbdArr[day][hour],'active': (!(+fbdArr[day][hour]) && +times[day][hour])}" @click="selectTime(day,hour)" day="{{day}}" hour="{{hour}}">
+                    <td v-for="hour in 24" class="time-picker-btns" :class="{'forbidden':+fbdArr[day][hour],'active': (!(+fbdArr[day][hour]) && +times[day][hour])}" @click="selectTime(day,hour)">
                         <span>{{hour+1}}</span>
                     </td>
                 </tr>
@@ -40,14 +43,17 @@
             <p><strong>示例二：</strong>&nbsp;&nbsp;当你选择了星期一的【8、9、10、11】点，则推广时间段为星期一的8:00-11:59</p>
         </div>
         <div class="time-picker-submit-wrap">
-            <a class="btn btn-primary" href="javascript:;">确定</a>
-            <a class="btn btn-default" href="javascript:;">取消</a>
+            <a class="btn btn-primary" href="javascript:;" @click.prevent="confirm">确定</a>
+            <a class="btn btn-default" href="javascript:;" @click.prevent="cancel">取消</a>
         </div>
     </div>
+    </dialog>
+</div>
 </template>
 
 <script type="text/javascript">
 import Vue from 'vue'
+import Dialog from '../dialog/dialog.js'
 
 String.prototype.repeat = String.prototype.repeat || function(n) { return Array(n+1).join(this) };
 
@@ -63,17 +69,28 @@ export default {
     data () {
         return {
             times: [],
-            weekDay : ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
+            weekDay : ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
+            dialogVisible : false,
+            backupTimes: ''
         }
+    },
+    components: {
+        dialog: Dialog
     },
     computed : {
         fbdArr () {
             return this.forbidden.split(',').map(s => s.split(''));
         },
+        disabledWeekday () {
+            var temp = [];
+            this.fbdArr.map(day => temp.push(day.reduce((pre, next) => (+pre + (+next))) == 24));
+            return temp;
+        },
         isDayAllChecked () {
             var me =this, temp = [];
-            me.times.map((day) => temp.push(day.reduce((pre, next) => (+pre + (+next)))));
+            me.times.map(day => temp.push(day.reduce((pre, next) => (+pre + (+next)))));
             me.fbdArr.map((day,di) => temp[di] ? temp[di] += day.reduce((pre, next) => (+pre + (+next))):'');
+            temp.map((checked,i) => temp.$set(i, checked == 24));
             return temp;
         },
         isHourAllChecked () {
@@ -88,9 +105,8 @@ export default {
         }
     },
     created () {
-        let me = this;
-        me.times = me.timeString.split(',').map((day,dIndex) => {
-            return day.split('').map((hour, hIndex) => +me.fbdArr[dIndex][hIndex] ? 0 : hour);
+        this.times = this.timeString.split(',').map((day,dIndex) => {
+            return day.split('').map((hour, hIndex) => +this.fbdArr[dIndex][hIndex] ? 0 : hour);
         });
     },
     methods: {
@@ -110,6 +126,18 @@ export default {
         selectSpecificDay (type) {
             let selectDay = type == 'all' ? [1,1,1,1,1,1,1]: type == 'weekday' ? [0,1,1,1,1,1,0] : [1,0,0,0,0,0,1];
             selectDay.map((s,i) => this.selectDay(i,s));
+        },
+        showDialog () {
+            this.dialogVisible = true;
+            this.backupTimes = JSON.parse(JSON.stringify(this.times));
+        },
+        confirm(){
+            this.dialogVisible = false;
+            this.$dispatch('confirm', this.times);
+        },
+        cancel(){
+            this.times = JSON.parse(JSON.stringify(this.backupTimes));
+            this.dialogVisible = false;
         }
     }
 }

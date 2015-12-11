@@ -46,6 +46,11 @@
                 this.visible = false;
             }
         },
+        created () {
+            this.$watch('visible', function(){
+                this.visible && Vue.nextTick(this._centerDialog);
+            });
+        },
         ready() {
             this._centerDialog();
         },
@@ -55,3 +60,4 @@
     }
 </script>
 
+<style lang="sass" src="./dialog.scss"></style>

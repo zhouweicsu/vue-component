@@ -8,7 +8,8 @@ module.exports =  {
         dialog: "./demo/dialog/dialog.js",
         datatable: "./demo/datatable/datatable.js",
         timepicker: "./demo/timepicker/timepicker.js",
-        area: "./demo/area/area.js"
+        area: "./demo/area/area.js",
+        global: "./demo/global.js"
     },
     output: {
         filename: `./dist/js/[name].js`

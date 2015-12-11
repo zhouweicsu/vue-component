@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Dialog from './_dialog.vue'
-import './dialog.scss'
 
 Vue.component('dialog', Dialog);
 
