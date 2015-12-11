@@ -7,16 +7,16 @@
                 <span class="forbidden"><i></i>不可选时间段</span>
             </div>
             <div class="time-picker-shortcuts">
-                <a class="time-picker-all btn btn-default" href="javascript:;">全部时间</a>
-                <a class="time-picker-work btn btn-default" href="javascript:;">工作日</a>
-                <a class="time-picker-weekend btn btn-default" href="javascript:;">周末</a>
+                <a class="time-picker-all btn btn-default" href="javascript:;" @click.prevent="selectSpecificDay('all')">全部时间</a>
+                <a class="time-picker-work btn btn-default" href="javascript:;" @click.prevent="selectSpecificDay('weekday')">工作日</a>
+                <a class="time-picker-weekend btn btn-default" href="javascript:;" @click.prevent="selectSpecificDay('weekend')">周末</a>
             </div>
         </div>
         <table class="time-picker-bd">
             <thead>
                 <tr>
                     <th class="time-picker-day"></th>
-                    <th v-for="hour in 24" class="time-picker-hour" @click="selectHour(hour)" hour="{{hour}}">
+                    <th v-for="hour in 24" class="time-picker-hour" :class="{active: isHourAllChecked[hour]==7}" @click="selectHour(hour)" hour="{{hour}}">
                         <i class="fa fa-arrow-down"></i>
                     </th>
                 </tr>
@@ -25,7 +25,7 @@
                 <tr v-for="day in 7">
                     <td class="time-picker-day">
                         <span>
-                            <input type="checkbox" value="{{day}}" @change="selectDay(day, $event)" >
+                            <input type="checkbox" value="{{day}}" @change="selectDay(day, $event.target.checked)" v-model="isDayAllChecked[day]==24" >
                             {{weekDay[day]}}
                         </span>
                     </td>
@@ -63,17 +63,28 @@ export default {
     data () {
         return {
             times: [],
-            weekDay : ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
-            isWeekAllChecked: [0,0,0,0,0,0,0],
-            isHourAllChecked: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+            weekDay : ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
         }
     },
     computed : {
         fbdArr () {
             return this.forbidden.split(',').map(s => s.split(''));
         },
-        isWeekAllChecked () {
-            
+        isDayAllChecked () {
+            var me =this, temp = [];
+            me.times.map((day) => temp.push(day.reduce((pre, next) => (+pre + (+next)))));
+            me.fbdArr.map((day,di) => temp[di] ? temp[di] += day.reduce((pre, next) => (+pre + (+next))):'');
+            return temp;
+        },
+        isHourAllChecked () {
+            var temp = [], fbdSum = [];
+            this.times.map((day, di) => {
+                day.map((hour, hi) => {
+                    fbdSum[hi] ? fbdSum[hi] += (+this.fbdArr[di][hi]) : fbdSum.push(+this.fbdArr[di][hi]);
+                    temp[hi] ? temp[hi] += (+hour + (+this.fbdArr[di][hi])) : temp.push(+hour + (+this.fbdArr[di][hi]));
+                });
+            });
+            return temp.map((item, i) => fbdSum[i] == 7 ? 0 : item);
         }
     },
     created () {
@@ -89,15 +100,16 @@ export default {
             }
             this.times[day].$set(hour, this.times[day][hour] ? 0 : 1);
         },
-        selectDay (day, event){
-            let me = this;
-            let isChecked = event.target.checked ? 1 : 0;
-            me.times[day].map(function(hour, index){
-                me.times[day].$set(index, +me.fbdArr[day][index] ? 0 : isChecked);
-            });
+        selectDay (day, bool){
+            this.times[day].map((hour, hi) => this.times[day].$set(hi, +this.fbdArr[day][hi] ? 0 : +bool));
         },
         selectHour (hour){
-
+            let isChecked = this.isHourAllChecked[hour] == 7 ? 0 : 1;
+            this.times.map((day,di) => day.$set(hour, +this.fbdArr[di][hour] ? 0 : isChecked));
+        },
+        selectSpecificDay (type) {
+            let selectDay = type == 'all' ? [1,1,1,1,1,1,1]: type == 'weekday' ? [0,1,1,1,1,1,0] : [1,0,0,0,0,0,1];
+            selectDay.map((s,i) => this.selectDay(i,s));
         }
     }
 }
