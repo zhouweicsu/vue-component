@@ -7,8 +7,10 @@
 </head>
 <body>
     <div id="demo">
-        <timepicker :forbidden="forbidden"></timepicker>
+        <timepicker :forbidden="forbidden" @confirm="confirm"></timepicker>
         {{selectedTimes}}
+        <timepicker :forbidden="forbidden1" @confirm="confirm1"></timepicker>
+        {{selectedTimes1}}
     </div>
     <script type="text/javascript" src="../../dist/js/timepicker.js"></script>
 </div>
