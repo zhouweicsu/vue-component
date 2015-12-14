@@ -38,10 +38,10 @@
                     </label>
                 </div>
             </div>
-        </div>
-        <div class="time-picker-submit-wrap">
-            <a class="btn btn-primary" href="javascript:;" @click.prevent="confirm">确定</a>
-            <a class="btn btn-default" href="javascript:;" @click.prevent="cancel">取消</a>
+            <div class="time-picker-submit-wrap">
+                <a class="btn btn-primary" href="javascript:;" @click.prevent="confirm">确定</a>
+                <a class="btn btn-default" href="javascript:;" @click.prevent="cancel">取消</a>
+            </div>
         </div>
     </dialog>
 </div>
@@ -110,7 +110,7 @@ export default {
                 });
                 !event && (this.areacode = JSON.parse(JSON.stringify(this.areacode)));  //初始化之后，刷新数组
             },
-            syncArea (carea, event) {
+            syncArea (carea, event) {               //点击“华东”华北“等区域的事件处理函数
                 let me = this;
                 let bool = event ? event.target.checked : true;
                 me.areacode.forEach(function(area){
@@ -125,7 +125,7 @@ export default {
                 });
                 this.areacode = JSON.parse(JSON.stringify(this.areacode))
             },
-            syncProvince (cpro, event, proSelected) {
+            syncProvince (cpro, event, proSelected) {           //点击”省份“
                 let me = this;
                 let bool = event ? event.target.checked : proSelected;
                 me.syncCheckedList(me.checkedProvinces, cpro, (typeof proSelected != 'undefined') ? proSelected : bool);
@@ -145,7 +145,7 @@ export default {
                     me.syncCheckedList(me.checkedAreas, area, selectedPros == area.province.length);
                 });
             },
-            syncCity (ccity, event) {
+            syncCity (ccity, event)            //点击”城市
                 let me = this;
                 let bool = event ? event.target.checked : true;
                 me.areacode.forEach(function(area){                //判断该城市所属省份的其他城市是否都已选，若都已选则选中该省份的checkbox
