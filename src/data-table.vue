@@ -3,9 +3,9 @@
     <pagination :total="total" :pn="pn" :ps="ps" @updatepage="getPageData"></pagination>
 </template>
 
-<script type="text/javascript">
+<script>
     import Vue from 'vue'
-    import Pagination from './pagination.vue'
+    import Pagination from './pagination/pagination.vue'
     import Resource from 'vue-resource'
 
     Vue.use(Resource);

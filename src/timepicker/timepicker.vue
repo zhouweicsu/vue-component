@@ -51,7 +51,7 @@
 </div>
 </template>
 
-<script type="text/javascript">
+<script>
 import Vue from 'vue'
 import Dialog from '../dialog/dialog.js'
 

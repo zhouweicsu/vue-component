@@ -8,10 +8,6 @@
             font-size: 12px;
         }
     }
-    .total em {
-        font-weight: bold;
-        margin: 0 .2em;
-    }
     .ui-page {
         font-size: 14px;
         line-height: 2;
@@ -51,6 +47,8 @@
         margin-right: 10px;
         em {
             font-style: normal;
+            font-weight: bold;
+            margin: 0 .2em;
         }
     }
     .config-ps {

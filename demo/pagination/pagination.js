@@ -1,6 +1,5 @@
 import Vue from 'vue'
-import Pagination from '../../src/pagination.vue'
-import './pagination.scss'
+import Pagination from '../../src/pagination/pagination.vue'
 
 Vue.component('pagination', Pagination);
 

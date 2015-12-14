@@ -1,4 +1,4 @@
-<template id="area">
+<template>
 <div>
     <a class="btn btn-primary" @click="showDialog" href="javascript:;">选择城市</a>
     <dialog :visible.sync="dialogVisible" title="选择城市">
@@ -47,7 +47,7 @@
 </div>
 </template>
 
-<script type="text/javascript">
+<script>
 import Vue from 'vue'
 import Dialog from '../dialog/dialog.js'
 import areacode from './areacode.js'
@@ -117,7 +117,7 @@ export default {
                     if( area.id == carea.id ){
                         area.province.map(function(province){
                             me.syncCheckedList(me.checkedProvinces, province, bool);
-                            province.citys.map(function(city){
+                            province.citys.map(function(city){ type="text/javascript"
                                 me.syncCheckedList(me.checkedCitys, city, bool);
                             });
                         });
