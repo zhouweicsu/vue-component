@@ -145,7 +145,7 @@ export default {
                     me.syncCheckedList(me.checkedAreas, area, selectedPros == area.province.length);
                 });
             },
-            syncCity (ccity, event)            //点击”城市
+            syncCity (ccity, event){            //点击”城市
                 let me = this;
                 let bool = event ? event.target.checked : true;
                 me.areacode.forEach(function(area){                //判断该城市所属省份的其他城市是否都已选，若都已选则选中该省份的checkbox
