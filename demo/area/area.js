@@ -7,12 +7,12 @@ var demo = new Vue({
     el: "#demo",
     data (){
         return {
-            selectedCitys: '0'
+            selectedCities: '0'
         }
     },
-    events: {
-        syncSelectedCitys (citys) {
-            this.selectedCitys = citys.join(',');
+    methods: {
+        confirm (cities) {
+            this.selectedCities = cities.join(',');
         }
     }
 });

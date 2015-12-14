@@ -2,11 +2,12 @@
 <head>
     <meta charset="utf-8">
     <title>demo area</title>
+    <link rel="stylesheet" href="../../dist/css/global.css">
 </head>
 <body>
     <div id="demo">
-        <area :initarea="selectedCitys" :title.literal="选择"></area>
-        {{selectedCitys}}
+        <area :initcitys="selectedCities" @confirm="confirm"></area>
+        {{selectedCities}}
     </div>
     <script type="text/javascript" src="../../dist/js/area.js"></script>
 </div>

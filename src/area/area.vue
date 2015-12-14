@@ -1,7 +1,7 @@
 <template id="area">
 <div>
-    <a class="btn btn-primary" @click="initAreaDialog" href="javascript:;">{{title}}</a>
-    <dialog type="dialog">
+    <a class="btn btn-primary" @click="showDialog" href="javascript:;">选择城市</a>
+    <dialog :visible.sync="dialogVisible" title="选择城市">
         <div class="area-picker-wrap">
             <div class="area-picker-ctn">
                 <div class="area" v-for="area in areacode">
@@ -39,6 +39,10 @@
                 </div>
             </div>
         </div>
+        <div class="time-picker-submit-wrap">
+            <a class="btn btn-primary" href="javascript:;" @click.prevent="confirm">确定</a>
+            <a class="btn btn-default" href="javascript:;" @click.prevent="cancel">取消</a>
+        </div>
     </dialog>
 </div>
 </template>
@@ -52,11 +56,8 @@ Vue.filter('checkedLenFilter', arr=>arr.filter(city=>city.checked).length);
 
 export default {
         props: {
-            initarea: {
+            initcities: {
                 default: '0'        //0: select all citys, '1,3,34' array: select this citys
-            },
-            title: {
-                default: '选择城市'
             }
         },
         computed: {
@@ -66,6 +67,7 @@ export default {
         },
         data () {
             return {
+                dialogVisible : false,          //组件Dialog默认不弹出
                 areacode: JSON.parse(JSON.stringify(areacode)),
                 checkedAreas: [],         //checked areas list
                 checkedProvinces: [],         //checked provinces list
@@ -73,11 +75,13 @@ export default {
                 backupCitys: ''             //back up checked citys
             }
         },
+        components: {
+            dialog: Dialog              //依赖组件Dialog
+        },
+        created(){
+            this.init(this.initcities);           //初始化默认选中的城市
+        },
         methods: {
-            initAreaDialog () {
-                this.init(this.initarea);           //初始化默认选中的城市
-                this.backupCitys = JSON.parse(JSON.stringify(this.checkedCitys));
-            },
             init (cityList, event){ //初始化选中城市，以及处理“全部”按钮的点击事件
                 let me = this;
                 let bool = event ? event.target.checked : true;
@@ -162,14 +166,19 @@ export default {
                 let index = array.indexOf(item.id);
                 (bool && index < 0) ? array.push(item.id) : '';
                 (!bool && index >= 0) ? array.splice(index,1) : '';
-            }
-        },
-        events: {
-            okEvent () {
-                this.$dispatch('syncCheckedList', this.backupCitys);
             },
-            cancleEvent () {
-                this.$dispatch('syncCheckedCitys', this.selectedCitys)
+            showDialog(){
+                this.dialogVisible = true;
+                this.init(this.checkedCitys.join(','));
+                this.backupCitys = JSON.parse(JSON.stringify(this.checkedCitys));
+            },
+            confirm() {
+                this.dialogVisible = false;
+                this.$dispatch('confirm', this.checkedCitys);
+            },
+            cancel() {
+                this.dialogVisible = false;
+                this.checkedCitys = JSON.parse(JSON.stringify(this.backupCitys));
             }
         }
 }
