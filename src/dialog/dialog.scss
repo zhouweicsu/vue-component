@@ -7,26 +7,30 @@
     border: 1px solid #acacac;
     box-shadow: 0 0 3px #b3b3b3;
     min-width: 200px;
-margin-left: -50%; }
-.dialog .dialog-hd {
-    border-bottom: 1px solid #e8e8e8;
-    height: 34px;
-    line-height: 34px;
-    position: relative;
-    padding: 0 15px;
-font-weight: bold; }
-.dialog .dialog-hd .close {
-    font-size: 16px;
-    right: 15px;
-    position: absolute;
-top: 9px; }
-.dialog .dialog-bd {
-padding: 15px; }
+    margin-left: -50%;
+    .dialog-hd {
+        border-bottom: 1px solid #e8e8e8;
+        height: 34px;
+        line-height: 34px;
+        position: relative;
+        padding: 0 15px;
+        font-weight: bold;
+        .close {
+            font-size: 16px;
+            right: 15px;
+            position: absolute;
+            top: 9px;
+        }
+    }
+    .dialog-bd {
+        padding: 15px;
+    }
+}
 
 .dialog-mask {
     background: black;
     opacity: 0.6;
-    filter: alpha(opacity=60);
+    filter: alpha(opacity = 60);
     position: fixed;
     z-index: 100;
     top: 0;
@@ -36,85 +40,41 @@ padding: 15px; }
 }
 
 /* common dialog : alert, confirm, warn*/
+
 .public-dialog {
     box-shadow: 0 0 16px #333;
     border-color: #333;
-z-index: 102; }
-.public-dialog .dialog-bd {
-padding: 0; }
-.public-dialog .msg-wrap {
-    padding: 2em;
-    min-width: 15em;
-}
-.public-dialog .msg-wrap span{
-max-width: 40em; }
-.public-dialog .btn-wrap {
-    text-align: center;
-    padding: 1em 2em;
-background: #eee; }
-.public-dialog .icon {
-font-size: 16px; }
-.public-dialog .icon-warn {
-color: #ff4b21; }
-.public-dialog .icon-confirm {
-color: #FF9708; }
-
-.dialog-type-warn .icon-warn {
-display: inline-block; }
-
-.dialog-type-confirm .icon-confirm {
-display: inline-block; }
-
-.dialog-type-alert .dialog-cancel,
-.dialog-type-warn .dialog-cancel {
-display: none; }
-
-/*
- * 表单元素样式
- */
-    .btn {
-        display: inline-block;
-        padding: 0.36em 0.8em;
-        margin-bottom: 0;
-        margin-right: 0.5em;
-        font-weight: 400;
-        line-height: 1.5;
+    z-index: 102;
+    .dialog-bd {
+        padding: 0;
+    }
+    .msg-wrap {
+        padding: 2em;
+        min-width: 15em;
+        span {
+            max-width: 40em;
+        }
+    }
+    .btn-wrap {
         text-align: center;
-        white-space: nowrap;
-        vertical-align: middle;
-        cursor: pointer;
-        user-select: none;
-    background-image: none; }
-    .btn-default {
-        color: #999;
-        background-color: #fafafa;
-    border: 1px solid #e0e0e0; }
-    .btn-default:hover {
-        color: #fff;
-        background-color: #A0A0A0;
-    border: 1px solid #e0e0e0; }
+        padding: 1em 2em;
+        background: #eee;
+    }
+    .icon {
+        font-size: 16px;
+    }
+    .icon-warn {
+        color: #ff4b21;
+    }
+    .icon-confirm {
+        color: #FF9708;
+    }
+}
 
-    .btn-primary {
-        color: #fff;
-        background-color: #65c178;
-    border: 1px solid #65c178; }
-    .btn-primary:hover {
-        color: #fff;
-        background-color: #46ad5b;
-    border: 1px solid #46ad5b; }
+.dialog-type-warn .icon-warn, .dialog-type-confirm .icon-confirm {
+    display: inline-block;
+}
 
-    .btn-info {
-        color: #fff;
-    background-color: #384655; }
-    .btn-info:hover {
-        color: #fff;
-    background-color: #242d36; }
-
-    .btn-icon {
-        background: transparent;
-        font-size: 18px;
-    border: none; }
-    .btn-icon:hover {
-        background: transparent;
-    border: none; }
-
+.dialog-type-alert .dialog-cancel, .dialog-type-warn .dialog-cancel {
+    display: none;
+}

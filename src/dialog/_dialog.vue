@@ -1,18 +1,13 @@
-<template id="dialog">
-<div class="dialog-box" :style="{display: visible ? 'block' : 'none'}">
-    <div class="dialog public-dialog">
-        <div class="dialog-hd" v-if="title">
-            {{title}}
-            <a class="fa fa-times close" @click="hide"></a>
-        </div>
-        <div class="dialog-bd">
-            <slot></slot>
-        </div>
-    </div>
-    <div class="dialog-mask" data-count="0"></div>
-</div>
+<template lang="jade">
+.dialog-box(:style="{display: visible ? 'block' : 'none'}")
+    .dialog(:class="{'public-dialog': type!='dialog'}")
+        .dialog-hd(v-if='title')
+            | {{title}}
+            a.fa.fa-times.close(@click='hide')
+        .dialog-bd
+            slot
+    .dialog-mask
 </template>
-
 
 <script>
     import Vue from 'vue'
@@ -21,11 +16,12 @@
             type: {
                 default : 'dialog'
             },
-            title: "",
-            msg: "",
-            visible: false
+            title: String,
+            msg: String,
+            visible: {
+                default: false
+            }
         },
-        template: "#dialog",
         methods: {
             _centerDialog () {
                 var elem = this.$el.querySelector('.dialog');
