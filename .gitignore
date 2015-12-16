@@ -1,3 +1,5 @@
 /node_modules
-/dist
+/dist/js/*.map
+/dist/css/*.map
+/dev
 *.swp
