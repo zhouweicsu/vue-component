@@ -1,9 +1,8 @@
 var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var vueLoader = require('vue-loader');
-var outputDir = process.env.NODE_ENV == 'production' ? './dist' : './dev';
 
-var config =  {
+module.exports = {
     entry: {
         pagination: "./demo/pagination/pagination.js",
         dialog: "./demo/dialog/dialog.js",
@@ -13,7 +12,7 @@ var config =  {
         global: "./demo/global.js"
     },
     output: {
-        filename: `${outputDir}/js/[name].js`
+        filename: `.dist/js/[name].js`
     },
     module: {
         loaders: [
@@ -33,7 +32,7 @@ var config =  {
         ]
     },
     plugins: [
-        new ExtractTextPlugin(`${outputDir}/css/[name].css`)
+        new ExtractTextPlugin(`.dist/css/[name].css`)
     ],
     devtool: 'sourcemap',
     babel: {
@@ -42,21 +41,3 @@ var config =  {
     }
 
 };
-
-if (process.env.NODE_ENV == 'production') {
-    console.log('使用线上配置进行打包');
-    config.plugins = config.plugins.concat([
-        new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: '"production"'
-            }
-        }),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            }
-        })
-    ]);
-}
-
-module.exports = config;
