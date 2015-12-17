@@ -3,7 +3,7 @@
         span.total
             | 共
             em {{total}}
-            | 条fda
+            | 条
         span.pages(@click.prevent='go', v-show='pageCount > 1')
             a.ui-page(href='#', :class='{disabled: pn == 0}', data-page='{{pn-1}}') 上一页
             a.ui-page(href='#', :class='{current: pn == 0}', data-page='0') 1

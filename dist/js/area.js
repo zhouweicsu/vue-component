@@ -1,10 +1,10322 @@
-!function(e){function t(n){if(i[n])return i[n].exports;var r=i[n]={exports:{},id:n,loaded:!1};return e[n].call(r.exports,r,r.exports,t),r.loaded=!0,r.exports}var i={};return t.m=e,t.c=i,t.p="",t(0)}([function(e,t,i){"use strict";function n(e){return e&&e.__esModule?e:{"default":e}}var r=i(6),s=n(r),a=i(7),l=n(a);s["default"].component("area",l["default"]);new s["default"]({el:"#demo",data:function(){return{selectedCities:"0"}},methods:{confirm:function(e){this.selectedCities=e.join(",")}}})},,,,,,function(e,t,i){/*!
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId])
+/******/ 			return installedModules[moduleId].exports;
+/******/
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			exports: {},
+/******/ 			id: moduleId,
+/******/ 			loaded: false
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.loaded = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var _vue = __webpack_require__(6);
+	
+	var _vue2 = _interopRequireDefault(_vue);
+	
+	var _area = __webpack_require__(8);
+	
+	var _area2 = _interopRequireDefault(_area);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	_vue2.default.component('area', _area2.default);
+	
+	var demo = new _vue2.default({
+	    el: "#demo",
+	    data: function data() {
+	        return {
+	            selectedCities: '0'
+	        };
+	    },
+	
+	    methods: {
+	        confirm: function confirm(cities) {
+	            this.selectedCities = cities.join(',');
+	        }
+	    }
+	});
+
+/***/ },
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/*!
 	 * Vue.js v1.0.10
 	 * (c) 2015 Evan You
 	 * Released under the MIT License.
 	 */
-"use strict";function n(e,t,i){if(s(e,t))return void(e[t]=i);if(e._isVue)return void n(e._data,t,i);var r=e.__ob__;if(!r)return void(e[t]=i);if(r.convert(t,i),r.dep.notify(),r.vms)for(var a=r.vms.length;a--;){var l=r.vms[a];l._proxy(t),l._digest()}}function r(e,t){if(s(e,t)){delete e[t];var i=e.__ob__;if(i&&(i.dep.notify(),i.vms))for(var n=i.vms.length;n--;){var r=i.vms[n];r._unproxy(t),r._digest()}}}function s(e,t){return vi.call(e,t)}function a(e){return mi.test(e)}function l(e){var t=(e+"").charCodeAt(0);return 36===t||95===t}function o(e){return null==e?"":e.toString()}function d(e){if("string"!=typeof e)return e;var t=Number(e);return isNaN(t)?e:t}function c(e){return"true"===e?!0:"false"===e?!1:e}function h(e){var t=e.charCodeAt(0),i=e.charCodeAt(e.length-1);return t!==i||34!==t&&39!==t?e:e.slice(1,-1)}function p(e){return e.replace(gi,u)}function u(e,t){return t?t.toUpperCase():""}function f(e){return e.replace(yi,"$1-$2").toLowerCase()}function v(e){return e.replace(bi,u)}function m(e,t){return function(i){var n=arguments.length;return n?n>1?e.apply(t,arguments):e.call(t,i):e.call(t)}}function g(e,t){t=t||0;for(var i=e.length-t,n=new Array(i);i--;)n[i]=e[i+t];return n}function y(e,t){for(var i=Object.keys(t),n=i.length;n--;)e[i[n]]=t[i[n]];return e}function b(e){return null!==e&&"object"==typeof e}function _(e){return _i.call(e)===ki}function k(e,t,i,n){Object.defineProperty(e,t,{value:i,enumerable:!!n,writable:!0,configurable:!0})}function w(e,t){var i,n,r,s,a,l=function o(){var l=Date.now()-s;t>l&&l>=0?i=setTimeout(o,t-l):(i=null,a=e.apply(r,n),i||(r=n=null))};return function(){return r=this,n=arguments,s=Date.now(),i||(i=setTimeout(l,t)),a}}function C(e,t){for(var i=e.length;i--;)if(e[i]===t)return i;return-1}function x(e){var t=function i(){return i.cancelled?void 0:e.apply(this,arguments)};return t.cancel=function(){t.cancelled=!0},t}function $(e,t){return e==t||(b(e)&&b(t)?JSON.stringify(e)===JSON.stringify(t):!1)}function A(e){this.size=0,this.limit=e,this.head=this.tail=void 0,this._keymap=Object.create(null)}function O(){var e,t=Di.slice(Hi,Mi).trim();if(t){e={};var i=t.match(qi);e.name=i[0],i.length>1&&(e.args=i.slice(1).map(j))}e&&(Ri.filters=Ri.filters||[]).push(e),Hi=Mi+1}function j(e){if(Qi.test(e))return{value:d(e),dynamic:!1};var t=h(e),i=t===e;return{value:i?e:t,dynamic:i}}function N(e){var t=Ji.get(e);if(t)return t;for(Di=e,zi=Vi=!1,Wi=Ui=Ii=0,Hi=0,Ri={},Mi=0,Bi=Di.length;Bi>Mi;Mi++)if(Li=Di.charCodeAt(Mi),zi)39===Li&&(zi=!zi);else if(Vi)34===Li&&(Vi=!Vi);else if(124===Li&&124!==Di.charCodeAt(Mi+1)&&124!==Di.charCodeAt(Mi-1))null==Ri.expression?(Hi=Mi+1,Ri.expression=Di.slice(0,Mi).trim()):O();else switch(Li){case 34:Vi=!0;break;case 39:zi=!0;break;case 40:Ii++;break;case 41:Ii--;break;case 91:Ui++;break;case 93:Ui--;break;case 123:Wi++;break;case 125:Wi--}return null==Ri.expression?Ri.expression=Di.slice(0,Mi).trim():0!==Hi&&O(),Ji.put(e,Ri),Ri}function T(e){return e.replace(Gi,"\\$&")}function S(){var e=T(sn.delimiters[0]),t=T(sn.delimiters[1]),i=T(sn.unsafeDelimiters[0]),n=T(sn.unsafeDelimiters[1]);Xi=new RegExp(i+"(.+?)"+n+"|"+e+"(.+?)"+t,"g"),Yi=new RegExp("^"+i+".*"+n+"$"),Ki=new A(1e3)}function E(e){Ki||S();var t=Ki.get(e);if(t)return t;if(e=e.replace(/\n/g,""),!Xi.test(e))return null;for(var i,n,r,s,a,l,o=[],d=Xi.lastIndex=0;i=Xi.exec(e);)n=i.index,n>d&&o.push({value:e.slice(d,n)}),r=Yi.test(i[0]),s=r?i[1]:i[2],a=s.charCodeAt(0),l=42===a,s=l?s.slice(1):s,o.push({tag:!0,value:s.trim(),html:r,oneTime:l}),d=n+i[0].length;return d<e.length&&o.push({value:e.slice(d)}),Ki.put(e,o),o}function P(e){return e.length>1?e.map(function(e){return F(e)}).join("+"):F(e[0],!0)}function F(e,t){return e.tag?D(e.value,t):'"'+e.value+'"'}function D(e,t){if(en.test(e)){var i=N(e);return i.filters?"this._applyFilters("+i.expression+",null,"+JSON.stringify(i.filters)+",false)":"("+e+")"}return t?e:"("+e+")"}function R(e,t,i,n){B(e,1,function(){t.appendChild(e)},i,n)}function L(e,t,i,n){B(e,1,function(){U(e,t)},i,n)}function M(e,t,i){B(e,-1,function(){J(e)},t,i)}function B(e,t,i,n,r){var s=e.__v_trans;if(!s||!s.hooks&&!ji||!n._isCompiled||n.$parent&&!n.$parent._isCompiled)return i(),void(r&&r());var a=t>0?"enter":"leave";s[a](i,r)}function H(e){if("string"==typeof e){e=document.querySelector(e)}return e}function z(e){var t=document.documentElement,i=e&&e.parentNode;return t===e||t===i||!(!i||1!==i.nodeType||!t.contains(i))}function V(e,t){var i=e.getAttribute(t);return null!==i&&e.removeAttribute(t),i}function W(e,t){var i=V(e,":"+t);return null===i&&(i=V(e,"v-bind:"+t)),i}function U(e,t){t.parentNode.insertBefore(e,t)}function I(e,t){t.nextSibling?U(e,t.nextSibling):t.parentNode.appendChild(e)}function J(e){e.parentNode.removeChild(e)}function q(e,t){t.firstChild?U(e,t.firstChild):t.appendChild(e)}function Q(e,t){var i=e.parentNode;i&&i.replaceChild(t,e)}function Z(e,t,i){e.addEventListener(t,i)}function G(e,t,i){e.removeEventListener(t,i)}function K(e,t){if(e.classList)e.classList.add(t);else{var i=" "+(e.getAttribute("class")||"")+" ";i.indexOf(" "+t+" ")<0&&e.setAttribute("class",(i+t).trim())}}function X(e,t){if(e.classList)e.classList.remove(t);else{for(var i=" "+(e.getAttribute("class")||"")+" ",n=" "+t+" ";i.indexOf(n)>=0;)i=i.replace(n," ");e.setAttribute("class",i.trim())}e.className||e.removeAttribute("class")}function Y(e,t){var i,n;if(ie(e)&&e.content instanceof DocumentFragment&&(e=e.content),e.hasChildNodes())for(ee(e),n=t?document.createDocumentFragment():document.createElement("div");i=e.firstChild;)n.appendChild(i);return n}function ee(e){te(e,e.firstChild),te(e,e.lastChild)}function te(e,t){t&&3===t.nodeType&&!t.data.trim()&&e.removeChild(t)}function ie(e){return e.tagName&&"template"===e.tagName.toLowerCase()}function ne(e,t){var i=sn.debug?document.createComment(e):document.createTextNode(t?" ":"");return i.__vue_anchor=!0,i}function re(e){if(e.hasAttributes())for(var t=e.attributes,i=0,n=t.length;n>i;i++){var r=t[i].name;if(ln.test(r))return p(r.replace(ln,""))}}function se(e,t,i){for(var n;e!==t;)n=e.nextSibling,i(e),e=n;i(t)}function ae(e,t,i,n,r){function s(){if(l++,a&&l>=o.length){for(var e=0;e<o.length;e++)n.appendChild(o[e]);r&&r()}}var a=!1,l=0,o=[];se(e,t,function(e){e===t&&(a=!0),o.push(e),M(e,i,s)})}function le(e,t){var i=e.tagName.toLowerCase(),n=e.hasAttributes();if(on.test(i)||"component"===i){if(n)return oe(e)}else{if(ge(t,"components",i))return{id:i};var r=n&&oe(e);if(r)return r}}function oe(e){var t=V(e,"is");return null!=t?{id:t}:(t=W(e,"is"),null!=t?{id:t,dynamic:!0}:void 0)}function de(e,t,i){var n=t.path;e[n]=e._data[n]=ce(t,i)?i:void 0}function ce(e,t){if(null===e.raw&&!e.required)return!0;var i,n=e.options,r=n.type,s=!0;if(r&&(r===String?(i="string",s=typeof t===i):r===Number?(i="number",s="number"==typeof t):r===Boolean?(i="boolean",s="boolean"==typeof t):r===Function?(i="function",s="function"==typeof t):r===Object?(i="object",s=_(t)):r===Array?(i="array",s=wi(t)):s=t instanceof r),!s)return!1;var a=n.validator;return a&&!a.call(null,t)?!1:!0}function he(e,t){var i,r,a;for(i in t)r=e[i],a=t[i],s(e,i)?b(r)&&b(a)&&he(r,a):n(e,i,a);return e}function pe(e,t){var i=Object.create(e);return t?y(i,ve(t)):i}function ue(e){if(e.components)for(var t,i=e.components=ve(e.components),n=Object.keys(i),r=0,s=n.length;s>r;r++){var a=n[r];on.test(a)||(t=i[a],_(t)&&(i[a]=di.extend(t)))}}function fe(e){var t,i,n=e.props;if(wi(n))for(e.props={},t=n.length;t--;)i=n[t],"string"==typeof i?e.props[i]=null:i.name&&(e.props[i.name]=i);else if(_(n)){var r=Object.keys(n);for(t=r.length;t--;)i=n[r[t]],"function"==typeof i&&(n[r[t]]={type:i})}}function ve(e){if(wi(e)){for(var t,i={},n=e.length;n--;){t=e[n];var r="function"==typeof t?t.options&&t.options.name||t.id:t.name||t.id;r&&(i[r]=t)}return i}return e}function me(e,t,i){function n(n){var r=dn[n]||cn;a[n]=r(e[n],t[n],i,n)}ue(t),fe(t);var r,a={};if(t.mixins)for(var l=0,o=t.mixins.length;o>l;l++)e=me(e,t.mixins[l],i);for(r in e)n(r);for(r in t)s(e,r)||n(r);return a}function ge(e,t,i){var n,r=e[t];return r[i]||r[n=p(i)]||r[n.charAt(0).toUpperCase()+n.slice(1)]}function ye(e,t,i){}function be(){this.id=un++,this.subs=[]}function _e(e){if(this.value=e,this.dep=new be,k(e,"__ob__",this),wi(e)){var t=Ci?ke:we;t(e,pn,fn),this.observeArray(e)}else this.walk(e)}function ke(e,t){e.__proto__=t}function we(e,t,i){for(var n,r=i.length;r--;)n=i[r],k(e,n,t[n])}function Ce(e,t){if(e&&"object"==typeof e){var i;return s(e,"__ob__")&&e.__ob__ instanceof _e?i=e.__ob__:!wi(e)&&!_(e)||Object.isFrozen(e)||e._isVue||(i=new _e(e)),i&&t&&i.addVm(t),i}}function xe(e,t,i){var n,r,s=new be;if(sn.convertAllProperties){var a=Object.getOwnPropertyDescriptor(e,t);if(a&&a.configurable===!1)return;n=a&&a.get,r=a&&a.set}var l=Ce(i);Object.defineProperty(e,t,{enumerable:!0,configurable:!0,get:function(){var t=n?n.call(e):i;if(be.target&&(s.depend(),l&&l.dep.depend(),wi(t)))for(var r,a=0,o=t.length;o>a;a++)r=t[a],r&&r.__ob__&&r.__ob__.dep.depend();return t},set:function(t){var a=n?n.call(e):i;t!==a&&(r?r.call(e,t):i=t,l=Ce(t),s.notify())}})}function $e(e){e.prototype._init=function(e){e=e||{},this.$el=null,this.$parent=e.parent,this.$root=this.$parent?this.$parent.$root:this,this.$children=[],this.$refs={},this.$els={},this._watchers=[],this._directives=[],this._uid=mn++,this._isVue=!0,this._events={},this._eventsCount={},this._isFragment=!1,this._fragment=this._fragmentStart=this._fragmentEnd=null,this._isCompiled=this._isDestroyed=this._isReady=this._isAttached=this._isBeingDestroyed=!1,this._unlinkFn=null,this._context=e._context||this.$parent,this._scope=e._scope,this._frag=e._frag,this._frag&&this._frag.children.push(this),this.$parent&&this.$parent.$children.push(this),e=this.$options=me(this.constructor.options,e,this),this._updateRef(),this._data={},this._callHook("init"),this._initState(),this._initEvents(),this._callHook("created"),e.el&&this.$mount(e.el)}}function Ae(e){if(void 0===e)return"eof";var t=e.charCodeAt(0);switch(t){case 91:case 93:case 46:case 34:case 39:case 48:return e;case 95:case 36:return"ident";case 32:case 9:case 10:case 13:case 160:case 65279:case 8232:case 8233:return"ws"}return t>=97&&122>=t||t>=65&&90>=t?"ident":t>=49&&57>=t?"number":"else"}function Oe(e){var t=e.trim();return"0"===e.charAt(0)&&isNaN(e)?!1:a(t)?h(t):"*"+t}function je(e){function t(){var t=e[c+1];return h===On&&"'"===t||h===jn&&'"'===t?(c++,n="\\"+t,u[yn](),!0):void 0}var i,n,r,s,a,l,o,d=[],c=-1,h=wn,p=0,u=[];for(u[bn]=function(){void 0!==r&&(d.push(r),r=void 0)},u[yn]=function(){void 0===r?r=n:r+=n},u[_n]=function(){u[yn](),p++},u[kn]=function(){if(p>0)p--,h=An,u[yn]();else{if(p=0,r=Oe(r),r===!1)return!1;u[bn]()}};null!=h;)if(c++,i=e[c],"\\"!==i||!t()){if(s=Ae(i),o=Sn[h],a=o[s]||o["else"]||Tn,a===Tn)return;if(h=a[0],l=u[a[1]],l&&(n=a[2],n=void 0===n?i:n,l()===!1))return;if(h===Nn)return d.raw=e,d}}function Ne(e){var t=gn.get(e);return t||(t=je(e),t&&gn.put(e,t)),t}function Te(e,t){return Me(t).get(e)}function Se(e,t,i){var r=e;if("string"==typeof t&&(t=je(t)),!t||!b(e))return!1;for(var s,a,l=0,o=t.length;o>l;l++)s=e,a=t[l],"*"===a.charAt(0)&&(a=Me(a.slice(1)).get.call(r,r)),o-1>l?(e=e[a],b(e)||(e={},n(s,a,e))):wi(e)?e.$set(a,i):a in e?e[a]=i:n(e,a,i);return!0}function Ee(e,t){var i=In.length;return In[i]=t?e.replace(Bn,"\\n"):e,'"'+i+'"'}function Pe(e){var t=e.charAt(0),i=e.slice(1);return Dn.test(i)?e:(i=i.indexOf('"')>-1?i.replace(zn,Fe):i,t+"scope."+i)}function Fe(e,t){return In[t]}function De(e){Ln.test(e),In.length=0;var t=e.replace(Hn,Ee).replace(Mn,"");return t=(" "+t).replace(Wn,Pe).replace(zn,Fe),Re(t)}function Re(e){try{return new Function("scope","return "+e+";")}catch(t){}}function Le(e){var t=Ne(e);return t?function(e,i){Se(e,t,i)}:void 0}function Me(e,t){e=e.trim();var i=Pn.get(e);if(i)return t&&!i.set&&(i.set=Le(i.exp)),i;var n={exp:e};return n.get=Be(e)&&e.indexOf("[")<0?Re("scope."+e):De(e),t&&(n.set=Le(e)),Pn.put(e,n),n}function Be(e){return Vn.test(e)&&!Un.test(e)&&"Math."!==e.slice(0,5)}function He(){qn=[],Qn=[],Zn={},Gn={},Kn=Xn=!1}function ze(){Ve(qn),Xn=!0,Ve(Qn),He()}function Ve(e){for(var t=0;t<e.length;t++){var i=e[t],n=i.id;Zn[n]=null,i.run()}}function We(e){var t=e.id;if(null==Zn[t]){if(Xn&&!e.user)return void e.run();var i=e.user?Qn:qn;Zn[t]=i.length,i.push(e),Kn||(Kn=!0,Pi(ze))}}function Ue(e,t,i,n){n&&y(this,n);var r="function"==typeof t;if(this.vm=e,e._watchers.push(this),this.expression=r?t.toString():t,this.cb=i,this.id=++Yn,this.active=!0,this.dirty=this.lazy,this.deps=Object.create(null),this.newDeps=null,this.prevError=null,r)this.getter=t,this.setter=void 0;else{var s=Me(t,this.twoWay);this.getter=s.get,this.setter=s.set}this.value=this.lazy?void 0:this.get(),this.queued=this.shallow=!1}function Ie(e){var t,i;if(wi(e))for(t=e.length;t--;)Ie(e[t]);else if(b(e))for(i=Object.keys(e),t=i.length;t--;)Ie(e[i[t]])}function Je(e){if(ar[e])return ar[e];var t=qe(e);return ar[e]=ar[t]=t,t}function qe(e){e=f(e);var t=p(e),i=t.charAt(0).toUpperCase()+t.slice(1);if(lr||(lr=document.createElement("div")),t in lr.style)return e;for(var n,r=nr.length;r--;)if(n=rr[r]+i,n in lr.style)return nr[r]+e}function Qe(e,t){var i=t.map(function(e){var t=e.charCodeAt(0);return t>47&&58>t?parseInt(e,10):1===e.length&&(t=e.toUpperCase().charCodeAt(0),t>64&&91>t)?t:vr[e]});return function(t){return i.indexOf(t.keyCode)>-1?e.call(this,t):void 0}}function Ze(e){return function(t){return t.stopPropagation(),e.call(this,t)}}function Ge(e){return function(t){return t.preventDefault(),e.call(this,t)}}function Ke(e,t,i){for(var n,r,s,a=t?[]:null,l=0,o=e.options.length;o>l;l++)if(n=e.options[l],s=i?n.hasAttribute("selected"):n.selected){if(r=n.hasOwnProperty("_value")?n._value:n.value,!t)return r;a.push(r)}return a}function Xe(e,t){for(var i=e.length;i--;)if($(e[i],t))return i;return-1}function Ye(e){return ie(e)&&e.content instanceof DocumentFragment}function et(e,t){var i=xr.get(e);if(i)return i;var n=document.createDocumentFragment(),r=e.match(Or),s=jr.test(e);if(r||s){var a=r&&r[1],l=Ar[a]||Ar.efault,o=l[0],d=l[1],c=l[2],h=document.createElement("div");for(t||(e=e.trim()),h.innerHTML=d+e+c;o--;)h=h.lastChild;for(var p;p=h.firstChild;)n.appendChild(p)}else n.appendChild(document.createTextNode(e));return xr.put(e,n),n}function tt(e){if(Ye(e))return ee(e.content),e.content;if("SCRIPT"===e.tagName)return et(e.textContent);for(var t,i=it(e),n=document.createDocumentFragment();t=i.firstChild;)n.appendChild(t);return ee(n),n}function it(e){if(!e.querySelectorAll)return e.cloneNode();var t,i,n,r=e.cloneNode(!0);if(Nr){var s=r;if(Ye(e)&&(e=e.content,s=r.content),i=e.querySelectorAll("template"),i.length)for(n=s.querySelectorAll("template"),t=n.length;t--;)n[t].parentNode.replaceChild(it(i[t]),n[t])}if(Tr)if("TEXTAREA"===e.tagName)r.value=e.value;else if(i=e.querySelectorAll("textarea"),i.length)for(n=r.querySelectorAll("textarea"),t=n.length;t--;)n[t].value=i[t].value;return r}function nt(e,t,i){var n,r;return e instanceof DocumentFragment?(ee(e),t?it(e):e):("string"==typeof e?i||"#"!==e.charAt(0)?r=et(e,i):(r=$r.get(e),r||(n=document.getElementById(e.slice(1)),n&&(r=tt(n),$r.put(e,r)))):e.nodeType&&(r=tt(e)),r&&t?it(r):r)}function rt(e,t,i,n,r,s){this.children=[],this.childFrags=[],this.vm=t,this.scope=r,this.inserted=!1,this.parentFrag=s,s&&s.childFrags.push(this),this.unlink=e(t,i,n,r,this);var a=this.single=1===i.childNodes.length&&!i.childNodes[0].__vue_anchor;a?(this.node=i.childNodes[0],this.before=st,this.remove=at):(this.node=ne("fragment-start"),this.end=ne("fragment-end"),this.frag=i,q(this.node,i),i.appendChild(this.end),this.before=lt,this.remove=ot),this.node.__vfrag__=this}function st(e,t){this.inserted=!0;var i=t!==!1?L:U;i(this.node,e,this.vm),z(this.node)&&this.callHook(dt)}function at(){this.inserted=!1;var e=z(this.node),t=this;t.callHook(ct),M(this.node,this.vm,function(){e&&t.callHook(ht),t.destroy()})}function lt(e,t){this.inserted=!0;var i=this.vm,n=t!==!1?L:U;se(this.node,this.end,function(t){n(t,e,i)}),z(this.node)&&this.callHook(dt)}function ot(){this.inserted=!1;var e=this,t=z(this.node);e.callHook(ct),ae(this.node,this.end,this.vm,this.frag,function(){t&&e.callHook(ht),e.destroy()})}function dt(e){e._isAttached||e._callHook("attached")}function ct(e){e.$destroy(!1,!0)}function ht(e){e._isAttached&&e._callHook("detached")}function pt(e,t){this.vm=e;var i,n="string"==typeof t;n||ie(t)?i=nt(t,!0):(i=document.createDocumentFragment(),i.appendChild(t)),this.template=i;var r,s=e.constructor.cid;if(s>0){var a=s+(n?t:t.outerHTML);r=Er.get(a),r||(r=$t(i,e.$options,!0),Er.put(a,r))}else r=$t(i,e.$options,!0);this.linker=r}function ut(e,t,i){var n=e.node.previousSibling;if(n){for(e=n.__vfrag__;!(e&&e.forId===i&&e.inserted||n===t);){if(n=n.previousSibling,!n)return;e=n.__vfrag__}return e}}function ft(e){var t=e.node;if(e.end)for(;!t.__vue__&&t!==e.end&&t.nextSibling;)t=t.nextSibling;return t.__vue__}function vt(e){for(var t=-1,i=new Array(e);++t<e;)i[t]=t;return i}function mt(e){Br.push(e),Hr||(Hr=!0,Pi(gt))}function gt(){for(var e=document.documentElement.offsetHeight,t=0;t<Br.length;t++)Br[t]();return Br=[],Hr=!1,e}function yt(e,t,i,n){this.id=t,this.el=e,this.enterClass=t+"-enter",this.leaveClass=t+"-leave",this.hooks=i,this.vm=n,this.pendingCssEvent=this.pendingCssCb=this.cancel=this.pendingJsCb=this.op=this.cb=null,this.justEntered=!1,this.entered=this.left=!1,this.typeCache={};var r=this;["enterNextTick","enterDone","leaveNextTick","leaveDone"].forEach(function(e){r[e]=m(r[e],r)})}function bt(e){return!(e.offsetWidth||e.offsetHeight||e.getClientRects().length)}function _t(e){for(var t={},i=e.trim().split(/\s+/),n=i.length;n--;)t[i[n]]=!0;return t}function kt(e,t){return wi(e)?e.indexOf(t)>-1:s(e,t)}function wt(e,t){for(var i,n,r,s,l,o,d,c=[],h=Object.keys(t),u=h.length;u--;)n=h[u],i=t[n]||Yr,l=p(n),es.test(l)&&(d={name:n,path:l,options:i,mode:Xr.ONE_WAY,raw:null},r=f(n),null===(s=W(e,r))&&(null!==(s=W(e,r+".sync"))?d.mode=Xr.TWO_WAY:null!==(s=W(e,r+".once"))&&(d.mode=Xr.ONE_TIME)),null!==s?(d.raw=s,o=N(s),s=o.expression,d.filters=o.filters,a(s)?d.optimizedLiteral=!0:d.dynamic=!0,d.parentPath=s):null!==(s=V(e,r))?d.raw=s:i.required,c.push(d));return Ct(c)}function Ct(e){return function(t,i){t._props={};for(var n,r,s,a,l,o=e.length;o--;)if(n=e[o],l=n.raw,r=n.path,s=n.options,t._props[r]=n,null===l)de(t,n,xt(t,s));else if(n.dynamic)t._context&&(n.mode===Xr.ONE_TIME?(a=(i||t._context).$get(n.parentPath),de(t,n,a)):t._bindDir({name:"prop",def:Qr,prop:n},null,null,i));else if(n.optimizedLiteral){var p=h(l);a=p===l?c(d(l)):p,de(t,n,a)}else a=s.type===Boolean&&""===l?!0:l,de(t,n,a)}}function xt(e,t){if(!s(t,"default"))return t.type===Boolean?!1:void 0;var i=t["default"];return b(i),"function"==typeof i&&t.type!==Function?i.call(e):i}function $t(e,t,i){var n=i||!t._asComponent?Et(e,t):null,r=n&&n.terminal||"SCRIPT"===e.tagName||!e.hasChildNodes()?null:Mt(e.childNodes,t);return function(e,t,i,s,a){var l=g(t.childNodes),o=At(function(){n&&n(e,t,i,s,a),r&&r(e,l,i,s,a)},e);return jt(e,o)}}function At(e,t){var i=t._directives.length;e();var n=t._directives.slice(i);n.sort(Ot);for(var r=0,s=n.length;s>r;r++)n[r]._bind();return n}function Ot(e,t){return e=e.descriptor.def.priority||ls,t=t.descriptor.def.priority||ls,e>t?-1:e===t?0:1}function jt(e,t,i,n){return function(r){Nt(e,t,r),i&&n&&Nt(i,n)}}function Nt(e,t,i){for(var n=t.length;n--;)t[n]._teardown(),i||e._directives.$remove(t[n])}function Tt(e,t,i,n){var r=wt(t,i),s=At(function(){r(e,n)},e);return jt(e,s)}function St(e,t,i){var n,r,s=t._containerAttrs,a=t._replacerAttrs;if(11!==e.nodeType)t._asComponent?(s&&i&&(n=It(s,i)),a&&(r=It(a,t))):r=It(e.attributes,t);else;return function(e,t,i){var s,a=e._context;a&&n&&(s=At(function(){n(a,t,null,i)},a));var l=At(function(){r&&r(e,t)},e);return jt(e,l,a,s)}}function Et(e,t){var i=e.nodeType;return 1===i&&"SCRIPT"!==e.tagName?Pt(e,t):3===i&&e.data.trim()?Ft(e,t):null}function Pt(e,t){if("TEXTAREA"===e.tagName){var i=E(e.value);i&&(e.setAttribute(":value",P(i)),e.value="")}var n,r=e.hasAttributes();return r&&(n=Vt(e,t)),n||(n=Ht(e,t)),n||(n=zt(e,t)),!n&&r&&(n=It(e.attributes,t)),n}function Ft(e,t){if(e._skip)return Dt;var i=E(e.wholeText);if(!i)return null;for(var n=e.nextSibling;n&&3===n.nodeType;)n._skip=!0,n=n.nextSibling;for(var r,s,a=document.createDocumentFragment(),l=0,o=i.length;o>l;l++)s=i[l],r=s.tag?Rt(s,t):document.createTextNode(s.value),a.appendChild(r);return Lt(i,a,t)}function Dt(e,t){J(t)}function Rt(e,t){function i(t){if(!e.descriptor){var i=N(e.value);e.descriptor={name:t,def:Mr[t],expression:i.expression,filters:i.filters}}}var n;return e.oneTime?n=document.createTextNode(e.value):e.html?(n=document.createComment("v-html"),i("html")):(n=document.createTextNode(" "),i("text")),n}function Lt(e,t){return function(i,n,r,s){for(var a,l,o,d=t.cloneNode(!0),c=g(d.childNodes),h=0,p=e.length;p>h;h++)a=e[h],l=a.value,a.tag&&(o=c[h],a.oneTime?(l=(s||i).$eval(l),a.html?Q(o,nt(l,!0)):o.data=l):i._bindDir(a.descriptor,o,r,s));Q(n,d)}}function Mt(e,t){for(var i,n,r,s=[],a=0,l=e.length;l>a;a++)r=e[a],i=Et(r,t),n=i&&i.terminal||"SCRIPT"===r.tagName||!r.hasChildNodes()?null:Mt(r.childNodes,t),s.push(i,n);return s.length?Bt(s):null}function Bt(e){return function(t,i,n,r,s){for(var a,l,o,d=0,c=0,h=e.length;h>d;c++){a=i[c],l=e[d++],o=e[d++];var p=g(a.childNodes);l&&l(t,a,n,r,s),o&&o(t,p,n,r,s)}}}function Ht(e,t){var i=e.tagName.toLowerCase();if(!on.test(i)){var n=ge(t,"elementDirectives",i);return n?Ut(e,i,"",t,n):void 0}}function zt(e,t){var i=le(e,t);if(i){var n=re(e),r={name:"component",ref:n,expression:i.id,def:Kr.component,modifiers:{literal:!i.dynamic}},s=function(e,t,i,s,a){n&&xe((s||e).$refs,n,null),e._bindDir(r,t,i,s,a)};return s.terminal=!0,s}}function Vt(e,t){if(null!==V(e,"v-pre"))return Wt;if(e.hasAttribute("v-else")){var i=e.previousElementSibling;if(i&&i.hasAttribute("v-if"))return Wt}for(var n,r,s=0,a=as.length;a>s;s++)if(r=as[s],n=e.getAttribute("v-"+r))return Ut(e,r,n,t)}function Wt(){}function Ut(e,t,i,n,r){var s=N(i),a={name:t,expression:s.expression,filters:s.filters,raw:i,def:r||Mr[t]};("for"===t||"router-view"===t)&&(a.ref=re(e));var l=function(e,t,i,n,r){a.ref&&xe((n||e).$refs,a.ref,null),e._bindDir(a,t,i,n,r)};return l.terminal=!0,l}function It(e,t){function i(e,t,i){var n=N(s);f.push({name:e,attr:a,raw:l,def:t,arg:d,modifiers:c,expression:n.expression,filters:n.filters,interp:i})}for(var n,r,s,a,l,o,d,c,h,p,u=e.length,f=[];u--;)if(n=e[u],r=a=n.name,s=l=n.value,p=E(s),d=null,c=Jt(r),r=r.replace(rs,""),p)s=P(p),d=r,i("bind",Mr.bind,!0);else if(ss.test(r))c.literal=!ts.test(r),i("transition",Kr.transition);else if(is.test(r))d=r.replace(is,""),i("on",Mr.on);else if(ts.test(r))o=r.replace(ts,""),"style"===o||"class"===o?i(o,Kr[o]):(d=o,i("bind",Mr.bind));else if(0===r.indexOf("v-")){if(d=(d=r.match(ns))&&d[1],d&&(r=r.replace(ns,"")),o=r.slice(2),"else"===o)continue;h=ge(t,"directives",o),h&&i(o,h)}return f.length?qt(f):void 0}function Jt(e){var t=Object.create(null),i=e.match(rs);if(i)for(var n=i.length;n--;)t[i[n].slice(1)]=!0;return t}function qt(e){return function(t,i,n,r,s){for(var a=e.length;a--;)t._bindDir(e[a],i,n,r,s)}}function Qt(e,t){return t&&(t._containerAttrs=Gt(e)),ie(e)&&(e=nt(e)),t&&(t._asComponent&&!t.template&&(t.template="<slot></slot>"),t.template&&(t._content=Y(e),e=Zt(e,t))),e instanceof DocumentFragment&&(q(ne("v-start",!0),e),e.appendChild(ne("v-end",!0))),e}function Zt(e,t){var i=t.template,n=nt(i,!0);if(n){var r=n.firstChild,s=r.tagName&&r.tagName.toLowerCase();return t.replace?(e===document.body,n.childNodes.length>1||1!==r.nodeType||"component"===s||ge(t,"components",s)||r.hasAttribute("is")||r.hasAttribute(":is")||r.hasAttribute("v-bind:is")||ge(t,"elementDirectives",s)||r.hasAttribute("v-for")||r.hasAttribute("v-if")?n:(t._replacerAttrs=Gt(r),Kt(e,r),r)):(e.appendChild(n),e)}}function Gt(e){return 1===e.nodeType&&e.hasAttributes()?g(e.attributes):void 0}function Kt(e,t){for(var i,n,r=e.attributes,s=r.length;s--;)i=r[s].name,n=r[s].value,t.hasAttribute(i)||os.test(i)?"class"===i&&n.split(/\s+/).forEach(function(e){K(t,e)}):t.setAttribute(i,n)}function Xt(e){function t(){}function i(e,t){var i=new Ue(t,e,null,{lazy:!0});return function(){return i.dirty&&i.evaluate(),be.target&&i.depend(),i.value}}Object.defineProperty(e.prototype,"$data",{get:function(){return this._data},set:function(e){e!==this._data&&this._setData(e)}}),e.prototype._initState=function(){this._initProps(),this._initMeta(),this._initMethods(),this._initData(),this._initComputed()},e.prototype._initProps=function(){var e=this.$options,t=e.el,i=e.props;t=e.el=H(t),this._propsUnlinkFn=t&&1===t.nodeType&&i?Tt(this,t,i,this._scope):null},e.prototype._initData=function(){var e=this._data,t=this.$options.data,i=t&&t();if(i){this._data=i;for(var r in e)null===this._props[r].raw&&s(i,r)||n(i,r,e[r])}var a,l,o=this._data,d=Object.keys(o);for(a=d.length;a--;)l=d[a],this._proxy(l);Ce(o,this)},e.prototype._setData=function(e){e=e||{};var t=this._data;this._data=e;var i,n,r;for(i=Object.keys(t),r=i.length;r--;)n=i[r],n in e||this._unproxy(n);for(i=Object.keys(e),r=i.length;r--;)n=i[r],s(this,n)||this._proxy(n);t.__ob__.removeVm(this),Ce(e,this),this._digest()},e.prototype._proxy=function(e){if(!l(e)){var t=this;Object.defineProperty(t,e,{configurable:!0,enumerable:!0,get:function(){return t._data[e]},set:function(i){t._data[e]=i}})}},e.prototype._unproxy=function(e){l(e)||delete this[e]},e.prototype._digest=function(){for(var e=0,t=this._watchers.length;t>e;e++)this._watchers[e].update(!0)},e.prototype._initComputed=function(){var e=this.$options.computed;if(e)for(var n in e){var r=e[n],s={enumerable:!0,configurable:!0};"function"==typeof r?(s.get=i(r,this),s.set=t):(s.get=r.get?r.cache!==!1?i(r.get,this):m(r.get,this):t,s.set=r.set?m(r.set,this):t),Object.defineProperty(this,n,s)}},e.prototype._initMethods=function(){var e=this.$options.methods;if(e)for(var t in e)this[t]=m(e[t],this)},e.prototype._initMeta=function(){var e=this.$options._meta;if(e)for(var t in e)xe(this,t,e[t])}}function Yt(e){function t(e,t){for(var i,n,r=t.attributes,s=0,a=r.length;a>s;s++)i=r[s].name,cs.test(i)&&(i=i.replace(cs,""),n=(e._scope||e._context).$eval(r[s].value,!0),e.$on(i.replace(cs),n))}function i(e,t,i){if(i){var r,s,a,l;for(s in i)if(r=i[s],wi(r))for(a=0,l=r.length;l>a;a++)n(e,t,s,r[a]);else n(e,t,s,r)}}function n(e,t,i,r,s){var a=typeof r;if("function"===a)e[t](i,r,s);else if("string"===a){var l=e.$options.methods,o=l&&l[r];o&&e[t](i,o,s)}else r&&"object"===a&&n(e,t,i,r.handler,r)}function r(){this._isAttached||(this._isAttached=!0,this.$children.forEach(s))}function s(e){!e._isAttached&&z(e.$el)&&e._callHook("attached")}function a(){this._isAttached&&(this._isAttached=!1,this.$children.forEach(l))}function l(e){e._isAttached&&!z(e.$el)&&e._callHook("detached")}e.prototype._initEvents=function(){var e=this.$options;e._asComponent&&t(this,e.el),i(this,"$on",e.events),i(this,"$watch",e.watch)},e.prototype._initDOMHooks=function(){this.$on("hook:attached",r),this.$on("hook:detached",a)},e.prototype._callHook=function(e){var t=this.$options[e];if(t)for(var i=0,n=t.length;n>i;i++)t[i].call(this);this.$emit("hook:"+e)}}function ei(){}function ti(e,t,i,n,r,s){this.vm=t,this.el=i,this.descriptor=e,this.name=e.name,this.expression=e.expression,this.arg=e.arg,this.modifiers=e.modifiers,this.filters=e.filters,this.literal=this.modifiers&&this.modifiers.literal,this._locked=!1,this._bound=!1,this._listeners=null,this._host=n,this._scope=r,this._frag=s}function ii(e){e.prototype._updateRef=function(e){var t=this.$options._ref;if(t){var i=(this._scope||this._context).$refs;e?i[t]===this&&(i[t]=null):i[t]=this}},e.prototype._compile=function(e){var t=this.$options,i=e;e=Qt(e,t),this._initElement(e);var n,r=this._context&&this._context.$options,s=St(e,t,r),a=this.constructor;t._linkerCachable&&(n=a.linker,n||(n=a.linker=$t(e,t)));var l=s(this,e,this._scope),o=n?n(this,e):$t(e,t)(this,e);return this._unlinkFn=function(){l(),o(!0)},t.replace&&Q(i,e),this._isCompiled=!0,this._callHook("compiled"),e},e.prototype._initElement=function(e){e instanceof DocumentFragment?(this._isFragment=!0,this.$el=this._fragmentStart=e.firstChild,this._fragmentEnd=e.lastChild,3===this._fragmentStart.nodeType&&(this._fragmentStart.data=this._fragmentEnd.data=""),this._fragment=e):this.$el=e,this.$el.__vue__=this,this._callHook("beforeCompile")},e.prototype._bindDir=function(e,t,i,n,r){this._directives.push(new ti(e,this,t,i,n,r))},e.prototype._destroy=function(e,t){if(this._isBeingDestroyed)return void(t||this._cleanup());this._callHook("beforeDestroy"),this._isBeingDestroyed=!0;var i,n=this.$parent;for(n&&!n._isBeingDestroyed&&(n.$children.$remove(this),this._updateRef(!0)),i=this.$children.length;i--;)this.$children[i].$destroy();for(this._propsUnlinkFn&&this._propsUnlinkFn(),this._unlinkFn&&this._unlinkFn(),i=this._watchers.length;i--;)this._watchers[i].teardown();this.$el&&(this.$el.__vue__=null);var r=this;e&&this.$el?this.$remove(function(){r._cleanup()}):t||this._cleanup()},e.prototype._cleanup=function(){this._isDestroyed||(this._frag&&this._frag.children.$remove(this),this._data.__ob__&&this._data.__ob__.removeVm(this),this.$el=this.$parent=this.$root=this.$children=this._watchers=this._context=this._scope=this._directives=null,this._isDestroyed=!0,this._callHook("destroyed"),this.$off())}}function ni(e){e.prototype._applyFilters=function(e,t,i,n){var r,s,a,l,o,d,c,h,p;for(d=0,c=i.length;c>d;d++)if(r=i[d],s=ge(this.$options,"filters",r.name),s&&(s=n?s.write:s.read||s,"function"==typeof s)){if(a=n?[e,t]:[e],o=n?2:1,r.args)for(h=0,p=r.args.length;p>h;h++)l=r.args[h],a[h+o]=l.dynamic?this.$get(l.value):l.value;e=s.apply(this,a)}return e},e.prototype._resolveComponent=function(t,i){var n=ge(this.$options,"components",t);if(n)if(n.options)i(n);else if(n.resolved)i(n.resolved);else if(n.requested)n.pendingCallbacks.push(i);else{n.requested=!0;var r=n.pendingCallbacks=[i];n(function(t){_(t)&&(t=e.extend(t)),n.resolved=t;for(var i=0,s=r.length;s>i;i++)r[i](t)},function(e){})}}}function ri(e){function t(e){return new Function("return function "+v(e)+" (options) { this._init(options) }")()}e.util=vn,e.config=sn,e.set=n,e["delete"]=r,e.nextTick=Pi,e.compiler=ds,e.FragmentFactory=pt,e.internalDirectives=Kr,e.parsers={path:En,text:tn,template:Sr,directive:Zi,expression:Jn},e.cid=0;var i=1;e.extend=function(e){e=e||{};var n=this,r=0===n.cid;if(r&&e._Ctor)return e._Ctor;var s=e.name||n.options.name,a=t(s||"VueComponent");return a.prototype=Object.create(n.prototype),a.prototype.constructor=a,a.cid=i++,a.options=me(n.options,e),a["super"]=n,a.extend=n.extend,sn._assetTypes.forEach(function(e){a[e]=n[e]}),s&&(a.options.components[s]=a),r&&(e._Ctor=a),a},e.use=function(e){if(!e.installed){var t=g(arguments,1);return t.unshift(this),"function"==typeof e.install?e.install.apply(e,t):e.apply(null,t),e.installed=!0,this}},e.mixin=function(t){e.options=me(e.options,t)},sn._assetTypes.forEach(function(t){e[t]=function(i,n){return n?("component"===t&&_(n)&&(n.name=i,n=e.extend(n)),this.options[t+"s"][i]=n,n):this.options[t+"s"][i]}})}function si(e){function t(e){return JSON.parse(JSON.stringify(e))}e.prototype.$get=function(e,t){var i=Me(e);if(i){if(t&&!Be(e)){var n=this;return function(){i.get.call(n,n)}}try{return i.get.call(this,this)}catch(r){}}},e.prototype.$set=function(e,t){var i=Me(e,!0);i&&i.set&&i.set.call(this,this,t)},e.prototype.$delete=function(e){r(this._data,e)},e.prototype.$watch=function(e,t,i){var n,r=this;"string"==typeof e&&(n=N(e),e=n.expression);var s=new Ue(r,e,t,{deep:i&&i.deep,filters:n&&n.filters});return i&&i.immediate&&t.call(r,s.value),function(){s.teardown()}},e.prototype.$eval=function(e,t){if(hs.test(e)){var i=N(e),n=this.$get(i.expression,t);return i.filters?this._applyFilters(n,null,i.filters):n}return this.$get(e,t)},e.prototype.$interpolate=function(e){var t=E(e),i=this;return t?1===t.length?i.$eval(t[0].value)+"":t.map(function(e){return e.tag?i.$eval(e.value):e.value}).join(""):e;
-},e.prototype.$log=function(e){var i=e?Te(this._data,e):this._data;if(i&&(i=t(i)),!e)for(var n in this.$options.computed)i[n]=t(this[n]);console.log(i)}}function ai(e){function t(e,t,n,r,s,a){t=i(t);var l=!z(t),o=r===!1||l?s:a,d=!l&&!e._isAttached&&!z(e.$el);return e._isFragment?(se(e._fragmentStart,e._fragmentEnd,function(i){o(i,t,e)}),n&&n()):o(e.$el,t,e,n),d&&e._callHook("attached"),e}function i(e){return"string"==typeof e?document.querySelector(e):e}function n(e,t,i,n){t.appendChild(e),n&&n()}function r(e,t,i,n){U(e,t),n&&n()}function s(e,t,i){J(e),i&&i()}e.prototype.$nextTick=function(e){Pi(e,this)},e.prototype.$appendTo=function(e,i,r){return t(this,e,i,r,n,R)},e.prototype.$prependTo=function(e,t,n){return e=i(e),e.hasChildNodes()?this.$before(e.firstChild,t,n):this.$appendTo(e,t,n),this},e.prototype.$before=function(e,i,n){return t(this,e,i,n,r,L)},e.prototype.$after=function(e,t,n){return e=i(e),e.nextSibling?this.$before(e.nextSibling,t,n):this.$appendTo(e.parentNode,t,n),this},e.prototype.$remove=function(e,t){if(!this.$el.parentNode)return e&&e();var i=this._isAttached&&z(this.$el);i||(t=!1);var n=this,r=function(){i&&n._callHook("detached"),e&&e()};if(this._isFragment)ae(this._fragmentStart,this._fragmentEnd,this,this._fragment,r);else{var a=t===!1?s:M;a(this.$el,this,r)}return this}}function li(e){function t(e,t,n){var r=e.$parent;if(r&&n&&!i.test(t))for(;r;)r._eventsCount[t]=(r._eventsCount[t]||0)+n,r=r.$parent}e.prototype.$on=function(e,i){return(this._events[e]||(this._events[e]=[])).push(i),t(this,e,1),this},e.prototype.$once=function(e,t){function i(){n.$off(e,i),t.apply(this,arguments)}var n=this;return i.fn=t,this.$on(e,i),this},e.prototype.$off=function(e,i){var n;if(!arguments.length){if(this.$parent)for(e in this._events)n=this._events[e],n&&t(this,e,-n.length);return this._events={},this}if(n=this._events[e],!n)return this;if(1===arguments.length)return t(this,e,-n.length),this._events[e]=null,this;for(var r,s=n.length;s--;)if(r=n[s],r===i||r.fn===i){t(this,e,-1),n.splice(s,1);break}return this},e.prototype.$emit=function(e){var t=this._events[e],i=!t;if(t){t=t.length>1?g(t):t;for(var n=g(arguments,1),r=0,s=t.length;s>r;r++){var a=t[r].apply(this,n);a===!0&&(i=!0)}}return i},e.prototype.$broadcast=function(e){if(this._eventsCount[e]){for(var t=this.$children,i=0,n=t.length;n>i;i++){var r=t[i],s=r.$emit.apply(r,arguments);s&&r.$broadcast.apply(r,arguments)}return this}},e.prototype.$dispatch=function(){this.$emit.apply(this,arguments);for(var e=this.$parent;e;){var t=e.$emit.apply(e,arguments);e=t?e.$parent:null}return this};var i=/^hook:/}function oi(e){function t(){this._isAttached=!0,this._isReady=!0,this._callHook("ready")}e.prototype.$mount=function(e){return this._isCompiled?void 0:(e=H(e),e||(e=document.createElement("div")),this._compile(e),this._initDOMHooks(),z(this.$el)?(this._callHook("attached"),t.call(this)):this.$once("hook:attached",t),this)},e.prototype.$destroy=function(e,t){this._destroy(e,t)},e.prototype.$compile=function(e,t,i,n){return $t(e,this.$options,!0)(this,e,t,i,n)}}function di(e){this._init(e)}function ci(e,t,i){return i=i?parseInt(i,10):0,"number"==typeof t?e.slice(i,i+t):e}function hi(e,t,i){if(e=ps(e),null==t)return e;if("function"==typeof t)return e.filter(t);t=(""+t).toLowerCase();for(var n,r,s,a,l="in"===i?3:2,o=g(arguments,l).reduce(function(e,t){return e.concat(t)},[]),d=[],c=0,h=e.length;h>c;c++)if(n=e[c],s=n&&n.$value||n,a=o.length){for(;a--;)if(r=o[a],"$key"===r&&ui(n.$key,t)||ui(Te(s,r),t)){d.push(n);break}}else ui(n,t)&&d.push(n);return d}function pi(e,t,i){if(e=ps(e),!t)return e;var n=i&&0>i?-1:1;return e.slice().sort(function(e,i){return"$key"!==t&&(b(e)&&"$value"in e&&(e=e.$value),b(i)&&"$value"in i&&(i=i.$value)),e=b(e)?Te(e,t):e,i=b(i)?Te(i,t):i,e===i?0:e>i?n:-n})}function ui(e,t){var i;if(_(e)){var n=Object.keys(e);for(i=n.length;i--;)if(ui(e[n[i]],t))return!0}else if(wi(e)){for(i=e.length;i--;)if(ui(e[i],t))return!0}else if(null!=e)return e.toString().toLowerCase().indexOf(t)>-1}function fi(e,t,i){function n(e){!ie(e)||e.hasAttribute("v-if")||e.hasAttribute("v-for")||(e=nt(e)),e=it(e),r.appendChild(e)}for(var r=document.createDocumentFragment(),s=0,a=e.length;a>s;s++){var l=e[s];i&&!l.__v_selected?n(l):i||l.parentNode!==t||(l.__v_selected=!0,n(l))}return r}var vi=Object.prototype.hasOwnProperty,mi=/^\s?(true|false|[\d\.]+|'[^']*'|"[^"]*")\s?$/,gi=/-(\w)/g,yi=/([a-z\d])([A-Z])/g,bi=/(?:^|[-_\/])(\w)/g,_i=Object.prototype.toString,ki="[object Object]",wi=Array.isArray,Ci="__proto__"in{},xi="undefined"!=typeof window&&"[object Object]"!==Object.prototype.toString.call(window),$i=xi&&navigator.userAgent.toLowerCase().indexOf("msie 9.0")>0,Ai=xi&&navigator.userAgent.toLowerCase().indexOf("android")>0,Oi=void 0,ji=void 0,Ni=void 0,Ti=void 0;if(xi&&!$i){var Si=void 0===window.ontransitionend&&void 0!==window.onwebkittransitionend,Ei=void 0===window.onanimationend&&void 0!==window.onwebkitanimationend;Oi=Si?"WebkitTransition":"transition",ji=Si?"webkitTransitionEnd":"transitionend",Ni=Ei?"WebkitAnimation":"animation",Ti=Ei?"webkitAnimationEnd":"animationend"}var Pi=function(){function e(){n=!1;var e=i.slice(0);i=[];for(var t=0;t<e.length;t++)e[t]()}var t,i=[],n=!1;if("undefined"!=typeof MutationObserver){var r=1,s=new MutationObserver(e),a=document.createTextNode(r);s.observe(a,{characterData:!0}),t=function(){r=(r+1)%2,a.data=r}}else t=setTimeout;return function(r,s){var a=s?function(){r.call(s)}:r;i.push(a),n||(n=!0,t(e,0))}}(),Fi=A.prototype;Fi.put=function(e,t){var i={key:e,value:t};return this._keymap[e]=i,this.tail?(this.tail.newer=i,i.older=this.tail):this.head=i,this.tail=i,this.size===this.limit?this.shift():void this.size++},Fi.shift=function(){var e=this.head;return e&&(this.head=this.head.newer,this.head.older=void 0,e.newer=e.older=void 0,this._keymap[e.key]=void 0),e},Fi.get=function(e,t){var i=this._keymap[e];if(void 0!==i)return i===this.tail?t?i:i.value:(i.newer&&(i===this.head&&(this.head=i.newer),i.newer.older=i.older),i.older&&(i.older.newer=i.newer),i.newer=void 0,i.older=this.tail,this.tail&&(this.tail.newer=i),this.tail=i,t?i:i.value)};var Di,Ri,Li,Mi,Bi,Hi,zi,Vi,Wi,Ui,Ii,Ji=new A(1e3),qi=/[^\s'"]+|'[^']*'|"[^"]*"/g,Qi=/^in$|^-?\d+/,Zi=Object.freeze({parseDirective:N}),Gi=/[-.*+?^${}()|[\]\/\\]/g,Ki=void 0,Xi=void 0,Yi=void 0,en=/[^|]\|[^|]/,tn=Object.freeze({compileRegex:S,parseText:E,tokensToExp:P}),nn=["{{","}}"],rn=["{{{","}}}"],sn=Object.defineProperties({debug:!1,silent:!1,async:!0,warnExpressionErrors:!0,convertAllProperties:!1,_delimitersChanged:!0,_assetTypes:["component","directive","elementDirective","filter","transition","partial"],_propBindingModes:{ONE_WAY:0,TWO_WAY:1,ONE_TIME:2},_maxUpdateCount:100},{delimiters:{get:function(){return nn},set:function(e){nn=e,S()},configurable:!0,enumerable:!0},unsafeDelimiters:{get:function(){return rn},set:function(e){rn=e,S()},configurable:!0,enumerable:!0}}),an=void 0,ln=/^v-ref:/,on=/^(div|p|span|img|a|b|i|br|ul|ol|li|h1|h2|h3|h4|h5|h6|code|pre|table|th|td|tr|form|label|input|select|option|nav|article|section|header|footer)$/,dn=sn.optionMergeStrategies=Object.create(null);dn.data=function(e,t,i){return i?e||t?function(){var n="function"==typeof t?t.call(i):t,r="function"==typeof e?e.call(i):void 0;return n?he(n,r):r}:void 0:t?"function"!=typeof t?e:e?function(){return he(t.call(this),e.call(this))}:t:e},dn.el=function(e,t,i){if(i||!t||"function"==typeof t){var n=t||e;return i&&"function"==typeof n?n.call(i):n}},dn.init=dn.created=dn.ready=dn.attached=dn.detached=dn.beforeCompile=dn.compiled=dn.beforeDestroy=dn.destroyed=function(e,t){return t?e?e.concat(t):wi(t)?t:[t]:e},dn.paramAttributes=function(){},sn._assetTypes.forEach(function(e){dn[e+"s"]=pe}),dn.watch=dn.events=function(e,t){if(!t)return e;if(!e)return t;var i={};y(i,e);for(var n in t){var r=i[n],s=t[n];r&&!wi(r)&&(r=[r]),i[n]=r?r.concat(s):[s]}return i},dn.props=dn.methods=dn.computed=function(e,t){if(!t)return e;if(!e)return t;var i=Object.create(null);return y(i,e),y(i,t),i};var cn=function(e,t){return void 0===t?e:t},hn=Array.prototype,pn=Object.create(hn);["push","pop","shift","unshift","splice","sort","reverse"].forEach(function(e){var t=hn[e];k(pn,e,function(){for(var i=arguments.length,n=new Array(i);i--;)n[i]=arguments[i];var r,s=t.apply(this,n),a=this.__ob__;switch(e){case"push":r=n;break;case"unshift":r=n;break;case"splice":r=n.slice(2)}return r&&a.observeArray(r),a.dep.notify(),s})}),k(hn,"$set",function(e,t){return e>=this.length&&(this.length=e+1),this.splice(e,1,t)[0]}),k(hn,"$remove",function(e){if(this.length){var t=C(this,e);return t>-1?this.splice(t,1):void 0}});var un=0;be.target=null,be.prototype.addSub=function(e){this.subs.push(e)},be.prototype.removeSub=function(e){this.subs.$remove(e)},be.prototype.depend=function(){be.target.addDep(this)},be.prototype.notify=function(){for(var e=g(this.subs),t=0,i=e.length;i>t;t++)e[t].update()};var fn=Object.getOwnPropertyNames(pn);_e.prototype.walk=function(e){for(var t=Object.keys(e),i=t.length;i--;)this.convert(t[i],e[t[i]])},_e.prototype.observeArray=function(e){for(var t=e.length;t--;)Ce(e[t])},_e.prototype.convert=function(e,t){xe(this.value,e,t)},_e.prototype.addVm=function(e){(this.vms||(this.vms=[])).push(e)},_e.prototype.removeVm=function(e){this.vms.$remove(e)};var vn=Object.freeze({defineReactive:xe,set:n,del:r,hasOwn:s,isLiteral:a,isReserved:l,_toString:o,toNumber:d,toBoolean:c,stripQuotes:h,camelize:p,hyphenate:f,classify:v,bind:m,toArray:g,extend:y,isObject:b,isPlainObject:_,def:k,debounce:w,indexOf:C,cancellable:x,looseEqual:$,isArray:wi,hasProto:Ci,inBrowser:xi,isIE9:$i,isAndroid:Ai,get transitionProp(){return Oi},get transitionEndEvent(){return ji},get animationProp(){return Ni},get animationEndEvent(){return Ti},nextTick:Pi,query:H,inDoc:z,getAttr:V,getBindAttr:W,before:U,after:I,remove:J,prepend:q,replace:Q,on:Z,off:G,addClass:K,removeClass:X,extractContent:Y,trimNode:ee,isTemplate:ie,createAnchor:ne,findRef:re,mapNodeRange:se,removeNodeRange:ae,mergeOptions:me,resolveAsset:ge,assertAsset:ye,checkComponentAttr:le,initProp:de,assertProp:ce,commonTagRE:on,get warn(){return an}}),mn=0,gn=new A(1e3),yn=0,bn=1,_n=2,kn=3,wn=0,Cn=1,xn=2,$n=3,An=4,On=5,jn=6,Nn=7,Tn=8,Sn=[];Sn[wn]={ws:[wn],ident:[$n,yn],"[":[An],eof:[Nn]},Sn[Cn]={ws:[Cn],".":[xn],"[":[An],eof:[Nn]},Sn[xn]={ws:[xn],ident:[$n,yn]},Sn[$n]={ident:[$n,yn],0:[$n,yn],number:[$n,yn],ws:[Cn,bn],".":[xn,bn],"[":[An,bn],eof:[Nn,bn]},Sn[An]={"'":[On,yn],'"':[jn,yn],"[":[An,_n],"]":[Cn,kn],eof:Tn,"else":[An,yn]},Sn[On]={"'":[An,yn],eof:Tn,"else":[On,yn]},Sn[jn]={'"':[An,yn],eof:Tn,"else":[jn,yn]};var En=Object.freeze({parsePath:Ne,getPath:Te,setPath:Se}),Pn=new A(1e3),Fn="Math,Date,this,true,false,null,undefined,Infinity,NaN,isNaN,isFinite,decodeURI,decodeURIComponent,encodeURI,encodeURIComponent,parseInt,parseFloat",Dn=new RegExp("^("+Fn.replace(/,/g,"\\b|")+"\\b)"),Rn="break,case,class,catch,const,continue,debugger,default,delete,do,else,export,extends,finally,for,function,if,import,in,instanceof,let,return,super,switch,throw,try,var,while,with,yield,enum,await,implements,package,proctected,static,interface,private,public",Ln=new RegExp("^("+Rn.replace(/,/g,"\\b|")+"\\b)"),Mn=/\s/g,Bn=/\n/g,Hn=/[\{,]\s*[\w\$_]+\s*:|('[^']*'|"[^"]*")|new |typeof |void /g,zn=/"(\d+)"/g,Vn=/^[A-Za-z_$][\w$]*(\.[A-Za-z_$][\w$]*|\['.*?'\]|\[".*?"\]|\[\d+\]|\[[A-Za-z_$][\w$]*\])*$/,Wn=/[^\w$\.]([A-Za-z_$][\w$]*(\.[A-Za-z_$][\w$]*|\['.*?'\]|\[".*?"\])*)/g,Un=/^(true|false)$/,In=[],Jn=Object.freeze({parseExpression:Me,isSimplePath:Be}),qn=[],Qn=[],Zn={},Gn={},Kn=!1,Xn=!1,Yn=0;Ue.prototype.addDep=function(e){var t=e.id;this.newDeps[t]||(this.newDeps[t]=e,this.deps[t]||(this.deps[t]=e,e.addSub(this)))},Ue.prototype.get=function(){this.beforeGet();var e,t=this.scope||this.vm;try{e=this.getter.call(t,t)}catch(i){}return this.deep&&Ie(e),this.preProcess&&(e=this.preProcess(e)),this.filters&&(e=t._applyFilters(e,null,this.filters,!1)),this.postProcess&&(e=this.postProcess(e)),this.afterGet(),e},Ue.prototype.set=function(e){var t=this.scope||this.vm;this.filters&&(e=t._applyFilters(e,this.value,this.filters,!0));try{this.setter.call(t,t,e)}catch(i){}var n=t.$forContext;if(n&&n.alias===this.expression){if(n.filters)return;n._withLock(function(){t.$key?n.rawValue[t.$key]=e:n.rawValue.$set(t.$index,e)})}},Ue.prototype.beforeGet=function(){be.target=this,this.newDeps=Object.create(null)},Ue.prototype.afterGet=function(){be.target=null;for(var e=Object.keys(this.deps),t=e.length;t--;){var i=e[t];this.newDeps[i]||this.deps[i].removeSub(this)}this.deps=this.newDeps},Ue.prototype.update=function(e){this.lazy?this.dirty=!0:this.sync||!sn.async?this.run():(this.shallow=this.queued?e?this.shallow:!1:!!e,this.queued=!0,We(this))},Ue.prototype.run=function(){if(this.active){var e=this.get();if(e!==this.value||(wi(e)||this.deep)&&!this.shallow){var t=this.value;this.value=e;this.prevError;this.cb.call(this.vm,e,t)}this.queued=this.shallow=!1}},Ue.prototype.evaluate=function(){var e=be.target;this.value=this.get(),this.dirty=!1,be.target=e},Ue.prototype.depend=function(){for(var e=Object.keys(this.deps),t=e.length;t--;)this.deps[e[t]].depend()},Ue.prototype.teardown=function(){if(this.active){this.vm._isBeingDestroyed||this.vm._watchers.$remove(this);for(var e=Object.keys(this.deps),t=e.length;t--;)this.deps[e[t]].removeSub(this);this.active=!1,this.vm=this.cb=this.value=null}};var er={bind:function(){var e=this.el;this.vm.$once("hook:compiled",function(){e.removeAttribute("v-cloak")})}},tr={bind:function(){}},ir={priority:1500,bind:function(){if(this.arg){var e=this.id=p(this.arg),t=(this._scope||this.vm).$els;s(t,e)?t[e]=this.el:xe(t,e,this.el)}},unbind:function(){var e=(this._scope||this.vm).$els;e[this.id]===this.el&&(e[this.id]=null)}},nr=["-webkit-","-moz-","-ms-"],rr=["Webkit","Moz","ms"],sr=/!important;?$/,ar=Object.create(null),lr=null,or={deep:!0,update:function(e){"string"==typeof e?this.el.style.cssText=e:wi(e)?this.handleObject(e.reduce(y,{})):this.handleObject(e||{})},handleObject:function(e){var t,i,n=this.cache||(this.cache={});for(t in n)t in e||(this.handleSingle(t,null),delete n[t]);for(t in e)i=e[t],i!==n[t]&&(n[t]=i,this.handleSingle(t,i))},handleSingle:function(e,t){if(e=Je(e))if(null!=t&&(t+=""),t){var i=sr.test(t)?"important":"";i&&(t=t.replace(sr,"").trim()),this.el.style.setProperty(e,t,i)}else this.el.style.removeProperty(e)}},dr="http://www.w3.org/1999/xlink",cr=/^xlink:/,hr={value:1,checked:1,selected:1},pr={value:"_value","true-value":"_trueValue","false-value":"_falseValue"},ur=/^v-|^:|^@|^(is|transition|transition-mode|debounce|track-by|stagger|enter-stagger|leave-stagger)$/,fr={priority:850,bind:function(){var e=this.arg,t=this.el.tagName;if(e||(this.deep=!0),this.descriptor.interp){(ur.test(e)||"name"===e&&("PARTIAL"===t||"SLOT"===t))&&(this.el.removeAttribute(e),this.invalid=!0)}},update:function(e){if(!this.invalid){var t=this.arg;this.arg?this.handleSingle(t,e):this.handleObject(e||{})}},handleObject:or.handleObject,handleSingle:function(e,t){hr[e]&&e in this.el&&(this.el[e]="value"===e?t||"":t);var i=pr[e];if(i){this.el[i]=t;var n=this.el.__v_model;n&&n.listener()}return"value"===e&&"TEXTAREA"===this.el.tagName?void this.el.removeAttribute(e):void(null!=t&&t!==!1?cr.test(e)?this.el.setAttributeNS(dr,e,t):this.el.setAttribute(e,t):this.el.removeAttribute(e))}},vr={esc:27,tab:9,enter:13,space:32,"delete":46,up:38,left:37,right:39,down:40},mr={acceptStatement:!0,priority:700,bind:function(){if("IFRAME"===this.el.tagName&&"load"!==this.arg){var e=this;this.iframeBind=function(){Z(e.el.contentWindow,e.arg,e.handler)},this.on("load",this.iframeBind)}},update:function(e){if(this.descriptor.raw||(e=function(){}),"function"==typeof e){this.modifiers.stop&&(e=Ze(e)),this.modifiers.prevent&&(e=Ge(e));var t=Object.keys(this.modifiers).filter(function(e){return"stop"!==e&&"prevent"!==e});t.length&&(e=Qe(e,t)),this.reset(),this.handler=e,this.iframeBind?this.iframeBind():Z(this.el,this.arg,this.handler)}},reset:function(){var e=this.iframeBind?this.el.contentWindow:this.el;this.handler&&G(e,this.arg,this.handler)},unbind:function(){this.reset()}},gr={bind:function(){function e(){var e=i.checked;return e&&i.hasOwnProperty("_trueValue")?i._trueValue:!e&&i.hasOwnProperty("_falseValue")?i._falseValue:e}var t=this,i=this.el;this.getValue=function(){return i.hasOwnProperty("_value")?i._value:t.params.number?d(i.value):i.value},this.listener=function(){var n=t._watcher.value;if(wi(n)){var r=t.getValue();i.checked?C(n,r)<0&&n.push(r):n.$remove(r)}else t.set(e())},this.on("change",this.listener),i.checked&&(this.afterBind=this.listener)},update:function(e){var t=this.el;wi(e)?t.checked=C(e,this.getValue())>-1:t.hasOwnProperty("_trueValue")?t.checked=$(e,t._trueValue):t.checked=!!e}},yr={bind:function(){var e=this,t=this.el;this.forceUpdate=function(){e._watcher&&e.update(e._watcher.get())};var i=this.multiple=t.hasAttribute("multiple");this.listener=function(){var n=Ke(t,i);n=e.params.number?wi(n)?n.map(d):d(n):n,e.set(n)},this.on("change",this.listener);var n=Ke(t,i,!0);(i&&n.length||!i&&null!==n)&&(this.afterBind=this.listener),this.vm.$on("hook:attached",this.forceUpdate)},update:function(e){var t=this.el;t.selectedIndex=-1;for(var i,n,r=this.multiple&&wi(e),s=t.options,a=s.length;a--;)i=s[a],n=i.hasOwnProperty("_value")?i._value:i.value,i.selected=r?Xe(e,n)>-1:$(e,n)},unbind:function(){this.vm.$off("hook:attached",this.forceUpdate)}},br={bind:function(){var e=this,t=this.el;this.getValue=function(){if(t.hasOwnProperty("_value"))return t._value;var i=t.value;return e.params.number&&(i=d(i)),i},this.listener=function(){e.set(e.getValue())},this.on("change",this.listener),t.checked&&(this.afterBind=this.listener)},update:function(e){this.el.checked=$(e,this.getValue())}},_r={bind:function(){var e=this,t=this.el,i="range"===t.type,n=this.params.lazy,r=this.params.number,s=this.params.debounce,a=!1;Ai||i||(this.on("compositionstart",function(){a=!0}),this.on("compositionend",function(){a=!1,n||e.listener()})),this.focused=!1,i||(this.on("focus",function(){e.focused=!0}),this.on("blur",function(){e.focused=!1,e.listener()})),this.listener=function(){if(!a){var n=r||i?d(t.value):t.value;e.set(n),Pi(function(){e._bound&&!e.focused&&e.update(e._watcher.value)})}},s&&(this.listener=w(this.listener,s)),this.hasjQuery="function"==typeof jQuery,this.hasjQuery?(jQuery(t).on("change",this.listener),n||jQuery(t).on("input",this.listener)):(this.on("change",this.listener),n||this.on("input",this.listener)),!n&&$i&&(this.on("cut",function(){Pi(e.listener)}),this.on("keyup",function(t){(46===t.keyCode||8===t.keyCode)&&e.listener()})),(t.hasAttribute("value")||"TEXTAREA"===t.tagName&&t.value.trim())&&(this.afterBind=this.listener)},update:function(e){this.el.value=o(e)},unbind:function(){var e=this.el;this.hasjQuery&&(jQuery(e).off("change",this.listener),jQuery(e).off("input",this.listener))}},kr={text:_r,radio:br,select:yr,checkbox:gr},wr={priority:800,twoWay:!0,handlers:kr,params:["lazy","number","debounce"],bind:function(){this.checkFilters(),this.hasRead&&!this.hasWrite;var e,t=this.el,i=t.tagName;if("INPUT"===i)e=kr[t.type]||kr.text;else if("SELECT"===i)e=kr.select;else{if("TEXTAREA"!==i)return;e=kr.text}t.__v_model=this,e.bind.call(this),this.update=e.update,this._unbind=e.unbind},checkFilters:function(){var e=this.filters;if(e)for(var t=e.length;t--;){var i=ge(this.vm.$options,"filters",e[t].name);("function"==typeof i||i.read)&&(this.hasRead=!0),i.write&&(this.hasWrite=!0)}},unbind:function(){this.el.__v_model=null,this._unbind&&this._unbind()}},Cr={bind:function(){var e=this.el.nextElementSibling;e&&null!==V(e,"v-else")&&(this.elseEl=e)},update:function(e){this.apply(this.el,e),this.elseEl&&this.apply(this.elseEl,!e)},apply:function(e,t){B(e,t?1:-1,function(){e.style.display=t?"":"none"},this.vm)}},xr=new A(1e3),$r=new A(1e3),Ar={efault:[0,"",""],legend:[1,"<fieldset>","</fieldset>"],tr:[2,"<table><tbody>","</tbody></table>"],col:[2,"<table><tbody></tbody><colgroup>","</colgroup></table>"]};Ar.td=Ar.th=[3,"<table><tbody><tr>","</tr></tbody></table>"],Ar.option=Ar.optgroup=[1,'<select multiple="multiple">',"</select>"],Ar.thead=Ar.tbody=Ar.colgroup=Ar.caption=Ar.tfoot=[1,"<table>","</table>"],Ar.g=Ar.defs=Ar.symbol=Ar.use=Ar.image=Ar.text=Ar.circle=Ar.ellipse=Ar.line=Ar.path=Ar.polygon=Ar.polyline=Ar.rect=[1,'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"version="1.1">',"</svg>"];var Or=/<([\w:]+)/,jr=/&\w+;|&#\d+;|&#x[\dA-F]+;/,Nr=function(){if(xi){var e=document.createElement("div");return e.innerHTML="<template>1</template>",!e.cloneNode(!0).firstChild.innerHTML}return!1}(),Tr=function(){if(xi){var e=document.createElement("textarea");return e.placeholder="t","t"===e.cloneNode(!0).value}return!1}(),Sr=Object.freeze({cloneNode:it,parseTemplate:nt});rt.prototype.callHook=function(e){var t,i;for(t=0,i=this.children.length;i>t;t++)e(this.children[t]);for(t=0,i=this.childFrags.length;i>t;t++)this.childFrags[t].callHook(e)},rt.prototype.destroy=function(){this.parentFrag&&this.parentFrag.childFrags.$remove(this),this.unlink()};var Er=new A(5e3);pt.prototype.create=function(e,t,i){var n=it(this.template);return new rt(this.linker,this.vm,n,e,t,i)};var Pr={priority:2e3,bind:function(){var e=this.el;if(e.__vue__)this.invalid=!0;else{var t=e.nextElementSibling;t&&null!==V(t,"v-else")&&(J(t),this.elseFactory=new pt(this.vm,t)),this.anchor=ne("v-if"),Q(e,this.anchor),this.factory=new pt(this.vm,e)}},update:function(e){this.invalid||(e?this.frag||this.insert():this.remove())},insert:function(){this.elseFrag&&(this.elseFrag.remove(),this.elseFrag=null),this.frag=this.factory.create(this._host,this._scope,this._frag),this.frag.before(this.anchor)},remove:function(){this.frag&&(this.frag.remove(),this.frag=null),this.elseFactory&&!this.elseFrag&&(this.elseFrag=this.elseFactory.create(this._host,this._scope,this._frag),this.elseFrag.before(this.anchor))},unbind:function(){this.frag&&this.frag.destroy()}},Fr=0,Dr={priority:2e3,params:["track-by","stagger","enter-stagger","leave-stagger"],bind:function(){var e=this.expression.match(/(.*) in (.*)/);if(e){var t=e[1].match(/\((.*),(.*)\)/);t?(this.iterator=t[1].trim(),this.alias=t[2].trim()):this.alias=e[1].trim(),this.expression=e[2]}if(this.alias){this.id="__v-for__"+ ++Fr;var i=this.el.tagName;this.isOption=("OPTION"===i||"OPTGROUP"===i)&&"SELECT"===this.el.parentNode.tagName,this.start=ne("v-for-start"),this.end=ne("v-for-end"),Q(this.el,this.end),U(this.start,this.end),this.cache=Object.create(null),this.factory=new pt(this.vm,this.el)}},update:function(e){this.diff(e),this.updateRef(),this.updateModel()},diff:function(e){var t,i,n,r,a,l,o=e[0],d=this.fromObject=b(o)&&s(o,"$key")&&s(o,"$value"),c=this.params.trackBy,h=this.frags,p=this.frags=new Array(e.length),u=this.alias,f=this.iterator,v=this.start,m=this.end,g=z(v),y=!h;for(t=0,i=e.length;i>t;t++)o=e[t],r=d?o.$key:null,a=d?o.$value:o,l=!b(a),n=!y&&this.getCachedFrag(a,t,r),n?(n.reused=!0,n.scope.$index=t,r&&(n.scope.$key=r),f&&(n.scope[f]=null!==r?r:t),(c||d||l)&&(n.scope[u]=a)):(n=this.create(a,u,t,r),n.fresh=!y),p[t]=n,y&&n.before(m);if(!y){var _=0,k=h.length-p.length;for(t=0,i=h.length;i>t;t++)n=h[t],n.reused||(this.deleteCachedFrag(n),this.remove(n,_++,k,g));var w,C,x,$=0;for(t=0,i=p.length;i>t;t++)n=p[t],w=p[t-1],C=w?w.staggerCb?w.staggerAnchor:w.end||w.node:v,n.reused&&!n.staggerCb?(x=ut(n,v,this.id),x===w||x&&ut(x,v,this.id)===w||this.move(n,C)):this.insert(n,$++,C,g),n.reused=n.fresh=!1}},create:function(e,t,i,n){var r=this._host,s=this._scope||this.vm,a=Object.create(s);a.$refs=Object.create(s.$refs),a.$els=Object.create(s.$els),a.$parent=s,a.$forContext=this,xe(a,t,e),xe(a,"$index",i),n?xe(a,"$key",n):a.$key&&k(a,"$key",null),this.iterator&&xe(a,this.iterator,null!==n?n:i);var l=this.factory.create(r,a,this._frag);return l.forId=this.id,this.cacheFrag(e,l,i,n),l},updateRef:function(){var e=this.descriptor.ref;if(e){var t,i=(this._scope||this.vm).$refs;this.fromObject?(t={},this.frags.forEach(function(e){t[e.scope.$key]=ft(e)})):t=this.frags.map(ft),i[e]=t}},updateModel:function(){if(this.isOption){var e=this.start.parentNode,t=e&&e.__v_model;t&&t.forceUpdate()}},insert:function(e,t,i,n){e.staggerCb&&(e.staggerCb.cancel(),e.staggerCb=null);var r=this.getStagger(e,t,null,"enter");if(n&&r){var s=e.staggerAnchor;s||(s=e.staggerAnchor=ne("stagger-anchor"),s.__vfrag__=e),I(s,i);var a=e.staggerCb=x(function(){e.staggerCb=null,e.before(s),J(s)});setTimeout(a,r)}else e.before(i.nextSibling)},remove:function(e,t,i,n){if(e.staggerCb)return e.staggerCb.cancel(),void(e.staggerCb=null);var r=this.getStagger(e,t,i,"leave");if(n&&r){var s=e.staggerCb=x(function(){e.staggerCb=null,e.remove()});setTimeout(s,r)}else e.remove()},move:function(e,t){e.before(t.nextSibling,!1)},cacheFrag:function(e,t,i,n){var r,a=this.params.trackBy,l=this.cache,o=!b(e);n||a||o?(r=a?"$index"===a?i:e[a]:n||e,l[r]||(l[r]=t)):(r=this.id,s(e,r)?null===e[r]&&(e[r]=t):k(e,r,t)),t.raw=e},getCachedFrag:function(e,t,i){var n,r=this.params.trackBy,s=!b(e);if(i||r||s){var a=r?"$index"===r?t:e[r]:i||e;n=this.cache[a]}else n=e[this.id];return n&&(n.reused||n.fresh),n},deleteCachedFrag:function(e){var t=e.raw,i=this.params.trackBy,n=e.scope,r=n.$index,a=s(n,"$key")&&n.$key,l=!b(t);if(i||a||l){var o=i?"$index"===i?r:t[i]:a||t;this.cache[o]=null}else t[this.id]=null,e.raw=null},getStagger:function(e,t,i,n){n+="Stagger";var r=e.node.__v_trans,s=r&&r.hooks,a=s&&(s[n]||s.stagger);return a?a.call(e,t,i):t*parseInt(this.params[n]||this.params.stagger,10)},_preProcess:function(e){return this.rawValue=e,e},_postProcess:function(e){if(wi(e))return e;if(_(e)){for(var t,i=Object.keys(e),n=i.length,r=new Array(n);n--;)t=i[n],r[n]={$key:t,$value:e[t]};return r}return"number"==typeof e&&(e=vt(e)),e||[]},unbind:function(){if(this.descriptor.ref&&((this._scope||this.vm).$refs[this.descriptor.ref]=null),this.frags)for(var e,t=this.frags.length;t--;)e=this.frags[t],this.deleteCachedFrag(e),e.destroy()}},Rr={bind:function(){8===this.el.nodeType&&(this.nodes=[],this.anchor=ne("v-html"),Q(this.el,this.anchor))},update:function(e){e=o(e),this.nodes?this.swap(e):this.el.innerHTML=e},swap:function(e){for(var t=this.nodes.length;t--;)J(this.nodes[t]);var i=nt(e,!0,!0);this.nodes=g(i.childNodes),U(i,this.anchor)}},Lr={bind:function(){this.attr=3===this.el.nodeType?"data":"textContent"},update:function(e){this.el[this.attr]=o(e)}},Mr={text:Lr,html:Rr,"for":Dr,"if":Pr,show:Cr,model:wr,on:mr,bind:fr,el:ir,ref:tr,cloak:er},Br=[],Hr=!1,zr=1,Vr=2,Wr=Oi+"Duration",Ur=Ni+"Duration",Ir=yt.prototype;Ir.enter=function(e,t){this.cancelPending(),this.callHook("beforeEnter"),this.cb=t,K(this.el,this.enterClass),e(),this.entered=!1,this.callHookWithCb("enter"),this.entered||(this.cancel=this.hooks&&this.hooks.enterCancelled,mt(this.enterNextTick))},Ir.enterNextTick=function(){this.justEntered=!0;var e=this;setTimeout(function(){e.justEntered=!1},17);var t=this.enterDone,i=this.getCssTransitionType(this.enterClass);this.pendingJsCb?i===zr&&X(this.el,this.enterClass):i===zr?(X(this.el,this.enterClass),this.setupCssCb(ji,t)):i===Vr?this.setupCssCb(Ti,t):t()},Ir.enterDone=function(){this.entered=!0,this.cancel=this.pendingJsCb=null,X(this.el,this.enterClass),this.callHook("afterEnter"),this.cb&&this.cb()},Ir.leave=function(e,t){this.cancelPending(),this.callHook("beforeLeave"),this.op=e,this.cb=t,K(this.el,this.leaveClass),this.left=!1,this.callHookWithCb("leave"),this.left||(this.cancel=this.hooks&&this.hooks.leaveCancelled,this.op&&!this.pendingJsCb&&(this.justEntered?this.leaveDone():mt(this.leaveNextTick)))},Ir.leaveNextTick=function(){var e=this.getCssTransitionType(this.leaveClass);if(e){var t=e===zr?ji:Ti;this.setupCssCb(t,this.leaveDone)}else this.leaveDone()},Ir.leaveDone=function(){this.left=!0,this.cancel=this.pendingJsCb=null,this.op(),X(this.el,this.leaveClass),this.callHook("afterLeave"),this.cb&&this.cb(),this.op=null},Ir.cancelPending=function(){this.op=this.cb=null;var e=!1;this.pendingCssCb&&(e=!0,G(this.el,this.pendingCssEvent,this.pendingCssCb),this.pendingCssEvent=this.pendingCssCb=null),this.pendingJsCb&&(e=!0,this.pendingJsCb.cancel(),this.pendingJsCb=null),e&&(X(this.el,this.enterClass),X(this.el,this.leaveClass)),this.cancel&&(this.cancel.call(this.vm,this.el),this.cancel=null)},Ir.callHook=function(e){this.hooks&&this.hooks[e]&&this.hooks[e].call(this.vm,this.el)},Ir.callHookWithCb=function(e){var t=this.hooks&&this.hooks[e];t&&(t.length>1&&(this.pendingJsCb=x(this[e+"Done"])),t.call(this.vm,this.el,this.pendingJsCb))},Ir.getCssTransitionType=function(e){if(!(!ji||document.hidden||this.hooks&&this.hooks.css===!1||bt(this.el))){var t=this.typeCache[e];if(t)return t;var i=this.el.style,n=window.getComputedStyle(this.el),r=i[Wr]||n[Wr];if(r&&"0s"!==r)t=zr;else{var s=i[Ur]||n[Ur];s&&"0s"!==s&&(t=Vr)}return t&&(this.typeCache[e]=t),t}},Ir.setupCssCb=function(e,t){this.pendingCssEvent=e;var i=this,n=this.el,r=this.pendingCssCb=function(s){s.target===n&&(G(n,e,r),i.pendingCssEvent=i.pendingCssCb=null,!i.pendingJsCb&&t&&t())};Z(n,e,r)};var Jr={priority:1100,update:function(e,t){var i=this.el,n=ge(this.vm.$options,"transitions",e);e=e||"v",i.__v_trans=new yt(i,e,n,this.el.__vue__||this.vm),t&&X(i,t+"-transition"),K(i,e+"-transition")}},qr=sn._propBindingModes,Qr={bind:function(){var e=this.vm,t=e._context,i=this.descriptor.prop,n=i.path,r=i.parentPath,s=i.mode===qr.TWO_WAY,a=this.parentWatcher=new Ue(t,r,function(t){ce(i,t)&&(e[n]=t)},{twoWay:s,filters:i.filters,scope:this._scope});if(de(e,i,a.value),s){var l=this;e.$once("hook:created",function(){l.childWatcher=new Ue(e,n,function(e){a.set(e)},{sync:!0})})}},unbind:function(){this.parentWatcher.teardown(),this.childWatcher&&this.childWatcher.teardown()}},Zr={priority:1500,params:["keep-alive","transition-mode","inline-template"],bind:function(){this.el.__vue__||(this.keepAlive=this.params.keepAlive,this.keepAlive&&(this.cache={}),this.params.inlineTemplate&&(this.inlineTemplate=Y(this.el,!0)),this.pendingComponentCb=this.Component=null,this.pendingRemovals=0,this.pendingRemovalCb=null,this.anchor=ne("v-component"),Q(this.el,this.anchor),this.el.removeAttribute("is"),this.descriptor.ref&&this.el.removeAttribute("v-ref:"+f(this.descriptor.ref)),this.literal&&this.setComponent(this.expression))},update:function(e){this.literal||this.setComponent(e)},setComponent:function(e,t){if(this.invalidatePending(),e){var i=this;this.resolveComponent(e,function(){i.mountComponent(t)})}else this.unbuild(!0),this.remove(this.childVM,t),this.childVM=null},resolveComponent:function(e,t){var i=this;this.pendingComponentCb=x(function(n){i.ComponentName=n.options.name||e,i.Component=n,t()}),this.vm._resolveComponent(e,this.pendingComponentCb)},mountComponent:function(e){this.unbuild(!0);var t=this,i=this.Component.options.activate,n=this.getCached(),r=this.build();i&&!n?(this.waitingFor=r,i.call(r,function(){t.waitingFor=null,t.transition(r,e)})):(n&&r._updateRef(),this.transition(r,e))},invalidatePending:function(){this.pendingComponentCb&&(this.pendingComponentCb.cancel(),this.pendingComponentCb=null)},build:function(e){var t=this.getCached();if(t)return t;if(this.Component){var i={name:this.ComponentName,el:it(this.el),template:this.inlineTemplate,parent:this._host||this.vm,_linkerCachable:!this.inlineTemplate,_ref:this.descriptor.ref,_asComponent:!0,_isRouterView:this._isRouterView,_context:this.vm,_scope:this._scope,_frag:this._frag};e&&y(i,e);var n=new this.Component(i);return this.keepAlive&&(this.cache[this.Component.cid]=n),n}},getCached:function(){return this.keepAlive&&this.cache[this.Component.cid]},unbuild:function(e){this.waitingFor&&(this.waitingFor.$destroy(),this.waitingFor=null);var t=this.childVM;return!t||this.keepAlive?void(t&&t._updateRef(!0)):void t.$destroy(!1,e)},remove:function(e,t){var i=this.keepAlive;if(e){this.pendingRemovals++,this.pendingRemovalCb=t;
-var n=this;e.$remove(function(){n.pendingRemovals--,i||e._cleanup(),!n.pendingRemovals&&n.pendingRemovalCb&&(n.pendingRemovalCb(),n.pendingRemovalCb=null)})}else t&&t()},transition:function(e,t){var i=this,n=this.childVM;switch(this.childVM=e,i.params.transitionMode){case"in-out":e.$before(i.anchor,function(){i.remove(n,t)});break;case"out-in":i.remove(n,function(){e.$before(i.anchor,t)});break;default:i.remove(n),e.$before(i.anchor,t)}},unbind:function(){if(this.invalidatePending(),this.unbuild(),this.cache){for(var e in this.cache)this.cache[e].$destroy();this.cache=null}}},Gr={deep:!0,update:function(e){e&&"string"==typeof e?this.handleObject(_t(e)):_(e)?this.handleObject(e):wi(e)?this.handleArray(e):this.cleanup()},handleObject:function(e){this.cleanup(e);for(var t=this.prevKeys=Object.keys(e),i=0,n=t.length;n>i;i++){var r=t[i];e[r]?K(this.el,r):X(this.el,r)}},handleArray:function(e){this.cleanup(e);for(var t=0,i=e.length;i>t;t++)e[t]&&K(this.el,e[t]);this.prevKeys=e.slice()},cleanup:function(e){if(this.prevKeys)for(var t=this.prevKeys.length;t--;){var i=this.prevKeys[t];!i||e&&kt(e,i)||X(this.el,i)}}},Kr={style:or,"class":Gr,component:Zr,prop:Qr,transition:Jr},Xr=sn._propBindingModes,Yr={},es=/^[$_a-zA-Z]+[\w$]*$/,ts=/^v-bind:|^:/,is=/^v-on:|^@/,ns=/:(.*)$/,rs=/\.[^\.]+/g,ss=/^(v-bind:|:)?transition$/,as=["for","if"],ls=1e3;Wt.terminal=!0;var os=/[^\w\-:\.]/,ds=Object.freeze({compile:$t,compileAndLinkProps:Tt,compileRoot:St,transclude:Qt}),cs=/^v-on:|^@/;ti.prototype._bind=function(){var e=this.name,t=this.descriptor;if(("cloak"!==e||this.vm._isCompiled)&&this.el&&this.el.removeAttribute){var i=t.attr||"v-"+e;this.el.removeAttribute(i)}var n=t.def;if("function"==typeof n?this.update=n:y(this,n),this._setupParams(),this.bind&&this.bind(),this.literal)this.update&&this.update(t.raw);else if((this.expression||this.modifiers)&&(this.update||this.twoWay)&&!this._checkStatement()){var r=this;this.update?this._update=function(e,t){r._locked||r.update(e,t)}:this._update=ei;var s=this._preProcess?m(this._preProcess,this):null,a=this._postProcess?m(this._postProcess,this):null,l=this._watcher=new Ue(this.vm,this.expression,this._update,{filters:this.filters,twoWay:this.twoWay,deep:this.deep,preProcess:s,postProcess:a,scope:this._scope});this.afterBind?this.afterBind():this.update&&this.update(l.value)}this._bound=!0},ti.prototype._setupParams=function(){if(this.params){var e=this.params;this.params=Object.create(null);for(var t,i,n,r=e.length;r--;)t=e[r],n=p(t),i=W(this.el,t),null!=i?this._setupParamWatcher(n,i):(i=V(this.el,t),null!=i&&(this.params[n]=""===i?!0:i))}},ti.prototype._setupParamWatcher=function(e,t){var i=this,n=!1,r=(this._scope||this.vm).$watch(t,function(t,r){if(i.params[e]=t,n){var s=i.paramWatchers&&i.paramWatchers[e];s&&s.call(i,t,r)}else n=!0},{immediate:!0});(this._paramUnwatchFns||(this._paramUnwatchFns=[])).push(r)},ti.prototype._checkStatement=function(){var e=this.expression;if(e&&this.acceptStatement&&!Be(e)){var t=Me(e).get,i=this._scope||this.vm,n=function(e){i.$event=e,t.call(i,i),i.$event=null};return this.filters&&(n=i._applyFilters(n,null,this.filters)),this.update(n),!0}},ti.prototype.set=function(e){this.twoWay&&this._withLock(function(){this._watcher.set(e)})},ti.prototype._withLock=function(e){var t=this;t._locked=!0,e.call(t),Pi(function(){t._locked=!1})},ti.prototype.on=function(e,t){Z(this.el,e,t),(this._listeners||(this._listeners=[])).push([e,t])},ti.prototype._teardown=function(){if(this._bound){this._bound=!1,this.unbind&&this.unbind(),this._watcher&&this._watcher.teardown();var e,t=this._listeners;if(t)for(e=t.length;e--;)G(this.el,t[e][0],t[e][1]);var i=this._paramUnwatchFns;if(i)for(e=i.length;e--;)i[e]();this.vm=this.el=this._watcher=this._listeners=null}};var hs=/[^|]\|[^|]/;$e(di),Xt(di),Yt(di),ii(di),ni(di),ri(di),si(di),ai(di),li(di),oi(di);var ps=Dr._postProcess,us=/(\d{3})(?=\d)/g,fs={orderBy:pi,filterBy:hi,limitBy:ci,json:{read:function(e,t){return"string"==typeof e?e:JSON.stringify(e,null,Number(t)||2)},write:function(e){try{return JSON.parse(e)}catch(t){return e}}},capitalize:function(e){return e||0===e?(e=e.toString(),e.charAt(0).toUpperCase()+e.slice(1)):""},uppercase:function(e){return e||0===e?e.toString().toUpperCase():""},lowercase:function(e){return e||0===e?e.toString().toLowerCase():""},currency:function(e,t){if(e=parseFloat(e),!isFinite(e)||!e&&0!==e)return"";t=null!=t?t:"$";var i=Math.abs(e).toFixed(2),n=i.slice(0,-3),r=n.length%3,s=r>0?n.slice(0,r)+(n.length>3?",":""):"",a=i.slice(-3),l=0>e?"-":"";return t+l+s+n.slice(r).replace(us,"$1,")+a},pluralize:function(e){var t=g(arguments,1);return t.length>1?t[e%10-1]||t[t.length-1]:t[0]+(1===e?"":"s")},debounce:function(e,t){return e?(t||(t=300),w(e,t)):void 0}},vs={priority:1750,params:["name"],paramWatchers:{name:function(e){Pr.remove.call(this),e&&this.insert(e)}},bind:function(){this.anchor=ne("v-partial"),Q(this.el,this.anchor),this.insert(this.params.name)},insert:function(e){var t=ge(this.vm.$options,"partials",e);t&&(this.factory=new pt(this.vm,t),Pr.insert.call(this))},unbind:function(){this.frag&&this.frag.destroy()}},ms={priority:1750,params:["name"],bind:function(){var e,t=this.vm,i=t.$options._content;if(!i)return void this.fallback();var n=t._context,r=this.params.name;if(r){var s='[slot="'+r+'"]',a=i.querySelectorAll(s);a.length?(e=fi(a,i),e.hasChildNodes()?this.compile(e,n,t):this.fallback()):this.fallback()}else{var l=this,o=function(){l.compile(fi(i.childNodes,i,!0),n,t)};t._isCompiled?o():t.$once("hook:compiled",o)}},fallback:function(){this.compile(Y(this.el,!0),this.vm)},compile:function(e,t,i){if(e&&t){var n=i?i._scope:this._scope;this.unlink=t.$compile(e,i,n,this._frag)}e?Q(this.el,e):J(this.el)},unbind:function(){this.unlink&&this.unlink()}},gs={slot:ms,partial:vs};di.version="1.0.10",di.options={directives:Mr,elementDirectives:gs,filters:fs,transitions:{},components:{},partials:{},replace:!0},e.exports=di},function(e,t,i){i(8),e.exports=i(12),e.exports.__esModule&&(e.exports=e.exports["default"]),("function"==typeof e.exports?e.exports.options:e.exports).template=i(23)},function(e,t,i){var n=i(9);"string"==typeof n&&(n=[[e.id,n,""]]);i(11)(n,{});n.locals&&(e.exports=n.locals)},function(e,t,i){t=e.exports=i(10)(),t.push([e.id,".area-picker-wrap{color:#666;font-size:12px;width:760px;padding:15px}.area-picker-wrap .area{border-bottom:1px dashed #ccc;clear:both;padding:8px 0}.area-picker-wrap .area.last{border-bottom:none;margin-bottom:10px}.area-picker-wrap .area .fl{float:left;height:16px;line-height:16px;margin-top:2px}.area-picker-wrap .area dl{width:auto;margin-left:40px}.area-picker-wrap .area dd{width:160px;display:inline-block;margin:0 0 0 10px;position:relative;height:16px;line-height:16px}.area-picker-wrap .area dd:hover .citys{display:block}.area-picker-wrap .citys{display:none;width:234%;position:absolute;z-index:1;background:#f2f2f2;border:1px solid #999}.area-picker-wrap .citys h4{border-bottom:1px solid #999;padding:5px}.area-picker-wrap .citys ul{overflow:hidden;padding:10px}.area-picker-wrap .citys li{float:left;margin:0 10px 0 0;min-width:100px}.area-picker-wrap .submit-wrap{text-align:center}",""])},function(e,t){e.exports=function(){var e=[];return e.toString=function(){for(var e=[],t=0;t<this.length;t++){var i=this[t];i[2]?e.push("@media "+i[2]+"{"+i[1]+"}"):e.push(i[1])}return e.join("")},e.i=function(t,i){"string"==typeof t&&(t=[[null,t,""]]);for(var n={},r=0;r<this.length;r++){var s=this[r][0];"number"==typeof s&&(n[s]=!0)}for(r=0;r<t.length;r++){var a=t[r];"number"==typeof a[0]&&n[a[0]]||(i&&!a[2]?a[2]=i:i&&(a[2]="("+a[2]+") and ("+i+")"),e.push(a))}},e}},function(e,t,i){function n(e,t){for(var i=0;i<e.length;i++){var n=e[i],r=u[n.id];if(r){r.refs++;for(var s=0;s<r.parts.length;s++)r.parts[s](n.parts[s]);for(;s<n.parts.length;s++)r.parts.push(d(n.parts[s],t))}else{for(var a=[],s=0;s<n.parts.length;s++)a.push(d(n.parts[s],t));u[n.id]={id:n.id,refs:1,parts:a}}}}function r(e){for(var t=[],i={},n=0;n<e.length;n++){var r=e[n],s=r[0],a=r[1],l=r[2],o=r[3],d={css:a,media:l,sourceMap:o};i[s]?i[s].parts.push(d):t.push(i[s]={id:s,parts:[d]})}return t}function s(e,t){var i=m(),n=b[b.length-1];if("top"===e.insertAt)n?n.nextSibling?i.insertBefore(t,n.nextSibling):i.appendChild(t):i.insertBefore(t,i.firstChild),b.push(t);else{if("bottom"!==e.insertAt)throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");i.appendChild(t)}}function a(e){e.parentNode.removeChild(e);var t=b.indexOf(e);t>=0&&b.splice(t,1)}function l(e){var t=document.createElement("style");return t.type="text/css",s(e,t),t}function o(e){var t=document.createElement("link");return t.rel="stylesheet",s(e,t),t}function d(e,t){var i,n,r;if(t.singleton){var s=y++;i=g||(g=l(t)),n=c.bind(null,i,s,!1),r=c.bind(null,i,s,!0)}else e.sourceMap&&"function"==typeof URL&&"function"==typeof URL.createObjectURL&&"function"==typeof URL.revokeObjectURL&&"function"==typeof Blob&&"function"==typeof btoa?(i=o(t),n=p.bind(null,i),r=function(){a(i),i.href&&URL.revokeObjectURL(i.href)}):(i=l(t),n=h.bind(null,i),r=function(){a(i)});return n(e),function(t){if(t){if(t.css===e.css&&t.media===e.media&&t.sourceMap===e.sourceMap)return;n(e=t)}else r()}}function c(e,t,i,n){var r=i?"":n.css;if(e.styleSheet)e.styleSheet.cssText=_(t,r);else{var s=document.createTextNode(r),a=e.childNodes;a[t]&&e.removeChild(a[t]),a.length?e.insertBefore(s,a[t]):e.appendChild(s)}}function h(e,t){var i=t.css,n=t.media;t.sourceMap;if(n&&e.setAttribute("media",n),e.styleSheet)e.styleSheet.cssText=i;else{for(;e.firstChild;)e.removeChild(e.firstChild);e.appendChild(document.createTextNode(i))}}function p(e,t){var i=t.css,n=(t.media,t.sourceMap);n&&(i+="\n/*# sourceMappingURL=data:application/json;base64,"+btoa(unescape(encodeURIComponent(JSON.stringify(n))))+" */");var r=new Blob([i],{type:"text/css"}),s=e.href;e.href=URL.createObjectURL(r),s&&URL.revokeObjectURL(s)}var u={},f=function(e){var t;return function(){return"undefined"==typeof t&&(t=e.apply(this,arguments)),t}},v=f(function(){return/msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase())}),m=f(function(){return document.head||document.getElementsByTagName("head")[0]}),g=null,y=0,b=[];e.exports=function(e,t){t=t||{},"undefined"==typeof t.singleton&&(t.singleton=v()),"undefined"==typeof t.insertAt&&(t.insertAt="bottom");var i=r(e);return n(i,t),function(e){for(var s=[],a=0;a<i.length;a++){var l=i[a],o=u[l.id];o.refs--,s.push(o)}if(e){var d=r(e);n(d,t)}for(var a=0;a<s.length;a++){var o=s[a];if(0===o.refs){for(var c=0;c<o.parts.length;c++)o.parts[c]();delete u[o.id]}}}};var _=function(){var e=[];return function(t,i){return e[t]=i,e.filter(Boolean).join("\n")}}()},function(e,t,i){"use strict";function n(e){return e&&e.__esModule?e:{"default":e}}Object.defineProperty(t,"__esModule",{value:!0});var r=i(13),s=n(r),a=i(6),l=n(a),o=i(16),d=n(o),c=i(22),h=n(c);l["default"].filter("checkedLenFilter",function(e){return e.filter(function(e){return e.checked}).length}),t["default"]={props:{initcities:{"default":"0"}},computed:{checkedAll:function(){return this.checkedAreas.length==this.areacode.length}},data:function(){return{dialogVisible:!1,areacode:JSON.parse((0,s["default"])(h["default"])),checkedAreas:[],checkedProvinces:[],checkedCitys:[],backupCitys:""}},components:{dialog:d["default"]},created:function(){this.init(this.initcities)},methods:{init:function(e,t){var i=this,n=t?t.target.checked:!0,r="0"==e&&n?!0:!1;e=e.split(","),i.areacode.map(function(t){var s=0;t.province.map(function(t){var a=0;t.citys.map(function(t){r||e.indexOf(t.id)>-1?(i.syncCheckedList(i.checkedCitys,t,r?n:!0),a+=1):i.syncCheckedList(i.checkedCitys,t,!1)}),a==t.citys.length?(i.syncCheckedList(i.checkedProvinces,t,!0),s+=1):i.syncCheckedList(i.checkedProvinces,t,!1)}),i.syncCheckedList(i.checkedAreas,t,s==t.province.length)}),!t&&(this.areacode=JSON.parse((0,s["default"])(this.areacode)))},syncArea:function(e,t){var i=this,n=t?t.target.checked:!0;i.areacode.forEach(function(t){t.id==e.id&&t.province.map(function(e){i.syncCheckedList(i.checkedProvinces,e,n),e.citys.map(function(e){type="text/javascript",i.syncCheckedList(i.checkedCitys,e,n)})})}),this.areacode=JSON.parse((0,s["default"])(this.areacode))},syncProvince:function(e,t,i){var n=this,r=t?t.target.checked:i;n.syncCheckedList(n.checkedProvinces,e,"undefined"!=typeof i?i:r),n.areacode.forEach(function(t){var s=0;t.province.forEach(function(t){t.id==e.id&&("undefined"==typeof i&&t.citys.map(function(e){n.syncCheckedList(n.checkedCitys,e,r)}),t.checked=r),s+=+t.checked}),n.syncCheckedList(n.checkedAreas,t,s==t.province.length)})},syncCity:function(e,t){var i=this,n=t?t.target.checked:!0;i.areacode.forEach(function(t){t.province.forEach(function(t){var r=0;t.citys.forEach(function(t){t.id==e.id&&i.syncCheckedList(i.checkedCitys,t,n),r+=+t.checked}),i.syncProvince(t,null,r==t.citys.length)})})},syncCheckedList:function(e,t,i){t.checked=i;var n=e.indexOf(t.id);i&&0>n?e.push(t.id):"",!i&&n>=0?e.splice(n,1):""},showDialog:function(){this.dialogVisible=!0,this.init(this.checkedCitys.join(",")),this.backupCitys=JSON.parse((0,s["default"])(this.checkedCitys))},confirm:function(){this.dialogVisible=!1,this.$dispatch("confirm",this.checkedCitys)},cancel:function(){this.dialogVisible=!1,this.checkedCitys=JSON.parse((0,s["default"])(this.backupCitys))}}}},function(e,t,i){e.exports={"default":i(14),__esModule:!0}},function(e,t,i){var n=i(15);e.exports=function(e){return(n.JSON&&n.JSON.stringify||JSON.stringify).apply(JSON,arguments)}},function(e,t){var i=e.exports={version:"1.2.6"};"number"==typeof __e&&(__e=i)},function(e,t,i){"use strict";function n(e){return e&&e.__esModule?e:{"default":e}}Object.defineProperty(t,"__esModule",{value:!0});var r=i(6),s=n(r),a=i(17),l=n(a);s["default"].component("dialog",l["default"]);var o='\n    <dialog type="confirm" visible="true">\n        <div class="msg-wrap">\n            <i class="fa fa-exclamation-triangle icon icon-warn" v-if="type == \'warn\'"></i>\n            <i class="fa fa-exclamation-triangle icon icon-confirm" v-if="type == \'confirm\'"></i>\n            <span>{{msg}}</span>\n        </div>\n        <div class="btn-wrap">\n            <a href="javascript:void(0)" class="btn btn-primary dialog-confirm" @click="onclicked(true)">确定</a>\n            <a href="javascript:void(0)" class="btn btn-default dialog-cancel" @click="onclicked(false)" v-if="type == \'confirm\'">取消</a>\n        </div>\n    </dialog>\n',d=function(e,t,i){var n=document.createElement("div");document.body.appendChild(n);var r=new s["default"]({el:n,replace:!1,template:o,data:{msg:t,type:e},methods:{onclicked:function(e){i&&i(e),document.body.removeChild(n),r.$destroy()}}})};l["default"].confirm=function(e,t){d("confirm",e,t)},l["default"].warn=function(e,t){d("warn",e,t)},l["default"].alert=function(e,t){d("alert",e,t)},t["default"]=l["default"]},function(e,t,i){i(18),e.exports=i(20),e.exports.__esModule&&(e.exports=e.exports["default"]),("function"==typeof e.exports?e.exports.options:e.exports).template=i(21)},function(e,t,i){var n=i(19);"string"==typeof n&&(n=[[e.id,n,""]]);i(11)(n,{});n.locals&&(e.exports=n.locals)},function(e,t,i){t=e.exports=i(10)(),t.push([e.id,".dialog{position:fixed;z-index:101;background:#fff;top:50%;left:50%;border:1px solid #acacac;box-shadow:0 0 3px #b3b3b3;min-width:200px;margin-left:-50%}.dialog .dialog-hd{border-bottom:1px solid #e8e8e8;height:34px;line-height:34px;position:relative;padding:0 15px;font-weight:700}.dialog .dialog-hd .close{font-size:16px;right:15px;position:absolute;top:9px}.dialog .dialog-bd{padding:15px}.dialog-mask{background:#000;opacity:.6;filter:alpha(opacity=60);position:fixed;z-index:100;top:0;left:0;right:0;bottom:0}.public-dialog{box-shadow:0 0 16px #333;border-color:#333;z-index:102}.public-dialog .dialog-bd{padding:0}.public-dialog .msg-wrap{padding:2em;min-width:15em}.public-dialog .msg-wrap span{max-width:40em}.public-dialog .btn-wrap{text-align:center;padding:1em 2em;background:#eee}.public-dialog .icon{font-size:16px}.public-dialog .icon-warn{color:#ff4b21}.public-dialog .icon-confirm{color:#ff9708}.dialog-type-confirm .icon-confirm,.dialog-type-warn .icon-warn{display:inline-block}.dialog-type-alert .dialog-cancel,.dialog-type-warn .dialog-cancel{display:none}",""])},function(e,t,i){"use strict";function n(e){return e&&e.__esModule?e:{"default":e}}Object.defineProperty(t,"__esModule",{value:!0});var r=i(6),s=n(r);t["default"]={props:{type:{"default":"dialog"},title:String,msg:String,visible:{"default":!1}},methods:{_centerDialog:function(){var e=this.$el.querySelector(".dialog"),t=e.offsetWidth,i=e.offsetHeight;e.style.marginLeft="-"+t/2+"px",e.style.marginTop="-"+i/2+"px"},_removeDialog:function(){this.$el.parentNode.removeChild(this.$el)},show:function(){this.visible=!0,s["default"].nextTick(this._centerDialog)},hide:function(){this.visible=!1}},created:function(){this.$watch("visible",function(){this.visible&&s["default"].nextTick(this._centerDialog)})},ready:function(){this._centerDialog()},destroy:function(){this._removeDialog()}}},function(e,t){e.exports="<div :style=\"{display: visible ? 'block' : 'none'}\" class=dialog-box><div :class=\"{'public-dialog': type!='dialog'}\" class=dialog><div v-if=title class=dialog-hd>{{title}}<a @click=hide class=\"fa fa-times close\"></a></div><div class=dialog-bd><slot></slot></div></div><div class=dialog-mask></div></div>"},function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t["default"]=[{id:1001,name:"华北",level:1,pid:0,province:[{id:"1",name:"北京市",level:2,pid:1001,citys:[{id:"1",name:"北京市",level:3,pid:"1"}]},{id:"3",name:"天津市",level:2,pid:1001,citys:[{id:"3",name:"天津市",level:3,pid:"3"}]},{id:"5",name:"河北省",level:2,pid:1001,citys:[{id:"35",name:"石家庄市",level:3,pid:"5"},{id:"36",name:"邯郸市",level:3,pid:"5"},{id:"37",name:"邢台市",level:3,pid:"5"},{id:"38",name:"保定市",level:3,pid:"5"},{id:"39",name:"张家口市",level:3,pid:"5"},{id:"40",name:"承德市",level:3,pid:"5"},{id:"41",name:"廊坊市",level:3,pid:"5"},{id:"42",name:"唐山市",level:3,pid:"5"},{id:"43",name:"秦皇岛市",level:3,pid:"5"},{id:"44",name:"沧州市",level:3,pid:"5"},{id:"365",name:"衡水市",level:3,pid:"5"}]},{id:"6",name:"山西省",level:2,pid:1001,citys:[{id:"45",name:"太原市",level:3,pid:"6"},{id:"46",name:"大同市",level:3,pid:"6"},{id:"47",name:"阳泉市",level:3,pid:"6"},{id:"48",name:"长治市",level:3,pid:"6"},{id:"49",name:"晋城市",level:3,pid:"6"},{id:"50",name:"朔州市",level:3,pid:"6"},{id:"51",name:"吕梁市",level:3,pid:"6"},{id:"52",name:"忻州市",level:3,pid:"6"},{id:"53",name:"晋中市",level:3,pid:"6"},{id:"54",name:"临汾市",level:3,pid:"6"},{id:"383",name:"运城市",level:3,pid:"6"}]},{id:"7",name:"内蒙古自治区",level:2,pid:1001,citys:[{id:"55",name:"呼和浩特市",level:3,pid:"7"},{id:"56",name:"包头市",level:3,pid:"7"},{id:"57",name:"乌海市",level:3,pid:"7"},{id:"58",name:"赤峰市",level:3,pid:"7"},{id:"59",name:"呼伦贝尔市",level:3,pid:"7"},{id:"60",name:"阿拉善盟",level:3,pid:"7"},{id:"62",name:"兴安盟",level:3,pid:"7"},{id:"63",name:"乌兰察布市",level:3,pid:"7"},{id:"64",name:"锡林郭勒盟",level:3,pid:"7"},{id:"65",name:"巴彦淖尔市",level:3,pid:"7"},{id:"355",name:"鄂尔多斯市",level:3,pid:"7"},{id:"356",name:"通辽市",level:3,pid:"7"}]}]},{id:1002,name:"东北",level:1,pid:0,province:[{id:"8",name:"辽宁省",level:2,pid:1002,citys:[{id:"66",name:"沈阳市",level:3,pid:"8"},{id:"67",name:"大连市",level:3,pid:"8"},{id:"68",name:"鞍山市",level:3,pid:"8"},{id:"69",name:"抚顺市",level:3,pid:"8"},{id:"70",name:"本溪市",level:3,pid:"8"},{id:"71",name:"丹东市",level:3,pid:"8"},{id:"72",name:"锦州市",level:3,pid:"8"},{id:"73",name:"营口市",level:3,pid:"8"},{id:"74",name:"阜新市",level:3,pid:"8"},{id:"75",name:"辽阳市",level:3,pid:"8"},{id:"76",name:"盘锦市",level:3,pid:"8"},{id:"77",name:"铁岭市",level:3,pid:"8"},{id:"78",name:"朝阳市",level:3,pid:"8"},{id:"382",name:"葫芦岛市",level:3,pid:"8"}]},{id:"9",name:"吉林省",level:2,pid:1002,citys:[{id:"81",name:"四平市",level:3,pid:"9"},{id:"82",name:"辽源市",level:3,pid:"9"},{id:"79",name:"长春市",level:3,pid:"9"},{id:"80",name:"吉林市",level:3,pid:"9"},{id:"83",name:"通化市",level:3,pid:"9"},{id:"84",name:"白山市",level:3,pid:"9"},{id:"85",name:"松原市",level:3,pid:"9"},{id:"86",name:"白城市",level:3,pid:"9"},{id:"381",name:"延边朝鲜族自治州",level:3,pid:"9"}]},{id:"10",name:"黑龙江省",level:2,pid:1002,citys:[{id:"87",name:"哈尔滨市",level:3,pid:"10"},{id:"88",name:"齐齐哈尔市",level:3,pid:"10"},{id:"89",name:"牡丹江市",level:3,pid:"10"},{id:"90",name:"佳木斯市",level:3,pid:"10"},{id:"91",name:"大庆市",level:3,pid:"10"},{id:"92",name:"绥化市",level:3,pid:"10"},{id:"93",name:"鹤岗市",level:3,pid:"10"},{id:"94",name:"鸡西市",level:3,pid:"10"},{id:"95",name:"黑河市",level:3,pid:"10"},{id:"96",name:"双鸭山市",level:3,pid:"10"},{id:"97",name:"伊春市",level:3,pid:"10"},{id:"98",name:"七台河市",level:3,pid:"10"},{id:"358",name:"大兴安岭地区",level:3,pid:"10"}]}]},{id:1003,name:"华东",level:1,pid:0,province:[{id:"2",name:"上海市",level:2,pid:1003,citys:[{id:"2",name:"上海市",level:3,pid:"2"}]},{id:"11",name:"江苏省",level:2,pid:1003,citys:[{id:"99",name:"南京市",level:3,pid:"11"},{id:"100",name:"镇江市",level:3,pid:"11"},{id:"101",name:"苏州市",level:3,pid:"11"},{id:"102",name:"南通市",level:3,pid:"11"},{id:"103",name:"扬州市",level:3,pid:"11"},{id:"104",name:"盐城市",level:3,pid:"11"},{id:"105",name:"徐州市",level:3,pid:"11"},{id:"106",name:"连云港市",level:3,pid:"11"},{id:"107",name:"常州市",level:3,pid:"11"},{id:"108",name:"无锡市",level:3,pid:"11"},{id:"109",name:"宿迁市",level:3,pid:"11"},{id:"110",name:"泰州市",level:3,pid:"11"},{id:"367",name:"淮安市",level:3,pid:"11"}]},{id:"12",name:"浙江省",level:2,pid:1003,citys:[{id:"111",name:"杭州市",level:3,pid:"12"},{id:"112",name:"宁波市",level:3,pid:"12"},{id:"113",name:"温州市",level:3,pid:"12"},{id:"114",name:"嘉兴市",level:3,pid:"12"},{id:"115",name:"湖州市",level:3,pid:"12"},{id:"116",name:"绍兴市",level:3,pid:"12"},{id:"117",name:"金华市",level:3,pid:"12"},{id:"118",name:"衢州市",level:3,pid:"12"},{id:"119",name:"舟山市",level:3,pid:"12"},{id:"120",name:"台州市",level:3,pid:"12"},{id:"379",name:"丽水市",level:3,pid:"12"}]},{id:"13",name:"安徽省",level:2,pid:1003,citys:[{id:"121",name:"合肥市",level:3,pid:"13"},{id:"122",name:"芜湖市",level:3,pid:"13"},{id:"123",name:"蚌埠市",level:3,pid:"13"},{id:"124",name:"马鞍山市",level:3,pid:"13"},{id:"125",name:"淮北市",level:3,pid:"13"},{id:"126",name:"铜陵市",level:3,pid:"13"},{id:"127",name:"安庆市",level:3,pid:"13"},{id:"128",name:"黄山市",level:3,pid:"13"},{id:"129",name:"滁州市",level:3,pid:"13"},{id:"130",name:"宿州市",level:3,pid:"13"},{id:"131",name:"池州市",level:3,pid:"13"},{id:"132",name:"淮南市",level:3,pid:"13"},{id:"133",name:"巢湖市",level:3,pid:"13"},{id:"134",name:"阜阳市",level:3,pid:"13"},{id:"135",name:"六安市",level:3,pid:"13"},{id:"136",name:"宣城市",level:3,pid:"13"},{id:"380",name:"亳州市",level:3,pid:"13"}]},{id:"14",name:"福建省",level:2,pid:1003,citys:[{id:"137",name:"福州市",level:3,pid:"14"},{id:"138",name:"厦门市",level:3,pid:"14"},{id:"139",name:"莆田市",level:3,pid:"14"},{id:"140",name:"三明市",level:3,pid:"14"},{id:"141",name:"泉州市",level:3,pid:"14"},{id:"142",name:"漳州市",level:3,pid:"14"},{id:"143",name:"南平市",level:3,pid:"14"},{id:"144",name:"龙岩市",level:3,pid:"14"},{id:"366",name:"宁德市",level:3,pid:"14"}]},{id:"15",name:"江西省",level:2,pid:1003,citys:[{id:"145",name:"南昌市",level:3,pid:"15"},{id:"146",name:"景德镇市",level:3,pid:"15"},{id:"147",name:"九江市",level:3,pid:"15"},{id:"148",name:"鹰潭市",level:3,pid:"15"},{id:"149",name:"萍乡市",level:3,pid:"15"},{id:"150",name:"新余市",level:3,pid:"15"},{id:"151",name:"赣州市",level:3,pid:"15"},{id:"152",name:"吉安市",level:3,pid:"15"},{id:"153",name:"宜春市",level:3,pid:"15"},{id:"154",name:"抚州市",level:3,pid:"15"},{id:"369",name:"上饶市",level:3,pid:"15"},{id:"370",name:"新余市",level:3,pid:"15"}]},{id:"16",name:"山东省",level:2,pid:1003,citys:[{id:"155",name:"济南市",level:3,pid:"16"},{id:"156",name:"青岛市",level:3,pid:"16"},{id:"157",name:"淄博市",level:3,pid:"16"},{id:"158",name:"枣庄市",level:3,pid:"16"},{id:"159",name:"东营市",level:3,pid:"16"},{id:"160",name:"烟台市",level:3,pid:"16"},{id:"161",name:"潍坊市",level:3,pid:"16"},{id:"162",name:"济宁市",level:3,pid:"16"},{id:"163",name:"泰安市",level:3,pid:"16"},{id:"164",name:"威海市",level:3,pid:"16"},{id:"165",name:"日照市",level:3,pid:"16"},{id:"166",name:"莱芜市",level:3,pid:"16"},{id:"167",name:"临沂市",level:3,pid:"16"},{id:"168",name:"德州市",level:3,pid:"16"},{id:"169",name:"聊城市",level:3,pid:"16"},{id:"170",name:"滨州市",level:3,pid:"16"},{id:"395",name:"菏泽市",level:3,pid:"16"}]}]},{id:1004,name:"华中",level:1,pid:0,province:[{id:"17",name:"河南省",level:2,pid:1004,citys:[{id:"171",name:"郑州市",level:3,pid:"17"},{id:"172",name:"开封市",level:3,pid:"17"},{id:"173",name:"洛阳市",level:3,pid:"17"},{id:"174",name:"平顶山市",level:3,pid:"17"},{id:"175",name:"安阳市",level:3,pid:"17"},{id:"176",name:"鹤壁市",level:3,pid:"17"},{id:"177",name:"新乡市",level:3,pid:"17"},{id:"178",name:"焦作市",level:3,pid:"17"},{id:"179",name:"濮阳市",level:3,pid:"17"},{id:"180",name:"许昌市",level:3,pid:"17"},{id:"181",name:"漯河市",level:3,pid:"17"},{id:"182",name:"三门峡市",level:3,pid:"17"},{id:"183",name:"南阳市",level:3,pid:"17"},{id:"184",name:"商丘市",level:3,pid:"17"},{id:"185",name:"信阳市",level:3,pid:"17"},{id:"186",name:"周口市",level:3,pid:"17"},{id:"187",name:"驻马店市",level:3,pid:"17"},{id:"393",name:"济源市",level:3,pid:"17"}]},{id:"18",name:"湖北省",level:2,pid:1004,citys:[{id:"188",name:"武汉市",level:3,pid:"18"},{id:"189",name:"宜昌市",level:3,pid:"18"},{id:"190",name:"荆州市",level:3,pid:"18"},{id:"191",name:"襄阳市",level:3,pid:"18"},{id:"192",name:"黄石市",level:3,pid:"18"},{id:"193",name:"荆门市",level:3,pid:"18"},{id:"194",name:"黄冈市",level:3,pid:"18"},{id:"195",name:"十堰市",level:3,pid:"18"},{id:"196",name:"恩施土家族苗族自治州",level:3,pid:"18"},{id:"197",name:"潜江市",level:3,pid:"18"},{id:"198",name:"天门市",level:3,pid:"18"},{id:"199",name:"仙桃市",level:3,pid:"18"},{id:"200",name:"随州市",level:3,pid:"18"},{id:"201",name:"咸宁市",level:3,pid:"18"},{id:"202",name:"孝感市",level:3,pid:"18"},{id:"363",name:"襄阳市",level:3,pid:"18"},{id:"364",name:"鄂州市",level:3,pid:"18"},{id:"372",name:"神农架林区",level:3,pid:"18"}]},{id:"19",name:"湖南省",level:2,pid:1004,citys:[{id:"203",name:"长沙市",level:3,pid:"19"},{id:"204",name:"常德市",level:3,pid:"19"},{id:"205",name:"株洲市",level:3,pid:"19"},{id:"206",name:"湘潭市",level:3,pid:"19"},{id:"207",name:"衡阳市",level:3,pid:"19"},{id:"208",name:"岳阳市",level:3,pid:"19"},{id:"209",name:"邵阳市",level:3,pid:"19"},{id:"210",name:"益阳市",level:3,pid:"19"},{id:"211",name:"娄底市",level:3,pid:"19"},{id:"212",name:"怀化市",level:3,pid:"19"},{id:"213",name:"郴州市",level:3,pid:"19"},{id:"214",name:"永州市",level:3,pid:"19"},{id:"215",name:"湘西土家族苗族自治州",level:3,pid:"19"},{id:"371",name:"张家界市",level:3,pid:"19"}]}]},{id:1005,name:"华南",level:1,pid:0,province:[{id:"20",name:"广东省",level:2,pid:1005,citys:[{id:"218",name:"珠海市",level:3,pid:"20"},{id:"219",name:"汕头市",level:3,pid:"20"},{id:"220",name:"东莞市",level:3,pid:"20"},{id:"221",name:"中山市",level:3,pid:"20"},{id:"222",name:"佛山市",level:3,pid:"20"},{id:"223",name:"韶关市",level:3,pid:"20"},{id:"224",name:"江门市",level:3,pid:"20"},{id:"225",name:"湛江市",level:3,pid:"20"},{id:"226",name:"茂名市",level:3,pid:"20"},{id:"227",name:"肇庆市",level:3,pid:"20"},{id:"228",name:"惠州市",level:3,pid:"20"},{id:"229",name:"梅州市",level:3,pid:"20"},{id:"230",name:"汕尾市",level:3,pid:"20"},{id:"231",name:"河源市",level:3,pid:"20"},{id:"232",name:"阳江市",level:3,pid:"20"},{id:"233",name:"清远市",level:3,pid:"20"},{id:"234",name:"潮州市",level:3,pid:"20"},{id:"235",name:"揭阳市",level:3,pid:"20"},{id:"216",name:"广州市",level:3,pid:"20"},{id:"217",name:"深圳市",level:3,pid:"20"},{id:"362",name:"云浮市",level:3,pid:"20"}]},{id:"21",name:"广西壮族自治区",level:2,pid:1005,citys:[{id:"236",name:"南宁市",level:3,pid:"21"},{id:"237",name:"柳州市",level:3,pid:"21"},{id:"238",name:"桂林市",level:3,pid:"21"},{id:"239",name:"梧州市",level:3,pid:"21"},{id:"240",name:"北海市",level:3,pid:"21"},{id:"241",name:"防城港市",level:3,pid:"21"},{id:"242",name:"钦州市",level:3,pid:"21"},{id:"243",name:"贵港市",level:3,pid:"21"},{id:"244",name:"玉林市",level:3,pid:"21"},{id:"245",name:"贺州市",level:3,pid:"21"},{id:"246",name:"百色市",level:3,pid:"21"},{id:"378",name:"河池市",level:3,pid:"21"},{id:"385",name:"来宾市",level:3,pid:"21"},{id:"394",name:"崇左市",level:3,pid:"21"}]},{id:"22",name:"海南省",level:2,pid:1005,citys:[{id:"247",name:"海口市",level:3,pid:"22"},{id:"384",name:"三亚市",level:3,pid:"22"},{id:"400",name:"文昌市",level:3,pid:"22"},{id:"401",name:"儋州市",level:3,pid:"22"},{id:"402",name:"万宁市",level:3,pid:"22"},{id:"403",name:"琼海市",level:3,pid:"22"},{id:"404",name:"定安县",level:3,pid:"22"},{id:"405",name:"屯昌县",level:3,pid:"22"},{id:"406",name:"五指山市",level:3,pid:"22"},{id:"407",name:"澄迈县",level:3,pid:"22"},{id:"408",name:"临高县",level:3,pid:"22"},{id:"409",name:"东方市",level:3,pid:"22"}]}]},{id:1006,name:"西南",level:1,pid:0,province:[{id:"4",name:"重庆市",level:2,pid:1006,citys:[{id:"4",name:"重庆市",level:3,pid:"4"}]},{id:"23",name:"四川省",level:2,pid:1006,citys:[{id:"248",name:"成都市",level:3,pid:"23"},{id:"249",name:"绵阳市",level:3,pid:"23"},{id:"250",name:"德阳市",level:3,pid:"23"},{id:"251",name:"自贡市",level:3,pid:"23"},{id:"252",name:"攀枝花市",level:3,pid:"23"},{id:"253",name:"广元市",level:3,pid:"23"},{id:"254",name:"内江市",level:3,pid:"23"},{id:"255",name:"乐山市",level:3,pid:"23"},{id:"256",name:"南充市",level:3,pid:"23"},{id:"257",name:"宜宾市",level:3,pid:"23"},{id:"258",name:"广安市",level:3,pid:"23"},{id:"260",name:"雅安市",level:3,pid:"23"},{id:"261",name:"眉山市",level:3,pid:"23"},{id:"262",name:"甘孜藏族自治州",level:3,pid:"23"},{id:"263",name:"凉山彝族自治州",level:3,pid:"23"},{id:"373",name:"遂宁市",level:3,pid:"23"},{id:"374",name:"巴中市",level:3,pid:"23"},{id:"375",name:"泸州市",level:3,pid:"23"},{id:"376",name:"资阳市",level:3,pid:"23"},{id:"377",name:"达州市",level:3,pid:"23"},{id:"396",name:"阿坝藏族羌族自治州",level:3,pid:"23"}]},{id:"24",name:"贵州省",level:2,pid:1006,citys:[{id:"264",name:"贵阳市",level:3,pid:"24"},{id:"265",name:"六盘水市",level:3,pid:"24"},{id:"266",name:"遵义市",level:3,pid:"24"},{id:"267",name:"安顺市",level:3,pid:"24"},{id:"268",name:"铜仁地区",level:3,pid:"24"},{id:"269",name:"黔西南布依族苗族自治州",level:3,pid:"24"},{id:"270",name:"毕节地区",level:3,pid:"24"},{id:"271",name:"黔东南苗族侗族自治州",level:3,pid:"24"},{id:"357",name:"黔南布依族苗族自治州",level:3,pid:"24"}]},{id:"25",name:"云南省",level:2,pid:1006,citys:[{id:"272",name:"昆明市",level:3,pid:"25"},{id:"273",name:"大理白族自治州",level:3,pid:"25"},{id:"274",name:"曲靖市",level:3,pid:"25"},{id:"275",name:"玉溪市",level:3,pid:"25"},{id:"276",name:"昭通市",level:3,pid:"25"},{id:"277",name:"楚雄彝族自治州",level:3,pid:"25"},{id:"278",name:"红河哈尼族彝族自治州",level:3,pid:"25"},{id:"279",name:"文山壮族苗族自治州",level:3,pid:"25"},{id:"281",name:"西双版纳傣族自治州",level:3,pid:"25"},{id:"282",name:"保山市",level:3,pid:"25"},{id:"283",name:"德宏傣族景颇族自治州",level:3,pid:"25"},{id:"284",name:"丽江市",level:3,pid:"25"},{id:"285",name:"怒江傈僳族自治州",level:3,pid:"25"},{id:"286",name:"迪庆藏族自治州",level:3,pid:"25"},{id:"388",name:"临沧市",level:3,pid:"25"}]},{id:"26",name:"西藏自治区",level:2,pid:1006,citys:[{id:"287",name:"拉萨市",level:3,pid:"26"},{id:"288",name:"日喀则地区",level:3,pid:"26"},{id:"289",name:"山南地区",level:3,pid:"26"},{id:"290",name:"林芝地区",level:3,pid:"26"},{id:"291",name:"昌都地区",level:3,pid:"26"},{id:"292",name:"阿里地区",level:3,pid:"26"},{id:"398",name:"那曲地区",level:3,pid:"26"}]}]},{id:1007,name:"西北",level:1,pid:0,province:[{id:"27",name:"陕西省",level:2,pid:1007,citys:[{id:"293",name:"西安市",level:3,pid:"27"},{id:"294",name:"宝鸡市",level:3,pid:"27"},{id:"295",name:"咸阳市",level:3,pid:"27"},{id:"296",name:"铜川市",level:3,pid:"27"},{id:"297",name:"渭南市",level:3,pid:"27"},{id:"298",name:"延安市",level:3,pid:"27"},{id:"299",name:"榆林市",level:3,pid:"27"},{id:"300",name:"汉中市",level:3,pid:"27"},{id:"301",name:"安康市",level:3,pid:"27"},{id:"359",name:"商洛市",level:3,pid:"27"}]},{id:"28",name:"甘肃省",level:2,pid:1007,citys:[{id:"302",name:"兰州市",level:3,pid:"28"},{id:"303",name:"嘉峪关市",level:3,pid:"28"},{id:"304",name:"金昌市",level:3,pid:"28"},{id:"305",name:"白银市",level:3,pid:"28"},{id:"306",name:"天水市",level:3,pid:"28"},{id:"307",name:"酒泉市",level:3,pid:"28"},{id:"308",name:"张掖市",level:3,pid:"28"},{id:"309",name:"武威市",level:3,pid:"28"},{id:"310",name:"定西市",level:3,pid:"28"},{id:"311",name:"陇南市",level:3,pid:"28"},{id:"312",name:"平凉市",level:3,pid:"28"},{id:"313",name:"庆阳市",level:3,pid:"28"},{id:"314",name:"临夏回族自治州",level:3,pid:"28"},{id:"389",name:"甘南藏族自治州",level:3,pid:"28"}]},{id:"29",name:"宁夏回族自治区",level:2,pid:1007,citys:[{id:"315",name:"银川市",level:3,pid:"29"},{id:"316",name:"石嘴山市",level:3,pid:"29"},{id:"317",name:"吴忠市",
-level:3,pid:"29"},{id:"360",name:"固原市",level:3,pid:"29"},{id:"361",name:"中卫市",level:3,pid:"29"}]},{id:"30",name:"青海省",level:2,pid:1007,citys:[{id:"318",name:"西宁市",level:3,pid:"30"},{id:"319",name:"海东地区",level:3,pid:"30"},{id:"321",name:"海北藏族自治州",level:3,pid:"30"},{id:"322",name:"黄南藏族自治州",level:3,pid:"30"},{id:"323",name:"玉树藏族自治州",level:3,pid:"30"},{id:"324",name:"果洛藏族自治州",level:3,pid:"30"},{id:"391",name:"海西蒙古族藏族自治州",level:3,pid:"30"}]},{id:"31",name:"新疆维吾尔自治区",level:2,pid:1007,citys:[{id:"325",name:"乌鲁木齐市",level:3,pid:"31"},{id:"326",name:"石河子市",level:3,pid:"31"},{id:"327",name:"克拉玛依市",level:3,pid:"31"},{id:"328",name:"伊犁哈萨克自治州",level:3,pid:"31"},{id:"330",name:"昌吉回族自治州",level:3,pid:"31"},{id:"331",name:"克孜勒苏柯尔克孜自治州",level:3,pid:"31"},{id:"332",name:"博尔塔拉蒙古自治州",level:3,pid:"31"},{id:"333",name:"吐鲁番地区",level:3,pid:"31"},{id:"334",name:"哈密地区",level:3,pid:"31"},{id:"335",name:"喀什地区",level:3,pid:"31"},{id:"336",name:"和田地区",level:3,pid:"31"},{id:"368",name:"塔城地区",level:3,pid:"31"},{id:"386",name:"巴音郭楞蒙古自治州",level:3,pid:"31"},{id:"387",name:"阿克苏地区",level:3,pid:"31"},{id:"390",name:"阿勒泰地区",level:3,pid:"31"},{id:"397",name:"五家渠市",level:3,pid:"31"},{id:"399",name:"阿拉尔市",level:3,pid:"31"}]}]},{id:1008,name:"其他",level:1,pid:0,province:[{id:"32",name:"香港特别行政区",level:2,pid:1008,citys:[{id:"32",name:"香港特别行政区",level:3,pid:"32"}]},{id:"33",name:"澳门特别行政区",level:2,pid:1008,citys:[{id:"33",name:"澳门特别行政区",level:3,pid:"33"}]},{id:"34",name:"台湾省",level:2,pid:1008,citys:[{id:"337",name:"台北市",level:3,pid:"34"},{id:"339",name:"台中市",level:3,pid:"34"},{id:"340",name:"台南市",level:3,pid:"34"},{id:"341",name:"高雄市",level:3,pid:"34"}]}]}]},function(e,t){e.exports='<div><a class="btn btn-primary" @click=showDialog href=javascript:;>选择城市</a><dialog :visible.sync=dialogVisible title=选择城市><div class=area-picker-wrap><div class=area-picker-ctn><div class=area v-for="area in areacode"><div class=fl><label><input @change="syncArea(area, $event)" v-model=checkedAreas type=checkbox value={{area.id}}> {{area.name}}</label></div><dl><dd v-for="pro in area.province"><label><input @change="syncProvince(pro, $event)" v-model=checkedProvinces type=checkbox value={{pro.id}}> {{pro.name}}(<span>{{pro.citys | checkedLenFilter}}</span>/<span>{{pro.citys.length}}</span>)</label><div class=citys><h4>{{pro.name}}</h4><ul><li v-for="city in pro.citys"><label><input @change="syncCity(city, $event)" v-model=checkedCitys type=checkbox value={{city.id}}> {{city.name}}</label></li></ul></div></dl></div><div class="area last"><label><input @change="init(\'0\', $event)" type=checkbox checked> 全部</label></div></div><div class=time-picker-submit-wrap><a class="btn btn-primary" href=javascript:; @click.prevent=confirm>确定</a> <a class="btn btn-default" href=javascript:; @click.prevent=cancel>取消</a></div></div></dialog></div>'}]);
+	'use strict';
+	
+	function set(obj, key, val) {
+	  if (hasOwn(obj, key)) {
+	    obj[key] = val;
+	    return;
+	  }
+	  if (obj._isVue) {
+	    set(obj._data, key, val);
+	    return;
+	  }
+	  var ob = obj.__ob__;
+	  if (!ob) {
+	    obj[key] = val;
+	    return;
+	  }
+	  ob.convert(key, val);
+	  ob.dep.notify();
+	  if (ob.vms) {
+	    var i = ob.vms.length;
+	    while (i--) {
+	      var vm = ob.vms[i];
+	      vm._proxy(key);
+	      vm._digest();
+	    }
+	  }
+	}
+	
+	/**
+	 * Delete a property and trigger change if necessary.
+	 *
+	 * @param {Object} obj
+	 * @param {String} key
+	 */
+	
+	function del(obj, key) {
+	  if (!hasOwn(obj, key)) {
+	    return;
+	  }
+	  delete obj[key];
+	  var ob = obj.__ob__;
+	  if (!ob) {
+	    return;
+	  }
+	  ob.dep.notify();
+	  if (ob.vms) {
+	    var i = ob.vms.length;
+	    while (i--) {
+	      var vm = ob.vms[i];
+	      vm._unproxy(key);
+	      vm._digest();
+	    }
+	  }
+	}
+	
+	var hasOwnProperty = Object.prototype.hasOwnProperty;
+	/**
+	 * Check whether the object has the property.
+	 *
+	 * @param {Object} obj
+	 * @param {String} key
+	 * @return {Boolean}
+	 */
+	
+	function hasOwn(obj, key) {
+	  return hasOwnProperty.call(obj, key);
+	}
+	
+	/**
+	 * Check if an expression is a literal value.
+	 *
+	 * @param {String} exp
+	 * @return {Boolean}
+	 */
+	
+	var literalValueRE = /^\s?(true|false|[\d\.]+|'[^']*'|"[^"]*")\s?$/;
+	
+	function isLiteral(exp) {
+	  return literalValueRE.test(exp);
+	}
+	
+	/**
+	 * Check if a string starts with $ or _
+	 *
+	 * @param {String} str
+	 * @return {Boolean}
+	 */
+	
+	function isReserved(str) {
+	  var c = (str + '').charCodeAt(0);
+	  return c === 0x24 || c === 0x5F;
+	}
+	
+	/**
+	 * Guard text output, make sure undefined outputs
+	 * empty string
+	 *
+	 * @param {*} value
+	 * @return {String}
+	 */
+	
+	function _toString(value) {
+	  return value == null ? '' : value.toString();
+	}
+	
+	/**
+	 * Check and convert possible numeric strings to numbers
+	 * before setting back to data
+	 *
+	 * @param {*} value
+	 * @return {*|Number}
+	 */
+	
+	function toNumber(value) {
+	  if (typeof value !== 'string') {
+	    return value;
+	  } else {
+	    var parsed = Number(value);
+	    return isNaN(parsed) ? value : parsed;
+	  }
+	}
+	
+	/**
+	 * Convert string boolean literals into real booleans.
+	 *
+	 * @param {*} value
+	 * @return {*|Boolean}
+	 */
+	
+	function toBoolean(value) {
+	  return value === 'true' ? true : value === 'false' ? false : value;
+	}
+	
+	/**
+	 * Strip quotes from a string
+	 *
+	 * @param {String} str
+	 * @return {String | false}
+	 */
+	
+	function stripQuotes(str) {
+	  var a = str.charCodeAt(0);
+	  var b = str.charCodeAt(str.length - 1);
+	  return a === b && (a === 0x22 || a === 0x27) ? str.slice(1, -1) : str;
+	}
+	
+	/**
+	 * Camelize a hyphen-delmited string.
+	 *
+	 * @param {String} str
+	 * @return {String}
+	 */
+	
+	var camelizeRE = /-(\w)/g;
+	
+	function camelize(str) {
+	  return str.replace(camelizeRE, toUpper);
+	}
+	
+	function toUpper(_, c) {
+	  return c ? c.toUpperCase() : '';
+	}
+	
+	/**
+	 * Hyphenate a camelCase string.
+	 *
+	 * @param {String} str
+	 * @return {String}
+	 */
+	
+	var hyphenateRE = /([a-z\d])([A-Z])/g;
+	
+	function hyphenate(str) {
+	  return str.replace(hyphenateRE, '$1-$2').toLowerCase();
+	}
+	
+	/**
+	 * Converts hyphen/underscore/slash delimitered names into
+	 * camelized classNames.
+	 *
+	 * e.g. my-component => MyComponent
+	 *      some_else    => SomeElse
+	 *      some/comp    => SomeComp
+	 *
+	 * @param {String} str
+	 * @return {String}
+	 */
+	
+	var classifyRE = /(?:^|[-_\/])(\w)/g;
+	
+	function classify(str) {
+	  return str.replace(classifyRE, toUpper);
+	}
+	
+	/**
+	 * Simple bind, faster than native
+	 *
+	 * @param {Function} fn
+	 * @param {Object} ctx
+	 * @return {Function}
+	 */
+	
+	function bind$1(fn, ctx) {
+	  return function (a) {
+	    var l = arguments.length;
+	    return l ? l > 1 ? fn.apply(ctx, arguments) : fn.call(ctx, a) : fn.call(ctx);
+	  };
+	}
+	
+	/**
+	 * Convert an Array-like object to a real Array.
+	 *
+	 * @param {Array-like} list
+	 * @param {Number} [start] - start index
+	 * @return {Array}
+	 */
+	
+	function toArray(list, start) {
+	  start = start || 0;
+	  var i = list.length - start;
+	  var ret = new Array(i);
+	  while (i--) {
+	    ret[i] = list[i + start];
+	  }
+	  return ret;
+	}
+	
+	/**
+	 * Mix properties into target object.
+	 *
+	 * @param {Object} to
+	 * @param {Object} from
+	 */
+	
+	function extend(to, from) {
+	  var keys = Object.keys(from);
+	  var i = keys.length;
+	  while (i--) {
+	    to[keys[i]] = from[keys[i]];
+	  }
+	  return to;
+	}
+	
+	/**
+	 * Quick object check - this is primarily used to tell
+	 * Objects from primitive values when we know the value
+	 * is a JSON-compliant type.
+	 *
+	 * @param {*} obj
+	 * @return {Boolean}
+	 */
+	
+	function isObject(obj) {
+	  return obj !== null && typeof obj === 'object';
+	}
+	
+	/**
+	 * Strict object type check. Only returns true
+	 * for plain JavaScript objects.
+	 *
+	 * @param {*} obj
+	 * @return {Boolean}
+	 */
+	
+	var toString = Object.prototype.toString;
+	var OBJECT_STRING = '[object Object]';
+	
+	function isPlainObject(obj) {
+	  return toString.call(obj) === OBJECT_STRING;
+	}
+	
+	/**
+	 * Array type check.
+	 *
+	 * @param {*} obj
+	 * @return {Boolean}
+	 */
+	
+	var isArray = Array.isArray;
+	
+	/**
+	 * Define a non-enumerable property
+	 *
+	 * @param {Object} obj
+	 * @param {String} key
+	 * @param {*} val
+	 * @param {Boolean} [enumerable]
+	 */
+	
+	function def(obj, key, val, enumerable) {
+	  Object.defineProperty(obj, key, {
+	    value: val,
+	    enumerable: !!enumerable,
+	    writable: true,
+	    configurable: true
+	  });
+	}
+	
+	/**
+	 * Debounce a function so it only gets called after the
+	 * input stops arriving after the given wait period.
+	 *
+	 * @param {Function} func
+	 * @param {Number} wait
+	 * @return {Function} - the debounced function
+	 */
+	
+	function _debounce(func, wait) {
+	  var timeout, args, context, timestamp, result;
+	  var later = function later() {
+	    var last = Date.now() - timestamp;
+	    if (last < wait && last >= 0) {
+	      timeout = setTimeout(later, wait - last);
+	    } else {
+	      timeout = null;
+	      result = func.apply(context, args);
+	      if (!timeout) context = args = null;
+	    }
+	  };
+	  return function () {
+	    context = this;
+	    args = arguments;
+	    timestamp = Date.now();
+	    if (!timeout) {
+	      timeout = setTimeout(later, wait);
+	    }
+	    return result;
+	  };
+	}
+	
+	/**
+	 * Manual indexOf because it's slightly faster than
+	 * native.
+	 *
+	 * @param {Array} arr
+	 * @param {*} obj
+	 */
+	
+	function indexOf(arr, obj) {
+	  var i = arr.length;
+	  while (i--) {
+	    if (arr[i] === obj) return i;
+	  }
+	  return -1;
+	}
+	
+	/**
+	 * Make a cancellable version of an async callback.
+	 *
+	 * @param {Function} fn
+	 * @return {Function}
+	 */
+	
+	function cancellable(fn) {
+	  var cb = function cb() {
+	    if (!cb.cancelled) {
+	      return fn.apply(this, arguments);
+	    }
+	  };
+	  cb.cancel = function () {
+	    cb.cancelled = true;
+	  };
+	  return cb;
+	}
+	
+	/**
+	 * Check if two values are loosely equal - that is,
+	 * if they are plain objects, do they have the same shape?
+	 *
+	 * @param {*} a
+	 * @param {*} b
+	 * @return {Boolean}
+	 */
+	
+	function looseEqual(a, b) {
+	  /* eslint-disable eqeqeq */
+	  return a == b || (isObject(a) && isObject(b) ? JSON.stringify(a) === JSON.stringify(b) : false);
+	  /* eslint-enable eqeqeq */
+	}
+	
+	var hasProto = ('__proto__' in {});
+	
+	// Browser environment sniffing
+	var inBrowser = typeof window !== 'undefined' && Object.prototype.toString.call(window) !== '[object Object]';
+	
+	var isIE9 = inBrowser && navigator.userAgent.toLowerCase().indexOf('msie 9.0') > 0;
+	
+	var isAndroid = inBrowser && navigator.userAgent.toLowerCase().indexOf('android') > 0;
+	
+	var transitionProp = undefined;
+	var transitionEndEvent = undefined;
+	var animationProp = undefined;
+	var animationEndEvent = undefined;
+	
+	// Transition property/event sniffing
+	if (inBrowser && !isIE9) {
+	  var isWebkitTrans = window.ontransitionend === undefined && window.onwebkittransitionend !== undefined;
+	  var isWebkitAnim = window.onanimationend === undefined && window.onwebkitanimationend !== undefined;
+	  transitionProp = isWebkitTrans ? 'WebkitTransition' : 'transition';
+	  transitionEndEvent = isWebkitTrans ? 'webkitTransitionEnd' : 'transitionend';
+	  animationProp = isWebkitAnim ? 'WebkitAnimation' : 'animation';
+	  animationEndEvent = isWebkitAnim ? 'webkitAnimationEnd' : 'animationend';
+	}
+	
+	/**
+	 * Defer a task to execute it asynchronously. Ideally this
+	 * should be executed as a microtask, so we leverage
+	 * MutationObserver if it's available, and fallback to
+	 * setTimeout(0).
+	 *
+	 * @param {Function} cb
+	 * @param {Object} ctx
+	 */
+	
+	var nextTick = (function () {
+	  var callbacks = [];
+	  var pending = false;
+	  var timerFunc;
+	  function nextTickHandler() {
+	    pending = false;
+	    var copies = callbacks.slice(0);
+	    callbacks = [];
+	    for (var i = 0; i < copies.length; i++) {
+	      copies[i]();
+	    }
+	  }
+	  /* istanbul ignore if */
+	  if (typeof MutationObserver !== 'undefined') {
+	    var counter = 1;
+	    var observer = new MutationObserver(nextTickHandler);
+	    var textNode = document.createTextNode(counter);
+	    observer.observe(textNode, {
+	      characterData: true
+	    });
+	    timerFunc = function () {
+	      counter = (counter + 1) % 2;
+	      textNode.data = counter;
+	    };
+	  } else {
+	    timerFunc = setTimeout;
+	  }
+	  return function (cb, ctx) {
+	    var func = ctx ? function () {
+	      cb.call(ctx);
+	    } : cb;
+	    callbacks.push(func);
+	    if (pending) return;
+	    pending = true;
+	    timerFunc(nextTickHandler, 0);
+	  };
+	})();
+	
+	function Cache(limit) {
+	  this.size = 0;
+	  this.limit = limit;
+	  this.head = this.tail = undefined;
+	  this._keymap = Object.create(null);
+	}
+	
+	var p = Cache.prototype;
+	
+	/**
+	 * Put <value> into the cache associated with <key>.
+	 * Returns the entry which was removed to make room for
+	 * the new entry. Otherwise undefined is returned.
+	 * (i.e. if there was enough room already).
+	 *
+	 * @param {String} key
+	 * @param {*} value
+	 * @return {Entry|undefined}
+	 */
+	
+	p.put = function (key, value) {
+	  var entry = {
+	    key: key,
+	    value: value
+	  };
+	  this._keymap[key] = entry;
+	  if (this.tail) {
+	    this.tail.newer = entry;
+	    entry.older = this.tail;
+	  } else {
+	    this.head = entry;
+	  }
+	  this.tail = entry;
+	  if (this.size === this.limit) {
+	    return this.shift();
+	  } else {
+	    this.size++;
+	  }
+	};
+	
+	/**
+	 * Purge the least recently used (oldest) entry from the
+	 * cache. Returns the removed entry or undefined if the
+	 * cache was empty.
+	 */
+	
+	p.shift = function () {
+	  var entry = this.head;
+	  if (entry) {
+	    this.head = this.head.newer;
+	    this.head.older = undefined;
+	    entry.newer = entry.older = undefined;
+	    this._keymap[entry.key] = undefined;
+	  }
+	  return entry;
+	};
+	
+	/**
+	 * Get and register recent use of <key>. Returns the value
+	 * associated with <key> or undefined if not in cache.
+	 *
+	 * @param {String} key
+	 * @param {Boolean} returnEntry
+	 * @return {Entry|*}
+	 */
+	
+	p.get = function (key, returnEntry) {
+	  var entry = this._keymap[key];
+	  if (entry === undefined) return;
+	  if (entry === this.tail) {
+	    return returnEntry ? entry : entry.value;
+	  }
+	  // HEAD--------------TAIL
+	  //   <.older   .newer>
+	  //  <--- add direction --
+	  //   A  B  C  <D>  E
+	  if (entry.newer) {
+	    if (entry === this.head) {
+	      this.head = entry.newer;
+	    }
+	    entry.newer.older = entry.older; // C <-- E.
+	  }
+	  if (entry.older) {
+	    entry.older.newer = entry.newer; // C. --> E
+	  }
+	  entry.newer = undefined; // D --x
+	  entry.older = this.tail; // D. --> E
+	  if (this.tail) {
+	    this.tail.newer = entry; // E. <-- D
+	  }
+	  this.tail = entry;
+	  return returnEntry ? entry : entry.value;
+	};
+	
+	var cache$1 = new Cache(1000);
+	var filterTokenRE = /[^\s'"]+|'[^']*'|"[^"]*"/g;
+	var reservedArgRE = /^in$|^-?\d+/;
+	
+	/**
+	 * Parser state
+	 */
+	
+	var str;
+	var dir;
+	var c;
+	var i;
+	var l;
+	var lastFilterIndex;
+	var inSingle;
+	var inDouble;
+	var curly;
+	var square;
+	var paren;
+	/**
+	 * Push a filter to the current directive object
+	 */
+	
+	function pushFilter() {
+	  var exp = str.slice(lastFilterIndex, i).trim();
+	  var filter;
+	  if (exp) {
+	    filter = {};
+	    var tokens = exp.match(filterTokenRE);
+	    filter.name = tokens[0];
+	    if (tokens.length > 1) {
+	      filter.args = tokens.slice(1).map(processFilterArg);
+	    }
+	  }
+	  if (filter) {
+	    (dir.filters = dir.filters || []).push(filter);
+	  }
+	  lastFilterIndex = i + 1;
+	}
+	
+	/**
+	 * Check if an argument is dynamic and strip quotes.
+	 *
+	 * @param {String} arg
+	 * @return {Object}
+	 */
+	
+	function processFilterArg(arg) {
+	  if (reservedArgRE.test(arg)) {
+	    return {
+	      value: toNumber(arg),
+	      dynamic: false
+	    };
+	  } else {
+	    var stripped = stripQuotes(arg);
+	    var dynamic = stripped === arg;
+	    return {
+	      value: dynamic ? arg : stripped,
+	      dynamic: dynamic
+	    };
+	  }
+	}
+	
+	/**
+	 * Parse a directive value and extract the expression
+	 * and its filters into a descriptor.
+	 *
+	 * Example:
+	 *
+	 * "a + 1 | uppercase" will yield:
+	 * {
+	 *   expression: 'a + 1',
+	 *   filters: [
+	 *     { name: 'uppercase', args: null }
+	 *   ]
+	 * }
+	 *
+	 * @param {String} str
+	 * @return {Object}
+	 */
+	
+	function parseDirective(s) {
+	
+	  var hit = cache$1.get(s);
+	  if (hit) {
+	    return hit;
+	  }
+	
+	  // reset parser state
+	  str = s;
+	  inSingle = inDouble = false;
+	  curly = square = paren = 0;
+	  lastFilterIndex = 0;
+	  dir = {};
+	
+	  for (i = 0, l = str.length; i < l; i++) {
+	    c = str.charCodeAt(i);
+	    if (inSingle) {
+	      // check single quote
+	      if (c === 0x27) inSingle = !inSingle;
+	    } else if (inDouble) {
+	      // check double quote
+	      if (c === 0x22) inDouble = !inDouble;
+	    } else if (c === 0x7C && // pipe
+	    str.charCodeAt(i + 1) !== 0x7C && str.charCodeAt(i - 1) !== 0x7C) {
+	      if (dir.expression == null) {
+	        // first filter, end of expression
+	        lastFilterIndex = i + 1;
+	        dir.expression = str.slice(0, i).trim();
+	      } else {
+	        // already has filter
+	        pushFilter();
+	      }
+	    } else {
+	      switch (c) {
+	        case 0x22:
+	          inDouble = true;break; // "
+	        case 0x27:
+	          inSingle = true;break; // '
+	        case 0x28:
+	          paren++;break; // (
+	        case 0x29:
+	          paren--;break; // )
+	        case 0x5B:
+	          square++;break; // [
+	        case 0x5D:
+	          square--;break; // ]
+	        case 0x7B:
+	          curly++;break; // {
+	        case 0x7D:
+	          curly--;break; // }
+	      }
+	    }
+	  }
+	
+	  if (dir.expression == null) {
+	    dir.expression = str.slice(0, i).trim();
+	  } else if (lastFilterIndex !== 0) {
+	    pushFilter();
+	  }
+	
+	  cache$1.put(s, dir);
+	  return dir;
+	}
+	
+	var directive = Object.freeze({
+	  parseDirective: parseDirective
+	});
+	
+	var regexEscapeRE = /[-.*+?^${}()|[\]\/\\]/g;
+	var cache = undefined;
+	var tagRE = undefined;
+	var htmlRE = undefined;
+	/**
+	 * Escape a string so it can be used in a RegExp
+	 * constructor.
+	 *
+	 * @param {String} str
+	 */
+	
+	function escapeRegex(str) {
+	  return str.replace(regexEscapeRE, '\\$&');
+	}
+	
+	function compileRegex() {
+	  var open = escapeRegex(config.delimiters[0]);
+	  var close = escapeRegex(config.delimiters[1]);
+	  var unsafeOpen = escapeRegex(config.unsafeDelimiters[0]);
+	  var unsafeClose = escapeRegex(config.unsafeDelimiters[1]);
+	  tagRE = new RegExp(unsafeOpen + '(.+?)' + unsafeClose + '|' + open + '(.+?)' + close, 'g');
+	  htmlRE = new RegExp('^' + unsafeOpen + '.*' + unsafeClose + '$');
+	  // reset cache
+	  cache = new Cache(1000);
+	}
+	
+	/**
+	 * Parse a template text string into an array of tokens.
+	 *
+	 * @param {String} text
+	 * @return {Array<Object> | null}
+	 *               - {String} type
+	 *               - {String} value
+	 *               - {Boolean} [html]
+	 *               - {Boolean} [oneTime]
+	 */
+	
+	function parseText(text) {
+	  if (!cache) {
+	    compileRegex();
+	  }
+	  var hit = cache.get(text);
+	  if (hit) {
+	    return hit;
+	  }
+	  text = text.replace(/\n/g, '');
+	  if (!tagRE.test(text)) {
+	    return null;
+	  }
+	  var tokens = [];
+	  var lastIndex = tagRE.lastIndex = 0;
+	  var match, index, html, value, first, oneTime;
+	  /* eslint-disable no-cond-assign */
+	  while (match = tagRE.exec(text)) {
+	    /* eslint-enable no-cond-assign */
+	    index = match.index;
+	    // push text token
+	    if (index > lastIndex) {
+	      tokens.push({
+	        value: text.slice(lastIndex, index)
+	      });
+	    }
+	    // tag token
+	    html = htmlRE.test(match[0]);
+	    value = html ? match[1] : match[2];
+	    first = value.charCodeAt(0);
+	    oneTime = first === 42; // *
+	    value = oneTime ? value.slice(1) : value;
+	    tokens.push({
+	      tag: true,
+	      value: value.trim(),
+	      html: html,
+	      oneTime: oneTime
+	    });
+	    lastIndex = index + match[0].length;
+	  }
+	  if (lastIndex < text.length) {
+	    tokens.push({
+	      value: text.slice(lastIndex)
+	    });
+	  }
+	  cache.put(text, tokens);
+	  return tokens;
+	}
+	
+	/**
+	 * Format a list of tokens into an expression.
+	 * e.g. tokens parsed from 'a {{b}} c' can be serialized
+	 * into one single expression as '"a " + b + " c"'.
+	 *
+	 * @param {Array} tokens
+	 * @return {String}
+	 */
+	
+	function tokensToExp(tokens) {
+	  if (tokens.length > 1) {
+	    return tokens.map(function (token) {
+	      return formatToken(token);
+	    }).join('+');
+	  } else {
+	    return formatToken(tokens[0], true);
+	  }
+	}
+	
+	/**
+	 * Format a single token.
+	 *
+	 * @param {Object} token
+	 * @param {Boolean} single
+	 * @return {String}
+	 */
+	
+	function formatToken(token, single) {
+	  return token.tag ? inlineFilters(token.value, single) : '"' + token.value + '"';
+	}
+	
+	/**
+	 * For an attribute with multiple interpolation tags,
+	 * e.g. attr="some-{{thing | filter}}", in order to combine
+	 * the whole thing into a single watchable expression, we
+	 * have to inline those filters. This function does exactly
+	 * that. This is a bit hacky but it avoids heavy changes
+	 * to directive parser and watcher mechanism.
+	 *
+	 * @param {String} exp
+	 * @param {Boolean} single
+	 * @return {String}
+	 */
+	
+	var filterRE$1 = /[^|]\|[^|]/;
+	function inlineFilters(exp, single) {
+	  if (!filterRE$1.test(exp)) {
+	    return single ? exp : '(' + exp + ')';
+	  } else {
+	    var dir = parseDirective(exp);
+	    if (!dir.filters) {
+	      return '(' + exp + ')';
+	    } else {
+	      return 'this._applyFilters(' + dir.expression + // value
+	      ',null,' + // oldValue (null for read)
+	      JSON.stringify(dir.filters) + // filter descriptors
+	      ',false)'; // write?
+	    }
+	  }
+	}
+	
+	var text$1 = Object.freeze({
+	  compileRegex: compileRegex,
+	  parseText: parseText,
+	  tokensToExp: tokensToExp
+	});
+	
+	var delimiters = ['{{', '}}'];
+	var unsafeDelimiters = ['{{{', '}}}'];
+	
+	var config = Object.defineProperties({
+	
+	  /**
+	   * Whether to print debug messages.
+	   * Also enables stack trace for warnings.
+	   *
+	   * @type {Boolean}
+	   */
+	
+	  debug: false,
+	
+	  /**
+	   * Whether to suppress warnings.
+	   *
+	   * @type {Boolean}
+	   */
+	
+	  silent: false,
+	
+	  /**
+	   * Whether to use async rendering.
+	   */
+	
+	  async: true,
+	
+	  /**
+	   * Whether to warn against errors caught when evaluating
+	   * expressions.
+	   */
+	
+	  warnExpressionErrors: true,
+	
+	  /**
+	   * Whether or not to handle fully object properties which
+	   * are already backed by getters and seters. Depending on
+	   * use case and environment, this might introduce non-neglible
+	   * performance penalties.
+	   */
+	  convertAllProperties: false,
+	
+	  /**
+	   * Internal flag to indicate the delimiters have been
+	   * changed.
+	   *
+	   * @type {Boolean}
+	   */
+	
+	  _delimitersChanged: true,
+	
+	  /**
+	   * List of asset types that a component can own.
+	   *
+	   * @type {Array}
+	   */
+	
+	  _assetTypes: ['component', 'directive', 'elementDirective', 'filter', 'transition', 'partial'],
+	
+	  /**
+	   * prop binding modes
+	   */
+	
+	  _propBindingModes: {
+	    ONE_WAY: 0,
+	    TWO_WAY: 1,
+	    ONE_TIME: 2
+	  },
+	
+	  /**
+	   * Max circular updates allowed in a batcher flush cycle.
+	   */
+	
+	  _maxUpdateCount: 100
+	
+	}, {
+	  delimiters: { /**
+	                 * Interpolation delimiters. Changing these would trigger
+	                 * the text parser to re-compile the regular expressions.
+	                 *
+	                 * @type {Array<String>}
+	                 */
+	
+	    get: function get() {
+	      return delimiters;
+	    },
+	    set: function set(val) {
+	      delimiters = val;
+	      compileRegex();
+	    },
+	    configurable: true,
+	    enumerable: true
+	  },
+	  unsafeDelimiters: {
+	    get: function get() {
+	      return unsafeDelimiters;
+	    },
+	    set: function set(val) {
+	      unsafeDelimiters = val;
+	      compileRegex();
+	    },
+	    configurable: true,
+	    enumerable: true
+	  }
+	});
+	
+	var warn = undefined;
+	
+	if (process.env.NODE_ENV !== 'production') {
+	  (function () {
+	    var hasConsole = typeof console !== 'undefined';
+	    warn = function (msg, e) {
+	      if (hasConsole && (!config.silent || config.debug)) {
+	        console.warn('[Vue warn]: ' + msg);
+	        /* istanbul ignore if */
+	        if (config.debug) {
+	          if (e) {
+	            throw e;
+	          } else {
+	            console.warn(new Error('Warning Stack Trace').stack);
+	          }
+	        }
+	      }
+	    };
+	  })();
+	}
+	
+	/**
+	 * Append with transition.
+	 *
+	 * @param {Element} el
+	 * @param {Element} target
+	 * @param {Vue} vm
+	 * @param {Function} [cb]
+	 */
+	
+	function appendWithTransition(el, target, vm, cb) {
+	  applyTransition(el, 1, function () {
+	    target.appendChild(el);
+	  }, vm, cb);
+	}
+	
+	/**
+	 * InsertBefore with transition.
+	 *
+	 * @param {Element} el
+	 * @param {Element} target
+	 * @param {Vue} vm
+	 * @param {Function} [cb]
+	 */
+	
+	function beforeWithTransition(el, target, vm, cb) {
+	  applyTransition(el, 1, function () {
+	    before(el, target);
+	  }, vm, cb);
+	}
+	
+	/**
+	 * Remove with transition.
+	 *
+	 * @param {Element} el
+	 * @param {Vue} vm
+	 * @param {Function} [cb]
+	 */
+	
+	function removeWithTransition(el, vm, cb) {
+	  applyTransition(el, -1, function () {
+	    remove(el);
+	  }, vm, cb);
+	}
+	
+	/**
+	 * Apply transitions with an operation callback.
+	 *
+	 * @param {Element} el
+	 * @param {Number} direction
+	 *                  1: enter
+	 *                 -1: leave
+	 * @param {Function} op - the actual DOM operation
+	 * @param {Vue} vm
+	 * @param {Function} [cb]
+	 */
+	
+	function applyTransition(el, direction, op, vm, cb) {
+	  var transition = el.__v_trans;
+	  if (!transition ||
+	  // skip if there are no js hooks and CSS transition is
+	  // not supported
+	  !transition.hooks && !transitionEndEvent ||
+	  // skip transitions for initial compile
+	  !vm._isCompiled ||
+	  // if the vm is being manipulated by a parent directive
+	  // during the parent's compilation phase, skip the
+	  // animation.
+	  vm.$parent && !vm.$parent._isCompiled) {
+	    op();
+	    if (cb) cb();
+	    return;
+	  }
+	  var action = direction > 0 ? 'enter' : 'leave';
+	  transition[action](op, cb);
+	}
+	
+	/**
+	 * Query an element selector if it's not an element already.
+	 *
+	 * @param {String|Element} el
+	 * @return {Element}
+	 */
+	
+	function query(el) {
+	  if (typeof el === 'string') {
+	    var selector = el;
+	    el = document.querySelector(el);
+	    if (!el) {
+	      process.env.NODE_ENV !== 'production' && warn('Cannot find element: ' + selector);
+	    }
+	  }
+	  return el;
+	}
+	
+	/**
+	 * Check if a node is in the document.
+	 * Note: document.documentElement.contains should work here
+	 * but always returns false for comment nodes in phantomjs,
+	 * making unit tests difficult. This is fixed by doing the
+	 * contains() check on the node's parentNode instead of
+	 * the node itself.
+	 *
+	 * @param {Node} node
+	 * @return {Boolean}
+	 */
+	
+	function inDoc(node) {
+	  var doc = document.documentElement;
+	  var parent = node && node.parentNode;
+	  return doc === node || doc === parent || !!(parent && parent.nodeType === 1 && doc.contains(parent));
+	}
+	
+	/**
+	 * Get and remove an attribute from a node.
+	 *
+	 * @param {Node} node
+	 * @param {String} _attr
+	 */
+	
+	function getAttr(node, _attr) {
+	  var val = node.getAttribute(_attr);
+	  if (val !== null) {
+	    node.removeAttribute(_attr);
+	  }
+	  return val;
+	}
+	
+	/**
+	 * Get an attribute with colon or v-bind: prefix.
+	 *
+	 * @param {Node} node
+	 * @param {String} name
+	 * @return {String|null}
+	 */
+	
+	function getBindAttr(node, name) {
+	  var val = getAttr(node, ':' + name);
+	  if (val === null) {
+	    val = getAttr(node, 'v-bind:' + name);
+	  }
+	  return val;
+	}
+	
+	/**
+	 * Insert el before target
+	 *
+	 * @param {Element} el
+	 * @param {Element} target
+	 */
+	
+	function before(el, target) {
+	  target.parentNode.insertBefore(el, target);
+	}
+	
+	/**
+	 * Insert el after target
+	 *
+	 * @param {Element} el
+	 * @param {Element} target
+	 */
+	
+	function after(el, target) {
+	  if (target.nextSibling) {
+	    before(el, target.nextSibling);
+	  } else {
+	    target.parentNode.appendChild(el);
+	  }
+	}
+	
+	/**
+	 * Remove el from DOM
+	 *
+	 * @param {Element} el
+	 */
+	
+	function remove(el) {
+	  el.parentNode.removeChild(el);
+	}
+	
+	/**
+	 * Prepend el to target
+	 *
+	 * @param {Element} el
+	 * @param {Element} target
+	 */
+	
+	function prepend(el, target) {
+	  if (target.firstChild) {
+	    before(el, target.firstChild);
+	  } else {
+	    target.appendChild(el);
+	  }
+	}
+	
+	/**
+	 * Replace target with el
+	 *
+	 * @param {Element} target
+	 * @param {Element} el
+	 */
+	
+	function replace(target, el) {
+	  var parent = target.parentNode;
+	  if (parent) {
+	    parent.replaceChild(el, target);
+	  }
+	}
+	
+	/**
+	 * Add event listener shorthand.
+	 *
+	 * @param {Element} el
+	 * @param {String} event
+	 * @param {Function} cb
+	 */
+	
+	function on$1(el, event, cb) {
+	  el.addEventListener(event, cb);
+	}
+	
+	/**
+	 * Remove event listener shorthand.
+	 *
+	 * @param {Element} el
+	 * @param {String} event
+	 * @param {Function} cb
+	 */
+	
+	function off(el, event, cb) {
+	  el.removeEventListener(event, cb);
+	}
+	
+	/**
+	 * Add class with compatibility for IE & SVG
+	 *
+	 * @param {Element} el
+	 * @param {Strong} cls
+	 */
+	
+	function addClass(el, cls) {
+	  if (el.classList) {
+	    el.classList.add(cls);
+	  } else {
+	    var cur = ' ' + (el.getAttribute('class') || '') + ' ';
+	    if (cur.indexOf(' ' + cls + ' ') < 0) {
+	      el.setAttribute('class', (cur + cls).trim());
+	    }
+	  }
+	}
+	
+	/**
+	 * Remove class with compatibility for IE & SVG
+	 *
+	 * @param {Element} el
+	 * @param {Strong} cls
+	 */
+	
+	function removeClass(el, cls) {
+	  if (el.classList) {
+	    el.classList.remove(cls);
+	  } else {
+	    var cur = ' ' + (el.getAttribute('class') || '') + ' ';
+	    var tar = ' ' + cls + ' ';
+	    while (cur.indexOf(tar) >= 0) {
+	      cur = cur.replace(tar, ' ');
+	    }
+	    el.setAttribute('class', cur.trim());
+	  }
+	  if (!el.className) {
+	    el.removeAttribute('class');
+	  }
+	}
+	
+	/**
+	 * Extract raw content inside an element into a temporary
+	 * container div
+	 *
+	 * @param {Element} el
+	 * @param {Boolean} asFragment
+	 * @return {Element}
+	 */
+	
+	function extractContent(el, asFragment) {
+	  var child;
+	  var rawContent;
+	  /* istanbul ignore if */
+	  if (isTemplate(el) && el.content instanceof DocumentFragment) {
+	    el = el.content;
+	  }
+	  if (el.hasChildNodes()) {
+	    trimNode(el);
+	    rawContent = asFragment ? document.createDocumentFragment() : document.createElement('div');
+	    /* eslint-disable no-cond-assign */
+	    while (child = el.firstChild) {
+	      /* eslint-enable no-cond-assign */
+	      rawContent.appendChild(child);
+	    }
+	  }
+	  return rawContent;
+	}
+	
+	/**
+	 * Trim possible empty head/tail textNodes inside a parent.
+	 *
+	 * @param {Node} node
+	 */
+	
+	function trimNode(node) {
+	  trim(node, node.firstChild);
+	  trim(node, node.lastChild);
+	}
+	
+	function trim(parent, node) {
+	  if (node && node.nodeType === 3 && !node.data.trim()) {
+	    parent.removeChild(node);
+	  }
+	}
+	
+	/**
+	 * Check if an element is a template tag.
+	 * Note if the template appears inside an SVG its tagName
+	 * will be in lowercase.
+	 *
+	 * @param {Element} el
+	 */
+	
+	function isTemplate(el) {
+	  return el.tagName && el.tagName.toLowerCase() === 'template';
+	}
+	
+	/**
+	 * Create an "anchor" for performing dom insertion/removals.
+	 * This is used in a number of scenarios:
+	 * - fragment instance
+	 * - v-html
+	 * - v-if
+	 * - v-for
+	 * - component
+	 *
+	 * @param {String} content
+	 * @param {Boolean} persist - IE trashes empty textNodes on
+	 *                            cloneNode(true), so in certain
+	 *                            cases the anchor needs to be
+	 *                            non-empty to be persisted in
+	 *                            templates.
+	 * @return {Comment|Text}
+	 */
+	
+	function createAnchor(content, persist) {
+	  var anchor = config.debug ? document.createComment(content) : document.createTextNode(persist ? ' ' : '');
+	  anchor.__vue_anchor = true;
+	  return anchor;
+	}
+	
+	/**
+	 * Find a component ref attribute that starts with $.
+	 *
+	 * @param {Element} node
+	 * @return {String|undefined}
+	 */
+	
+	var refRE = /^v-ref:/;
+	
+	function findRef(node) {
+	  if (node.hasAttributes()) {
+	    var attrs = node.attributes;
+	    for (var i = 0, l = attrs.length; i < l; i++) {
+	      var name = attrs[i].name;
+	      if (refRE.test(name)) {
+	        return camelize(name.replace(refRE, ''));
+	      }
+	    }
+	  }
+	}
+	
+	/**
+	 * Map a function to a range of nodes .
+	 *
+	 * @param {Node} node
+	 * @param {Node} end
+	 * @param {Function} op
+	 */
+	
+	function mapNodeRange(node, end, op) {
+	  var next;
+	  while (node !== end) {
+	    next = node.nextSibling;
+	    op(node);
+	    node = next;
+	  }
+	  op(end);
+	}
+	
+	/**
+	 * Remove a range of nodes with transition, store
+	 * the nodes in a fragment with correct ordering,
+	 * and call callback when done.
+	 *
+	 * @param {Node} start
+	 * @param {Node} end
+	 * @param {Vue} vm
+	 * @param {DocumentFragment} frag
+	 * @param {Function} cb
+	 */
+	
+	function removeNodeRange(start, end, vm, frag, cb) {
+	  var done = false;
+	  var removed = 0;
+	  var nodes = [];
+	  mapNodeRange(start, end, function (node) {
+	    if (node === end) done = true;
+	    nodes.push(node);
+	    removeWithTransition(node, vm, onRemoved);
+	  });
+	  function onRemoved() {
+	    removed++;
+	    if (done && removed >= nodes.length) {
+	      for (var i = 0; i < nodes.length; i++) {
+	        frag.appendChild(nodes[i]);
+	      }
+	      cb && cb();
+	    }
+	  }
+	}
+	
+	var commonTagRE = /^(div|p|span|img|a|b|i|br|ul|ol|li|h1|h2|h3|h4|h5|h6|code|pre|table|th|td|tr|form|label|input|select|option|nav|article|section|header|footer)$/;
+	
+	/**
+	 * Check if an element is a component, if yes return its
+	 * component id.
+	 *
+	 * @param {Element} el
+	 * @param {Object} options
+	 * @return {Object|undefined}
+	 */
+	
+	function checkComponentAttr(el, options) {
+	  var tag = el.tagName.toLowerCase();
+	  var hasAttrs = el.hasAttributes();
+	  if (!commonTagRE.test(tag) && tag !== 'component') {
+	    if (resolveAsset(options, 'components', tag)) {
+	      return { id: tag };
+	    } else {
+	      var is = hasAttrs && getIsBinding(el);
+	      if (is) {
+	        return is;
+	      } else if (process.env.NODE_ENV !== 'production') {
+	        if (tag.indexOf('-') > -1 || /HTMLUnknownElement/.test(el.toString()) &&
+	        // Chrome returns unknown for several HTML5 elements.
+	        // https://code.google.com/p/chromium/issues/detail?id=540526
+	        !/^(data|time|rtc|rb)$/.test(tag)) {
+	          warn('Unknown custom element: <' + tag + '> - did you ' + 'register the component correctly?');
+	        }
+	      }
+	    }
+	  } else if (hasAttrs) {
+	    return getIsBinding(el);
+	  }
+	}
+	
+	/**
+	 * Get "is" binding from an element.
+	 *
+	 * @param {Element} el
+	 * @return {Object|undefined}
+	 */
+	
+	function getIsBinding(el) {
+	  // dynamic syntax
+	  var exp = getAttr(el, 'is');
+	  if (exp != null) {
+	    return { id: exp };
+	  } else {
+	    exp = getBindAttr(el, 'is');
+	    if (exp != null) {
+	      return { id: exp, dynamic: true };
+	    }
+	  }
+	}
+	
+	/**
+	 * Set a prop's initial value on a vm and its data object.
+	 *
+	 * @param {Vue} vm
+	 * @param {Object} prop
+	 * @param {*} value
+	 */
+	
+	function initProp(vm, prop, value) {
+	  var key = prop.path;
+	  vm[key] = vm._data[key] = assertProp(prop, value) ? value : undefined;
+	}
+	
+	/**
+	 * Assert whether a prop is valid.
+	 *
+	 * @param {Object} prop
+	 * @param {*} value
+	 */
+	
+	function assertProp(prop, value) {
+	  // if a prop is not provided and is not required,
+	  // skip the check.
+	  if (prop.raw === null && !prop.required) {
+	    return true;
+	  }
+	  var options = prop.options;
+	  var type = options.type;
+	  var valid = true;
+	  var expectedType;
+	  if (type) {
+	    if (type === String) {
+	      expectedType = 'string';
+	      valid = typeof value === expectedType;
+	    } else if (type === Number) {
+	      expectedType = 'number';
+	      valid = typeof value === 'number';
+	    } else if (type === Boolean) {
+	      expectedType = 'boolean';
+	      valid = typeof value === 'boolean';
+	    } else if (type === Function) {
+	      expectedType = 'function';
+	      valid = typeof value === 'function';
+	    } else if (type === Object) {
+	      expectedType = 'object';
+	      valid = isPlainObject(value);
+	    } else if (type === Array) {
+	      expectedType = 'array';
+	      valid = isArray(value);
+	    } else {
+	      valid = value instanceof type;
+	    }
+	  }
+	  if (!valid) {
+	    process.env.NODE_ENV !== 'production' && warn('Invalid prop: type check failed for ' + prop.path + '="' + prop.raw + '".' + ' Expected ' + formatType(expectedType) + ', got ' + formatValue(value) + '.');
+	    return false;
+	  }
+	  var validator = options.validator;
+	  if (validator) {
+	    if (!validator.call(null, value)) {
+	      process.env.NODE_ENV !== 'production' && warn('Invalid prop: custom validator check failed for ' + prop.path + '="' + prop.raw + '"');
+	      return false;
+	    }
+	  }
+	  return true;
+	}
+	
+	function formatType(val) {
+	  return val ? val.charAt(0).toUpperCase() + val.slice(1) : 'custom type';
+	}
+	
+	function formatValue(val) {
+	  return Object.prototype.toString.call(val).slice(8, -1);
+	}
+	
+	/**
+	 * Option overwriting strategies are functions that handle
+	 * how to merge a parent option value and a child option
+	 * value into the final value.
+	 *
+	 * All strategy functions follow the same signature:
+	 *
+	 * @param {*} parentVal
+	 * @param {*} childVal
+	 * @param {Vue} [vm]
+	 */
+	
+	var strats = config.optionMergeStrategies = Object.create(null);
+	
+	/**
+	 * Helper that recursively merges two data objects together.
+	 */
+	
+	function mergeData(to, from) {
+	  var key, toVal, fromVal;
+	  for (key in from) {
+	    toVal = to[key];
+	    fromVal = from[key];
+	    if (!hasOwn(to, key)) {
+	      set(to, key, fromVal);
+	    } else if (isObject(toVal) && isObject(fromVal)) {
+	      mergeData(toVal, fromVal);
+	    }
+	  }
+	  return to;
+	}
+	
+	/**
+	 * Data
+	 */
+	
+	strats.data = function (parentVal, childVal, vm) {
+	  if (!vm) {
+	    // in a Vue.extend merge, both should be functions
+	    if (!childVal) {
+	      return parentVal;
+	    }
+	    if (typeof childVal !== 'function') {
+	      process.env.NODE_ENV !== 'production' && warn('The "data" option should be a function ' + 'that returns a per-instance value in component ' + 'definitions.');
+	      return parentVal;
+	    }
+	    if (!parentVal) {
+	      return childVal;
+	    }
+	    // when parentVal & childVal are both present,
+	    // we need to return a function that returns the
+	    // merged result of both functions... no need to
+	    // check if parentVal is a function here because
+	    // it has to be a function to pass previous merges.
+	    return function mergedDataFn() {
+	      return mergeData(childVal.call(this), parentVal.call(this));
+	    };
+	  } else if (parentVal || childVal) {
+	    return function mergedInstanceDataFn() {
+	      // instance merge
+	      var instanceData = typeof childVal === 'function' ? childVal.call(vm) : childVal;
+	      var defaultData = typeof parentVal === 'function' ? parentVal.call(vm) : undefined;
+	      if (instanceData) {
+	        return mergeData(instanceData, defaultData);
+	      } else {
+	        return defaultData;
+	      }
+	    };
+	  }
+	};
+	
+	/**
+	 * El
+	 */
+	
+	strats.el = function (parentVal, childVal, vm) {
+	  if (!vm && childVal && typeof childVal !== 'function') {
+	    process.env.NODE_ENV !== 'production' && warn('The "el" option should be a function ' + 'that returns a per-instance value in component ' + 'definitions.');
+	    return;
+	  }
+	  var ret = childVal || parentVal;
+	  // invoke the element factory if this is instance merge
+	  return vm && typeof ret === 'function' ? ret.call(vm) : ret;
+	};
+	
+	/**
+	 * Hooks and param attributes are merged as arrays.
+	 */
+	
+	strats.init = strats.created = strats.ready = strats.attached = strats.detached = strats.beforeCompile = strats.compiled = strats.beforeDestroy = strats.destroyed = function (parentVal, childVal) {
+	  return childVal ? parentVal ? parentVal.concat(childVal) : isArray(childVal) ? childVal : [childVal] : parentVal;
+	};
+	
+	/**
+	 * 0.11 deprecation warning
+	 */
+	
+	strats.paramAttributes = function () {
+	  /* istanbul ignore next */
+	  process.env.NODE_ENV !== 'production' && warn('"paramAttributes" option has been deprecated in 0.12. ' + 'Use "props" instead.');
+	};
+	
+	/**
+	 * Assets
+	 *
+	 * When a vm is present (instance creation), we need to do
+	 * a three-way merge between constructor options, instance
+	 * options and parent options.
+	 */
+	
+	function mergeAssets(parentVal, childVal) {
+	  var res = Object.create(parentVal);
+	  return childVal ? extend(res, guardArrayAssets(childVal)) : res;
+	}
+	
+	config._assetTypes.forEach(function (type) {
+	  strats[type + 's'] = mergeAssets;
+	});
+	
+	/**
+	 * Events & Watchers.
+	 *
+	 * Events & watchers hashes should not overwrite one
+	 * another, so we merge them as arrays.
+	 */
+	
+	strats.watch = strats.events = function (parentVal, childVal) {
+	  if (!childVal) return parentVal;
+	  if (!parentVal) return childVal;
+	  var ret = {};
+	  extend(ret, parentVal);
+	  for (var key in childVal) {
+	    var parent = ret[key];
+	    var child = childVal[key];
+	    if (parent && !isArray(parent)) {
+	      parent = [parent];
+	    }
+	    ret[key] = parent ? parent.concat(child) : [child];
+	  }
+	  return ret;
+	};
+	
+	/**
+	 * Other object hashes.
+	 */
+	
+	strats.props = strats.methods = strats.computed = function (parentVal, childVal) {
+	  if (!childVal) return parentVal;
+	  if (!parentVal) return childVal;
+	  var ret = Object.create(null);
+	  extend(ret, parentVal);
+	  extend(ret, childVal);
+	  return ret;
+	};
+	
+	/**
+	 * Default strategy.
+	 */
+	
+	var defaultStrat = function defaultStrat(parentVal, childVal) {
+	  return childVal === undefined ? parentVal : childVal;
+	};
+	
+	/**
+	 * Make sure component options get converted to actual
+	 * constructors.
+	 *
+	 * @param {Object} options
+	 */
+	
+	function guardComponents(options) {
+	  if (options.components) {
+	    var components = options.components = guardArrayAssets(options.components);
+	    var def;
+	    var ids = Object.keys(components);
+	    for (var i = 0, l = ids.length; i < l; i++) {
+	      var key = ids[i];
+	      if (commonTagRE.test(key)) {
+	        process.env.NODE_ENV !== 'production' && warn('Do not use built-in HTML elements as component ' + 'id: ' + key);
+	        continue;
+	      }
+	      def = components[key];
+	      if (isPlainObject(def)) {
+	        components[key] = Vue.extend(def);
+	      }
+	    }
+	  }
+	}
+	
+	/**
+	 * Ensure all props option syntax are normalized into the
+	 * Object-based format.
+	 *
+	 * @param {Object} options
+	 */
+	
+	function guardProps(options) {
+	  var props = options.props;
+	  var i, val;
+	  if (isArray(props)) {
+	    options.props = {};
+	    i = props.length;
+	    while (i--) {
+	      val = props[i];
+	      if (typeof val === 'string') {
+	        options.props[val] = null;
+	      } else if (val.name) {
+	        options.props[val.name] = val;
+	      }
+	    }
+	  } else if (isPlainObject(props)) {
+	    var keys = Object.keys(props);
+	    i = keys.length;
+	    while (i--) {
+	      val = props[keys[i]];
+	      if (typeof val === 'function') {
+	        props[keys[i]] = { type: val };
+	      }
+	    }
+	  }
+	}
+	
+	/**
+	 * Guard an Array-format assets option and converted it
+	 * into the key-value Object format.
+	 *
+	 * @param {Object|Array} assets
+	 * @return {Object}
+	 */
+	
+	function guardArrayAssets(assets) {
+	  if (isArray(assets)) {
+	    var res = {};
+	    var i = assets.length;
+	    var asset;
+	    while (i--) {
+	      asset = assets[i];
+	      var id = typeof asset === 'function' ? asset.options && asset.options.name || asset.id : asset.name || asset.id;
+	      if (!id) {
+	        process.env.NODE_ENV !== 'production' && warn('Array-syntax assets must provide a "name" or "id" field.');
+	      } else {
+	        res[id] = asset;
+	      }
+	    }
+	    return res;
+	  }
+	  return assets;
+	}
+	
+	/**
+	 * Merge two option objects into a new one.
+	 * Core utility used in both instantiation and inheritance.
+	 *
+	 * @param {Object} parent
+	 * @param {Object} child
+	 * @param {Vue} [vm] - if vm is present, indicates this is
+	 *                     an instantiation merge.
+	 */
+	
+	function mergeOptions(parent, child, vm) {
+	  guardComponents(child);
+	  guardProps(child);
+	  var options = {};
+	  var key;
+	  if (child.mixins) {
+	    for (var i = 0, l = child.mixins.length; i < l; i++) {
+	      parent = mergeOptions(parent, child.mixins[i], vm);
+	    }
+	  }
+	  for (key in parent) {
+	    mergeField(key);
+	  }
+	  for (key in child) {
+	    if (!hasOwn(parent, key)) {
+	      mergeField(key);
+	    }
+	  }
+	  function mergeField(key) {
+	    var strat = strats[key] || defaultStrat;
+	    options[key] = strat(parent[key], child[key], vm, key);
+	  }
+	  return options;
+	}
+	
+	/**
+	 * Resolve an asset.
+	 * This function is used because child instances need access
+	 * to assets defined in its ancestor chain.
+	 *
+	 * @param {Object} options
+	 * @param {String} type
+	 * @param {String} id
+	 * @return {Object|Function}
+	 */
+	
+	function resolveAsset(options, type, id) {
+	  var assets = options[type];
+	  var camelizedId;
+	  return assets[id] ||
+	  // camelCase ID
+	  assets[camelizedId = camelize(id)] ||
+	  // Pascal Case ID
+	  assets[camelizedId.charAt(0).toUpperCase() + camelizedId.slice(1)];
+	}
+	
+	/**
+	 * Assert asset exists
+	 */
+	
+	function assertAsset(val, type, id) {
+	  if (!val) {
+	    process.env.NODE_ENV !== 'production' && warn('Failed to resolve ' + type + ': ' + id);
+	  }
+	}
+	
+	var arrayProto = Array.prototype;
+	var arrayMethods = Object.create(arrayProto)
+	
+	/**
+	 * Intercept mutating methods and emit events
+	 */
+	
+	;['push', 'pop', 'shift', 'unshift', 'splice', 'sort', 'reverse'].forEach(function (method) {
+	  // cache original method
+	  var original = arrayProto[method];
+	  def(arrayMethods, method, function mutator() {
+	    // avoid leaking arguments:
+	    // http://jsperf.com/closure-with-arguments
+	    var i = arguments.length;
+	    var args = new Array(i);
+	    while (i--) {
+	      args[i] = arguments[i];
+	    }
+	    var result = original.apply(this, args);
+	    var ob = this.__ob__;
+	    var inserted;
+	    switch (method) {
+	      case 'push':
+	        inserted = args;
+	        break;
+	      case 'unshift':
+	        inserted = args;
+	        break;
+	      case 'splice':
+	        inserted = args.slice(2);
+	        break;
+	    }
+	    if (inserted) ob.observeArray(inserted);
+	    // notify change
+	    ob.dep.notify();
+	    return result;
+	  });
+	});
+	
+	/**
+	 * Swap the element at the given index with a new value
+	 * and emits corresponding event.
+	 *
+	 * @param {Number} index
+	 * @param {*} val
+	 * @return {*} - replaced element
+	 */
+	
+	def(arrayProto, '$set', function $set(index, val) {
+	  if (index >= this.length) {
+	    this.length = index + 1;
+	  }
+	  return this.splice(index, 1, val)[0];
+	});
+	
+	/**
+	 * Convenience method to remove the element at given index.
+	 *
+	 * @param {Number} index
+	 * @param {*} val
+	 */
+	
+	def(arrayProto, '$remove', function $remove(item) {
+	  /* istanbul ignore if */
+	  if (!this.length) return;
+	  var index = indexOf(this, item);
+	  if (index > -1) {
+	    return this.splice(index, 1);
+	  }
+	});
+	
+	var uid$3 = 0;
+	
+	/**
+	 * A dep is an observable that can have multiple
+	 * directives subscribing to it.
+	 *
+	 * @constructor
+	 */
+	function Dep() {
+	  this.id = uid$3++;
+	  this.subs = [];
+	}
+	
+	// the current target watcher being evaluated.
+	// this is globally unique because there could be only one
+	// watcher being evaluated at any time.
+	Dep.target = null;
+	
+	/**
+	 * Add a directive subscriber.
+	 *
+	 * @param {Directive} sub
+	 */
+	
+	Dep.prototype.addSub = function (sub) {
+	  this.subs.push(sub);
+	};
+	
+	/**
+	 * Remove a directive subscriber.
+	 *
+	 * @param {Directive} sub
+	 */
+	
+	Dep.prototype.removeSub = function (sub) {
+	  this.subs.$remove(sub);
+	};
+	
+	/**
+	 * Add self as a dependency to the target watcher.
+	 */
+	
+	Dep.prototype.depend = function () {
+	  Dep.target.addDep(this);
+	};
+	
+	/**
+	 * Notify all subscribers of a new value.
+	 */
+	
+	Dep.prototype.notify = function () {
+	  // stablize the subscriber list first
+	  var subs = toArray(this.subs);
+	  for (var i = 0, l = subs.length; i < l; i++) {
+	    subs[i].update();
+	  }
+	};
+	
+	var arrayKeys = Object.getOwnPropertyNames(arrayMethods);
+	
+	/**
+	 * Observer class that are attached to each observed
+	 * object. Once attached, the observer converts target
+	 * object's property keys into getter/setters that
+	 * collect dependencies and dispatches updates.
+	 *
+	 * @param {Array|Object} value
+	 * @constructor
+	 */
+	
+	function Observer(value) {
+	  this.value = value;
+	  this.dep = new Dep();
+	  def(value, '__ob__', this);
+	  if (isArray(value)) {
+	    var augment = hasProto ? protoAugment : copyAugment;
+	    augment(value, arrayMethods, arrayKeys);
+	    this.observeArray(value);
+	  } else {
+	    this.walk(value);
+	  }
+	}
+	
+	// Instance methods
+	
+	/**
+	 * Walk through each property and convert them into
+	 * getter/setters. This method should only be called when
+	 * value type is Object.
+	 *
+	 * @param {Object} obj
+	 */
+	
+	Observer.prototype.walk = function (obj) {
+	  var keys = Object.keys(obj);
+	  var i = keys.length;
+	  while (i--) {
+	    this.convert(keys[i], obj[keys[i]]);
+	  }
+	};
+	
+	/**
+	 * Observe a list of Array items.
+	 *
+	 * @param {Array} items
+	 */
+	
+	Observer.prototype.observeArray = function (items) {
+	  var i = items.length;
+	  while (i--) {
+	    observe(items[i]);
+	  }
+	};
+	
+	/**
+	 * Convert a property into getter/setter so we can emit
+	 * the events when the property is accessed/changed.
+	 *
+	 * @param {String} key
+	 * @param {*} val
+	 */
+	
+	Observer.prototype.convert = function (key, val) {
+	  defineReactive(this.value, key, val);
+	};
+	
+	/**
+	 * Add an owner vm, so that when $set/$delete mutations
+	 * happen we can notify owner vms to proxy the keys and
+	 * digest the watchers. This is only called when the object
+	 * is observed as an instance's root $data.
+	 *
+	 * @param {Vue} vm
+	 */
+	
+	Observer.prototype.addVm = function (vm) {
+	  (this.vms || (this.vms = [])).push(vm);
+	};
+	
+	/**
+	 * Remove an owner vm. This is called when the object is
+	 * swapped out as an instance's $data object.
+	 *
+	 * @param {Vue} vm
+	 */
+	
+	Observer.prototype.removeVm = function (vm) {
+	  this.vms.$remove(vm);
+	};
+	
+	// helpers
+	
+	/**
+	 * Augment an target Object or Array by intercepting
+	 * the prototype chain using __proto__
+	 *
+	 * @param {Object|Array} target
+	 * @param {Object} proto
+	 */
+	
+	function protoAugment(target, src) {
+	  target.__proto__ = src;
+	}
+	
+	/**
+	 * Augment an target Object or Array by defining
+	 * hidden properties.
+	 *
+	 * @param {Object|Array} target
+	 * @param {Object} proto
+	 */
+	
+	function copyAugment(target, src, keys) {
+	  var i = keys.length;
+	  var key;
+	  while (i--) {
+	    key = keys[i];
+	    def(target, key, src[key]);
+	  }
+	}
+	
+	/**
+	 * Attempt to create an observer instance for a value,
+	 * returns the new observer if successfully observed,
+	 * or the existing observer if the value already has one.
+	 *
+	 * @param {*} value
+	 * @param {Vue} [vm]
+	 * @return {Observer|undefined}
+	 * @static
+	 */
+	
+	function observe(value, vm) {
+	  if (!value || typeof value !== 'object') {
+	    return;
+	  }
+	  var ob;
+	  if (hasOwn(value, '__ob__') && value.__ob__ instanceof Observer) {
+	    ob = value.__ob__;
+	  } else if ((isArray(value) || isPlainObject(value)) && !Object.isFrozen(value) && !value._isVue) {
+	    ob = new Observer(value);
+	  }
+	  if (ob && vm) {
+	    ob.addVm(vm);
+	  }
+	  return ob;
+	}
+	
+	/**
+	 * Define a reactive property on an Object.
+	 *
+	 * @param {Object} obj
+	 * @param {String} key
+	 * @param {*} val
+	 */
+	
+	function defineReactive(obj, key, val) {
+	  var dep = new Dep();
+	
+	  // cater for pre-defined getter/setters
+	  var getter, setter;
+	  if (config.convertAllProperties) {
+	    var property = Object.getOwnPropertyDescriptor(obj, key);
+	    if (property && property.configurable === false) {
+	      return;
+	    }
+	    getter = property && property.get;
+	    setter = property && property.set;
+	  }
+	
+	  var childOb = observe(val);
+	  Object.defineProperty(obj, key, {
+	    enumerable: true,
+	    configurable: true,
+	    get: function reactiveGetter() {
+	      var value = getter ? getter.call(obj) : val;
+	      if (Dep.target) {
+	        dep.depend();
+	        if (childOb) {
+	          childOb.dep.depend();
+	        }
+	        if (isArray(value)) {
+	          for (var e, i = 0, l = value.length; i < l; i++) {
+	            e = value[i];
+	            e && e.__ob__ && e.__ob__.dep.depend();
+	          }
+	        }
+	      }
+	      return value;
+	    },
+	    set: function reactiveSetter(newVal) {
+	      var value = getter ? getter.call(obj) : val;
+	      if (newVal === value) {
+	        return;
+	      }
+	      if (setter) {
+	        setter.call(obj, newVal);
+	      } else {
+	        val = newVal;
+	      }
+	      childOb = observe(newVal);
+	      dep.notify();
+	    }
+	  });
+	}
+	
+	var util = Object.freeze({
+		defineReactive: defineReactive,
+		set: set,
+		del: del,
+		hasOwn: hasOwn,
+		isLiteral: isLiteral,
+		isReserved: isReserved,
+		_toString: _toString,
+		toNumber: toNumber,
+		toBoolean: toBoolean,
+		stripQuotes: stripQuotes,
+		camelize: camelize,
+		hyphenate: hyphenate,
+		classify: classify,
+		bind: bind$1,
+		toArray: toArray,
+		extend: extend,
+		isObject: isObject,
+		isPlainObject: isPlainObject,
+		def: def,
+		debounce: _debounce,
+		indexOf: indexOf,
+		cancellable: cancellable,
+		looseEqual: looseEqual,
+		isArray: isArray,
+		hasProto: hasProto,
+		inBrowser: inBrowser,
+		isIE9: isIE9,
+		isAndroid: isAndroid,
+		get transitionProp () { return transitionProp; },
+		get transitionEndEvent () { return transitionEndEvent; },
+		get animationProp () { return animationProp; },
+		get animationEndEvent () { return animationEndEvent; },
+		nextTick: nextTick,
+		query: query,
+		inDoc: inDoc,
+		getAttr: getAttr,
+		getBindAttr: getBindAttr,
+		before: before,
+		after: after,
+		remove: remove,
+		prepend: prepend,
+		replace: replace,
+		on: on$1,
+		off: off,
+		addClass: addClass,
+		removeClass: removeClass,
+		extractContent: extractContent,
+		trimNode: trimNode,
+		isTemplate: isTemplate,
+		createAnchor: createAnchor,
+		findRef: findRef,
+		mapNodeRange: mapNodeRange,
+		removeNodeRange: removeNodeRange,
+		mergeOptions: mergeOptions,
+		resolveAsset: resolveAsset,
+		assertAsset: assertAsset,
+		checkComponentAttr: checkComponentAttr,
+		initProp: initProp,
+		assertProp: assertProp,
+		commonTagRE: commonTagRE,
+		get warn () { return warn; }
+	});
+	
+	var uid = 0;
+	
+	function initMixin (Vue) {
+	
+	  /**
+	   * The main init sequence. This is called for every
+	   * instance, including ones that are created from extended
+	   * constructors.
+	   *
+	   * @param {Object} options - this options object should be
+	   *                           the result of merging class
+	   *                           options and the options passed
+	   *                           in to the constructor.
+	   */
+	
+	  Vue.prototype._init = function (options) {
+	
+	    options = options || {};
+	
+	    this.$el = null;
+	    this.$parent = options.parent;
+	    this.$root = this.$parent ? this.$parent.$root : this;
+	    this.$children = [];
+	    this.$refs = {}; // child vm references
+	    this.$els = {}; // element references
+	    this._watchers = []; // all watchers as an array
+	    this._directives = []; // all directives
+	
+	    // a uid
+	    this._uid = uid++;
+	
+	    // a flag to avoid this being observed
+	    this._isVue = true;
+	
+	    // events bookkeeping
+	    this._events = {}; // registered callbacks
+	    this._eventsCount = {}; // for $broadcast optimization
+	
+	    // fragment instance properties
+	    this._isFragment = false;
+	    this._fragment = // @type {DocumentFragment}
+	    this._fragmentStart = // @type {Text|Comment}
+	    this._fragmentEnd = null; // @type {Text|Comment}
+	
+	    // lifecycle state
+	    this._isCompiled = this._isDestroyed = this._isReady = this._isAttached = this._isBeingDestroyed = false;
+	    this._unlinkFn = null;
+	
+	    // context:
+	    // if this is a transcluded component, context
+	    // will be the common parent vm of this instance
+	    // and its host.
+	    this._context = options._context || this.$parent;
+	
+	    // scope:
+	    // if this is inside an inline v-for, the scope
+	    // will be the intermediate scope created for this
+	    // repeat fragment. this is used for linking props
+	    // and container directives.
+	    this._scope = options._scope;
+	
+	    // fragment:
+	    // if this instance is compiled inside a Fragment, it
+	    // needs to reigster itself as a child of that fragment
+	    // for attach/detach to work properly.
+	    this._frag = options._frag;
+	    if (this._frag) {
+	      this._frag.children.push(this);
+	    }
+	
+	    // push self into parent / transclusion host
+	    if (this.$parent) {
+	      this.$parent.$children.push(this);
+	    }
+	
+	    // merge options.
+	    options = this.$options = mergeOptions(this.constructor.options, options, this);
+	
+	    // set ref
+	    this._updateRef();
+	
+	    // initialize data as empty object.
+	    // it will be filled up in _initScope().
+	    this._data = {};
+	
+	    // call init hook
+	    this._callHook('init');
+	
+	    // initialize data observation and scope inheritance.
+	    this._initState();
+	
+	    // setup event system and option events.
+	    this._initEvents();
+	
+	    // call created hook
+	    this._callHook('created');
+	
+	    // if `el` option is passed, start compilation.
+	    if (options.el) {
+	      this.$mount(options.el);
+	    }
+	  };
+	}
+	
+	var pathCache = new Cache(1000);
+	
+	// actions
+	var APPEND = 0;
+	var PUSH = 1;
+	var INC_SUB_PATH_DEPTH = 2;
+	var PUSH_SUB_PATH = 3;
+	
+	// states
+	var BEFORE_PATH = 0;
+	var IN_PATH = 1;
+	var BEFORE_IDENT = 2;
+	var IN_IDENT = 3;
+	var IN_SUB_PATH = 4;
+	var IN_SINGLE_QUOTE = 5;
+	var IN_DOUBLE_QUOTE = 6;
+	var AFTER_PATH = 7;
+	var ERROR = 8;
+	
+	var pathStateMachine = [];
+	
+	pathStateMachine[BEFORE_PATH] = {
+	  'ws': [BEFORE_PATH],
+	  'ident': [IN_IDENT, APPEND],
+	  '[': [IN_SUB_PATH],
+	  'eof': [AFTER_PATH]
+	};
+	
+	pathStateMachine[IN_PATH] = {
+	  'ws': [IN_PATH],
+	  '.': [BEFORE_IDENT],
+	  '[': [IN_SUB_PATH],
+	  'eof': [AFTER_PATH]
+	};
+	
+	pathStateMachine[BEFORE_IDENT] = {
+	  'ws': [BEFORE_IDENT],
+	  'ident': [IN_IDENT, APPEND]
+	};
+	
+	pathStateMachine[IN_IDENT] = {
+	  'ident': [IN_IDENT, APPEND],
+	  '0': [IN_IDENT, APPEND],
+	  'number': [IN_IDENT, APPEND],
+	  'ws': [IN_PATH, PUSH],
+	  '.': [BEFORE_IDENT, PUSH],
+	  '[': [IN_SUB_PATH, PUSH],
+	  'eof': [AFTER_PATH, PUSH]
+	};
+	
+	pathStateMachine[IN_SUB_PATH] = {
+	  "'": [IN_SINGLE_QUOTE, APPEND],
+	  '"': [IN_DOUBLE_QUOTE, APPEND],
+	  '[': [IN_SUB_PATH, INC_SUB_PATH_DEPTH],
+	  ']': [IN_PATH, PUSH_SUB_PATH],
+	  'eof': ERROR,
+	  'else': [IN_SUB_PATH, APPEND]
+	};
+	
+	pathStateMachine[IN_SINGLE_QUOTE] = {
+	  "'": [IN_SUB_PATH, APPEND],
+	  'eof': ERROR,
+	  'else': [IN_SINGLE_QUOTE, APPEND]
+	};
+	
+	pathStateMachine[IN_DOUBLE_QUOTE] = {
+	  '"': [IN_SUB_PATH, APPEND],
+	  'eof': ERROR,
+	  'else': [IN_DOUBLE_QUOTE, APPEND]
+	};
+	
+	/**
+	 * Determine the type of a character in a keypath.
+	 *
+	 * @param {Char} ch
+	 * @return {String} type
+	 */
+	
+	function getPathCharType(ch) {
+	  if (ch === undefined) {
+	    return 'eof';
+	  }
+	
+	  var code = ch.charCodeAt(0);
+	
+	  switch (code) {
+	    case 0x5B: // [
+	    case 0x5D: // ]
+	    case 0x2E: // .
+	    case 0x22: // "
+	    case 0x27: // '
+	    case 0x30:
+	      // 0
+	      return ch;
+	
+	    case 0x5F: // _
+	    case 0x24:
+	      // $
+	      return 'ident';
+	
+	    case 0x20: // Space
+	    case 0x09: // Tab
+	    case 0x0A: // Newline
+	    case 0x0D: // Return
+	    case 0xA0: // No-break space
+	    case 0xFEFF: // Byte Order Mark
+	    case 0x2028: // Line Separator
+	    case 0x2029:
+	      // Paragraph Separator
+	      return 'ws';
+	  }
+	
+	  // a-z, A-Z
+	  if (code >= 0x61 && code <= 0x7A || code >= 0x41 && code <= 0x5A) {
+	    return 'ident';
+	  }
+	
+	  // 1-9
+	  if (code >= 0x31 && code <= 0x39) {
+	    return 'number';
+	  }
+	
+	  return 'else';
+	}
+	
+	/**
+	 * Format a subPath, return its plain form if it is
+	 * a literal string or number. Otherwise prepend the
+	 * dynamic indicator (*).
+	 *
+	 * @param {String} path
+	 * @return {String}
+	 */
+	
+	function formatSubPath(path) {
+	  var trimmed = path.trim();
+	  // invalid leading 0
+	  if (path.charAt(0) === '0' && isNaN(path)) {
+	    return false;
+	  }
+	  return isLiteral(trimmed) ? stripQuotes(trimmed) : '*' + trimmed;
+	}
+	
+	/**
+	 * Parse a string path into an array of segments
+	 *
+	 * @param {String} path
+	 * @return {Array|undefined}
+	 */
+	
+	function parse(path) {
+	  var keys = [];
+	  var index = -1;
+	  var mode = BEFORE_PATH;
+	  var subPathDepth = 0;
+	  var c, newChar, key, type, transition, action, typeMap;
+	
+	  var actions = [];
+	
+	  actions[PUSH] = function () {
+	    if (key !== undefined) {
+	      keys.push(key);
+	      key = undefined;
+	    }
+	  };
+	
+	  actions[APPEND] = function () {
+	    if (key === undefined) {
+	      key = newChar;
+	    } else {
+	      key += newChar;
+	    }
+	  };
+	
+	  actions[INC_SUB_PATH_DEPTH] = function () {
+	    actions[APPEND]();
+	    subPathDepth++;
+	  };
+	
+	  actions[PUSH_SUB_PATH] = function () {
+	    if (subPathDepth > 0) {
+	      subPathDepth--;
+	      mode = IN_SUB_PATH;
+	      actions[APPEND]();
+	    } else {
+	      subPathDepth = 0;
+	      key = formatSubPath(key);
+	      if (key === false) {
+	        return false;
+	      } else {
+	        actions[PUSH]();
+	      }
+	    }
+	  };
+	
+	  function maybeUnescapeQuote() {
+	    var nextChar = path[index + 1];
+	    if (mode === IN_SINGLE_QUOTE && nextChar === "'" || mode === IN_DOUBLE_QUOTE && nextChar === '"') {
+	      index++;
+	      newChar = '\\' + nextChar;
+	      actions[APPEND]();
+	      return true;
+	    }
+	  }
+	
+	  while (mode != null) {
+	    index++;
+	    c = path[index];
+	
+	    if (c === '\\' && maybeUnescapeQuote()) {
+	      continue;
+	    }
+	
+	    type = getPathCharType(c);
+	    typeMap = pathStateMachine[mode];
+	    transition = typeMap[type] || typeMap['else'] || ERROR;
+	
+	    if (transition === ERROR) {
+	      return; // parse error
+	    }
+	
+	    mode = transition[0];
+	    action = actions[transition[1]];
+	    if (action) {
+	      newChar = transition[2];
+	      newChar = newChar === undefined ? c : newChar;
+	      if (action() === false) {
+	        return;
+	      }
+	    }
+	
+	    if (mode === AFTER_PATH) {
+	      keys.raw = path;
+	      return keys;
+	    }
+	  }
+	}
+	
+	/**
+	 * External parse that check for a cache hit first
+	 *
+	 * @param {String} path
+	 * @return {Array|undefined}
+	 */
+	
+	function parsePath(path) {
+	  var hit = pathCache.get(path);
+	  if (!hit) {
+	    hit = parse(path);
+	    if (hit) {
+	      pathCache.put(path, hit);
+	    }
+	  }
+	  return hit;
+	}
+	
+	/**
+	 * Get from an object from a path string
+	 *
+	 * @param {Object} obj
+	 * @param {String} path
+	 */
+	
+	function getPath(obj, path) {
+	  return parseExpression(path).get(obj);
+	}
+	
+	/**
+	 * Warn against setting non-existent root path on a vm.
+	 */
+	
+	var warnNonExistent;
+	if (process.env.NODE_ENV !== 'production') {
+	  warnNonExistent = function (path) {
+	    warn('You are setting a non-existent path "' + path.raw + '" ' + 'on a vm instance. Consider pre-initializing the property ' + 'with the "data" option for more reliable reactivity ' + 'and better performance.');
+	  };
+	}
+	
+	/**
+	 * Set on an object from a path
+	 *
+	 * @param {Object} obj
+	 * @param {String | Array} path
+	 * @param {*} val
+	 */
+	
+	function setPath(obj, path, val) {
+	  var original = obj;
+	  if (typeof path === 'string') {
+	    path = parse(path);
+	  }
+	  if (!path || !isObject(obj)) {
+	    return false;
+	  }
+	  var last, key;
+	  for (var i = 0, l = path.length; i < l; i++) {
+	    last = obj;
+	    key = path[i];
+	    if (key.charAt(0) === '*') {
+	      key = parseExpression(key.slice(1)).get.call(original, original);
+	    }
+	    if (i < l - 1) {
+	      obj = obj[key];
+	      if (!isObject(obj)) {
+	        obj = {};
+	        if (process.env.NODE_ENV !== 'production' && last._isVue) {
+	          warnNonExistent(path);
+	        }
+	        set(last, key, obj);
+	      }
+	    } else {
+	      if (isArray(obj)) {
+	        obj.$set(key, val);
+	      } else if (key in obj) {
+	        obj[key] = val;
+	      } else {
+	        if (process.env.NODE_ENV !== 'production' && obj._isVue) {
+	          warnNonExistent(path);
+	        }
+	        set(obj, key, val);
+	      }
+	    }
+	  }
+	  return true;
+	}
+	
+	var path = Object.freeze({
+	  parsePath: parsePath,
+	  getPath: getPath,
+	  setPath: setPath
+	});
+	
+	var expressionCache = new Cache(1000);
+	
+	var allowedKeywords = 'Math,Date,this,true,false,null,undefined,Infinity,NaN,' + 'isNaN,isFinite,decodeURI,decodeURIComponent,encodeURI,' + 'encodeURIComponent,parseInt,parseFloat';
+	var allowedKeywordsRE = new RegExp('^(' + allowedKeywords.replace(/,/g, '\\b|') + '\\b)');
+	
+	// keywords that don't make sense inside expressions
+	var improperKeywords = 'break,case,class,catch,const,continue,debugger,default,' + 'delete,do,else,export,extends,finally,for,function,if,' + 'import,in,instanceof,let,return,super,switch,throw,try,' + 'var,while,with,yield,enum,await,implements,package,' + 'proctected,static,interface,private,public';
+	var improperKeywordsRE = new RegExp('^(' + improperKeywords.replace(/,/g, '\\b|') + '\\b)');
+	
+	var wsRE = /\s/g;
+	var newlineRE = /\n/g;
+	var saveRE = /[\{,]\s*[\w\$_]+\s*:|('[^']*'|"[^"]*")|new |typeof |void /g;
+	var restoreRE = /"(\d+)"/g;
+	var pathTestRE = /^[A-Za-z_$][\w$]*(\.[A-Za-z_$][\w$]*|\['.*?'\]|\[".*?"\]|\[\d+\]|\[[A-Za-z_$][\w$]*\])*$/;
+	var pathReplaceRE = /[^\w$\.]([A-Za-z_$][\w$]*(\.[A-Za-z_$][\w$]*|\['.*?'\]|\[".*?"\])*)/g;
+	var booleanLiteralRE = /^(true|false)$/;
+	
+	/**
+	 * Save / Rewrite / Restore
+	 *
+	 * When rewriting paths found in an expression, it is
+	 * possible for the same letter sequences to be found in
+	 * strings and Object literal property keys. Therefore we
+	 * remove and store these parts in a temporary array, and
+	 * restore them after the path rewrite.
+	 */
+	
+	var saved = [];
+	
+	/**
+	 * Save replacer
+	 *
+	 * The save regex can match two possible cases:
+	 * 1. An opening object literal
+	 * 2. A string
+	 * If matched as a plain string, we need to escape its
+	 * newlines, since the string needs to be preserved when
+	 * generating the function body.
+	 *
+	 * @param {String} str
+	 * @param {String} isString - str if matched as a string
+	 * @return {String} - placeholder with index
+	 */
+	
+	function save(str, isString) {
+	  var i = saved.length;
+	  saved[i] = isString ? str.replace(newlineRE, '\\n') : str;
+	  return '"' + i + '"';
+	}
+	
+	/**
+	 * Path rewrite replacer
+	 *
+	 * @param {String} raw
+	 * @return {String}
+	 */
+	
+	function rewrite(raw) {
+	  var c = raw.charAt(0);
+	  var path = raw.slice(1);
+	  if (allowedKeywordsRE.test(path)) {
+	    return raw;
+	  } else {
+	    path = path.indexOf('"') > -1 ? path.replace(restoreRE, restore) : path;
+	    return c + 'scope.' + path;
+	  }
+	}
+	
+	/**
+	 * Restore replacer
+	 *
+	 * @param {String} str
+	 * @param {String} i - matched save index
+	 * @return {String}
+	 */
+	
+	function restore(str, i) {
+	  return saved[i];
+	}
+	
+	/**
+	 * Rewrite an expression, prefixing all path accessors with
+	 * `scope.` and generate getter/setter functions.
+	 *
+	 * @param {String} exp
+	 * @return {Function}
+	 */
+	
+	function compileGetter(exp) {
+	  if (improperKeywordsRE.test(exp)) {
+	    process.env.NODE_ENV !== 'production' && warn('Avoid using reserved keywords in expression: ' + exp);
+	  }
+	  // reset state
+	  saved.length = 0;
+	  // save strings and object literal keys
+	  var body = exp.replace(saveRE, save).replace(wsRE, '');
+	  // rewrite all paths
+	  // pad 1 space here becaue the regex matches 1 extra char
+	  body = (' ' + body).replace(pathReplaceRE, rewrite).replace(restoreRE, restore);
+	  return makeGetterFn(body);
+	}
+	
+	/**
+	 * Build a getter function. Requires eval.
+	 *
+	 * We isolate the try/catch so it doesn't affect the
+	 * optimization of the parse function when it is not called.
+	 *
+	 * @param {String} body
+	 * @return {Function|undefined}
+	 */
+	
+	function makeGetterFn(body) {
+	  try {
+	    return new Function('scope', 'return ' + body + ';');
+	  } catch (e) {
+	    process.env.NODE_ENV !== 'production' && warn('Invalid expression. ' + 'Generated function body: ' + body);
+	  }
+	}
+	
+	/**
+	 * Compile a setter function for the expression.
+	 *
+	 * @param {String} exp
+	 * @return {Function|undefined}
+	 */
+	
+	function compileSetter(exp) {
+	  var path = parsePath(exp);
+	  if (path) {
+	    return function (scope, val) {
+	      setPath(scope, path, val);
+	    };
+	  } else {
+	    process.env.NODE_ENV !== 'production' && warn('Invalid setter expression: ' + exp);
+	  }
+	}
+	
+	/**
+	 * Parse an expression into re-written getter/setters.
+	 *
+	 * @param {String} exp
+	 * @param {Boolean} needSet
+	 * @return {Function}
+	 */
+	
+	function parseExpression(exp, needSet) {
+	  exp = exp.trim();
+	  // try cache
+	  var hit = expressionCache.get(exp);
+	  if (hit) {
+	    if (needSet && !hit.set) {
+	      hit.set = compileSetter(hit.exp);
+	    }
+	    return hit;
+	  }
+	  var res = { exp: exp };
+	  res.get = isSimplePath(exp) && exp.indexOf('[') < 0
+	  // optimized super simple getter
+	  ? makeGetterFn('scope.' + exp)
+	  // dynamic getter
+	  : compileGetter(exp);
+	  if (needSet) {
+	    res.set = compileSetter(exp);
+	  }
+	  expressionCache.put(exp, res);
+	  return res;
+	}
+	
+	/**
+	 * Check if an expression is a simple path.
+	 *
+	 * @param {String} exp
+	 * @return {Boolean}
+	 */
+	
+	function isSimplePath(exp) {
+	  return pathTestRE.test(exp) &&
+	  // don't treat true/false as paths
+	  !booleanLiteralRE.test(exp) &&
+	  // Math constants e.g. Math.PI, Math.E etc.
+	  exp.slice(0, 5) !== 'Math.';
+	}
+	
+	var expression = Object.freeze({
+	  parseExpression: parseExpression,
+	  isSimplePath: isSimplePath
+	});
+	
+	// we have two separate queues: one for directive updates
+	// and one for user watcher registered via $watch().
+	// we want to guarantee directive updates to be called
+	// before user watchers so that when user watchers are
+	// triggered, the DOM would have already been in updated
+	// state.
+	var queue = [];
+	var userQueue = [];
+	var has = {};
+	var circular = {};
+	var waiting = false;
+	var internalQueueDepleted = false;
+	
+	/**
+	 * Reset the batcher's state.
+	 */
+	
+	function resetBatcherState() {
+	  queue = [];
+	  userQueue = [];
+	  has = {};
+	  circular = {};
+	  waiting = internalQueueDepleted = false;
+	}
+	
+	/**
+	 * Flush both queues and run the watchers.
+	 */
+	
+	function flushBatcherQueue() {
+	  runBatcherQueue(queue);
+	  internalQueueDepleted = true;
+	  runBatcherQueue(userQueue);
+	  // dev tool hook
+	  /* istanbul ignore if */
+	  if (process.env.NODE_ENV !== 'production') {
+	    if (inBrowser && window.__VUE_DEVTOOLS_GLOBAL_HOOK__) {
+	      window.__VUE_DEVTOOLS_GLOBAL_HOOK__.emit('flush');
+	    }
+	  }
+	  resetBatcherState();
+	}
+	
+	/**
+	 * Run the watchers in a single queue.
+	 *
+	 * @param {Array} queue
+	 */
+	
+	function runBatcherQueue(queue) {
+	  // do not cache length because more watchers might be pushed
+	  // as we run existing watchers
+	  for (var i = 0; i < queue.length; i++) {
+	    var watcher = queue[i];
+	    var id = watcher.id;
+	    has[id] = null;
+	    watcher.run();
+	    // in dev build, check and stop circular updates.
+	    if (process.env.NODE_ENV !== 'production' && has[id] != null) {
+	      circular[id] = (circular[id] || 0) + 1;
+	      if (circular[id] > config._maxUpdateCount) {
+	        queue.splice(has[id], 1);
+	        warn('You may have an infinite update loop for watcher ' + 'with expression: ' + watcher.expression);
+	      }
+	    }
+	  }
+	}
+	
+	/**
+	 * Push a watcher into the watcher queue.
+	 * Jobs with duplicate IDs will be skipped unless it's
+	 * pushed when the queue is being flushed.
+	 *
+	 * @param {Watcher} watcher
+	 *   properties:
+	 *   - {Number} id
+	 *   - {Function} run
+	 */
+	
+	function pushWatcher(watcher) {
+	  var id = watcher.id;
+	  if (has[id] == null) {
+	    // if an internal watcher is pushed, but the internal
+	    // queue is already depleted, we run it immediately.
+	    if (internalQueueDepleted && !watcher.user) {
+	      watcher.run();
+	      return;
+	    }
+	    // push watcher into appropriate queue
+	    var q = watcher.user ? userQueue : queue;
+	    has[id] = q.length;
+	    q.push(watcher);
+	    // queue the flush
+	    if (!waiting) {
+	      waiting = true;
+	      nextTick(flushBatcherQueue);
+	    }
+	  }
+	}
+	
+	var uid$2 = 0;
+	
+	/**
+	 * A watcher parses an expression, collects dependencies,
+	 * and fires callback when the expression value changes.
+	 * This is used for both the $watch() api and directives.
+	 *
+	 * @param {Vue} vm
+	 * @param {String} expression
+	 * @param {Function} cb
+	 * @param {Object} options
+	 *                 - {Array} filters
+	 *                 - {Boolean} twoWay
+	 *                 - {Boolean} deep
+	 *                 - {Boolean} user
+	 *                 - {Boolean} sync
+	 *                 - {Boolean} lazy
+	 *                 - {Function} [preProcess]
+	 *                 - {Function} [postProcess]
+	 * @constructor
+	 */
+	function Watcher(vm, expOrFn, cb, options) {
+	  // mix in options
+	  if (options) {
+	    extend(this, options);
+	  }
+	  var isFn = typeof expOrFn === 'function';
+	  this.vm = vm;
+	  vm._watchers.push(this);
+	  this.expression = isFn ? expOrFn.toString() : expOrFn;
+	  this.cb = cb;
+	  this.id = ++uid$2; // uid for batching
+	  this.active = true;
+	  this.dirty = this.lazy; // for lazy watchers
+	  this.deps = Object.create(null);
+	  this.newDeps = null;
+	  this.prevError = null; // for async error stacks
+	  // parse expression for getter/setter
+	  if (isFn) {
+	    this.getter = expOrFn;
+	    this.setter = undefined;
+	  } else {
+	    var res = parseExpression(expOrFn, this.twoWay);
+	    this.getter = res.get;
+	    this.setter = res.set;
+	  }
+	  this.value = this.lazy ? undefined : this.get();
+	  // state for avoiding false triggers for deep and Array
+	  // watchers during vm._digest()
+	  this.queued = this.shallow = false;
+	}
+	
+	/**
+	 * Add a dependency to this directive.
+	 *
+	 * @param {Dep} dep
+	 */
+	
+	Watcher.prototype.addDep = function (dep) {
+	  var id = dep.id;
+	  if (!this.newDeps[id]) {
+	    this.newDeps[id] = dep;
+	    if (!this.deps[id]) {
+	      this.deps[id] = dep;
+	      dep.addSub(this);
+	    }
+	  }
+	};
+	
+	/**
+	 * Evaluate the getter, and re-collect dependencies.
+	 */
+	
+	Watcher.prototype.get = function () {
+	  this.beforeGet();
+	  var scope = this.scope || this.vm;
+	  var value;
+	  try {
+	    value = this.getter.call(scope, scope);
+	  } catch (e) {
+	    if (process.env.NODE_ENV !== 'production' && config.warnExpressionErrors) {
+	      warn('Error when evaluating expression "' + this.expression + '". ' + (config.debug ? '' : 'Turn on debug mode to see stack trace.'), e);
+	    }
+	  }
+	  // "touch" every property so they are all tracked as
+	  // dependencies for deep watching
+	  if (this.deep) {
+	    traverse(value);
+	  }
+	  if (this.preProcess) {
+	    value = this.preProcess(value);
+	  }
+	  if (this.filters) {
+	    value = scope._applyFilters(value, null, this.filters, false);
+	  }
+	  if (this.postProcess) {
+	    value = this.postProcess(value);
+	  }
+	  this.afterGet();
+	  return value;
+	};
+	
+	/**
+	 * Set the corresponding value with the setter.
+	 *
+	 * @param {*} value
+	 */
+	
+	Watcher.prototype.set = function (value) {
+	  var scope = this.scope || this.vm;
+	  if (this.filters) {
+	    value = scope._applyFilters(value, this.value, this.filters, true);
+	  }
+	  try {
+	    this.setter.call(scope, scope, value);
+	  } catch (e) {
+	    if (process.env.NODE_ENV !== 'production' && config.warnExpressionErrors) {
+	      warn('Error when evaluating setter "' + this.expression + '"', e);
+	    }
+	  }
+	  // two-way sync for v-for alias
+	  var forContext = scope.$forContext;
+	  if (forContext && forContext.alias === this.expression) {
+	    if (forContext.filters) {
+	      process.env.NODE_ENV !== 'production' && warn('It seems you are using two-way binding on ' + 'a v-for alias (' + this.expression + '), and the ' + 'v-for has filters. This will not work properly. ' + 'Either remove the filters or use an array of ' + 'objects and bind to object properties instead.');
+	      return;
+	    }
+	    forContext._withLock(function () {
+	      if (scope.$key) {
+	        // original is an object
+	        forContext.rawValue[scope.$key] = value;
+	      } else {
+	        forContext.rawValue.$set(scope.$index, value);
+	      }
+	    });
+	  }
+	};
+	
+	/**
+	 * Prepare for dependency collection.
+	 */
+	
+	Watcher.prototype.beforeGet = function () {
+	  Dep.target = this;
+	  this.newDeps = Object.create(null);
+	};
+	
+	/**
+	 * Clean up for dependency collection.
+	 */
+	
+	Watcher.prototype.afterGet = function () {
+	  Dep.target = null;
+	  var ids = Object.keys(this.deps);
+	  var i = ids.length;
+	  while (i--) {
+	    var id = ids[i];
+	    if (!this.newDeps[id]) {
+	      this.deps[id].removeSub(this);
+	    }
+	  }
+	  this.deps = this.newDeps;
+	};
+	
+	/**
+	 * Subscriber interface.
+	 * Will be called when a dependency changes.
+	 *
+	 * @param {Boolean} shallow
+	 */
+	
+	Watcher.prototype.update = function (shallow) {
+	  if (this.lazy) {
+	    this.dirty = true;
+	  } else if (this.sync || !config.async) {
+	    this.run();
+	  } else {
+	    // if queued, only overwrite shallow with non-shallow,
+	    // but not the other way around.
+	    this.shallow = this.queued ? shallow ? this.shallow : false : !!shallow;
+	    this.queued = true;
+	    // record before-push error stack in debug mode
+	    /* istanbul ignore if */
+	    if (process.env.NODE_ENV !== 'production' && config.debug) {
+	      this.prevError = new Error('[vue] async stack trace');
+	    }
+	    pushWatcher(this);
+	  }
+	};
+	
+	/**
+	 * Batcher job interface.
+	 * Will be called by the batcher.
+	 */
+	
+	Watcher.prototype.run = function () {
+	  if (this.active) {
+	    var value = this.get();
+	    if (value !== this.value ||
+	    // Deep watchers and Array watchers should fire even
+	    // when the value is the same, because the value may
+	    // have mutated; but only do so if this is a
+	    // non-shallow update (caused by a vm digest).
+	    (isArray(value) || this.deep) && !this.shallow) {
+	      // set new value
+	      var oldValue = this.value;
+	      this.value = value;
+	      // in debug + async mode, when a watcher callbacks
+	      // throws, we also throw the saved before-push error
+	      // so the full cross-tick stack trace is available.
+	      var prevError = this.prevError;
+	      /* istanbul ignore if */
+	      if (process.env.NODE_ENV !== 'production' && config.debug && prevError) {
+	        this.prevError = null;
+	        try {
+	          this.cb.call(this.vm, value, oldValue);
+	        } catch (e) {
+	          nextTick(function () {
+	            throw prevError;
+	          }, 0);
+	          throw e;
+	        }
+	      } else {
+	        this.cb.call(this.vm, value, oldValue);
+	      }
+	    }
+	    this.queued = this.shallow = false;
+	  }
+	};
+	
+	/**
+	 * Evaluate the value of the watcher.
+	 * This only gets called for lazy watchers.
+	 */
+	
+	Watcher.prototype.evaluate = function () {
+	  // avoid overwriting another watcher that is being
+	  // collected.
+	  var current = Dep.target;
+	  this.value = this.get();
+	  this.dirty = false;
+	  Dep.target = current;
+	};
+	
+	/**
+	 * Depend on all deps collected by this watcher.
+	 */
+	
+	Watcher.prototype.depend = function () {
+	  var depIds = Object.keys(this.deps);
+	  var i = depIds.length;
+	  while (i--) {
+	    this.deps[depIds[i]].depend();
+	  }
+	};
+	
+	/**
+	 * Remove self from all dependencies' subcriber list.
+	 */
+	
+	Watcher.prototype.teardown = function () {
+	  if (this.active) {
+	    // remove self from vm's watcher list
+	    // we can skip this if the vm if being destroyed
+	    // which can improve teardown performance.
+	    if (!this.vm._isBeingDestroyed) {
+	      this.vm._watchers.$remove(this);
+	    }
+	    var depIds = Object.keys(this.deps);
+	    var i = depIds.length;
+	    while (i--) {
+	      this.deps[depIds[i]].removeSub(this);
+	    }
+	    this.active = false;
+	    this.vm = this.cb = this.value = null;
+	  }
+	};
+	
+	/**
+	 * Recrusively traverse an object to evoke all converted
+	 * getters, so that every nested property inside the object
+	 * is collected as a "deep" dependency.
+	 *
+	 * @param {*} val
+	 */
+	
+	function traverse(val) {
+	  var i, keys;
+	  if (isArray(val)) {
+	    i = val.length;
+	    while (i--) traverse(val[i]);
+	  } else if (isObject(val)) {
+	    keys = Object.keys(val);
+	    i = keys.length;
+	    while (i--) traverse(val[keys[i]]);
+	  }
+	}
+	
+	var cloak = {
+	  bind: function bind() {
+	    var el = this.el;
+	    this.vm.$once('hook:compiled', function () {
+	      el.removeAttribute('v-cloak');
+	    });
+	  }
+	};
+	
+	var ref = {
+	  bind: function bind() {
+	    process.env.NODE_ENV !== 'production' && warn('v-ref:' + this.arg + ' must be used on a child ' + 'component. Found on <' + this.el.tagName.toLowerCase() + '>.');
+	  }
+	};
+	
+	var el = {
+	
+	  priority: 1500,
+	
+	  bind: function bind() {
+	    /* istanbul ignore if */
+	    if (!this.arg) {
+	      return;
+	    }
+	    var id = this.id = camelize(this.arg);
+	    var refs = (this._scope || this.vm).$els;
+	    if (hasOwn(refs, id)) {
+	      refs[id] = this.el;
+	    } else {
+	      defineReactive(refs, id, this.el);
+	    }
+	  },
+	
+	  unbind: function unbind() {
+	    var refs = (this._scope || this.vm).$els;
+	    if (refs[this.id] === this.el) {
+	      refs[this.id] = null;
+	    }
+	  }
+	};
+	
+	var prefixes = ['-webkit-', '-moz-', '-ms-'];
+	var camelPrefixes = ['Webkit', 'Moz', 'ms'];
+	var importantRE = /!important;?$/;
+	var propCache = Object.create(null);
+	
+	var testEl = null;
+	
+	var style = {
+	
+	  deep: true,
+	
+	  update: function update(value) {
+	    if (typeof value === 'string') {
+	      this.el.style.cssText = value;
+	    } else if (isArray(value)) {
+	      this.handleObject(value.reduce(extend, {}));
+	    } else {
+	      this.handleObject(value || {});
+	    }
+	  },
+	
+	  handleObject: function handleObject(value) {
+	    // cache object styles so that only changed props
+	    // are actually updated.
+	    var cache = this.cache || (this.cache = {});
+	    var name, val;
+	    for (name in cache) {
+	      if (!(name in value)) {
+	        this.handleSingle(name, null);
+	        delete cache[name];
+	      }
+	    }
+	    for (name in value) {
+	      val = value[name];
+	      if (val !== cache[name]) {
+	        cache[name] = val;
+	        this.handleSingle(name, val);
+	      }
+	    }
+	  },
+	
+	  handleSingle: function handleSingle(prop, value) {
+	    prop = normalize(prop);
+	    if (!prop) return; // unsupported prop
+	    // cast possible numbers/booleans into strings
+	    if (value != null) value += '';
+	    if (value) {
+	      var isImportant = importantRE.test(value) ? 'important' : '';
+	      if (isImportant) {
+	        value = value.replace(importantRE, '').trim();
+	      }
+	      this.el.style.setProperty(prop, value, isImportant);
+	    } else {
+	      this.el.style.removeProperty(prop);
+	    }
+	  }
+	
+	};
+	
+	/**
+	 * Normalize a CSS property name.
+	 * - cache result
+	 * - auto prefix
+	 * - camelCase -> dash-case
+	 *
+	 * @param {String} prop
+	 * @return {String}
+	 */
+	
+	function normalize(prop) {
+	  if (propCache[prop]) {
+	    return propCache[prop];
+	  }
+	  var res = prefix(prop);
+	  propCache[prop] = propCache[res] = res;
+	  return res;
+	}
+	
+	/**
+	 * Auto detect the appropriate prefix for a CSS property.
+	 * https://gist.github.com/paulirish/523692
+	 *
+	 * @param {String} prop
+	 * @return {String}
+	 */
+	
+	function prefix(prop) {
+	  prop = hyphenate(prop);
+	  var camel = camelize(prop);
+	  var upper = camel.charAt(0).toUpperCase() + camel.slice(1);
+	  if (!testEl) {
+	    testEl = document.createElement('div');
+	  }
+	  if (camel in testEl.style) {
+	    return prop;
+	  }
+	  var i = prefixes.length;
+	  var prefixed;
+	  while (i--) {
+	    prefixed = camelPrefixes[i] + upper;
+	    if (prefixed in testEl.style) {
+	      return prefixes[i] + prop;
+	    }
+	  }
+	}
+	
+	// xlink
+	var xlinkNS = 'http://www.w3.org/1999/xlink';
+	var xlinkRE = /^xlink:/;
+	
+	// these input element attributes should also set their
+	// corresponding properties
+	var inputProps = {
+	  value: 1,
+	  checked: 1,
+	  selected: 1
+	};
+	
+	// these attributes should set a hidden property for
+	// binding v-model to object values
+	var modelProps = {
+	  value: '_value',
+	  'true-value': '_trueValue',
+	  'false-value': '_falseValue'
+	};
+	
+	// check for attributes that prohibit interpolations
+	var disallowedInterpAttrRE = /^v-|^:|^@|^(is|transition|transition-mode|debounce|track-by|stagger|enter-stagger|leave-stagger)$/;
+	
+	var bind = {
+	
+	  priority: 850,
+	
+	  bind: function bind() {
+	    var attr = this.arg;
+	    var tag = this.el.tagName;
+	    // should be deep watch on object mode
+	    if (!attr) {
+	      this.deep = true;
+	    }
+	    // handle interpolation bindings
+	    if (this.descriptor.interp) {
+	      // only allow binding on native attributes
+	      if (disallowedInterpAttrRE.test(attr) || attr === 'name' && (tag === 'PARTIAL' || tag === 'SLOT')) {
+	        process.env.NODE_ENV !== 'production' && warn(attr + '="' + this.descriptor.raw + '": ' + 'attribute interpolation is not allowed in Vue.js ' + 'directives and special attributes.');
+	        this.el.removeAttribute(attr);
+	        this.invalid = true;
+	      }
+	
+	      /* istanbul ignore if */
+	      if (process.env.NODE_ENV !== 'production') {
+	        var raw = attr + '="' + this.descriptor.raw + '": ';
+	        // warn src
+	        if (attr === 'src') {
+	          warn(raw + 'interpolation in "src" attribute will cause ' + 'a 404 request. Use v-bind:src instead.');
+	        }
+	
+	        // warn style
+	        if (attr === 'style') {
+	          warn(raw + 'interpolation in "style" attribute will cause ' + 'the attribute to be discarded in Internet Explorer. ' + 'Use v-bind:style instead.');
+	        }
+	      }
+	    }
+	  },
+	
+	  update: function update(value) {
+	    if (this.invalid) {
+	      return;
+	    }
+	    var attr = this.arg;
+	    if (this.arg) {
+	      this.handleSingle(attr, value);
+	    } else {
+	      this.handleObject(value || {});
+	    }
+	  },
+	
+	  // share object handler with v-bind:class
+	  handleObject: style.handleObject,
+	
+	  handleSingle: function handleSingle(attr, value) {
+	    if (inputProps[attr] && attr in this.el) {
+	      this.el[attr] = attr === 'value' ? value || '' : // IE9 will set input.value to "null" for null...
+	      value;
+	    }
+	    // set model props
+	    var modelProp = modelProps[attr];
+	    if (modelProp) {
+	      this.el[modelProp] = value;
+	      // update v-model if present
+	      var model = this.el.__v_model;
+	      if (model) {
+	        model.listener();
+	      }
+	    }
+	    // do not set value attribute for textarea
+	    if (attr === 'value' && this.el.tagName === 'TEXTAREA') {
+	      this.el.removeAttribute(attr);
+	      return;
+	    }
+	    // update attribute
+	    if (value != null && value !== false) {
+	      if (xlinkRE.test(attr)) {
+	        this.el.setAttributeNS(xlinkNS, attr, value);
+	      } else {
+	        this.el.setAttribute(attr, value);
+	      }
+	    } else {
+	      this.el.removeAttribute(attr);
+	    }
+	  }
+	};
+	
+	// keyCode aliases
+	var keyCodes = {
+	  esc: 27,
+	  tab: 9,
+	  enter: 13,
+	  space: 32,
+	  'delete': 46,
+	  up: 38,
+	  left: 37,
+	  right: 39,
+	  down: 40
+	};
+	
+	function keyFilter(handler, keys) {
+	  var codes = keys.map(function (key) {
+	    var charCode = key.charCodeAt(0);
+	    if (charCode > 47 && charCode < 58) {
+	      return parseInt(key, 10);
+	    }
+	    if (key.length === 1) {
+	      charCode = key.toUpperCase().charCodeAt(0);
+	      if (charCode > 64 && charCode < 91) {
+	        return charCode;
+	      }
+	    }
+	    return keyCodes[key];
+	  });
+	  return function keyHandler(e) {
+	    if (codes.indexOf(e.keyCode) > -1) {
+	      return handler.call(this, e);
+	    }
+	  };
+	}
+	
+	function stopFilter(handler) {
+	  return function stopHandler(e) {
+	    e.stopPropagation();
+	    return handler.call(this, e);
+	  };
+	}
+	
+	function preventFilter(handler) {
+	  return function preventHandler(e) {
+	    e.preventDefault();
+	    return handler.call(this, e);
+	  };
+	}
+	
+	var on = {
+	
+	  acceptStatement: true,
+	  priority: 700,
+	
+	  bind: function bind() {
+	    // deal with iframes
+	    if (this.el.tagName === 'IFRAME' && this.arg !== 'load') {
+	      var self = this;
+	      this.iframeBind = function () {
+	        on$1(self.el.contentWindow, self.arg, self.handler);
+	      };
+	      this.on('load', this.iframeBind);
+	    }
+	  },
+	
+	  update: function update(handler) {
+	    // stub a noop for v-on with no value,
+	    // e.g. @mousedown.prevent
+	    if (!this.descriptor.raw) {
+	      handler = function () {};
+	    }
+	
+	    if (typeof handler !== 'function') {
+	      process.env.NODE_ENV !== 'production' && warn('v-on:' + this.arg + '="' + this.expression + '" expects a function value, ' + 'got ' + handler);
+	      return;
+	    }
+	
+	    // apply modifiers
+	    if (this.modifiers.stop) {
+	      handler = stopFilter(handler);
+	    }
+	    if (this.modifiers.prevent) {
+	      handler = preventFilter(handler);
+	    }
+	    // key filter
+	    var keys = Object.keys(this.modifiers).filter(function (key) {
+	      return key !== 'stop' && key !== 'prevent';
+	    });
+	    if (keys.length) {
+	      handler = keyFilter(handler, keys);
+	    }
+	
+	    this.reset();
+	    this.handler = handler;
+	
+	    if (this.iframeBind) {
+	      this.iframeBind();
+	    } else {
+	      on$1(this.el, this.arg, this.handler);
+	    }
+	  },
+	
+	  reset: function reset() {
+	    var el = this.iframeBind ? this.el.contentWindow : this.el;
+	    if (this.handler) {
+	      off(el, this.arg, this.handler);
+	    }
+	  },
+	
+	  unbind: function unbind() {
+	    this.reset();
+	  }
+	};
+	
+	var checkbox = {
+	
+	  bind: function bind() {
+	    var self = this;
+	    var el = this.el;
+	
+	    this.getValue = function () {
+	      return el.hasOwnProperty('_value') ? el._value : self.params.number ? toNumber(el.value) : el.value;
+	    };
+	
+	    function getBooleanValue() {
+	      var val = el.checked;
+	      if (val && el.hasOwnProperty('_trueValue')) {
+	        return el._trueValue;
+	      }
+	      if (!val && el.hasOwnProperty('_falseValue')) {
+	        return el._falseValue;
+	      }
+	      return val;
+	    }
+	
+	    this.listener = function () {
+	      var model = self._watcher.value;
+	      if (isArray(model)) {
+	        var val = self.getValue();
+	        if (el.checked) {
+	          if (indexOf(model, val) < 0) {
+	            model.push(val);
+	          }
+	        } else {
+	          model.$remove(val);
+	        }
+	      } else {
+	        self.set(getBooleanValue());
+	      }
+	    };
+	
+	    this.on('change', this.listener);
+	    if (el.checked) {
+	      this.afterBind = this.listener;
+	    }
+	  },
+	
+	  update: function update(value) {
+	    var el = this.el;
+	    if (isArray(value)) {
+	      el.checked = indexOf(value, this.getValue()) > -1;
+	    } else {
+	      if (el.hasOwnProperty('_trueValue')) {
+	        el.checked = looseEqual(value, el._trueValue);
+	      } else {
+	        el.checked = !!value;
+	      }
+	    }
+	  }
+	};
+	
+	var select = {
+	
+	  bind: function bind() {
+	    var self = this;
+	    var el = this.el;
+	
+	    // method to force update DOM using latest value.
+	    this.forceUpdate = function () {
+	      if (self._watcher) {
+	        self.update(self._watcher.get());
+	      }
+	    };
+	
+	    // check if this is a multiple select
+	    var multiple = this.multiple = el.hasAttribute('multiple');
+	
+	    // attach listener
+	    this.listener = function () {
+	      var value = getValue(el, multiple);
+	      value = self.params.number ? isArray(value) ? value.map(toNumber) : toNumber(value) : value;
+	      self.set(value);
+	    };
+	    this.on('change', this.listener);
+	
+	    // if has initial value, set afterBind
+	    var initValue = getValue(el, multiple, true);
+	    if (multiple && initValue.length || !multiple && initValue !== null) {
+	      this.afterBind = this.listener;
+	    }
+	
+	    // All major browsers except Firefox resets
+	    // selectedIndex with value -1 to 0 when the element
+	    // is appended to a new parent, therefore we have to
+	    // force a DOM update whenever that happens...
+	    this.vm.$on('hook:attached', this.forceUpdate);
+	  },
+	
+	  update: function update(value) {
+	    var el = this.el;
+	    el.selectedIndex = -1;
+	    var multi = this.multiple && isArray(value);
+	    var options = el.options;
+	    var i = options.length;
+	    var op, val;
+	    while (i--) {
+	      op = options[i];
+	      val = op.hasOwnProperty('_value') ? op._value : op.value;
+	      /* eslint-disable eqeqeq */
+	      op.selected = multi ? indexOf$1(value, val) > -1 : looseEqual(value, val);
+	      /* eslint-enable eqeqeq */
+	    }
+	  },
+	
+	  unbind: function unbind() {
+	    /* istanbul ignore next */
+	    this.vm.$off('hook:attached', this.forceUpdate);
+	  }
+	};
+	
+	/**
+	 * Get select value
+	 *
+	 * @param {SelectElement} el
+	 * @param {Boolean} multi
+	 * @param {Boolean} init
+	 * @return {Array|*}
+	 */
+	
+	function getValue(el, multi, init) {
+	  var res = multi ? [] : null;
+	  var op, val, selected;
+	  for (var i = 0, l = el.options.length; i < l; i++) {
+	    op = el.options[i];
+	    selected = init ? op.hasAttribute('selected') : op.selected;
+	    if (selected) {
+	      val = op.hasOwnProperty('_value') ? op._value : op.value;
+	      if (multi) {
+	        res.push(val);
+	      } else {
+	        return val;
+	      }
+	    }
+	  }
+	  return res;
+	}
+	
+	/**
+	 * Native Array.indexOf uses strict equal, but in this
+	 * case we need to match string/numbers with custom equal.
+	 *
+	 * @param {Array} arr
+	 * @param {*} val
+	 */
+	
+	function indexOf$1(arr, val) {
+	  var i = arr.length;
+	  while (i--) {
+	    if (looseEqual(arr[i], val)) {
+	      return i;
+	    }
+	  }
+	  return -1;
+	}
+	
+	var radio = {
+	
+	  bind: function bind() {
+	    var self = this;
+	    var el = this.el;
+	
+	    this.getValue = function () {
+	      // value overwrite via v-bind:value
+	      if (el.hasOwnProperty('_value')) {
+	        return el._value;
+	      }
+	      var val = el.value;
+	      if (self.params.number) {
+	        val = toNumber(val);
+	      }
+	      return val;
+	    };
+	
+	    this.listener = function () {
+	      self.set(self.getValue());
+	    };
+	    this.on('change', this.listener);
+	
+	    if (el.checked) {
+	      this.afterBind = this.listener;
+	    }
+	  },
+	
+	  update: function update(value) {
+	    this.el.checked = looseEqual(value, this.getValue());
+	  }
+	};
+	
+	var text$2 = {
+	
+	  bind: function bind() {
+	    var self = this;
+	    var el = this.el;
+	    var isRange = el.type === 'range';
+	    var lazy = this.params.lazy;
+	    var number = this.params.number;
+	    var debounce = this.params.debounce;
+	
+	    // handle composition events.
+	    //   http://blog.evanyou.me/2014/01/03/composition-event/
+	    // skip this for Android because it handles composition
+	    // events quite differently. Android doesn't trigger
+	    // composition events for language input methods e.g.
+	    // Chinese, but instead triggers them for spelling
+	    // suggestions... (see Discussion/#162)
+	    var composing = false;
+	    if (!isAndroid && !isRange) {
+	      this.on('compositionstart', function () {
+	        composing = true;
+	      });
+	      this.on('compositionend', function () {
+	        composing = false;
+	        // in IE11 the "compositionend" event fires AFTER
+	        // the "input" event, so the input handler is blocked
+	        // at the end... have to call it here.
+	        //
+	        // #1327: in lazy mode this is unecessary.
+	        if (!lazy) {
+	          self.listener();
+	        }
+	      });
+	    }
+	
+	    // prevent messing with the input when user is typing,
+	    // and force update on blur.
+	    this.focused = false;
+	    if (!isRange) {
+	      this.on('focus', function () {
+	        self.focused = true;
+	      });
+	      this.on('blur', function () {
+	        self.focused = false;
+	        self.listener();
+	      });
+	    }
+	
+	    // Now attach the main listener
+	    this.listener = function () {
+	      if (composing) return;
+	      var val = number || isRange ? toNumber(el.value) : el.value;
+	      self.set(val);
+	      // force update on next tick to avoid lock & same value
+	      // also only update when user is not typing
+	      nextTick(function () {
+	        if (self._bound && !self.focused) {
+	          self.update(self._watcher.value);
+	        }
+	      });
+	    };
+	
+	    // apply debounce
+	    if (debounce) {
+	      this.listener = _debounce(this.listener, debounce);
+	    }
+	
+	    // Support jQuery events, since jQuery.trigger() doesn't
+	    // trigger native events in some cases and some plugins
+	    // rely on $.trigger()
+	    //
+	    // We want to make sure if a listener is attached using
+	    // jQuery, it is also removed with jQuery, that's why
+	    // we do the check for each directive instance and
+	    // store that check result on itself. This also allows
+	    // easier test coverage control by unsetting the global
+	    // jQuery variable in tests.
+	    this.hasjQuery = typeof jQuery === 'function';
+	    if (this.hasjQuery) {
+	      jQuery(el).on('change', this.listener);
+	      if (!lazy) {
+	        jQuery(el).on('input', this.listener);
+	      }
+	    } else {
+	      this.on('change', this.listener);
+	      if (!lazy) {
+	        this.on('input', this.listener);
+	      }
+	    }
+	
+	    // IE9 doesn't fire input event on backspace/del/cut
+	    if (!lazy && isIE9) {
+	      this.on('cut', function () {
+	        nextTick(self.listener);
+	      });
+	      this.on('keyup', function (e) {
+	        if (e.keyCode === 46 || e.keyCode === 8) {
+	          self.listener();
+	        }
+	      });
+	    }
+	
+	    // set initial value if present
+	    if (el.hasAttribute('value') || el.tagName === 'TEXTAREA' && el.value.trim()) {
+	      this.afterBind = this.listener;
+	    }
+	  },
+	
+	  update: function update(value) {
+	    this.el.value = _toString(value);
+	  },
+	
+	  unbind: function unbind() {
+	    var el = this.el;
+	    if (this.hasjQuery) {
+	      jQuery(el).off('change', this.listener);
+	      jQuery(el).off('input', this.listener);
+	    }
+	  }
+	};
+	
+	var handlers = {
+	  text: text$2,
+	  radio: radio,
+	  select: select,
+	  checkbox: checkbox
+	};
+	
+	var model = {
+	
+	  priority: 800,
+	  twoWay: true,
+	  handlers: handlers,
+	  params: ['lazy', 'number', 'debounce'],
+	
+	  /**
+	   * Possible elements:
+	   *   <select>
+	   *   <textarea>
+	   *   <input type="*">
+	   *     - text
+	   *     - checkbox
+	   *     - radio
+	   *     - number
+	   */
+	
+	  bind: function bind() {
+	    // friendly warning...
+	    this.checkFilters();
+	    if (this.hasRead && !this.hasWrite) {
+	      process.env.NODE_ENV !== 'production' && warn('It seems you are using a read-only filter with ' + 'v-model. You might want to use a two-way filter ' + 'to ensure correct behavior.');
+	    }
+	    var el = this.el;
+	    var tag = el.tagName;
+	    var handler;
+	    if (tag === 'INPUT') {
+	      handler = handlers[el.type] || handlers.text;
+	    } else if (tag === 'SELECT') {
+	      handler = handlers.select;
+	    } else if (tag === 'TEXTAREA') {
+	      handler = handlers.text;
+	    } else {
+	      process.env.NODE_ENV !== 'production' && warn('v-model does not support element type: ' + tag);
+	      return;
+	    }
+	    el.__v_model = this;
+	    handler.bind.call(this);
+	    this.update = handler.update;
+	    this._unbind = handler.unbind;
+	  },
+	
+	  /**
+	   * Check read/write filter stats.
+	   */
+	
+	  checkFilters: function checkFilters() {
+	    var filters = this.filters;
+	    if (!filters) return;
+	    var i = filters.length;
+	    while (i--) {
+	      var filter = resolveAsset(this.vm.$options, 'filters', filters[i].name);
+	      if (typeof filter === 'function' || filter.read) {
+	        this.hasRead = true;
+	      }
+	      if (filter.write) {
+	        this.hasWrite = true;
+	      }
+	    }
+	  },
+	
+	  unbind: function unbind() {
+	    this.el.__v_model = null;
+	    this._unbind && this._unbind();
+	  }
+	};
+	
+	var show = {
+	
+	  bind: function bind() {
+	    // check else block
+	    var next = this.el.nextElementSibling;
+	    if (next && getAttr(next, 'v-else') !== null) {
+	      this.elseEl = next;
+	    }
+	  },
+	
+	  update: function update(value) {
+	    this.apply(this.el, value);
+	    if (this.elseEl) {
+	      this.apply(this.elseEl, !value);
+	    }
+	  },
+	
+	  apply: function apply(el, value) {
+	    applyTransition(el, value ? 1 : -1, function () {
+	      el.style.display = value ? '' : 'none';
+	    }, this.vm);
+	  }
+	};
+	
+	var templateCache = new Cache(1000);
+	var idSelectorCache = new Cache(1000);
+	
+	var map = {
+	  efault: [0, '', ''],
+	  legend: [1, '<fieldset>', '</fieldset>'],
+	  tr: [2, '<table><tbody>', '</tbody></table>'],
+	  col: [2, '<table><tbody></tbody><colgroup>', '</colgroup></table>']
+	};
+	
+	map.td = map.th = [3, '<table><tbody><tr>', '</tr></tbody></table>'];
+	
+	map.option = map.optgroup = [1, '<select multiple="multiple">', '</select>'];
+	
+	map.thead = map.tbody = map.colgroup = map.caption = map.tfoot = [1, '<table>', '</table>'];
+	
+	map.g = map.defs = map.symbol = map.use = map.image = map.text = map.circle = map.ellipse = map.line = map.path = map.polygon = map.polyline = map.rect = [1, '<svg ' + 'xmlns="http://www.w3.org/2000/svg" ' + 'xmlns:xlink="http://www.w3.org/1999/xlink" ' + 'xmlns:ev="http://www.w3.org/2001/xml-events"' + 'version="1.1">', '</svg>'];
+	
+	/**
+	 * Check if a node is a supported template node with a
+	 * DocumentFragment content.
+	 *
+	 * @param {Node} node
+	 * @return {Boolean}
+	 */
+	
+	function isRealTemplate(node) {
+	  return isTemplate(node) && node.content instanceof DocumentFragment;
+	}
+	
+	var tagRE$1 = /<([\w:]+)/;
+	var entityRE = /&\w+;|&#\d+;|&#x[\dA-F]+;/;
+	
+	/**
+	 * Convert a string template to a DocumentFragment.
+	 * Determines correct wrapping by tag types. Wrapping
+	 * strategy found in jQuery & component/domify.
+	 *
+	 * @param {String} templateString
+	 * @param {Boolean} raw
+	 * @return {DocumentFragment}
+	 */
+	
+	function stringToFragment(templateString, raw) {
+	  // try a cache hit first
+	  var hit = templateCache.get(templateString);
+	  if (hit) {
+	    return hit;
+	  }
+	
+	  var frag = document.createDocumentFragment();
+	  var tagMatch = templateString.match(tagRE$1);
+	  var entityMatch = entityRE.test(templateString);
+	
+	  if (!tagMatch && !entityMatch) {
+	    // text only, return a single text node.
+	    frag.appendChild(document.createTextNode(templateString));
+	  } else {
+	
+	    var tag = tagMatch && tagMatch[1];
+	    var wrap = map[tag] || map.efault;
+	    var depth = wrap[0];
+	    var prefix = wrap[1];
+	    var suffix = wrap[2];
+	    var node = document.createElement('div');
+	
+	    if (!raw) {
+	      templateString = templateString.trim();
+	    }
+	    node.innerHTML = prefix + templateString + suffix;
+	    while (depth--) {
+	      node = node.lastChild;
+	    }
+	
+	    var child;
+	    /* eslint-disable no-cond-assign */
+	    while (child = node.firstChild) {
+	      /* eslint-enable no-cond-assign */
+	      frag.appendChild(child);
+	    }
+	  }
+	
+	  templateCache.put(templateString, frag);
+	  return frag;
+	}
+	
+	/**
+	 * Convert a template node to a DocumentFragment.
+	 *
+	 * @param {Node} node
+	 * @return {DocumentFragment}
+	 */
+	
+	function nodeToFragment(node) {
+	  // if its a template tag and the browser supports it,
+	  // its content is already a document fragment.
+	  if (isRealTemplate(node)) {
+	    trimNode(node.content);
+	    return node.content;
+	  }
+	  // script template
+	  if (node.tagName === 'SCRIPT') {
+	    return stringToFragment(node.textContent);
+	  }
+	  // normal node, clone it to avoid mutating the original
+	  var clonedNode = cloneNode(node);
+	  var frag = document.createDocumentFragment();
+	  var child;
+	  /* eslint-disable no-cond-assign */
+	  while (child = clonedNode.firstChild) {
+	    /* eslint-enable no-cond-assign */
+	    frag.appendChild(child);
+	  }
+	  trimNode(frag);
+	  return frag;
+	}
+	
+	// Test for the presence of the Safari template cloning bug
+	// https://bugs.webkit.org/showug.cgi?id=137755
+	var hasBrokenTemplate = (function () {
+	  /* istanbul ignore else */
+	  if (inBrowser) {
+	    var a = document.createElement('div');
+	    a.innerHTML = '<template>1</template>';
+	    return !a.cloneNode(true).firstChild.innerHTML;
+	  } else {
+	    return false;
+	  }
+	})();
+	
+	// Test for IE10/11 textarea placeholder clone bug
+	var hasTextareaCloneBug = (function () {
+	  /* istanbul ignore else */
+	  if (inBrowser) {
+	    var t = document.createElement('textarea');
+	    t.placeholder = 't';
+	    return t.cloneNode(true).value === 't';
+	  } else {
+	    return false;
+	  }
+	})();
+	
+	/**
+	 * 1. Deal with Safari cloning nested <template> bug by
+	 *    manually cloning all template instances.
+	 * 2. Deal with IE10/11 textarea placeholder bug by setting
+	 *    the correct value after cloning.
+	 *
+	 * @param {Element|DocumentFragment} node
+	 * @return {Element|DocumentFragment}
+	 */
+	
+	function cloneNode(node) {
+	  if (!node.querySelectorAll) {
+	    return node.cloneNode();
+	  }
+	  var res = node.cloneNode(true);
+	  var i, original, cloned;
+	  /* istanbul ignore if */
+	  if (hasBrokenTemplate) {
+	    var tempClone = res;
+	    if (isRealTemplate(node)) {
+	      node = node.content;
+	      tempClone = res.content;
+	    }
+	    original = node.querySelectorAll('template');
+	    if (original.length) {
+	      cloned = tempClone.querySelectorAll('template');
+	      i = cloned.length;
+	      while (i--) {
+	        cloned[i].parentNode.replaceChild(cloneNode(original[i]), cloned[i]);
+	      }
+	    }
+	  }
+	  /* istanbul ignore if */
+	  if (hasTextareaCloneBug) {
+	    if (node.tagName === 'TEXTAREA') {
+	      res.value = node.value;
+	    } else {
+	      original = node.querySelectorAll('textarea');
+	      if (original.length) {
+	        cloned = res.querySelectorAll('textarea');
+	        i = cloned.length;
+	        while (i--) {
+	          cloned[i].value = original[i].value;
+	        }
+	      }
+	    }
+	  }
+	  return res;
+	}
+	
+	/**
+	 * Process the template option and normalizes it into a
+	 * a DocumentFragment that can be used as a partial or a
+	 * instance template.
+	 *
+	 * @param {*} template
+	 *        Possible values include:
+	 *        - DocumentFragment object
+	 *        - Node object of type Template
+	 *        - id selector: '#some-template-id'
+	 *        - template string: '<div><span>{{msg}}</span></div>'
+	 * @param {Boolean} shouldClone
+	 * @param {Boolean} raw
+	 *        inline HTML interpolation. Do not check for id
+	 *        selector and keep whitespace in the string.
+	 * @return {DocumentFragment|undefined}
+	 */
+	
+	function parseTemplate(template, shouldClone, raw) {
+	  var node, frag;
+	
+	  // if the template is already a document fragment,
+	  // do nothing
+	  if (template instanceof DocumentFragment) {
+	    trimNode(template);
+	    return shouldClone ? cloneNode(template) : template;
+	  }
+	
+	  if (typeof template === 'string') {
+	    // id selector
+	    if (!raw && template.charAt(0) === '#') {
+	      // id selector can be cached too
+	      frag = idSelectorCache.get(template);
+	      if (!frag) {
+	        node = document.getElementById(template.slice(1));
+	        if (node) {
+	          frag = nodeToFragment(node);
+	          // save selector to cache
+	          idSelectorCache.put(template, frag);
+	        }
+	      }
+	    } else {
+	      // normal string template
+	      frag = stringToFragment(template, raw);
+	    }
+	  } else if (template.nodeType) {
+	    // a direct node
+	    frag = nodeToFragment(template);
+	  }
+	
+	  return frag && shouldClone ? cloneNode(frag) : frag;
+	}
+	
+	var template = Object.freeze({
+	  cloneNode: cloneNode,
+	  parseTemplate: parseTemplate
+	});
+	
+	/**
+	 * Abstraction for a partially-compiled fragment.
+	 * Can optionally compile content with a child scope.
+	 *
+	 * @param {Function} linker
+	 * @param {Vue} vm
+	 * @param {DocumentFragment} frag
+	 * @param {Vue} [host]
+	 * @param {Object} [scope]
+	 */
+	function Fragment(linker, vm, frag, host, scope, parentFrag) {
+	  this.children = [];
+	  this.childFrags = [];
+	  this.vm = vm;
+	  this.scope = scope;
+	  this.inserted = false;
+	  this.parentFrag = parentFrag;
+	  if (parentFrag) {
+	    parentFrag.childFrags.push(this);
+	  }
+	  this.unlink = linker(vm, frag, host, scope, this);
+	  var single = this.single = frag.childNodes.length === 1 &&
+	  // do not go single mode if the only node is an anchor
+	  !frag.childNodes[0].__vue_anchor;
+	  if (single) {
+	    this.node = frag.childNodes[0];
+	    this.before = singleBefore;
+	    this.remove = singleRemove;
+	  } else {
+	    this.node = createAnchor('fragment-start');
+	    this.end = createAnchor('fragment-end');
+	    this.frag = frag;
+	    prepend(this.node, frag);
+	    frag.appendChild(this.end);
+	    this.before = multiBefore;
+	    this.remove = multiRemove;
+	  }
+	  this.node.__vfrag__ = this;
+	}
+	
+	/**
+	 * Call attach/detach for all components contained within
+	 * this fragment. Also do so recursively for all child
+	 * fragments.
+	 *
+	 * @param {Function} hook
+	 */
+	
+	Fragment.prototype.callHook = function (hook) {
+	  var i, l;
+	  for (i = 0, l = this.children.length; i < l; i++) {
+	    hook(this.children[i]);
+	  }
+	  for (i = 0, l = this.childFrags.length; i < l; i++) {
+	    this.childFrags[i].callHook(hook);
+	  }
+	};
+	
+	/**
+	 * Destroy the fragment.
+	 */
+	
+	Fragment.prototype.destroy = function () {
+	  if (this.parentFrag) {
+	    this.parentFrag.childFrags.$remove(this);
+	  }
+	  this.unlink();
+	};
+	
+	/**
+	 * Insert fragment before target, single node version
+	 *
+	 * @param {Node} target
+	 * @param {Boolean} withTransition
+	 */
+	
+	function singleBefore(target, withTransition) {
+	  this.inserted = true;
+	  var method = withTransition !== false ? beforeWithTransition : before;
+	  method(this.node, target, this.vm);
+	  if (inDoc(this.node)) {
+	    this.callHook(attach);
+	  }
+	}
+	
+	/**
+	 * Remove fragment, single node version
+	 */
+	
+	function singleRemove() {
+	  this.inserted = false;
+	  var shouldCallRemove = inDoc(this.node);
+	  var self = this;
+	  self.callHook(destroyChild);
+	  removeWithTransition(this.node, this.vm, function () {
+	    if (shouldCallRemove) {
+	      self.callHook(detach);
+	    }
+	    self.destroy();
+	  });
+	}
+	
+	/**
+	 * Insert fragment before target, multi-nodes version
+	 *
+	 * @param {Node} target
+	 * @param {Boolean} withTransition
+	 */
+	
+	function multiBefore(target, withTransition) {
+	  this.inserted = true;
+	  var vm = this.vm;
+	  var method = withTransition !== false ? beforeWithTransition : before;
+	  mapNodeRange(this.node, this.end, function (node) {
+	    method(node, target, vm);
+	  });
+	  if (inDoc(this.node)) {
+	    this.callHook(attach);
+	  }
+	}
+	
+	/**
+	 * Remove fragment, multi-nodes version
+	 */
+	
+	function multiRemove() {
+	  this.inserted = false;
+	  var self = this;
+	  var shouldCallRemove = inDoc(this.node);
+	  self.callHook(destroyChild);
+	  removeNodeRange(this.node, this.end, this.vm, this.frag, function () {
+	    if (shouldCallRemove) {
+	      self.callHook(detach);
+	    }
+	    self.destroy();
+	  });
+	}
+	
+	/**
+	 * Call attach hook for a Vue instance.
+	 *
+	 * @param {Vue} child
+	 */
+	
+	function attach(child) {
+	  if (!child._isAttached) {
+	    child._callHook('attached');
+	  }
+	}
+	
+	/**
+	 * Call destroy for all contained instances,
+	 * with remove:false and defer:true.
+	 * Defer is necessary because we need to
+	 * keep the children to call detach hooks
+	 * on them.
+	 *
+	 * @param {Vue} child
+	 */
+	
+	function destroyChild(child) {
+	  child.$destroy(false, true);
+	}
+	
+	/**
+	 * Call detach hook for a Vue instance.
+	 *
+	 * @param {Vue} child
+	 */
+	
+	function detach(child) {
+	  if (child._isAttached) {
+	    child._callHook('detached');
+	  }
+	}
+	
+	var linkerCache = new Cache(5000);
+	
+	/**
+	 * A factory that can be used to create instances of a
+	 * fragment. Caches the compiled linker if possible.
+	 *
+	 * @param {Vue} vm
+	 * @param {Element|String} el
+	 */
+	function FragmentFactory(vm, el) {
+	  this.vm = vm;
+	  var template;
+	  var isString = typeof el === 'string';
+	  if (isString || isTemplate(el)) {
+	    template = parseTemplate(el, true);
+	  } else {
+	    template = document.createDocumentFragment();
+	    template.appendChild(el);
+	  }
+	  this.template = template;
+	  // linker can be cached, but only for components
+	  var linker;
+	  var cid = vm.constructor.cid;
+	  if (cid > 0) {
+	    var cacheId = cid + (isString ? el : el.outerHTML);
+	    linker = linkerCache.get(cacheId);
+	    if (!linker) {
+	      linker = compile(template, vm.$options, true);
+	      linkerCache.put(cacheId, linker);
+	    }
+	  } else {
+	    linker = compile(template, vm.$options, true);
+	  }
+	  this.linker = linker;
+	}
+	
+	/**
+	 * Create a fragment instance with given host and scope.
+	 *
+	 * @param {Vue} host
+	 * @param {Object} scope
+	 * @param {Fragment} parentFrag
+	 */
+	
+	FragmentFactory.prototype.create = function (host, scope, parentFrag) {
+	  var frag = cloneNode(this.template);
+	  return new Fragment(this.linker, this.vm, frag, host, scope, parentFrag);
+	};
+	
+	var vIf = {
+	
+	  priority: 2000,
+	
+	  bind: function bind() {
+	    var el = this.el;
+	    if (!el.__vue__) {
+	      // check else block
+	      var next = el.nextElementSibling;
+	      if (next && getAttr(next, 'v-else') !== null) {
+	        remove(next);
+	        this.elseFactory = new FragmentFactory(this.vm, next);
+	      }
+	      // check main block
+	      this.anchor = createAnchor('v-if');
+	      replace(el, this.anchor);
+	      this.factory = new FragmentFactory(this.vm, el);
+	    } else {
+	      process.env.NODE_ENV !== 'production' && warn('v-if="' + this.expression + '" cannot be ' + 'used on an instance root element.');
+	      this.invalid = true;
+	    }
+	  },
+	
+	  update: function update(value) {
+	    if (this.invalid) return;
+	    if (value) {
+	      if (!this.frag) {
+	        this.insert();
+	      }
+	    } else {
+	      this.remove();
+	    }
+	  },
+	
+	  insert: function insert() {
+	    if (this.elseFrag) {
+	      this.elseFrag.remove();
+	      this.elseFrag = null;
+	    }
+	    this.frag = this.factory.create(this._host, this._scope, this._frag);
+	    this.frag.before(this.anchor);
+	  },
+	
+	  remove: function remove() {
+	    if (this.frag) {
+	      this.frag.remove();
+	      this.frag = null;
+	    }
+	    if (this.elseFactory && !this.elseFrag) {
+	      this.elseFrag = this.elseFactory.create(this._host, this._scope, this._frag);
+	      this.elseFrag.before(this.anchor);
+	    }
+	  },
+	
+	  unbind: function unbind() {
+	    if (this.frag) {
+	      this.frag.destroy();
+	    }
+	  }
+	};
+	
+	var uid$1 = 0;
+	
+	var vFor = {
+	
+	  priority: 2000,
+	
+	  params: ['track-by', 'stagger', 'enter-stagger', 'leave-stagger'],
+	
+	  bind: function bind() {
+	    // support "item in items" syntax
+	    var inMatch = this.expression.match(/(.*) in (.*)/);
+	    if (inMatch) {
+	      var itMatch = inMatch[1].match(/\((.*),(.*)\)/);
+	      if (itMatch) {
+	        this.iterator = itMatch[1].trim();
+	        this.alias = itMatch[2].trim();
+	      } else {
+	        this.alias = inMatch[1].trim();
+	      }
+	      this.expression = inMatch[2];
+	    }
+	
+	    if (!this.alias) {
+	      process.env.NODE_ENV !== 'production' && warn('Alias is required in v-for.');
+	      return;
+	    }
+	
+	    // uid as a cache identifier
+	    this.id = '__v-for__' + ++uid$1;
+	
+	    // check if this is an option list,
+	    // so that we know if we need to update the <select>'s
+	    // v-model when the option list has changed.
+	    // because v-model has a lower priority than v-for,
+	    // the v-model is not bound here yet, so we have to
+	    // retrive it in the actual updateModel() function.
+	    var tag = this.el.tagName;
+	    this.isOption = (tag === 'OPTION' || tag === 'OPTGROUP') && this.el.parentNode.tagName === 'SELECT';
+	
+	    // setup anchor nodes
+	    this.start = createAnchor('v-for-start');
+	    this.end = createAnchor('v-for-end');
+	    replace(this.el, this.end);
+	    before(this.start, this.end);
+	
+	    // cache
+	    this.cache = Object.create(null);
+	
+	    // fragment factory
+	    this.factory = new FragmentFactory(this.vm, this.el);
+	  },
+	
+	  update: function update(data) {
+	    this.diff(data);
+	    this.updateRef();
+	    this.updateModel();
+	  },
+	
+	  /**
+	   * Diff, based on new data and old data, determine the
+	   * minimum amount of DOM manipulations needed to make the
+	   * DOM reflect the new data Array.
+	   *
+	   * The algorithm diffs the new data Array by storing a
+	   * hidden reference to an owner vm instance on previously
+	   * seen data. This allows us to achieve O(n) which is
+	   * better than a levenshtein distance based algorithm,
+	   * which is O(m * n).
+	   *
+	   * @param {Array} data
+	   */
+	
+	  diff: function diff(data) {
+	    // check if the Array was converted from an Object
+	    var item = data[0];
+	    var convertedFromObject = this.fromObject = isObject(item) && hasOwn(item, '$key') && hasOwn(item, '$value');
+	
+	    var trackByKey = this.params.trackBy;
+	    var oldFrags = this.frags;
+	    var frags = this.frags = new Array(data.length);
+	    var alias = this.alias;
+	    var iterator = this.iterator;
+	    var start = this.start;
+	    var end = this.end;
+	    var inDocument = inDoc(start);
+	    var init = !oldFrags;
+	    var i, l, frag, key, value, primitive;
+	
+	    // First pass, go through the new Array and fill up
+	    // the new frags array. If a piece of data has a cached
+	    // instance for it, we reuse it. Otherwise build a new
+	    // instance.
+	    for (i = 0, l = data.length; i < l; i++) {
+	      item = data[i];
+	      key = convertedFromObject ? item.$key : null;
+	      value = convertedFromObject ? item.$value : item;
+	      primitive = !isObject(value);
+	      frag = !init && this.getCachedFrag(value, i, key);
+	      if (frag) {
+	        // reusable fragment
+	        frag.reused = true;
+	        // update $index
+	        frag.scope.$index = i;
+	        // update $key
+	        if (key) {
+	          frag.scope.$key = key;
+	        }
+	        // update iterator
+	        if (iterator) {
+	          frag.scope[iterator] = key !== null ? key : i;
+	        }
+	        // update data for track-by, object repeat &
+	        // primitive values.
+	        if (trackByKey || convertedFromObject || primitive) {
+	          frag.scope[alias] = value;
+	        }
+	      } else {
+	        // new isntance
+	        frag = this.create(value, alias, i, key);
+	        frag.fresh = !init;
+	      }
+	      frags[i] = frag;
+	      if (init) {
+	        frag.before(end);
+	      }
+	    }
+	
+	    // we're done for the initial render.
+	    if (init) {
+	      return;
+	    }
+	
+	    // Second pass, go through the old fragments and
+	    // destroy those who are not reused (and remove them
+	    // from cache)
+	    var removalIndex = 0;
+	    var totalRemoved = oldFrags.length - frags.length;
+	    for (i = 0, l = oldFrags.length; i < l; i++) {
+	      frag = oldFrags[i];
+	      if (!frag.reused) {
+	        this.deleteCachedFrag(frag);
+	        this.remove(frag, removalIndex++, totalRemoved, inDocument);
+	      }
+	    }
+	
+	    // Final pass, move/insert new fragments into the
+	    // right place.
+	    var targetPrev, prevEl, currentPrev;
+	    var insertionIndex = 0;
+	    for (i = 0, l = frags.length; i < l; i++) {
+	      frag = frags[i];
+	      // this is the frag that we should be after
+	      targetPrev = frags[i - 1];
+	      prevEl = targetPrev ? targetPrev.staggerCb ? targetPrev.staggerAnchor : targetPrev.end || targetPrev.node : start;
+	      if (frag.reused && !frag.staggerCb) {
+	        currentPrev = findPrevFrag(frag, start, this.id);
+	        if (currentPrev !== targetPrev && (!currentPrev ||
+	        // optimization for moving a single item.
+	        // thanks to suggestions by @livoras in #1807
+	        findPrevFrag(currentPrev, start, this.id) !== targetPrev)) {
+	          this.move(frag, prevEl);
+	        }
+	      } else {
+	        // new instance, or still in stagger.
+	        // insert with updated stagger index.
+	        this.insert(frag, insertionIndex++, prevEl, inDocument);
+	      }
+	      frag.reused = frag.fresh = false;
+	    }
+	  },
+	
+	  /**
+	   * Create a new fragment instance.
+	   *
+	   * @param {*} value
+	   * @param {String} alias
+	   * @param {Number} index
+	   * @param {String} [key]
+	   * @return {Fragment}
+	   */
+	
+	  create: function create(value, alias, index, key) {
+	    var host = this._host;
+	    // create iteration scope
+	    var parentScope = this._scope || this.vm;
+	    var scope = Object.create(parentScope);
+	    // ref holder for the scope
+	    scope.$refs = Object.create(parentScope.$refs);
+	    scope.$els = Object.create(parentScope.$els);
+	    // make sure point $parent to parent scope
+	    scope.$parent = parentScope;
+	    // for two-way binding on alias
+	    scope.$forContext = this;
+	    // define scope properties
+	    defineReactive(scope, alias, value);
+	    defineReactive(scope, '$index', index);
+	    if (key) {
+	      defineReactive(scope, '$key', key);
+	    } else if (scope.$key) {
+	      // avoid accidental fallback
+	      def(scope, '$key', null);
+	    }
+	    if (this.iterator) {
+	      defineReactive(scope, this.iterator, key !== null ? key : index);
+	    }
+	    var frag = this.factory.create(host, scope, this._frag);
+	    frag.forId = this.id;
+	    this.cacheFrag(value, frag, index, key);
+	    return frag;
+	  },
+	
+	  /**
+	   * Update the v-ref on owner vm.
+	   */
+	
+	  updateRef: function updateRef() {
+	    var ref = this.descriptor.ref;
+	    if (!ref) return;
+	    var hash = (this._scope || this.vm).$refs;
+	    var refs;
+	    if (!this.fromObject) {
+	      refs = this.frags.map(findVmFromFrag);
+	    } else {
+	      refs = {};
+	      this.frags.forEach(function (frag) {
+	        refs[frag.scope.$key] = findVmFromFrag(frag);
+	      });
+	    }
+	    hash[ref] = refs;
+	  },
+	
+	  /**
+	   * For option lists, update the containing v-model on
+	   * parent <select>.
+	   */
+	
+	  updateModel: function updateModel() {
+	    if (this.isOption) {
+	      var parent = this.start.parentNode;
+	      var model = parent && parent.__v_model;
+	      if (model) {
+	        model.forceUpdate();
+	      }
+	    }
+	  },
+	
+	  /**
+	   * Insert a fragment. Handles staggering.
+	   *
+	   * @param {Fragment} frag
+	   * @param {Number} index
+	   * @param {Node} prevEl
+	   * @param {Boolean} inDocument
+	   */
+	
+	  insert: function insert(frag, index, prevEl, inDocument) {
+	    if (frag.staggerCb) {
+	      frag.staggerCb.cancel();
+	      frag.staggerCb = null;
+	    }
+	    var staggerAmount = this.getStagger(frag, index, null, 'enter');
+	    if (inDocument && staggerAmount) {
+	      // create an anchor and insert it synchronously,
+	      // so that we can resolve the correct order without
+	      // worrying about some elements not inserted yet
+	      var anchor = frag.staggerAnchor;
+	      if (!anchor) {
+	        anchor = frag.staggerAnchor = createAnchor('stagger-anchor');
+	        anchor.__vfrag__ = frag;
+	      }
+	      after(anchor, prevEl);
+	      var op = frag.staggerCb = cancellable(function () {
+	        frag.staggerCb = null;
+	        frag.before(anchor);
+	        remove(anchor);
+	      });
+	      setTimeout(op, staggerAmount);
+	    } else {
+	      frag.before(prevEl.nextSibling);
+	    }
+	  },
+	
+	  /**
+	   * Remove a fragment. Handles staggering.
+	   *
+	   * @param {Fragment} frag
+	   * @param {Number} index
+	   * @param {Number} total
+	   * @param {Boolean} inDocument
+	   */
+	
+	  remove: function remove(frag, index, total, inDocument) {
+	    if (frag.staggerCb) {
+	      frag.staggerCb.cancel();
+	      frag.staggerCb = null;
+	      // it's not possible for the same frag to be removed
+	      // twice, so if we have a pending stagger callback,
+	      // it means this frag is queued for enter but removed
+	      // before its transition started. Since it is already
+	      // destroyed, we can just leave it in detached state.
+	      return;
+	    }
+	    var staggerAmount = this.getStagger(frag, index, total, 'leave');
+	    if (inDocument && staggerAmount) {
+	      var op = frag.staggerCb = cancellable(function () {
+	        frag.staggerCb = null;
+	        frag.remove();
+	      });
+	      setTimeout(op, staggerAmount);
+	    } else {
+	      frag.remove();
+	    }
+	  },
+	
+	  /**
+	   * Move a fragment to a new position.
+	   * Force no transition.
+	   *
+	   * @param {Fragment} frag
+	   * @param {Node} prevEl
+	   */
+	
+	  move: function move(frag, prevEl) {
+	    frag.before(prevEl.nextSibling, false);
+	  },
+	
+	  /**
+	   * Cache a fragment using track-by or the object key.
+	   *
+	   * @param {*} value
+	   * @param {Fragment} frag
+	   * @param {Number} index
+	   * @param {String} [key]
+	   */
+	
+	  cacheFrag: function cacheFrag(value, frag, index, key) {
+	    var trackByKey = this.params.trackBy;
+	    var cache = this.cache;
+	    var primitive = !isObject(value);
+	    var id;
+	    if (key || trackByKey || primitive) {
+	      id = trackByKey ? trackByKey === '$index' ? index : value[trackByKey] : key || value;
+	      if (!cache[id]) {
+	        cache[id] = frag;
+	      } else if (trackByKey !== '$index') {
+	        process.env.NODE_ENV !== 'production' && this.warnDuplicate(value);
+	      }
+	    } else {
+	      id = this.id;
+	      if (hasOwn(value, id)) {
+	        if (value[id] === null) {
+	          value[id] = frag;
+	        } else {
+	          process.env.NODE_ENV !== 'production' && this.warnDuplicate(value);
+	        }
+	      } else {
+	        def(value, id, frag);
+	      }
+	    }
+	    frag.raw = value;
+	  },
+	
+	  /**
+	   * Get a cached fragment from the value/index/key
+	   *
+	   * @param {*} value
+	   * @param {Number} index
+	   * @param {String} key
+	   * @return {Fragment}
+	   */
+	
+	  getCachedFrag: function getCachedFrag(value, index, key) {
+	    var trackByKey = this.params.trackBy;
+	    var primitive = !isObject(value);
+	    var frag;
+	    if (key || trackByKey || primitive) {
+	      var id = trackByKey ? trackByKey === '$index' ? index : value[trackByKey] : key || value;
+	      frag = this.cache[id];
+	    } else {
+	      frag = value[this.id];
+	    }
+	    if (frag && (frag.reused || frag.fresh)) {
+	      process.env.NODE_ENV !== 'production' && this.warnDuplicate(value);
+	    }
+	    return frag;
+	  },
+	
+	  /**
+	   * Delete a fragment from cache.
+	   *
+	   * @param {Fragment} frag
+	   */
+	
+	  deleteCachedFrag: function deleteCachedFrag(frag) {
+	    var value = frag.raw;
+	    var trackByKey = this.params.trackBy;
+	    var scope = frag.scope;
+	    var index = scope.$index;
+	    // fix #948: avoid accidentally fall through to
+	    // a parent repeater which happens to have $key.
+	    var key = hasOwn(scope, '$key') && scope.$key;
+	    var primitive = !isObject(value);
+	    if (trackByKey || key || primitive) {
+	      var id = trackByKey ? trackByKey === '$index' ? index : value[trackByKey] : key || value;
+	      this.cache[id] = null;
+	    } else {
+	      value[this.id] = null;
+	      frag.raw = null;
+	    }
+	  },
+	
+	  /**
+	   * Get the stagger amount for an insertion/removal.
+	   *
+	   * @param {Fragment} frag
+	   * @param {Number} index
+	   * @param {Number} total
+	   * @param {String} type
+	   */
+	
+	  getStagger: function getStagger(frag, index, total, type) {
+	    type = type + 'Stagger';
+	    var trans = frag.node.__v_trans;
+	    var hooks = trans && trans.hooks;
+	    var hook = hooks && (hooks[type] || hooks.stagger);
+	    return hook ? hook.call(frag, index, total) : index * parseInt(this.params[type] || this.params.stagger, 10);
+	  },
+	
+	  /**
+	   * Pre-process the value before piping it through the
+	   * filters. This is passed to and called by the watcher.
+	   */
+	
+	  _preProcess: function _preProcess(value) {
+	    // regardless of type, store the un-filtered raw value.
+	    this.rawValue = value;
+	    return value;
+	  },
+	
+	  /**
+	   * Post-process the value after it has been piped through
+	   * the filters. This is passed to and called by the watcher.
+	   *
+	   * It is necessary for this to be called during the
+	   * wathcer's dependency collection phase because we want
+	   * the v-for to update when the source Object is mutated.
+	   */
+	
+	  _postProcess: function _postProcess(value) {
+	    if (isArray(value)) {
+	      return value;
+	    } else if (isPlainObject(value)) {
+	      // convert plain object to array.
+	      var keys = Object.keys(value);
+	      var i = keys.length;
+	      var res = new Array(i);
+	      var key;
+	      while (i--) {
+	        key = keys[i];
+	        res[i] = {
+	          $key: key,
+	          $value: value[key]
+	        };
+	      }
+	      return res;
+	    } else {
+	      if (typeof value === 'number') {
+	        value = range(value);
+	      }
+	      return value || [];
+	    }
+	  },
+	
+	  unbind: function unbind() {
+	    if (this.descriptor.ref) {
+	      (this._scope || this.vm).$refs[this.descriptor.ref] = null;
+	    }
+	    if (this.frags) {
+	      var i = this.frags.length;
+	      var frag;
+	      while (i--) {
+	        frag = this.frags[i];
+	        this.deleteCachedFrag(frag);
+	        frag.destroy();
+	      }
+	    }
+	  }
+	};
+	
+	/**
+	 * Helper to find the previous element that is a fragment
+	 * anchor. This is necessary because a destroyed frag's
+	 * element could still be lingering in the DOM before its
+	 * leaving transition finishes, but its inserted flag
+	 * should have been set to false so we can skip them.
+	 *
+	 * If this is a block repeat, we want to make sure we only
+	 * return frag that is bound to this v-for. (see #929)
+	 *
+	 * @param {Fragment} frag
+	 * @param {Comment|Text} anchor
+	 * @param {String} id
+	 * @return {Fragment}
+	 */
+	
+	function findPrevFrag(frag, anchor, id) {
+	  var el = frag.node.previousSibling;
+	  /* istanbul ignore if */
+	  if (!el) return;
+	  frag = el.__vfrag__;
+	  while ((!frag || frag.forId !== id || !frag.inserted) && el !== anchor) {
+	    el = el.previousSibling;
+	    /* istanbul ignore if */
+	    if (!el) return;
+	    frag = el.__vfrag__;
+	  }
+	  return frag;
+	}
+	
+	/**
+	 * Find a vm from a fragment.
+	 *
+	 * @param {Fragment} frag
+	 * @return {Vue|undefined}
+	 */
+	
+	function findVmFromFrag(frag) {
+	  var node = frag.node;
+	  // handle multi-node frag
+	  if (frag.end) {
+	    while (!node.__vue__ && node !== frag.end && node.nextSibling) {
+	      node = node.nextSibling;
+	    }
+	  }
+	  return node.__vue__;
+	}
+	
+	/**
+	 * Create a range array from given number.
+	 *
+	 * @param {Number} n
+	 * @return {Array}
+	 */
+	
+	function range(n) {
+	  var i = -1;
+	  var ret = new Array(n);
+	  while (++i < n) {
+	    ret[i] = i;
+	  }
+	  return ret;
+	}
+	
+	if (process.env.NODE_ENV !== 'production') {
+	  vFor.warnDuplicate = function (value) {
+	    warn('Duplicate value found in v-for="' + this.descriptor.raw + '": ' + JSON.stringify(value) + '. Use track-by="$index" if ' + 'you are expecting duplicate values.');
+	  };
+	}
+	
+	var html = {
+	
+	  bind: function bind() {
+	    // a comment node means this is a binding for
+	    // {{{ inline unescaped html }}}
+	    if (this.el.nodeType === 8) {
+	      // hold nodes
+	      this.nodes = [];
+	      // replace the placeholder with proper anchor
+	      this.anchor = createAnchor('v-html');
+	      replace(this.el, this.anchor);
+	    }
+	  },
+	
+	  update: function update(value) {
+	    value = _toString(value);
+	    if (this.nodes) {
+	      this.swap(value);
+	    } else {
+	      this.el.innerHTML = value;
+	    }
+	  },
+	
+	  swap: function swap(value) {
+	    // remove old nodes
+	    var i = this.nodes.length;
+	    while (i--) {
+	      remove(this.nodes[i]);
+	    }
+	    // convert new value to a fragment
+	    // do not attempt to retrieve from id selector
+	    var frag = parseTemplate(value, true, true);
+	    // save a reference to these nodes so we can remove later
+	    this.nodes = toArray(frag.childNodes);
+	    before(frag, this.anchor);
+	  }
+	};
+	
+	var text = {
+	
+	  bind: function bind() {
+	    this.attr = this.el.nodeType === 3 ? 'data' : 'textContent';
+	  },
+	
+	  update: function update(value) {
+	    this.el[this.attr] = _toString(value);
+	  }
+	};
+	
+	// must export plain object
+	var publicDirectives = {
+	  text: text,
+	  html: html,
+	  'for': vFor,
+	  'if': vIf,
+	  show: show,
+	  model: model,
+	  on: on,
+	  bind: bind,
+	  el: el,
+	  ref: ref,
+	  cloak: cloak
+	};
+	
+	var queue$1 = [];
+	var queued = false;
+	
+	/**
+	 * Push a job into the queue.
+	 *
+	 * @param {Function} job
+	 */
+	
+	function pushJob(job) {
+	  queue$1.push(job);
+	  if (!queued) {
+	    queued = true;
+	    nextTick(flush);
+	  }
+	}
+	
+	/**
+	 * Flush the queue, and do one forced reflow before
+	 * triggering transitions.
+	 */
+	
+	function flush() {
+	  // Force layout
+	  var f = document.documentElement.offsetHeight;
+	  for (var i = 0; i < queue$1.length; i++) {
+	    queue$1[i]();
+	  }
+	  queue$1 = [];
+	  queued = false;
+	  // dummy return, so js linters don't complain about
+	  // unused variable f
+	  return f;
+	}
+	
+	var TYPE_TRANSITION = 1;
+	var TYPE_ANIMATION = 2;
+	var transDurationProp = transitionProp + 'Duration';
+	var animDurationProp = animationProp + 'Duration';
+	
+	/**
+	 * A Transition object that encapsulates the state and logic
+	 * of the transition.
+	 *
+	 * @param {Element} el
+	 * @param {String} id
+	 * @param {Object} hooks
+	 * @param {Vue} vm
+	 */
+	function Transition(el, id, hooks, vm) {
+	  this.id = id;
+	  this.el = el;
+	  this.enterClass = id + '-enter';
+	  this.leaveClass = id + '-leave';
+	  this.hooks = hooks;
+	  this.vm = vm;
+	  // async state
+	  this.pendingCssEvent = this.pendingCssCb = this.cancel = this.pendingJsCb = this.op = this.cb = null;
+	  this.justEntered = false;
+	  this.entered = this.left = false;
+	  this.typeCache = {};
+	  // bind
+	  var self = this;['enterNextTick', 'enterDone', 'leaveNextTick', 'leaveDone'].forEach(function (m) {
+	    self[m] = bind$1(self[m], self);
+	  });
+	}
+	
+	var p$1 = Transition.prototype;
+	
+	/**
+	 * Start an entering transition.
+	 *
+	 * 1. enter transition triggered
+	 * 2. call beforeEnter hook
+	 * 3. add enter class
+	 * 4. insert/show element
+	 * 5. call enter hook (with possible explicit js callback)
+	 * 6. reflow
+	 * 7. based on transition type:
+	 *    - transition:
+	 *        remove class now, wait for transitionend,
+	 *        then done if there's no explicit js callback.
+	 *    - animation:
+	 *        wait for animationend, remove class,
+	 *        then done if there's no explicit js callback.
+	 *    - no css transition:
+	 *        done now if there's no explicit js callback.
+	 * 8. wait for either done or js callback, then call
+	 *    afterEnter hook.
+	 *
+	 * @param {Function} op - insert/show the element
+	 * @param {Function} [cb]
+	 */
+	
+	p$1.enter = function (op, cb) {
+	  this.cancelPending();
+	  this.callHook('beforeEnter');
+	  this.cb = cb;
+	  addClass(this.el, this.enterClass);
+	  op();
+	  this.entered = false;
+	  this.callHookWithCb('enter');
+	  if (this.entered) {
+	    return; // user called done synchronously.
+	  }
+	  this.cancel = this.hooks && this.hooks.enterCancelled;
+	  pushJob(this.enterNextTick);
+	};
+	
+	/**
+	 * The "nextTick" phase of an entering transition, which is
+	 * to be pushed into a queue and executed after a reflow so
+	 * that removing the class can trigger a CSS transition.
+	 */
+	
+	p$1.enterNextTick = function () {
+	
+	  // Important hack:
+	  // in Chrome, if a just-entered element is applied the
+	  // leave class while its interpolated property still has
+	  // a very small value (within one frame), Chrome will
+	  // skip the leave transition entirely and not firing the
+	  // transtionend event. Therefore we need to protected
+	  // against such cases using a one-frame timeout.
+	  this.justEntered = true;
+	  var self = this;
+	  setTimeout(function () {
+	    self.justEntered = false;
+	  }, 17);
+	
+	  var enterDone = this.enterDone;
+	  var type = this.getCssTransitionType(this.enterClass);
+	  if (!this.pendingJsCb) {
+	    if (type === TYPE_TRANSITION) {
+	      // trigger transition by removing enter class now
+	      removeClass(this.el, this.enterClass);
+	      this.setupCssCb(transitionEndEvent, enterDone);
+	    } else if (type === TYPE_ANIMATION) {
+	      this.setupCssCb(animationEndEvent, enterDone);
+	    } else {
+	      enterDone();
+	    }
+	  } else if (type === TYPE_TRANSITION) {
+	    removeClass(this.el, this.enterClass);
+	  }
+	};
+	
+	/**
+	 * The "cleanup" phase of an entering transition.
+	 */
+	
+	p$1.enterDone = function () {
+	  this.entered = true;
+	  this.cancel = this.pendingJsCb = null;
+	  removeClass(this.el, this.enterClass);
+	  this.callHook('afterEnter');
+	  if (this.cb) this.cb();
+	};
+	
+	/**
+	 * Start a leaving transition.
+	 *
+	 * 1. leave transition triggered.
+	 * 2. call beforeLeave hook
+	 * 3. add leave class (trigger css transition)
+	 * 4. call leave hook (with possible explicit js callback)
+	 * 5. reflow if no explicit js callback is provided
+	 * 6. based on transition type:
+	 *    - transition or animation:
+	 *        wait for end event, remove class, then done if
+	 *        there's no explicit js callback.
+	 *    - no css transition:
+	 *        done if there's no explicit js callback.
+	 * 7. wait for either done or js callback, then call
+	 *    afterLeave hook.
+	 *
+	 * @param {Function} op - remove/hide the element
+	 * @param {Function} [cb]
+	 */
+	
+	p$1.leave = function (op, cb) {
+	  this.cancelPending();
+	  this.callHook('beforeLeave');
+	  this.op = op;
+	  this.cb = cb;
+	  addClass(this.el, this.leaveClass);
+	  this.left = false;
+	  this.callHookWithCb('leave');
+	  if (this.left) {
+	    return; // user called done synchronously.
+	  }
+	  this.cancel = this.hooks && this.hooks.leaveCancelled;
+	  // only need to handle leaveDone if
+	  // 1. the transition is already done (synchronously called
+	  //    by the user, which causes this.op set to null)
+	  // 2. there's no explicit js callback
+	  if (this.op && !this.pendingJsCb) {
+	    // if a CSS transition leaves immediately after enter,
+	    // the transitionend event never fires. therefore we
+	    // detect such cases and end the leave immediately.
+	    if (this.justEntered) {
+	      this.leaveDone();
+	    } else {
+	      pushJob(this.leaveNextTick);
+	    }
+	  }
+	};
+	
+	/**
+	 * The "nextTick" phase of a leaving transition.
+	 */
+	
+	p$1.leaveNextTick = function () {
+	  var type = this.getCssTransitionType(this.leaveClass);
+	  if (type) {
+	    var event = type === TYPE_TRANSITION ? transitionEndEvent : animationEndEvent;
+	    this.setupCssCb(event, this.leaveDone);
+	  } else {
+	    this.leaveDone();
+	  }
+	};
+	
+	/**
+	 * The "cleanup" phase of a leaving transition.
+	 */
+	
+	p$1.leaveDone = function () {
+	  this.left = true;
+	  this.cancel = this.pendingJsCb = null;
+	  this.op();
+	  removeClass(this.el, this.leaveClass);
+	  this.callHook('afterLeave');
+	  if (this.cb) this.cb();
+	  this.op = null;
+	};
+	
+	/**
+	 * Cancel any pending callbacks from a previously running
+	 * but not finished transition.
+	 */
+	
+	p$1.cancelPending = function () {
+	  this.op = this.cb = null;
+	  var hasPending = false;
+	  if (this.pendingCssCb) {
+	    hasPending = true;
+	    off(this.el, this.pendingCssEvent, this.pendingCssCb);
+	    this.pendingCssEvent = this.pendingCssCb = null;
+	  }
+	  if (this.pendingJsCb) {
+	    hasPending = true;
+	    this.pendingJsCb.cancel();
+	    this.pendingJsCb = null;
+	  }
+	  if (hasPending) {
+	    removeClass(this.el, this.enterClass);
+	    removeClass(this.el, this.leaveClass);
+	  }
+	  if (this.cancel) {
+	    this.cancel.call(this.vm, this.el);
+	    this.cancel = null;
+	  }
+	};
+	
+	/**
+	 * Call a user-provided synchronous hook function.
+	 *
+	 * @param {String} type
+	 */
+	
+	p$1.callHook = function (type) {
+	  if (this.hooks && this.hooks[type]) {
+	    this.hooks[type].call(this.vm, this.el);
+	  }
+	};
+	
+	/**
+	 * Call a user-provided, potentially-async hook function.
+	 * We check for the length of arguments to see if the hook
+	 * expects a `done` callback. If true, the transition's end
+	 * will be determined by when the user calls that callback;
+	 * otherwise, the end is determined by the CSS transition or
+	 * animation.
+	 *
+	 * @param {String} type
+	 */
+	
+	p$1.callHookWithCb = function (type) {
+	  var hook = this.hooks && this.hooks[type];
+	  if (hook) {
+	    if (hook.length > 1) {
+	      this.pendingJsCb = cancellable(this[type + 'Done']);
+	    }
+	    hook.call(this.vm, this.el, this.pendingJsCb);
+	  }
+	};
+	
+	/**
+	 * Get an element's transition type based on the
+	 * calculated styles.
+	 *
+	 * @param {String} className
+	 * @return {Number}
+	 */
+	
+	p$1.getCssTransitionType = function (className) {
+	  /* istanbul ignore if */
+	  if (!transitionEndEvent ||
+	  // skip CSS transitions if page is not visible -
+	  // this solves the issue of transitionend events not
+	  // firing until the page is visible again.
+	  // pageVisibility API is supported in IE10+, same as
+	  // CSS transitions.
+	  document.hidden ||
+	  // explicit js-only transition
+	  this.hooks && this.hooks.css === false ||
+	  // element is hidden
+	  isHidden(this.el)) {
+	    return;
+	  }
+	  var type = this.typeCache[className];
+	  if (type) return type;
+	  var inlineStyles = this.el.style;
+	  var computedStyles = window.getComputedStyle(this.el);
+	  var transDuration = inlineStyles[transDurationProp] || computedStyles[transDurationProp];
+	  if (transDuration && transDuration !== '0s') {
+	    type = TYPE_TRANSITION;
+	  } else {
+	    var animDuration = inlineStyles[animDurationProp] || computedStyles[animDurationProp];
+	    if (animDuration && animDuration !== '0s') {
+	      type = TYPE_ANIMATION;
+	    }
+	  }
+	  if (type) {
+	    this.typeCache[className] = type;
+	  }
+	  return type;
+	};
+	
+	/**
+	 * Setup a CSS transitionend/animationend callback.
+	 *
+	 * @param {String} event
+	 * @param {Function} cb
+	 */
+	
+	p$1.setupCssCb = function (event, cb) {
+	  this.pendingCssEvent = event;
+	  var self = this;
+	  var el = this.el;
+	  var onEnd = this.pendingCssCb = function (e) {
+	    if (e.target === el) {
+	      off(el, event, onEnd);
+	      self.pendingCssEvent = self.pendingCssCb = null;
+	      if (!self.pendingJsCb && cb) {
+	        cb();
+	      }
+	    }
+	  };
+	  on$1(el, event, onEnd);
+	};
+	
+	/**
+	 * Check if an element is hidden - in that case we can just
+	 * skip the transition alltogether.
+	 *
+	 * @param {Element} el
+	 * @return {Boolean}
+	 */
+	
+	function isHidden(el) {
+	  return !(el.offsetWidth || el.offsetHeight || el.getClientRects().length);
+	}
+	
+	var transition = {
+	
+	  priority: 1100,
+	
+	  update: function update(id, oldId) {
+	    var el = this.el;
+	    // resolve on owner vm
+	    var hooks = resolveAsset(this.vm.$options, 'transitions', id);
+	    id = id || 'v';
+	    // apply on closest vm
+	    el.__v_trans = new Transition(el, id, hooks, this.el.__vue__ || this.vm);
+	    if (oldId) {
+	      removeClass(el, oldId + '-transition');
+	    }
+	    addClass(el, id + '-transition');
+	  }
+	};
+	
+	var bindingModes = config._propBindingModes;
+	
+	var propDef = {
+	
+	  bind: function bind() {
+	
+	    var child = this.vm;
+	    var parent = child._context;
+	    // passed in from compiler directly
+	    var prop = this.descriptor.prop;
+	    var childKey = prop.path;
+	    var parentKey = prop.parentPath;
+	    var twoWay = prop.mode === bindingModes.TWO_WAY;
+	
+	    var parentWatcher = this.parentWatcher = new Watcher(parent, parentKey, function (val) {
+	      if (assertProp(prop, val)) {
+	        child[childKey] = val;
+	      }
+	    }, {
+	      twoWay: twoWay,
+	      filters: prop.filters,
+	      // important: props need to be observed on the
+	      // v-for scope if present
+	      scope: this._scope
+	    });
+	
+	    // set the child initial value.
+	    initProp(child, prop, parentWatcher.value);
+	
+	    // setup two-way binding
+	    if (twoWay) {
+	      // important: defer the child watcher creation until
+	      // the created hook (after data observation)
+	      var self = this;
+	      child.$once('hook:created', function () {
+	        self.childWatcher = new Watcher(child, childKey, function (val) {
+	          parentWatcher.set(val);
+	        }, {
+	          // ensure sync upward before parent sync down.
+	          // this is necessary in cases e.g. the child
+	          // mutates a prop array, then replaces it. (#1683)
+	          sync: true
+	        });
+	      });
+	    }
+	  },
+	
+	  unbind: function unbind() {
+	    this.parentWatcher.teardown();
+	    if (this.childWatcher) {
+	      this.childWatcher.teardown();
+	    }
+	  }
+	};
+	
+	var component = {
+	
+	  priority: 1500,
+	
+	  params: ['keep-alive', 'transition-mode', 'inline-template'],
+	
+	  /**
+	   * Setup. Two possible usages:
+	   *
+	   * - static:
+	   *   <comp> or <div v-component="comp">
+	   *
+	   * - dynamic:
+	   *   <component :is="view">
+	   */
+	
+	  bind: function bind() {
+	    if (!this.el.__vue__) {
+	      // keep-alive cache
+	      this.keepAlive = this.params.keepAlive;
+	      if (this.keepAlive) {
+	        this.cache = {};
+	      }
+	      // check inline-template
+	      if (this.params.inlineTemplate) {
+	        // extract inline template as a DocumentFragment
+	        this.inlineTemplate = extractContent(this.el, true);
+	      }
+	      // component resolution related state
+	      this.pendingComponentCb = this.Component = null;
+	      // transition related state
+	      this.pendingRemovals = 0;
+	      this.pendingRemovalCb = null;
+	      // create a ref anchor
+	      this.anchor = createAnchor('v-component');
+	      replace(this.el, this.anchor);
+	      // remove is attribute.
+	      // this is removed during compilation, but because compilation is
+	      // cached, when the component is used elsewhere this attribute
+	      // will remain at link time.
+	      this.el.removeAttribute('is');
+	      // remove ref, same as above
+	      if (this.descriptor.ref) {
+	        this.el.removeAttribute('v-ref:' + hyphenate(this.descriptor.ref));
+	      }
+	      // if static, build right now.
+	      if (this.literal) {
+	        this.setComponent(this.expression);
+	      }
+	    } else {
+	      process.env.NODE_ENV !== 'production' && warn('cannot mount component "' + this.expression + '" ' + 'on already mounted element: ' + this.el);
+	    }
+	  },
+	
+	  /**
+	   * Public update, called by the watcher in the dynamic
+	   * literal scenario, e.g. <component :is="view">
+	   */
+	
+	  update: function update(value) {
+	    if (!this.literal) {
+	      this.setComponent(value);
+	    }
+	  },
+	
+	  /**
+	   * Switch dynamic components. May resolve the component
+	   * asynchronously, and perform transition based on
+	   * specified transition mode. Accepts a few additional
+	   * arguments specifically for vue-router.
+	   *
+	   * The callback is called when the full transition is
+	   * finished.
+	   *
+	   * @param {String} value
+	   * @param {Function} [cb]
+	   */
+	
+	  setComponent: function setComponent(value, cb) {
+	    this.invalidatePending();
+	    if (!value) {
+	      // just remove current
+	      this.unbuild(true);
+	      this.remove(this.childVM, cb);
+	      this.childVM = null;
+	    } else {
+	      var self = this;
+	      this.resolveComponent(value, function () {
+	        self.mountComponent(cb);
+	      });
+	    }
+	  },
+	
+	  /**
+	   * Resolve the component constructor to use when creating
+	   * the child vm.
+	   */
+	
+	  resolveComponent: function resolveComponent(id, cb) {
+	    var self = this;
+	    this.pendingComponentCb = cancellable(function (Component) {
+	      self.ComponentName = Component.options.name || id;
+	      self.Component = Component;
+	      cb();
+	    });
+	    this.vm._resolveComponent(id, this.pendingComponentCb);
+	  },
+	
+	  /**
+	   * Create a new instance using the current constructor and
+	   * replace the existing instance. This method doesn't care
+	   * whether the new component and the old one are actually
+	   * the same.
+	   *
+	   * @param {Function} [cb]
+	   */
+	
+	  mountComponent: function mountComponent(cb) {
+	    // actual mount
+	    this.unbuild(true);
+	    var self = this;
+	    var activateHook = this.Component.options.activate;
+	    var cached = this.getCached();
+	    var newComponent = this.build();
+	    if (activateHook && !cached) {
+	      this.waitingFor = newComponent;
+	      activateHook.call(newComponent, function () {
+	        self.waitingFor = null;
+	        self.transition(newComponent, cb);
+	      });
+	    } else {
+	      // update ref for kept-alive component
+	      if (cached) {
+	        newComponent._updateRef();
+	      }
+	      this.transition(newComponent, cb);
+	    }
+	  },
+	
+	  /**
+	   * When the component changes or unbinds before an async
+	   * constructor is resolved, we need to invalidate its
+	   * pending callback.
+	   */
+	
+	  invalidatePending: function invalidatePending() {
+	    if (this.pendingComponentCb) {
+	      this.pendingComponentCb.cancel();
+	      this.pendingComponentCb = null;
+	    }
+	  },
+	
+	  /**
+	   * Instantiate/insert a new child vm.
+	   * If keep alive and has cached instance, insert that
+	   * instance; otherwise build a new one and cache it.
+	   *
+	   * @param {Object} [extraOptions]
+	   * @return {Vue} - the created instance
+	   */
+	
+	  build: function build(extraOptions) {
+	    var cached = this.getCached();
+	    if (cached) {
+	      return cached;
+	    }
+	    if (this.Component) {
+	      // default options
+	      var options = {
+	        name: this.ComponentName,
+	        el: cloneNode(this.el),
+	        template: this.inlineTemplate,
+	        // make sure to add the child with correct parent
+	        // if this is a transcluded component, its parent
+	        // should be the transclusion host.
+	        parent: this._host || this.vm,
+	        // if no inline-template, then the compiled
+	        // linker can be cached for better performance.
+	        _linkerCachable: !this.inlineTemplate,
+	        _ref: this.descriptor.ref,
+	        _asComponent: true,
+	        _isRouterView: this._isRouterView,
+	        // if this is a transcluded component, context
+	        // will be the common parent vm of this instance
+	        // and its host.
+	        _context: this.vm,
+	        // if this is inside an inline v-for, the scope
+	        // will be the intermediate scope created for this
+	        // repeat fragment. this is used for linking props
+	        // and container directives.
+	        _scope: this._scope,
+	        // pass in the owner fragment of this component.
+	        // this is necessary so that the fragment can keep
+	        // track of its contained components in order to
+	        // call attach/detach hooks for them.
+	        _frag: this._frag
+	      };
+	      // extra options
+	      // in 1.0.0 this is used by vue-router only
+	      /* istanbul ignore if */
+	      if (extraOptions) {
+	        extend(options, extraOptions);
+	      }
+	      var child = new this.Component(options);
+	      if (this.keepAlive) {
+	        this.cache[this.Component.cid] = child;
+	      }
+	      /* istanbul ignore if */
+	      if (process.env.NODE_ENV !== 'production' && this.el.hasAttribute('transition') && child._isFragment) {
+	        warn('Transitions will not work on a fragment instance. ' + 'Template: ' + child.$options.template);
+	      }
+	      return child;
+	    }
+	  },
+	
+	  /**
+	   * Try to get a cached instance of the current component.
+	   *
+	   * @return {Vue|undefined}
+	   */
+	
+	  getCached: function getCached() {
+	    return this.keepAlive && this.cache[this.Component.cid];
+	  },
+	
+	  /**
+	   * Teardown the current child, but defers cleanup so
+	   * that we can separate the destroy and removal steps.
+	   *
+	   * @param {Boolean} defer
+	   */
+	
+	  unbuild: function unbuild(defer) {
+	    if (this.waitingFor) {
+	      this.waitingFor.$destroy();
+	      this.waitingFor = null;
+	    }
+	    var child = this.childVM;
+	    if (!child || this.keepAlive) {
+	      if (child) {
+	        // remove ref
+	        child._updateRef(true);
+	      }
+	      return;
+	    }
+	    // the sole purpose of `deferCleanup` is so that we can
+	    // "deactivate" the vm right now and perform DOM removal
+	    // later.
+	    child.$destroy(false, defer);
+	  },
+	
+	  /**
+	   * Remove current destroyed child and manually do
+	   * the cleanup after removal.
+	   *
+	   * @param {Function} cb
+	   */
+	
+	  remove: function remove(child, cb) {
+	    var keepAlive = this.keepAlive;
+	    if (child) {
+	      // we may have a component switch when a previous
+	      // component is still being transitioned out.
+	      // we want to trigger only one lastest insertion cb
+	      // when the existing transition finishes. (#1119)
+	      this.pendingRemovals++;
+	      this.pendingRemovalCb = cb;
+	      var self = this;
+	      child.$remove(function () {
+	        self.pendingRemovals--;
+	        if (!keepAlive) child._cleanup();
+	        if (!self.pendingRemovals && self.pendingRemovalCb) {
+	          self.pendingRemovalCb();
+	          self.pendingRemovalCb = null;
+	        }
+	      });
+	    } else if (cb) {
+	      cb();
+	    }
+	  },
+	
+	  /**
+	   * Actually swap the components, depending on the
+	   * transition mode. Defaults to simultaneous.
+	   *
+	   * @param {Vue} target
+	   * @param {Function} [cb]
+	   */
+	
+	  transition: function transition(target, cb) {
+	    var self = this;
+	    var current = this.childVM;
+	    // for devtool inspection
+	    if (process.env.NODE_ENV !== 'production') {
+	      if (current) current._inactive = true;
+	      target._inactive = false;
+	    }
+	    this.childVM = target;
+	    switch (self.params.transitionMode) {
+	      case 'in-out':
+	        target.$before(self.anchor, function () {
+	          self.remove(current, cb);
+	        });
+	        break;
+	      case 'out-in':
+	        self.remove(current, function () {
+	          target.$before(self.anchor, cb);
+	        });
+	        break;
+	      default:
+	        self.remove(current);
+	        target.$before(self.anchor, cb);
+	    }
+	  },
+	
+	  /**
+	   * Unbind.
+	   */
+	
+	  unbind: function unbind() {
+	    this.invalidatePending();
+	    // Do not defer cleanup when unbinding
+	    this.unbuild();
+	    // destroy all keep-alive cached instances
+	    if (this.cache) {
+	      for (var key in this.cache) {
+	        this.cache[key].$destroy();
+	      }
+	      this.cache = null;
+	    }
+	  }
+	};
+	
+	var vClass = {
+	
+	  deep: true,
+	
+	  update: function update(value) {
+	    if (value && typeof value === 'string') {
+	      this.handleObject(stringToObject(value));
+	    } else if (isPlainObject(value)) {
+	      this.handleObject(value);
+	    } else if (isArray(value)) {
+	      this.handleArray(value);
+	    } else {
+	      this.cleanup();
+	    }
+	  },
+	
+	  handleObject: function handleObject(value) {
+	    this.cleanup(value);
+	    var keys = this.prevKeys = Object.keys(value);
+	    for (var i = 0, l = keys.length; i < l; i++) {
+	      var key = keys[i];
+	      if (value[key]) {
+	        addClass(this.el, key);
+	      } else {
+	        removeClass(this.el, key);
+	      }
+	    }
+	  },
+	
+	  handleArray: function handleArray(value) {
+	    this.cleanup(value);
+	    for (var i = 0, l = value.length; i < l; i++) {
+	      if (value[i]) {
+	        addClass(this.el, value[i]);
+	      }
+	    }
+	    this.prevKeys = value.slice();
+	  },
+	
+	  cleanup: function cleanup(value) {
+	    if (this.prevKeys) {
+	      var i = this.prevKeys.length;
+	      while (i--) {
+	        var key = this.prevKeys[i];
+	        if (key && (!value || !contains$1(value, key))) {
+	          removeClass(this.el, key);
+	        }
+	      }
+	    }
+	  }
+	};
+	
+	function stringToObject(value) {
+	  var res = {};
+	  var keys = value.trim().split(/\s+/);
+	  var i = keys.length;
+	  while (i--) {
+	    res[keys[i]] = true;
+	  }
+	  return res;
+	}
+	
+	function contains$1(value, key) {
+	  return isArray(value) ? value.indexOf(key) > -1 : hasOwn(value, key);
+	}
+	
+	var internalDirectives = {
+	  style: style,
+	  'class': vClass,
+	  component: component,
+	  prop: propDef,
+	  transition: transition
+	};
+	
+	var propBindingModes = config._propBindingModes;
+	var empty = {};
+	
+	// regexes
+	var identRE = /^[$_a-zA-Z]+[\w$]*$/;
+	var settablePathRE = /^[A-Za-z_$][\w$]*(\.[A-Za-z_$][\w$]*|\[[^\[\]]+\])*$/;
+	
+	/**
+	 * Compile props on a root element and return
+	 * a props link function.
+	 *
+	 * @param {Element|DocumentFragment} el
+	 * @param {Array} propOptions
+	 * @return {Function} propsLinkFn
+	 */
+	
+	function compileProps(el, propOptions) {
+	  var props = [];
+	  var names = Object.keys(propOptions);
+	  var i = names.length;
+	  var options, name, attr, value, path, parsed, prop;
+	  while (i--) {
+	    name = names[i];
+	    options = propOptions[name] || empty;
+	
+	    if (process.env.NODE_ENV !== 'production' && name === '$data') {
+	      warn('Do not use $data as prop.');
+	      continue;
+	    }
+	
+	    // props could contain dashes, which will be
+	    // interpreted as minus calculations by the parser
+	    // so we need to camelize the path here
+	    path = camelize(name);
+	    if (!identRE.test(path)) {
+	      process.env.NODE_ENV !== 'production' && warn('Invalid prop key: "' + name + '". Prop keys ' + 'must be valid identifiers.');
+	      continue;
+	    }
+	
+	    prop = {
+	      name: name,
+	      path: path,
+	      options: options,
+	      mode: propBindingModes.ONE_WAY,
+	      raw: null
+	    };
+	
+	    attr = hyphenate(name);
+	    // first check dynamic version
+	    if ((value = getBindAttr(el, attr)) === null) {
+	      if ((value = getBindAttr(el, attr + '.sync')) !== null) {
+	        prop.mode = propBindingModes.TWO_WAY;
+	      } else if ((value = getBindAttr(el, attr + '.once')) !== null) {
+	        prop.mode = propBindingModes.ONE_TIME;
+	      }
+	    }
+	    if (value !== null) {
+	      // has dynamic binding!
+	      prop.raw = value;
+	      parsed = parseDirective(value);
+	      value = parsed.expression;
+	      prop.filters = parsed.filters;
+	      // check binding type
+	      if (isLiteral(value)) {
+	        // for expressions containing literal numbers and
+	        // booleans, there's no need to setup a prop binding,
+	        // so we can optimize them as a one-time set.
+	        prop.optimizedLiteral = true;
+	      } else {
+	        prop.dynamic = true;
+	        // check non-settable path for two-way bindings
+	        if (process.env.NODE_ENV !== 'production' && prop.mode === propBindingModes.TWO_WAY && !settablePathRE.test(value)) {
+	          prop.mode = propBindingModes.ONE_WAY;
+	          warn('Cannot bind two-way prop with non-settable ' + 'parent path: ' + value);
+	        }
+	      }
+	      prop.parentPath = value;
+	
+	      // warn required two-way
+	      if (process.env.NODE_ENV !== 'production' && options.twoWay && prop.mode !== propBindingModes.TWO_WAY) {
+	        warn('Prop "' + name + '" expects a two-way binding type.');
+	      }
+	    } else if ((value = getAttr(el, attr)) !== null) {
+	      // has literal binding!
+	      prop.raw = value;
+	    } else if (options.required) {
+	      // warn missing required
+	      process.env.NODE_ENV !== 'production' && warn('Missing required prop: ' + name);
+	    }
+	    // push prop
+	    props.push(prop);
+	  }
+	  return makePropsLinkFn(props);
+	}
+	
+	/**
+	 * Build a function that applies props to a vm.
+	 *
+	 * @param {Array} props
+	 * @return {Function} propsLinkFn
+	 */
+	
+	function makePropsLinkFn(props) {
+	  return function propsLinkFn(vm, scope) {
+	    // store resolved props info
+	    vm._props = {};
+	    var i = props.length;
+	    var prop, path, options, value, raw;
+	    while (i--) {
+	      prop = props[i];
+	      raw = prop.raw;
+	      path = prop.path;
+	      options = prop.options;
+	      vm._props[path] = prop;
+	      if (raw === null) {
+	        // initialize absent prop
+	        initProp(vm, prop, getDefault(vm, options));
+	      } else if (prop.dynamic) {
+	        // dynamic prop
+	        if (vm._context) {
+	          if (prop.mode === propBindingModes.ONE_TIME) {
+	            // one time binding
+	            value = (scope || vm._context).$get(prop.parentPath);
+	            initProp(vm, prop, value);
+	          } else {
+	            // dynamic binding
+	            vm._bindDir({
+	              name: 'prop',
+	              def: propDef,
+	              prop: prop
+	            }, null, null, scope); // el, host, scope
+	          }
+	        } else {
+	            process.env.NODE_ENV !== 'production' && warn('Cannot bind dynamic prop on a root instance' + ' with no parent: ' + prop.name + '="' + raw + '"');
+	          }
+	      } else if (prop.optimizedLiteral) {
+	        // optimized literal, cast it and just set once
+	        var stripped = stripQuotes(raw);
+	        value = stripped === raw ? toBoolean(toNumber(raw)) : stripped;
+	        initProp(vm, prop, value);
+	      } else {
+	        // string literal, but we need to cater for
+	        // Boolean props with no value
+	        value = options.type === Boolean && raw === '' ? true : raw;
+	        initProp(vm, prop, value);
+	      }
+	    }
+	  };
+	}
+	
+	/**
+	 * Get the default value of a prop.
+	 *
+	 * @param {Vue} vm
+	 * @param {Object} options
+	 * @return {*}
+	 */
+	
+	function getDefault(vm, options) {
+	  // no default, return undefined
+	  if (!hasOwn(options, 'default')) {
+	    // absent boolean value defaults to false
+	    return options.type === Boolean ? false : undefined;
+	  }
+	  var def = options['default'];
+	  // warn against non-factory defaults for Object & Array
+	  if (isObject(def)) {
+	    process.env.NODE_ENV !== 'production' && warn('Object/Array as default prop values will be shared ' + 'across multiple instances. Use a factory function ' + 'to return the default value instead.');
+	  }
+	  // call factory function for non-Function types
+	  return typeof def === 'function' && options.type !== Function ? def.call(vm) : def;
+	}
+	
+	// special binding prefixes
+	var bindRE = /^v-bind:|^:/;
+	var onRE = /^v-on:|^@/;
+	var argRE = /:(.*)$/;
+	var modifierRE = /\.[^\.]+/g;
+	var transitionRE = /^(v-bind:|:)?transition$/;
+	
+	// terminal directives
+	var terminalDirectives = ['for', 'if'];
+	
+	// default directive priority
+	var DEFAULT_PRIORITY = 1000;
+	
+	/**
+	 * Compile a template and return a reusable composite link
+	 * function, which recursively contains more link functions
+	 * inside. This top level compile function would normally
+	 * be called on instance root nodes, but can also be used
+	 * for partial compilation if the partial argument is true.
+	 *
+	 * The returned composite link function, when called, will
+	 * return an unlink function that tearsdown all directives
+	 * created during the linking phase.
+	 *
+	 * @param {Element|DocumentFragment} el
+	 * @param {Object} options
+	 * @param {Boolean} partial
+	 * @return {Function}
+	 */
+	
+	function compile(el, options, partial) {
+	  // link function for the node itself.
+	  var nodeLinkFn = partial || !options._asComponent ? compileNode(el, options) : null;
+	  // link function for the childNodes
+	  var childLinkFn = !(nodeLinkFn && nodeLinkFn.terminal) && el.tagName !== 'SCRIPT' && el.hasChildNodes() ? compileNodeList(el.childNodes, options) : null;
+	
+	  /**
+	   * A composite linker function to be called on a already
+	   * compiled piece of DOM, which instantiates all directive
+	   * instances.
+	   *
+	   * @param {Vue} vm
+	   * @param {Element|DocumentFragment} el
+	   * @param {Vue} [host] - host vm of transcluded content
+	   * @param {Object} [scope] - v-for scope
+	   * @param {Fragment} [frag] - link context fragment
+	   * @return {Function|undefined}
+	   */
+	
+	  return function compositeLinkFn(vm, el, host, scope, frag) {
+	    // cache childNodes before linking parent, fix #657
+	    var childNodes = toArray(el.childNodes);
+	    // link
+	    var dirs = linkAndCapture(function compositeLinkCapturer() {
+	      if (nodeLinkFn) nodeLinkFn(vm, el, host, scope, frag);
+	      if (childLinkFn) childLinkFn(vm, childNodes, host, scope, frag);
+	    }, vm);
+	    return makeUnlinkFn(vm, dirs);
+	  };
+	}
+	
+	/**
+	 * Apply a linker to a vm/element pair and capture the
+	 * directives created during the process.
+	 *
+	 * @param {Function} linker
+	 * @param {Vue} vm
+	 */
+	
+	function linkAndCapture(linker, vm) {
+	  var originalDirCount = vm._directives.length;
+	  linker();
+	  var dirs = vm._directives.slice(originalDirCount);
+	  dirs.sort(directiveComparator);
+	  for (var i = 0, l = dirs.length; i < l; i++) {
+	    dirs[i]._bind();
+	  }
+	  return dirs;
+	}
+	
+	/**
+	 * Directive priority sort comparator
+	 *
+	 * @param {Object} a
+	 * @param {Object} b
+	 */
+	
+	function directiveComparator(a, b) {
+	  a = a.descriptor.def.priority || DEFAULT_PRIORITY;
+	  b = b.descriptor.def.priority || DEFAULT_PRIORITY;
+	  return a > b ? -1 : a === b ? 0 : 1;
+	}
+	
+	/**
+	 * Linker functions return an unlink function that
+	 * tearsdown all directives instances generated during
+	 * the process.
+	 *
+	 * We create unlink functions with only the necessary
+	 * information to avoid retaining additional closures.
+	 *
+	 * @param {Vue} vm
+	 * @param {Array} dirs
+	 * @param {Vue} [context]
+	 * @param {Array} [contextDirs]
+	 * @return {Function}
+	 */
+	
+	function makeUnlinkFn(vm, dirs, context, contextDirs) {
+	  return function unlink(destroying) {
+	    teardownDirs(vm, dirs, destroying);
+	    if (context && contextDirs) {
+	      teardownDirs(context, contextDirs);
+	    }
+	  };
+	}
+	
+	/**
+	 * Teardown partial linked directives.
+	 *
+	 * @param {Vue} vm
+	 * @param {Array} dirs
+	 * @param {Boolean} destroying
+	 */
+	
+	function teardownDirs(vm, dirs, destroying) {
+	  var i = dirs.length;
+	  while (i--) {
+	    dirs[i]._teardown();
+	    if (!destroying) {
+	      vm._directives.$remove(dirs[i]);
+	    }
+	  }
+	}
+	
+	/**
+	 * Compile link props on an instance.
+	 *
+	 * @param {Vue} vm
+	 * @param {Element} el
+	 * @param {Object} props
+	 * @param {Object} [scope]
+	 * @return {Function}
+	 */
+	
+	function compileAndLinkProps(vm, el, props, scope) {
+	  var propsLinkFn = compileProps(el, props);
+	  var propDirs = linkAndCapture(function () {
+	    propsLinkFn(vm, scope);
+	  }, vm);
+	  return makeUnlinkFn(vm, propDirs);
+	}
+	
+	/**
+	 * Compile the root element of an instance.
+	 *
+	 * 1. attrs on context container (context scope)
+	 * 2. attrs on the component template root node, if
+	 *    replace:true (child scope)
+	 *
+	 * If this is a fragment instance, we only need to compile 1.
+	 *
+	 * @param {Vue} vm
+	 * @param {Element} el
+	 * @param {Object} options
+	 * @param {Object} contextOptions
+	 * @return {Function}
+	 */
+	
+	function compileRoot(el, options, contextOptions) {
+	  var containerAttrs = options._containerAttrs;
+	  var replacerAttrs = options._replacerAttrs;
+	  var contextLinkFn, replacerLinkFn;
+	
+	  // only need to compile other attributes for
+	  // non-fragment instances
+	  if (el.nodeType !== 11) {
+	    // for components, container and replacer need to be
+	    // compiled separately and linked in different scopes.
+	    if (options._asComponent) {
+	      // 2. container attributes
+	      if (containerAttrs && contextOptions) {
+	        contextLinkFn = compileDirectives(containerAttrs, contextOptions);
+	      }
+	      if (replacerAttrs) {
+	        // 3. replacer attributes
+	        replacerLinkFn = compileDirectives(replacerAttrs, options);
+	      }
+	    } else {
+	      // non-component, just compile as a normal element.
+	      replacerLinkFn = compileDirectives(el.attributes, options);
+	    }
+	  } else if (process.env.NODE_ENV !== 'production' && containerAttrs) {
+	    // warn container directives for fragment instances
+	    var names = containerAttrs.filter(function (attr) {
+	      // allow vue-loader/vueify scoped css attributes
+	      return attr.name.indexOf('_v-') < 0 &&
+	      // allow event listeners
+	      !onRE.test(attr.name) &&
+	      // allow slots
+	      attr.name !== 'slot';
+	    }).map(function (attr) {
+	      return '"' + attr.name + '"';
+	    });
+	    if (names.length) {
+	      var plural = names.length > 1;
+	      warn('Attribute' + (plural ? 's ' : ' ') + names.join(', ') + (plural ? ' are' : ' is') + ' ignored on component ' + '<' + options.el.tagName.toLowerCase() + '> because ' + 'the component is a fragment instance: ' + 'http://vuejs.org/guide/components.html#Fragment_Instance');
+	    }
+	  }
+	
+	  return function rootLinkFn(vm, el, scope) {
+	    // link context scope dirs
+	    var context = vm._context;
+	    var contextDirs;
+	    if (context && contextLinkFn) {
+	      contextDirs = linkAndCapture(function () {
+	        contextLinkFn(context, el, null, scope);
+	      }, context);
+	    }
+	
+	    // link self
+	    var selfDirs = linkAndCapture(function () {
+	      if (replacerLinkFn) replacerLinkFn(vm, el);
+	    }, vm);
+	
+	    // return the unlink function that tearsdown context
+	    // container directives.
+	    return makeUnlinkFn(vm, selfDirs, context, contextDirs);
+	  };
+	}
+	
+	/**
+	 * Compile a node and return a nodeLinkFn based on the
+	 * node type.
+	 *
+	 * @param {Node} node
+	 * @param {Object} options
+	 * @return {Function|null}
+	 */
+	
+	function compileNode(node, options) {
+	  var type = node.nodeType;
+	  if (type === 1 && node.tagName !== 'SCRIPT') {
+	    return compileElement(node, options);
+	  } else if (type === 3 && node.data.trim()) {
+	    return compileTextNode(node, options);
+	  } else {
+	    return null;
+	  }
+	}
+	
+	/**
+	 * Compile an element and return a nodeLinkFn.
+	 *
+	 * @param {Element} el
+	 * @param {Object} options
+	 * @return {Function|null}
+	 */
+	
+	function compileElement(el, options) {
+	  // preprocess textareas.
+	  // textarea treats its text content as the initial value.
+	  // just bind it as an attr directive for value.
+	  if (el.tagName === 'TEXTAREA') {
+	    var tokens = parseText(el.value);
+	    if (tokens) {
+	      el.setAttribute(':value', tokensToExp(tokens));
+	      el.value = '';
+	    }
+	  }
+	  var linkFn;
+	  var hasAttrs = el.hasAttributes();
+	  // check terminal directives (for & if)
+	  if (hasAttrs) {
+	    linkFn = checkTerminalDirectives(el, options);
+	  }
+	  // check element directives
+	  if (!linkFn) {
+	    linkFn = checkElementDirectives(el, options);
+	  }
+	  // check component
+	  if (!linkFn) {
+	    linkFn = checkComponent(el, options);
+	  }
+	  // normal directives
+	  if (!linkFn && hasAttrs) {
+	    linkFn = compileDirectives(el.attributes, options);
+	  }
+	  return linkFn;
+	}
+	
+	/**
+	 * Compile a textNode and return a nodeLinkFn.
+	 *
+	 * @param {TextNode} node
+	 * @param {Object} options
+	 * @return {Function|null} textNodeLinkFn
+	 */
+	
+	function compileTextNode(node, options) {
+	  // skip marked text nodes
+	  if (node._skip) {
+	    return removeText;
+	  }
+	
+	  var tokens = parseText(node.wholeText);
+	  if (!tokens) {
+	    return null;
+	  }
+	
+	  // mark adjacent text nodes as skipped,
+	  // because we are using node.wholeText to compile
+	  // all adjacent text nodes together. This fixes
+	  // issues in IE where sometimes it splits up a single
+	  // text node into multiple ones.
+	  var next = node.nextSibling;
+	  while (next && next.nodeType === 3) {
+	    next._skip = true;
+	    next = next.nextSibling;
+	  }
+	
+	  var frag = document.createDocumentFragment();
+	  var el, token;
+	  for (var i = 0, l = tokens.length; i < l; i++) {
+	    token = tokens[i];
+	    el = token.tag ? processTextToken(token, options) : document.createTextNode(token.value);
+	    frag.appendChild(el);
+	  }
+	  return makeTextNodeLinkFn(tokens, frag, options);
+	}
+	
+	/**
+	 * Linker for an skipped text node.
+	 *
+	 * @param {Vue} vm
+	 * @param {Text} node
+	 */
+	
+	function removeText(vm, node) {
+	  remove(node);
+	}
+	
+	/**
+	 * Process a single text token.
+	 *
+	 * @param {Object} token
+	 * @param {Object} options
+	 * @return {Node}
+	 */
+	
+	function processTextToken(token, options) {
+	  var el;
+	  if (token.oneTime) {
+	    el = document.createTextNode(token.value);
+	  } else {
+	    if (token.html) {
+	      el = document.createComment('v-html');
+	      setTokenType('html');
+	    } else {
+	      // IE will clean up empty textNodes during
+	      // frag.cloneNode(true), so we have to give it
+	      // something here...
+	      el = document.createTextNode(' ');
+	      setTokenType('text');
+	    }
+	  }
+	  function setTokenType(type) {
+	    if (token.descriptor) return;
+	    var parsed = parseDirective(token.value);
+	    token.descriptor = {
+	      name: type,
+	      def: publicDirectives[type],
+	      expression: parsed.expression,
+	      filters: parsed.filters
+	    };
+	  }
+	  return el;
+	}
+	
+	/**
+	 * Build a function that processes a textNode.
+	 *
+	 * @param {Array<Object>} tokens
+	 * @param {DocumentFragment} frag
+	 */
+	
+	function makeTextNodeLinkFn(tokens, frag) {
+	  return function textNodeLinkFn(vm, el, host, scope) {
+	    var fragClone = frag.cloneNode(true);
+	    var childNodes = toArray(fragClone.childNodes);
+	    var token, value, node;
+	    for (var i = 0, l = tokens.length; i < l; i++) {
+	      token = tokens[i];
+	      value = token.value;
+	      if (token.tag) {
+	        node = childNodes[i];
+	        if (token.oneTime) {
+	          value = (scope || vm).$eval(value);
+	          if (token.html) {
+	            replace(node, parseTemplate(value, true));
+	          } else {
+	            node.data = value;
+	          }
+	        } else {
+	          vm._bindDir(token.descriptor, node, host, scope);
+	        }
+	      }
+	    }
+	    replace(el, fragClone);
+	  };
+	}
+	
+	/**
+	 * Compile a node list and return a childLinkFn.
+	 *
+	 * @param {NodeList} nodeList
+	 * @param {Object} options
+	 * @return {Function|undefined}
+	 */
+	
+	function compileNodeList(nodeList, options) {
+	  var linkFns = [];
+	  var nodeLinkFn, childLinkFn, node;
+	  for (var i = 0, l = nodeList.length; i < l; i++) {
+	    node = nodeList[i];
+	    nodeLinkFn = compileNode(node, options);
+	    childLinkFn = !(nodeLinkFn && nodeLinkFn.terminal) && node.tagName !== 'SCRIPT' && node.hasChildNodes() ? compileNodeList(node.childNodes, options) : null;
+	    linkFns.push(nodeLinkFn, childLinkFn);
+	  }
+	  return linkFns.length ? makeChildLinkFn(linkFns) : null;
+	}
+	
+	/**
+	 * Make a child link function for a node's childNodes.
+	 *
+	 * @param {Array<Function>} linkFns
+	 * @return {Function} childLinkFn
+	 */
+	
+	function makeChildLinkFn(linkFns) {
+	  return function childLinkFn(vm, nodes, host, scope, frag) {
+	    var node, nodeLinkFn, childrenLinkFn;
+	    for (var i = 0, n = 0, l = linkFns.length; i < l; n++) {
+	      node = nodes[n];
+	      nodeLinkFn = linkFns[i++];
+	      childrenLinkFn = linkFns[i++];
+	      // cache childNodes before linking parent, fix #657
+	      var childNodes = toArray(node.childNodes);
+	      if (nodeLinkFn) {
+	        nodeLinkFn(vm, node, host, scope, frag);
+	      }
+	      if (childrenLinkFn) {
+	        childrenLinkFn(vm, childNodes, host, scope, frag);
+	      }
+	    }
+	  };
+	}
+	
+	/**
+	 * Check for element directives (custom elements that should
+	 * be resovled as terminal directives).
+	 *
+	 * @param {Element} el
+	 * @param {Object} options
+	 */
+	
+	function checkElementDirectives(el, options) {
+	  var tag = el.tagName.toLowerCase();
+	  if (commonTagRE.test(tag)) return;
+	  var def = resolveAsset(options, 'elementDirectives', tag);
+	  if (def) {
+	    return makeTerminalNodeLinkFn(el, tag, '', options, def);
+	  }
+	}
+	
+	/**
+	 * Check if an element is a component. If yes, return
+	 * a component link function.
+	 *
+	 * @param {Element} el
+	 * @param {Object} options
+	 * @return {Function|undefined}
+	 */
+	
+	function checkComponent(el, options) {
+	  var component = checkComponentAttr(el, options);
+	  if (component) {
+	    var ref = findRef(el);
+	    var descriptor = {
+	      name: 'component',
+	      ref: ref,
+	      expression: component.id,
+	      def: internalDirectives.component,
+	      modifiers: {
+	        literal: !component.dynamic
+	      }
+	    };
+	    var componentLinkFn = function componentLinkFn(vm, el, host, scope, frag) {
+	      if (ref) {
+	        defineReactive((scope || vm).$refs, ref, null);
+	      }
+	      vm._bindDir(descriptor, el, host, scope, frag);
+	    };
+	    componentLinkFn.terminal = true;
+	    return componentLinkFn;
+	  }
+	}
+	
+	/**
+	 * Check an element for terminal directives in fixed order.
+	 * If it finds one, return a terminal link function.
+	 *
+	 * @param {Element} el
+	 * @param {Object} options
+	 * @return {Function} terminalLinkFn
+	 */
+	
+	function checkTerminalDirectives(el, options) {
+	  // skip v-pre
+	  if (getAttr(el, 'v-pre') !== null) {
+	    return skip;
+	  }
+	  // skip v-else block, but only if following v-if
+	  if (el.hasAttribute('v-else')) {
+	    var prev = el.previousElementSibling;
+	    if (prev && prev.hasAttribute('v-if')) {
+	      return skip;
+	    }
+	  }
+	  var value, dirName;
+	  for (var i = 0, l = terminalDirectives.length; i < l; i++) {
+	    dirName = terminalDirectives[i];
+	    /* eslint-disable no-cond-assign */
+	    if (value = el.getAttribute('v-' + dirName)) {
+	      return makeTerminalNodeLinkFn(el, dirName, value, options);
+	    }
+	    /* eslint-enable no-cond-assign */
+	  }
+	}
+	
+	function skip() {}
+	skip.terminal = true;
+	
+	/**
+	 * Build a node link function for a terminal directive.
+	 * A terminal link function terminates the current
+	 * compilation recursion and handles compilation of the
+	 * subtree in the directive.
+	 *
+	 * @param {Element} el
+	 * @param {String} dirName
+	 * @param {String} value
+	 * @param {Object} options
+	 * @param {Object} [def]
+	 * @return {Function} terminalLinkFn
+	 */
+	
+	function makeTerminalNodeLinkFn(el, dirName, value, options, def) {
+	  var parsed = parseDirective(value);
+	  var descriptor = {
+	    name: dirName,
+	    expression: parsed.expression,
+	    filters: parsed.filters,
+	    raw: value,
+	    // either an element directive, or if/for
+	    def: def || publicDirectives[dirName]
+	  };
+	  // check ref for v-for and router-view
+	  if (dirName === 'for' || dirName === 'router-view') {
+	    descriptor.ref = findRef(el);
+	  }
+	  var fn = function terminalNodeLinkFn(vm, el, host, scope, frag) {
+	    if (descriptor.ref) {
+	      defineReactive((scope || vm).$refs, descriptor.ref, null);
+	    }
+	    vm._bindDir(descriptor, el, host, scope, frag);
+	  };
+	  fn.terminal = true;
+	  return fn;
+	}
+	
+	/**
+	 * Compile the directives on an element and return a linker.
+	 *
+	 * @param {Array|NamedNodeMap} attrs
+	 * @param {Object} options
+	 * @return {Function}
+	 */
+	
+	function compileDirectives(attrs, options) {
+	  var i = attrs.length;
+	  var dirs = [];
+	  var attr, name, value, rawName, rawValue, dirName, arg, modifiers, dirDef, tokens;
+	  while (i--) {
+	    attr = attrs[i];
+	    name = rawName = attr.name;
+	    value = rawValue = attr.value;
+	    tokens = parseText(value);
+	    // reset arg
+	    arg = null;
+	    // check modifiers
+	    modifiers = parseModifiers(name);
+	    name = name.replace(modifierRE, '');
+	
+	    // attribute interpolations
+	    if (tokens) {
+	      value = tokensToExp(tokens);
+	      arg = name;
+	      pushDir('bind', publicDirectives.bind, true);
+	      // warn against mixing mustaches with v-bind
+	      if (process.env.NODE_ENV !== 'production') {
+	        if (name === 'class' && Array.prototype.some.call(attrs, function (attr) {
+	          return attr.name === ':class' || attr.name === 'v-bind:class';
+	        })) {
+	          warn('class="' + rawValue + '": Do not mix mustache interpolation ' + 'and v-bind for "class" on the same element. Use one or the other.');
+	        }
+	      }
+	    } else
+	
+	      // special attribute: transition
+	      if (transitionRE.test(name)) {
+	        modifiers.literal = !bindRE.test(name);
+	        pushDir('transition', internalDirectives.transition);
+	      } else
+	
+	        // event handlers
+	        if (onRE.test(name)) {
+	          arg = name.replace(onRE, '');
+	          pushDir('on', publicDirectives.on);
+	        } else
+	
+	          // attribute bindings
+	          if (bindRE.test(name)) {
+	            dirName = name.replace(bindRE, '');
+	            if (dirName === 'style' || dirName === 'class') {
+	              pushDir(dirName, internalDirectives[dirName]);
+	            } else {
+	              arg = dirName;
+	              pushDir('bind', publicDirectives.bind);
+	            }
+	          } else
+	
+	            // normal directives
+	            if (name.indexOf('v-') === 0) {
+	              // check arg
+	              arg = (arg = name.match(argRE)) && arg[1];
+	              if (arg) {
+	                name = name.replace(argRE, '');
+	              }
+	              // extract directive name
+	              dirName = name.slice(2);
+	
+	              // skip v-else (when used with v-show)
+	              if (dirName === 'else') {
+	                continue;
+	              }
+	
+	              dirDef = resolveAsset(options, 'directives', dirName);
+	
+	              if (process.env.NODE_ENV !== 'production') {
+	                assertAsset(dirDef, 'directive', dirName);
+	              }
+	
+	              if (dirDef) {
+	                pushDir(dirName, dirDef);
+	              }
+	            }
+	  }
+	
+	  /**
+	   * Push a directive.
+	   *
+	   * @param {String} dirName
+	   * @param {Object|Function} def
+	   * @param {Boolean} [interp]
+	   */
+	
+	  function pushDir(dirName, def, interp) {
+	    var parsed = parseDirective(value);
+	    dirs.push({
+	      name: dirName,
+	      attr: rawName,
+	      raw: rawValue,
+	      def: def,
+	      arg: arg,
+	      modifiers: modifiers,
+	      expression: parsed.expression,
+	      filters: parsed.filters,
+	      interp: interp
+	    });
+	  }
+	
+	  if (dirs.length) {
+	    return makeNodeLinkFn(dirs);
+	  }
+	}
+	
+	/**
+	 * Parse modifiers from directive attribute name.
+	 *
+	 * @param {String} name
+	 * @return {Object}
+	 */
+	
+	function parseModifiers(name) {
+	  var res = Object.create(null);
+	  var match = name.match(modifierRE);
+	  if (match) {
+	    var i = match.length;
+	    while (i--) {
+	      res[match[i].slice(1)] = true;
+	    }
+	  }
+	  return res;
+	}
+	
+	/**
+	 * Build a link function for all directives on a single node.
+	 *
+	 * @param {Array} directives
+	 * @return {Function} directivesLinkFn
+	 */
+	
+	function makeNodeLinkFn(directives) {
+	  return function nodeLinkFn(vm, el, host, scope, frag) {
+	    // reverse apply because it's sorted low to high
+	    var i = directives.length;
+	    while (i--) {
+	      vm._bindDir(directives[i], el, host, scope, frag);
+	    }
+	  };
+	}
+	
+	var specialCharRE = /[^\w\-:\.]/;
+	
+	/**
+	 * Process an element or a DocumentFragment based on a
+	 * instance option object. This allows us to transclude
+	 * a template node/fragment before the instance is created,
+	 * so the processed fragment can then be cloned and reused
+	 * in v-for.
+	 *
+	 * @param {Element} el
+	 * @param {Object} options
+	 * @return {Element|DocumentFragment}
+	 */
+	
+	function transclude(el, options) {
+	  // extract container attributes to pass them down
+	  // to compiler, because they need to be compiled in
+	  // parent scope. we are mutating the options object here
+	  // assuming the same object will be used for compile
+	  // right after this.
+	  if (options) {
+	    options._containerAttrs = extractAttrs(el);
+	  }
+	  // for template tags, what we want is its content as
+	  // a documentFragment (for fragment instances)
+	  if (isTemplate(el)) {
+	    el = parseTemplate(el);
+	  }
+	  if (options) {
+	    if (options._asComponent && !options.template) {
+	      options.template = '<slot></slot>';
+	    }
+	    if (options.template) {
+	      options._content = extractContent(el);
+	      el = transcludeTemplate(el, options);
+	    }
+	  }
+	  if (el instanceof DocumentFragment) {
+	    // anchors for fragment instance
+	    // passing in `persist: true` to avoid them being
+	    // discarded by IE during template cloning
+	    prepend(createAnchor('v-start', true), el);
+	    el.appendChild(createAnchor('v-end', true));
+	  }
+	  return el;
+	}
+	
+	/**
+	 * Process the template option.
+	 * If the replace option is true this will swap the $el.
+	 *
+	 * @param {Element} el
+	 * @param {Object} options
+	 * @return {Element|DocumentFragment}
+	 */
+	
+	function transcludeTemplate(el, options) {
+	  var template = options.template;
+	  var frag = parseTemplate(template, true);
+	  if (frag) {
+	    var replacer = frag.firstChild;
+	    var tag = replacer.tagName && replacer.tagName.toLowerCase();
+	    if (options.replace) {
+	      /* istanbul ignore if */
+	      if (el === document.body) {
+	        process.env.NODE_ENV !== 'production' && warn('You are mounting an instance with a template to ' + '<body>. This will replace <body> entirely. You ' + 'should probably use `replace: false` here.');
+	      }
+	      // there are many cases where the instance must
+	      // become a fragment instance: basically anything that
+	      // can create more than 1 root nodes.
+	      if (
+	      // multi-children template
+	      frag.childNodes.length > 1 ||
+	      // non-element template
+	      replacer.nodeType !== 1 ||
+	      // single nested component
+	      tag === 'component' || resolveAsset(options, 'components', tag) || replacer.hasAttribute('is') || replacer.hasAttribute(':is') || replacer.hasAttribute('v-bind:is') ||
+	      // element directive
+	      resolveAsset(options, 'elementDirectives', tag) ||
+	      // for block
+	      replacer.hasAttribute('v-for') ||
+	      // if block
+	      replacer.hasAttribute('v-if')) {
+	        return frag;
+	      } else {
+	        options._replacerAttrs = extractAttrs(replacer);
+	        mergeAttrs(el, replacer);
+	        return replacer;
+	      }
+	    } else {
+	      el.appendChild(frag);
+	      return el;
+	    }
+	  } else {
+	    process.env.NODE_ENV !== 'production' && warn('Invalid template option: ' + template);
+	  }
+	}
+	
+	/**
+	 * Helper to extract a component container's attributes
+	 * into a plain object array.
+	 *
+	 * @param {Element} el
+	 * @return {Array}
+	 */
+	
+	function extractAttrs(el) {
+	  if (el.nodeType === 1 && el.hasAttributes()) {
+	    return toArray(el.attributes);
+	  }
+	}
+	
+	/**
+	 * Merge the attributes of two elements, and make sure
+	 * the class names are merged properly.
+	 *
+	 * @param {Element} from
+	 * @param {Element} to
+	 */
+	
+	function mergeAttrs(from, to) {
+	  var attrs = from.attributes;
+	  var i = attrs.length;
+	  var name, value;
+	  while (i--) {
+	    name = attrs[i].name;
+	    value = attrs[i].value;
+	    if (!to.hasAttribute(name) && !specialCharRE.test(name)) {
+	      to.setAttribute(name, value);
+	    } else if (name === 'class') {
+	      value.split(/\s+/).forEach(function (cls) {
+	        addClass(to, cls);
+	      });
+	    }
+	  }
+	}
+	
+	var compiler = Object.freeze({
+		compile: compile,
+		compileAndLinkProps: compileAndLinkProps,
+		compileRoot: compileRoot,
+		transclude: transclude
+	});
+	
+	function stateMixin (Vue) {
+	
+	  /**
+	   * Accessor for `$data` property, since setting $data
+	   * requires observing the new object and updating
+	   * proxied properties.
+	   */
+	
+	  Object.defineProperty(Vue.prototype, '$data', {
+	    get: function get() {
+	      return this._data;
+	    },
+	    set: function set(newData) {
+	      if (newData !== this._data) {
+	        this._setData(newData);
+	      }
+	    }
+	  });
+	
+	  /**
+	   * Setup the scope of an instance, which contains:
+	   * - observed data
+	   * - computed properties
+	   * - user methods
+	   * - meta properties
+	   */
+	
+	  Vue.prototype._initState = function () {
+	    this._initProps();
+	    this._initMeta();
+	    this._initMethods();
+	    this._initData();
+	    this._initComputed();
+	  };
+	
+	  /**
+	   * Initialize props.
+	   */
+	
+	  Vue.prototype._initProps = function () {
+	    var options = this.$options;
+	    var el = options.el;
+	    var props = options.props;
+	    if (props && !el) {
+	      process.env.NODE_ENV !== 'production' && warn('Props will not be compiled if no `el` option is ' + 'provided at instantiation.');
+	    }
+	    // make sure to convert string selectors into element now
+	    el = options.el = query(el);
+	    this._propsUnlinkFn = el && el.nodeType === 1 && props
+	    // props must be linked in proper scope if inside v-for
+	    ? compileAndLinkProps(this, el, props, this._scope) : null;
+	  };
+	
+	  /**
+	   * Initialize the data.
+	   */
+	
+	  Vue.prototype._initData = function () {
+	    var propsData = this._data;
+	    var optionsDataFn = this.$options.data;
+	    var optionsData = optionsDataFn && optionsDataFn();
+	    if (optionsData) {
+	      this._data = optionsData;
+	      for (var prop in propsData) {
+	        if (process.env.NODE_ENV !== 'production' && hasOwn(optionsData, prop)) {
+	          warn('Data field "' + prop + '" is already defined ' + 'as a prop. Use prop default value instead.');
+	        }
+	        if (this._props[prop].raw !== null || !hasOwn(optionsData, prop)) {
+	          set(optionsData, prop, propsData[prop]);
+	        }
+	      }
+	    }
+	    var data = this._data;
+	    // proxy data on instance
+	    var keys = Object.keys(data);
+	    var i, key;
+	    i = keys.length;
+	    while (i--) {
+	      key = keys[i];
+	      this._proxy(key);
+	    }
+	    // observe data
+	    observe(data, this);
+	  };
+	
+	  /**
+	   * Swap the instance's $data. Called in $data's setter.
+	   *
+	   * @param {Object} newData
+	   */
+	
+	  Vue.prototype._setData = function (newData) {
+	    newData = newData || {};
+	    var oldData = this._data;
+	    this._data = newData;
+	    var keys, key, i;
+	    // unproxy keys not present in new data
+	    keys = Object.keys(oldData);
+	    i = keys.length;
+	    while (i--) {
+	      key = keys[i];
+	      if (!(key in newData)) {
+	        this._unproxy(key);
+	      }
+	    }
+	    // proxy keys not already proxied,
+	    // and trigger change for changed values
+	    keys = Object.keys(newData);
+	    i = keys.length;
+	    while (i--) {
+	      key = keys[i];
+	      if (!hasOwn(this, key)) {
+	        // new property
+	        this._proxy(key);
+	      }
+	    }
+	    oldData.__ob__.removeVm(this);
+	    observe(newData, this);
+	    this._digest();
+	  };
+	
+	  /**
+	   * Proxy a property, so that
+	   * vm.prop === vm._data.prop
+	   *
+	   * @param {String} key
+	   */
+	
+	  Vue.prototype._proxy = function (key) {
+	    if (!isReserved(key)) {
+	      // need to store ref to self here
+	      // because these getter/setters might
+	      // be called by child scopes via
+	      // prototype inheritance.
+	      var self = this;
+	      Object.defineProperty(self, key, {
+	        configurable: true,
+	        enumerable: true,
+	        get: function proxyGetter() {
+	          return self._data[key];
+	        },
+	        set: function proxySetter(val) {
+	          self._data[key] = val;
+	        }
+	      });
+	    }
+	  };
+	
+	  /**
+	   * Unproxy a property.
+	   *
+	   * @param {String} key
+	   */
+	
+	  Vue.prototype._unproxy = function (key) {
+	    if (!isReserved(key)) {
+	      delete this[key];
+	    }
+	  };
+	
+	  /**
+	   * Force update on every watcher in scope.
+	   */
+	
+	  Vue.prototype._digest = function () {
+	    for (var i = 0, l = this._watchers.length; i < l; i++) {
+	      this._watchers[i].update(true); // shallow updates
+	    }
+	  };
+	
+	  /**
+	   * Setup computed properties. They are essentially
+	   * special getter/setters
+	   */
+	
+	  function noop() {}
+	  Vue.prototype._initComputed = function () {
+	    var computed = this.$options.computed;
+	    if (computed) {
+	      for (var key in computed) {
+	        var userDef = computed[key];
+	        var def = {
+	          enumerable: true,
+	          configurable: true
+	        };
+	        if (typeof userDef === 'function') {
+	          def.get = makeComputedGetter(userDef, this);
+	          def.set = noop;
+	        } else {
+	          def.get = userDef.get ? userDef.cache !== false ? makeComputedGetter(userDef.get, this) : bind$1(userDef.get, this) : noop;
+	          def.set = userDef.set ? bind$1(userDef.set, this) : noop;
+	        }
+	        Object.defineProperty(this, key, def);
+	      }
+	    }
+	  };
+	
+	  function makeComputedGetter(getter, owner) {
+	    var watcher = new Watcher(owner, getter, null, {
+	      lazy: true
+	    });
+	    return function computedGetter() {
+	      if (watcher.dirty) {
+	        watcher.evaluate();
+	      }
+	      if (Dep.target) {
+	        watcher.depend();
+	      }
+	      return watcher.value;
+	    };
+	  }
+	
+	  /**
+	   * Setup instance methods. Methods must be bound to the
+	   * instance since they might be passed down as a prop to
+	   * child components.
+	   */
+	
+	  Vue.prototype._initMethods = function () {
+	    var methods = this.$options.methods;
+	    if (methods) {
+	      for (var key in methods) {
+	        this[key] = bind$1(methods[key], this);
+	      }
+	    }
+	  };
+	
+	  /**
+	   * Initialize meta information like $index, $key & $value.
+	   */
+	
+	  Vue.prototype._initMeta = function () {
+	    var metas = this.$options._meta;
+	    if (metas) {
+	      for (var key in metas) {
+	        defineReactive(this, key, metas[key]);
+	      }
+	    }
+	  };
+	}
+	
+	var eventRE = /^v-on:|^@/;
+	
+	function eventsMixin (Vue) {
+	
+	  /**
+	   * Setup the instance's option events & watchers.
+	   * If the value is a string, we pull it from the
+	   * instance's methods by name.
+	   */
+	
+	  Vue.prototype._initEvents = function () {
+	    var options = this.$options;
+	    if (options._asComponent) {
+	      registerComponentEvents(this, options.el);
+	    }
+	    registerCallbacks(this, '$on', options.events);
+	    registerCallbacks(this, '$watch', options.watch);
+	  };
+	
+	  /**
+	   * Register v-on events on a child component
+	   *
+	   * @param {Vue} vm
+	   * @param {Element} el
+	   */
+	
+	  function registerComponentEvents(vm, el) {
+	    var attrs = el.attributes;
+	    var name, handler;
+	    for (var i = 0, l = attrs.length; i < l; i++) {
+	      name = attrs[i].name;
+	      if (eventRE.test(name)) {
+	        name = name.replace(eventRE, '');
+	        handler = (vm._scope || vm._context).$eval(attrs[i].value, true);
+	        vm.$on(name.replace(eventRE), handler);
+	      }
+	    }
+	  }
+	
+	  /**
+	   * Register callbacks for option events and watchers.
+	   *
+	   * @param {Vue} vm
+	   * @param {String} action
+	   * @param {Object} hash
+	   */
+	
+	  function registerCallbacks(vm, action, hash) {
+	    if (!hash) return;
+	    var handlers, key, i, j;
+	    for (key in hash) {
+	      handlers = hash[key];
+	      if (isArray(handlers)) {
+	        for (i = 0, j = handlers.length; i < j; i++) {
+	          register(vm, action, key, handlers[i]);
+	        }
+	      } else {
+	        register(vm, action, key, handlers);
+	      }
+	    }
+	  }
+	
+	  /**
+	   * Helper to register an event/watch callback.
+	   *
+	   * @param {Vue} vm
+	   * @param {String} action
+	   * @param {String} key
+	   * @param {Function|String|Object} handler
+	   * @param {Object} [options]
+	   */
+	
+	  function register(vm, action, key, handler, options) {
+	    var type = typeof handler;
+	    if (type === 'function') {
+	      vm[action](key, handler, options);
+	    } else if (type === 'string') {
+	      var methods = vm.$options.methods;
+	      var method = methods && methods[handler];
+	      if (method) {
+	        vm[action](key, method, options);
+	      } else {
+	        process.env.NODE_ENV !== 'production' && warn('Unknown method: "' + handler + '" when ' + 'registering callback for ' + action + ': "' + key + '".');
+	      }
+	    } else if (handler && type === 'object') {
+	      register(vm, action, key, handler.handler, handler);
+	    }
+	  }
+	
+	  /**
+	   * Setup recursive attached/detached calls
+	   */
+	
+	  Vue.prototype._initDOMHooks = function () {
+	    this.$on('hook:attached', onAttached);
+	    this.$on('hook:detached', onDetached);
+	  };
+	
+	  /**
+	   * Callback to recursively call attached hook on children
+	   */
+	
+	  function onAttached() {
+	    if (!this._isAttached) {
+	      this._isAttached = true;
+	      this.$children.forEach(callAttach);
+	    }
+	  }
+	
+	  /**
+	   * Iterator to call attached hook
+	   *
+	   * @param {Vue} child
+	   */
+	
+	  function callAttach(child) {
+	    if (!child._isAttached && inDoc(child.$el)) {
+	      child._callHook('attached');
+	    }
+	  }
+	
+	  /**
+	   * Callback to recursively call detached hook on children
+	   */
+	
+	  function onDetached() {
+	    if (this._isAttached) {
+	      this._isAttached = false;
+	      this.$children.forEach(callDetach);
+	    }
+	  }
+	
+	  /**
+	   * Iterator to call detached hook
+	   *
+	   * @param {Vue} child
+	   */
+	
+	  function callDetach(child) {
+	    if (child._isAttached && !inDoc(child.$el)) {
+	      child._callHook('detached');
+	    }
+	  }
+	
+	  /**
+	   * Trigger all handlers for a hook
+	   *
+	   * @param {String} hook
+	   */
+	
+	  Vue.prototype._callHook = function (hook) {
+	    var handlers = this.$options[hook];
+	    if (handlers) {
+	      for (var i = 0, j = handlers.length; i < j; i++) {
+	        handlers[i].call(this);
+	      }
+	    }
+	    this.$emit('hook:' + hook);
+	  };
+	}
+	
+	function noop() {}
+	
+	/**
+	 * A directive links a DOM element with a piece of data,
+	 * which is the result of evaluating an expression.
+	 * It registers a watcher with the expression and calls
+	 * the DOM update function when a change is triggered.
+	 *
+	 * @param {String} name
+	 * @param {Node} el
+	 * @param {Vue} vm
+	 * @param {Object} descriptor
+	 *                 - {String} name
+	 *                 - {Object} def
+	 *                 - {String} expression
+	 *                 - {Array<Object>} [filters]
+	 *                 - {Boolean} literal
+	 *                 - {String} attr
+	 *                 - {String} raw
+	 * @param {Object} def - directive definition object
+	 * @param {Vue} [host] - transclusion host component
+	 * @param {Object} [scope] - v-for scope
+	 * @param {Fragment} [frag] - owner fragment
+	 * @constructor
+	 */
+	function Directive(descriptor, vm, el, host, scope, frag) {
+	  this.vm = vm;
+	  this.el = el;
+	  // copy descriptor properties
+	  this.descriptor = descriptor;
+	  this.name = descriptor.name;
+	  this.expression = descriptor.expression;
+	  this.arg = descriptor.arg;
+	  this.modifiers = descriptor.modifiers;
+	  this.filters = descriptor.filters;
+	  this.literal = this.modifiers && this.modifiers.literal;
+	  // private
+	  this._locked = false;
+	  this._bound = false;
+	  this._listeners = null;
+	  // link context
+	  this._host = host;
+	  this._scope = scope;
+	  this._frag = frag;
+	  // store directives on node in dev mode
+	  if (process.env.NODE_ENV !== 'production' && this.el) {
+	    this.el._vue_directives = this.el._vue_directives || [];
+	    this.el._vue_directives.push(this);
+	  }
+	}
+	
+	/**
+	 * Initialize the directive, mixin definition properties,
+	 * setup the watcher, call definition bind() and update()
+	 * if present.
+	 *
+	 * @param {Object} def
+	 */
+	
+	Directive.prototype._bind = function () {
+	  var name = this.name;
+	  var descriptor = this.descriptor;
+	
+	  // remove attribute
+	  if ((name !== 'cloak' || this.vm._isCompiled) && this.el && this.el.removeAttribute) {
+	    var attr = descriptor.attr || 'v-' + name;
+	    this.el.removeAttribute(attr);
+	  }
+	
+	  // copy def properties
+	  var def = descriptor.def;
+	  if (typeof def === 'function') {
+	    this.update = def;
+	  } else {
+	    extend(this, def);
+	  }
+	
+	  // setup directive params
+	  this._setupParams();
+	
+	  // initial bind
+	  if (this.bind) {
+	    this.bind();
+	  }
+	
+	  if (this.literal) {
+	    this.update && this.update(descriptor.raw);
+	  } else if ((this.expression || this.modifiers) && (this.update || this.twoWay) && !this._checkStatement()) {
+	    // wrapped updater for context
+	    var dir = this;
+	    if (this.update) {
+	      this._update = function (val, oldVal) {
+	        if (!dir._locked) {
+	          dir.update(val, oldVal);
+	        }
+	      };
+	    } else {
+	      this._update = noop;
+	    }
+	    var preProcess = this._preProcess ? bind$1(this._preProcess, this) : null;
+	    var postProcess = this._postProcess ? bind$1(this._postProcess, this) : null;
+	    var watcher = this._watcher = new Watcher(this.vm, this.expression, this._update, // callback
+	    {
+	      filters: this.filters,
+	      twoWay: this.twoWay,
+	      deep: this.deep,
+	      preProcess: preProcess,
+	      postProcess: postProcess,
+	      scope: this._scope
+	    });
+	    // v-model with inital inline value need to sync back to
+	    // model instead of update to DOM on init. They would
+	    // set the afterBind hook to indicate that.
+	    if (this.afterBind) {
+	      this.afterBind();
+	    } else if (this.update) {
+	      this.update(watcher.value);
+	    }
+	  }
+	  this._bound = true;
+	};
+	
+	/**
+	 * Setup all param attributes, e.g. track-by,
+	 * transition-mode, etc...
+	 */
+	
+	Directive.prototype._setupParams = function () {
+	  if (!this.params) {
+	    return;
+	  }
+	  var params = this.params;
+	  // swap the params array with a fresh object.
+	  this.params = Object.create(null);
+	  var i = params.length;
+	  var key, val, mappedKey;
+	  while (i--) {
+	    key = params[i];
+	    mappedKey = camelize(key);
+	    val = getBindAttr(this.el, key);
+	    if (val != null) {
+	      // dynamic
+	      this._setupParamWatcher(mappedKey, val);
+	    } else {
+	      // static
+	      val = getAttr(this.el, key);
+	      if (val != null) {
+	        this.params[mappedKey] = val === '' ? true : val;
+	      }
+	    }
+	  }
+	};
+	
+	/**
+	 * Setup a watcher for a dynamic param.
+	 *
+	 * @param {String} key
+	 * @param {String} expression
+	 */
+	
+	Directive.prototype._setupParamWatcher = function (key, expression) {
+	  var self = this;
+	  var called = false;
+	  var unwatch = (this._scope || this.vm).$watch(expression, function (val, oldVal) {
+	    self.params[key] = val;
+	    // since we are in immediate mode,
+	    // only call the param change callbacks if this is not the first update.
+	    if (called) {
+	      var cb = self.paramWatchers && self.paramWatchers[key];
+	      if (cb) {
+	        cb.call(self, val, oldVal);
+	      }
+	    } else {
+	      called = true;
+	    }
+	  }, {
+	    immediate: true
+	  });(this._paramUnwatchFns || (this._paramUnwatchFns = [])).push(unwatch);
+	};
+	
+	/**
+	 * Check if the directive is a function caller
+	 * and if the expression is a callable one. If both true,
+	 * we wrap up the expression and use it as the event
+	 * handler.
+	 *
+	 * e.g. on-click="a++"
+	 *
+	 * @return {Boolean}
+	 */
+	
+	Directive.prototype._checkStatement = function () {
+	  var expression = this.expression;
+	  if (expression && this.acceptStatement && !isSimplePath(expression)) {
+	    var fn = parseExpression(expression).get;
+	    var scope = this._scope || this.vm;
+	    var handler = function handler(e) {
+	      scope.$event = e;
+	      fn.call(scope, scope);
+	      scope.$event = null;
+	    };
+	    if (this.filters) {
+	      handler = scope._applyFilters(handler, null, this.filters);
+	    }
+	    this.update(handler);
+	    return true;
+	  }
+	};
+	
+	/**
+	 * Set the corresponding value with the setter.
+	 * This should only be used in two-way directives
+	 * e.g. v-model.
+	 *
+	 * @param {*} value
+	 * @public
+	 */
+	
+	Directive.prototype.set = function (value) {
+	  /* istanbul ignore else */
+	  if (this.twoWay) {
+	    this._withLock(function () {
+	      this._watcher.set(value);
+	    });
+	  } else if (process.env.NODE_ENV !== 'production') {
+	    warn('Directive.set() can only be used inside twoWay' + 'directives.');
+	  }
+	};
+	
+	/**
+	 * Execute a function while preventing that function from
+	 * triggering updates on this directive instance.
+	 *
+	 * @param {Function} fn
+	 */
+	
+	Directive.prototype._withLock = function (fn) {
+	  var self = this;
+	  self._locked = true;
+	  fn.call(self);
+	  nextTick(function () {
+	    self._locked = false;
+	  });
+	};
+	
+	/**
+	 * Convenience method that attaches a DOM event listener
+	 * to the directive element and autometically tears it down
+	 * during unbind.
+	 *
+	 * @param {String} event
+	 * @param {Function} handler
+	 */
+	
+	Directive.prototype.on = function (event, handler) {
+	  on$1(this.el, event, handler);(this._listeners || (this._listeners = [])).push([event, handler]);
+	};
+	
+	/**
+	 * Teardown the watcher and call unbind.
+	 */
+	
+	Directive.prototype._teardown = function () {
+	  if (this._bound) {
+	    this._bound = false;
+	    if (this.unbind) {
+	      this.unbind();
+	    }
+	    if (this._watcher) {
+	      this._watcher.teardown();
+	    }
+	    var listeners = this._listeners;
+	    var i;
+	    if (listeners) {
+	      i = listeners.length;
+	      while (i--) {
+	        off(this.el, listeners[i][0], listeners[i][1]);
+	      }
+	    }
+	    var unwatchFns = this._paramUnwatchFns;
+	    if (unwatchFns) {
+	      i = unwatchFns.length;
+	      while (i--) {
+	        unwatchFns[i]();
+	      }
+	    }
+	    if (process.env.NODE_ENV !== 'production' && this.el) {
+	      this.el._vue_directives.$remove(this);
+	    }
+	    this.vm = this.el = this._watcher = this._listeners = null;
+	  }
+	};
+	
+	function lifecycleMixin (Vue) {
+	
+	  /**
+	   * Update v-ref for component.
+	   *
+	   * @param {Boolean} remove
+	   */
+	
+	  Vue.prototype._updateRef = function (remove) {
+	    var ref = this.$options._ref;
+	    if (ref) {
+	      var refs = (this._scope || this._context).$refs;
+	      if (remove) {
+	        if (refs[ref] === this) {
+	          refs[ref] = null;
+	        }
+	      } else {
+	        refs[ref] = this;
+	      }
+	    }
+	  };
+	
+	  /**
+	   * Transclude, compile and link element.
+	   *
+	   * If a pre-compiled linker is available, that means the
+	   * passed in element will be pre-transcluded and compiled
+	   * as well - all we need to do is to call the linker.
+	   *
+	   * Otherwise we need to call transclude/compile/link here.
+	   *
+	   * @param {Element} el
+	   * @return {Element}
+	   */
+	
+	  Vue.prototype._compile = function (el) {
+	    var options = this.$options;
+	
+	    // transclude and init element
+	    // transclude can potentially replace original
+	    // so we need to keep reference; this step also injects
+	    // the template and caches the original attributes
+	    // on the container node and replacer node.
+	    var original = el;
+	    el = transclude(el, options);
+	    this._initElement(el);
+	
+	    // root is always compiled per-instance, because
+	    // container attrs and props can be different every time.
+	    var contextOptions = this._context && this._context.$options;
+	    var rootLinker = compileRoot(el, options, contextOptions);
+	
+	    // compile and link the rest
+	    var contentLinkFn;
+	    var ctor = this.constructor;
+	    // component compilation can be cached
+	    // as long as it's not using inline-template
+	    if (options._linkerCachable) {
+	      contentLinkFn = ctor.linker;
+	      if (!contentLinkFn) {
+	        contentLinkFn = ctor.linker = compile(el, options);
+	      }
+	    }
+	
+	    // link phase
+	    // make sure to link root with prop scope!
+	    var rootUnlinkFn = rootLinker(this, el, this._scope);
+	    var contentUnlinkFn = contentLinkFn ? contentLinkFn(this, el) : compile(el, options)(this, el);
+	
+	    // register composite unlink function
+	    // to be called during instance destruction
+	    this._unlinkFn = function () {
+	      rootUnlinkFn();
+	      // passing destroying: true to avoid searching and
+	      // splicing the directives
+	      contentUnlinkFn(true);
+	    };
+	
+	    // finally replace original
+	    if (options.replace) {
+	      replace(original, el);
+	    }
+	
+	    this._isCompiled = true;
+	    this._callHook('compiled');
+	    return el;
+	  };
+	
+	  /**
+	   * Initialize instance element. Called in the public
+	   * $mount() method.
+	   *
+	   * @param {Element} el
+	   */
+	
+	  Vue.prototype._initElement = function (el) {
+	    if (el instanceof DocumentFragment) {
+	      this._isFragment = true;
+	      this.$el = this._fragmentStart = el.firstChild;
+	      this._fragmentEnd = el.lastChild;
+	      // set persisted text anchors to empty
+	      if (this._fragmentStart.nodeType === 3) {
+	        this._fragmentStart.data = this._fragmentEnd.data = '';
+	      }
+	      this._fragment = el;
+	    } else {
+	      this.$el = el;
+	    }
+	    this.$el.__vue__ = this;
+	    this._callHook('beforeCompile');
+	  };
+	
+	  /**
+	   * Create and bind a directive to an element.
+	   *
+	   * @param {String} name - directive name
+	   * @param {Node} node   - target node
+	   * @param {Object} desc - parsed directive descriptor
+	   * @param {Object} def  - directive definition object
+	   * @param {Vue} [host] - transclusion host component
+	   * @param {Object} [scope] - v-for scope
+	   * @param {Fragment} [frag] - owner fragment
+	   */
+	
+	  Vue.prototype._bindDir = function (descriptor, node, host, scope, frag) {
+	    this._directives.push(new Directive(descriptor, this, node, host, scope, frag));
+	  };
+	
+	  /**
+	   * Teardown an instance, unobserves the data, unbind all the
+	   * directives, turn off all the event listeners, etc.
+	   *
+	   * @param {Boolean} remove - whether to remove the DOM node.
+	   * @param {Boolean} deferCleanup - if true, defer cleanup to
+	   *                                 be called later
+	   */
+	
+	  Vue.prototype._destroy = function (remove, deferCleanup) {
+	    if (this._isBeingDestroyed) {
+	      if (!deferCleanup) {
+	        this._cleanup();
+	      }
+	      return;
+	    }
+	    this._callHook('beforeDestroy');
+	    this._isBeingDestroyed = true;
+	    var i;
+	    // remove self from parent. only necessary
+	    // if parent is not being destroyed as well.
+	    var parent = this.$parent;
+	    if (parent && !parent._isBeingDestroyed) {
+	      parent.$children.$remove(this);
+	      // unregister ref (remove: true)
+	      this._updateRef(true);
+	    }
+	    // destroy all children.
+	    i = this.$children.length;
+	    while (i--) {
+	      this.$children[i].$destroy();
+	    }
+	    // teardown props
+	    if (this._propsUnlinkFn) {
+	      this._propsUnlinkFn();
+	    }
+	    // teardown all directives. this also tearsdown all
+	    // directive-owned watchers.
+	    if (this._unlinkFn) {
+	      this._unlinkFn();
+	    }
+	    i = this._watchers.length;
+	    while (i--) {
+	      this._watchers[i].teardown();
+	    }
+	    // remove reference to self on $el
+	    if (this.$el) {
+	      this.$el.__vue__ = null;
+	    }
+	    // remove DOM element
+	    var self = this;
+	    if (remove && this.$el) {
+	      this.$remove(function () {
+	        self._cleanup();
+	      });
+	    } else if (!deferCleanup) {
+	      this._cleanup();
+	    }
+	  };
+	
+	  /**
+	   * Clean up to ensure garbage collection.
+	   * This is called after the leave transition if there
+	   * is any.
+	   */
+	
+	  Vue.prototype._cleanup = function () {
+	    if (this._isDestroyed) {
+	      return;
+	    }
+	    // remove self from owner fragment
+	    // do it in cleanup so that we can call $destroy with
+	    // defer right when a fragment is about to be removed.
+	    if (this._frag) {
+	      this._frag.children.$remove(this);
+	    }
+	    // remove reference from data ob
+	    // frozen object may not have observer.
+	    if (this._data.__ob__) {
+	      this._data.__ob__.removeVm(this);
+	    }
+	    // Clean up references to private properties and other
+	    // instances. preserve reference to _data so that proxy
+	    // accessors still work. The only potential side effect
+	    // here is that mutating the instance after it's destroyed
+	    // may affect the state of other components that are still
+	    // observing the same object, but that seems to be a
+	    // reasonable responsibility for the user rather than
+	    // always throwing an error on them.
+	    this.$el = this.$parent = this.$root = this.$children = this._watchers = this._context = this._scope = this._directives = null;
+	    // call the last hook...
+	    this._isDestroyed = true;
+	    this._callHook('destroyed');
+	    // turn off all instance listeners.
+	    this.$off();
+	  };
+	}
+	
+	function miscMixin (Vue) {
+	
+	  /**
+	   * Apply a list of filter (descriptors) to a value.
+	   * Using plain for loops here because this will be called in
+	   * the getter of any watcher with filters so it is very
+	   * performance sensitive.
+	   *
+	   * @param {*} value
+	   * @param {*} [oldValue]
+	   * @param {Array} filters
+	   * @param {Boolean} write
+	   * @return {*}
+	   */
+	
+	  Vue.prototype._applyFilters = function (value, oldValue, filters, write) {
+	    var filter, fn, args, arg, offset, i, l, j, k;
+	    for (i = 0, l = filters.length; i < l; i++) {
+	      filter = filters[i];
+	      fn = resolveAsset(this.$options, 'filters', filter.name);
+	      if (process.env.NODE_ENV !== 'production') {
+	        assertAsset(fn, 'filter', filter.name);
+	      }
+	      if (!fn) continue;
+	      fn = write ? fn.write : fn.read || fn;
+	      if (typeof fn !== 'function') continue;
+	      args = write ? [value, oldValue] : [value];
+	      offset = write ? 2 : 1;
+	      if (filter.args) {
+	        for (j = 0, k = filter.args.length; j < k; j++) {
+	          arg = filter.args[j];
+	          args[j + offset] = arg.dynamic ? this.$get(arg.value) : arg.value;
+	        }
+	      }
+	      value = fn.apply(this, args);
+	    }
+	    return value;
+	  };
+	
+	  /**
+	   * Resolve a component, depending on whether the component
+	   * is defined normally or using an async factory function.
+	   * Resolves synchronously if already resolved, otherwise
+	   * resolves asynchronously and caches the resolved
+	   * constructor on the factory.
+	   *
+	   * @param {String} id
+	   * @param {Function} cb
+	   */
+	
+	  Vue.prototype._resolveComponent = function (id, cb) {
+	    var factory = resolveAsset(this.$options, 'components', id);
+	    if (process.env.NODE_ENV !== 'production') {
+	      assertAsset(factory, 'component', id);
+	    }
+	    if (!factory) {
+	      return;
+	    }
+	    // async component factory
+	    if (!factory.options) {
+	      if (factory.resolved) {
+	        // cached
+	        cb(factory.resolved);
+	      } else if (factory.requested) {
+	        // pool callbacks
+	        factory.pendingCallbacks.push(cb);
+	      } else {
+	        factory.requested = true;
+	        var cbs = factory.pendingCallbacks = [cb];
+	        factory(function resolve(res) {
+	          if (isPlainObject(res)) {
+	            res = Vue.extend(res);
+	          }
+	          // cache resolved
+	          factory.resolved = res;
+	          // invoke callbacks
+	          for (var i = 0, l = cbs.length; i < l; i++) {
+	            cbs[i](res);
+	          }
+	        }, function reject(reason) {
+	          process.env.NODE_ENV !== 'production' && warn('Failed to resolve async component: ' + id + '. ' + (reason ? '\nReason: ' + reason : ''));
+	        });
+	      }
+	    } else {
+	      // normal component
+	      cb(factory);
+	    }
+	  };
+	}
+	
+	function globalAPI (Vue) {
+	
+	  /**
+	   * Expose useful internals
+	   */
+	
+	  Vue.util = util;
+	  Vue.config = config;
+	  Vue.set = set;
+	  Vue['delete'] = del;
+	  Vue.nextTick = nextTick;
+	
+	  /**
+	   * The following are exposed for advanced usage / plugins
+	   */
+	
+	  Vue.compiler = compiler;
+	  Vue.FragmentFactory = FragmentFactory;
+	  Vue.internalDirectives = internalDirectives;
+	  Vue.parsers = {
+	    path: path,
+	    text: text$1,
+	    template: template,
+	    directive: directive,
+	    expression: expression
+	  };
+	
+	  /**
+	   * Each instance constructor, including Vue, has a unique
+	   * cid. This enables us to create wrapped "child
+	   * constructors" for prototypal inheritance and cache them.
+	   */
+	
+	  Vue.cid = 0;
+	  var cid = 1;
+	
+	  /**
+	   * Class inheritance
+	   *
+	   * @param {Object} extendOptions
+	   */
+	
+	  Vue.extend = function (extendOptions) {
+	    extendOptions = extendOptions || {};
+	    var Super = this;
+	    var isFirstExtend = Super.cid === 0;
+	    if (isFirstExtend && extendOptions._Ctor) {
+	      return extendOptions._Ctor;
+	    }
+	    var name = extendOptions.name || Super.options.name;
+	    var Sub = createClass(name || 'VueComponent');
+	    Sub.prototype = Object.create(Super.prototype);
+	    Sub.prototype.constructor = Sub;
+	    Sub.cid = cid++;
+	    Sub.options = mergeOptions(Super.options, extendOptions);
+	    Sub['super'] = Super;
+	    // allow further extension
+	    Sub.extend = Super.extend;
+	    // create asset registers, so extended classes
+	    // can have their private assets too.
+	    config._assetTypes.forEach(function (type) {
+	      Sub[type] = Super[type];
+	    });
+	    // enable recursive self-lookup
+	    if (name) {
+	      Sub.options.components[name] = Sub;
+	    }
+	    // cache constructor
+	    if (isFirstExtend) {
+	      extendOptions._Ctor = Sub;
+	    }
+	    return Sub;
+	  };
+	
+	  /**
+	   * A function that returns a sub-class constructor with the
+	   * given name. This gives us much nicer output when
+	   * logging instances in the console.
+	   *
+	   * @param {String} name
+	   * @return {Function}
+	   */
+	
+	  function createClass(name) {
+	    return new Function('return function ' + classify(name) + ' (options) { this._init(options) }')();
+	  }
+	
+	  /**
+	   * Plugin system
+	   *
+	   * @param {Object} plugin
+	   */
+	
+	  Vue.use = function (plugin) {
+	    /* istanbul ignore if */
+	    if (plugin.installed) {
+	      return;
+	    }
+	    // additional parameters
+	    var args = toArray(arguments, 1);
+	    args.unshift(this);
+	    if (typeof plugin.install === 'function') {
+	      plugin.install.apply(plugin, args);
+	    } else {
+	      plugin.apply(null, args);
+	    }
+	    plugin.installed = true;
+	    return this;
+	  };
+	
+	  /**
+	   * Apply a global mixin by merging it into the default
+	   * options.
+	   */
+	
+	  Vue.mixin = function (mixin) {
+	    Vue.options = mergeOptions(Vue.options, mixin);
+	  };
+	
+	  /**
+	   * Create asset registration methods with the following
+	   * signature:
+	   *
+	   * @param {String} id
+	   * @param {*} definition
+	   */
+	
+	  config._assetTypes.forEach(function (type) {
+	    Vue[type] = function (id, definition) {
+	      if (!definition) {
+	        return this.options[type + 's'][id];
+	      } else {
+	        /* istanbul ignore if */
+	        if (process.env.NODE_ENV !== 'production') {
+	          if (type === 'component' && commonTagRE.test(id)) {
+	            warn('Do not use built-in HTML elements as component ' + 'id: ' + id);
+	          }
+	        }
+	        if (type === 'component' && isPlainObject(definition)) {
+	          definition.name = id;
+	          definition = Vue.extend(definition);
+	        }
+	        this.options[type + 's'][id] = definition;
+	        return definition;
+	      }
+	    };
+	  });
+	}
+	
+	var filterRE = /[^|]\|[^|]/;
+	
+	function dataAPI (Vue) {
+	
+	  /**
+	   * Get the value from an expression on this vm.
+	   *
+	   * @param {String} exp
+	   * @param {Boolean} [asStatement]
+	   * @return {*}
+	   */
+	
+	  Vue.prototype.$get = function (exp, asStatement) {
+	    var res = parseExpression(exp);
+	    if (res) {
+	      if (asStatement && !isSimplePath(exp)) {
+	        var self = this;
+	        return function statementHandler() {
+	          res.get.call(self, self);
+	        };
+	      } else {
+	        try {
+	          return res.get.call(this, this);
+	        } catch (e) {}
+	      }
+	    }
+	  };
+	
+	  /**
+	   * Set the value from an expression on this vm.
+	   * The expression must be a valid left-hand
+	   * expression in an assignment.
+	   *
+	   * @param {String} exp
+	   * @param {*} val
+	   */
+	
+	  Vue.prototype.$set = function (exp, val) {
+	    var res = parseExpression(exp, true);
+	    if (res && res.set) {
+	      res.set.call(this, this, val);
+	    }
+	  };
+	
+	  /**
+	   * Delete a property on the VM
+	   *
+	   * @param {String} key
+	   */
+	
+	  Vue.prototype.$delete = function (key) {
+	    del(this._data, key);
+	  };
+	
+	  /**
+	   * Watch an expression, trigger callback when its
+	   * value changes.
+	   *
+	   * @param {String|Function} expOrFn
+	   * @param {Function} cb
+	   * @param {Object} [options]
+	   *                 - {Boolean} deep
+	   *                 - {Boolean} immediate
+	   * @return {Function} - unwatchFn
+	   */
+	
+	  Vue.prototype.$watch = function (expOrFn, cb, options) {
+	    var vm = this;
+	    var parsed;
+	    if (typeof expOrFn === 'string') {
+	      parsed = parseDirective(expOrFn);
+	      expOrFn = parsed.expression;
+	    }
+	    var watcher = new Watcher(vm, expOrFn, cb, {
+	      deep: options && options.deep,
+	      filters: parsed && parsed.filters
+	    });
+	    if (options && options.immediate) {
+	      cb.call(vm, watcher.value);
+	    }
+	    return function unwatchFn() {
+	      watcher.teardown();
+	    };
+	  };
+	
+	  /**
+	   * Evaluate a text directive, including filters.
+	   *
+	   * @param {String} text
+	   * @param {Boolean} [asStatement]
+	   * @return {String}
+	   */
+	
+	  Vue.prototype.$eval = function (text, asStatement) {
+	    // check for filters.
+	    if (filterRE.test(text)) {
+	      var dir = parseDirective(text);
+	      // the filter regex check might give false positive
+	      // for pipes inside strings, so it's possible that
+	      // we don't get any filters here
+	      var val = this.$get(dir.expression, asStatement);
+	      return dir.filters ? this._applyFilters(val, null, dir.filters) : val;
+	    } else {
+	      // no filter
+	      return this.$get(text, asStatement);
+	    }
+	  };
+	
+	  /**
+	   * Interpolate a piece of template text.
+	   *
+	   * @param {String} text
+	   * @return {String}
+	   */
+	
+	  Vue.prototype.$interpolate = function (text) {
+	    var tokens = parseText(text);
+	    var vm = this;
+	    if (tokens) {
+	      if (tokens.length === 1) {
+	        return vm.$eval(tokens[0].value) + '';
+	      } else {
+	        return tokens.map(function (token) {
+	          return token.tag ? vm.$eval(token.value) : token.value;
+	        }).join('');
+	      }
+	    } else {
+	      return text;
+	    }
+	  };
+	
+	  /**
+	   * Log instance data as a plain JS object
+	   * so that it is easier to inspect in console.
+	   * This method assumes console is available.
+	   *
+	   * @param {String} [path]
+	   */
+	
+	  Vue.prototype.$log = function (path) {
+	    var data = path ? getPath(this._data, path) : this._data;
+	    if (data) {
+	      data = clean(data);
+	    }
+	    // include computed fields
+	    if (!path) {
+	      for (var key in this.$options.computed) {
+	        data[key] = clean(this[key]);
+	      }
+	    }
+	    console.log(data);
+	  };
+	
+	  /**
+	   * "clean" a getter/setter converted object into a plain
+	   * object copy.
+	   *
+	   * @param {Object} - obj
+	   * @return {Object}
+	   */
+	
+	  function clean(obj) {
+	    return JSON.parse(JSON.stringify(obj));
+	  }
+	}
+	
+	function domAPI (Vue) {
+	
+	  /**
+	   * Convenience on-instance nextTick. The callback is
+	   * auto-bound to the instance, and this avoids component
+	   * modules having to rely on the global Vue.
+	   *
+	   * @param {Function} fn
+	   */
+	
+	  Vue.prototype.$nextTick = function (fn) {
+	    nextTick(fn, this);
+	  };
+	
+	  /**
+	   * Append instance to target
+	   *
+	   * @param {Node} target
+	   * @param {Function} [cb]
+	   * @param {Boolean} [withTransition] - defaults to true
+	   */
+	
+	  Vue.prototype.$appendTo = function (target, cb, withTransition) {
+	    return insert(this, target, cb, withTransition, append, appendWithTransition);
+	  };
+	
+	  /**
+	   * Prepend instance to target
+	   *
+	   * @param {Node} target
+	   * @param {Function} [cb]
+	   * @param {Boolean} [withTransition] - defaults to true
+	   */
+	
+	  Vue.prototype.$prependTo = function (target, cb, withTransition) {
+	    target = query(target);
+	    if (target.hasChildNodes()) {
+	      this.$before(target.firstChild, cb, withTransition);
+	    } else {
+	      this.$appendTo(target, cb, withTransition);
+	    }
+	    return this;
+	  };
+	
+	  /**
+	   * Insert instance before target
+	   *
+	   * @param {Node} target
+	   * @param {Function} [cb]
+	   * @param {Boolean} [withTransition] - defaults to true
+	   */
+	
+	  Vue.prototype.$before = function (target, cb, withTransition) {
+	    return insert(this, target, cb, withTransition, beforeWithCb, beforeWithTransition);
+	  };
+	
+	  /**
+	   * Insert instance after target
+	   *
+	   * @param {Node} target
+	   * @param {Function} [cb]
+	   * @param {Boolean} [withTransition] - defaults to true
+	   */
+	
+	  Vue.prototype.$after = function (target, cb, withTransition) {
+	    target = query(target);
+	    if (target.nextSibling) {
+	      this.$before(target.nextSibling, cb, withTransition);
+	    } else {
+	      this.$appendTo(target.parentNode, cb, withTransition);
+	    }
+	    return this;
+	  };
+	
+	  /**
+	   * Remove instance from DOM
+	   *
+	   * @param {Function} [cb]
+	   * @param {Boolean} [withTransition] - defaults to true
+	   */
+	
+	  Vue.prototype.$remove = function (cb, withTransition) {
+	    if (!this.$el.parentNode) {
+	      return cb && cb();
+	    }
+	    var inDocument = this._isAttached && inDoc(this.$el);
+	    // if we are not in document, no need to check
+	    // for transitions
+	    if (!inDocument) withTransition = false;
+	    var self = this;
+	    var realCb = function realCb() {
+	      if (inDocument) self._callHook('detached');
+	      if (cb) cb();
+	    };
+	    if (this._isFragment) {
+	      removeNodeRange(this._fragmentStart, this._fragmentEnd, this, this._fragment, realCb);
+	    } else {
+	      var op = withTransition === false ? removeWithCb : removeWithTransition;
+	      op(this.$el, this, realCb);
+	    }
+	    return this;
+	  };
+	
+	  /**
+	   * Shared DOM insertion function.
+	   *
+	   * @param {Vue} vm
+	   * @param {Element} target
+	   * @param {Function} [cb]
+	   * @param {Boolean} [withTransition]
+	   * @param {Function} op1 - op for non-transition insert
+	   * @param {Function} op2 - op for transition insert
+	   * @return vm
+	   */
+	
+	  function insert(vm, target, cb, withTransition, op1, op2) {
+	    target = query(target);
+	    var targetIsDetached = !inDoc(target);
+	    var op = withTransition === false || targetIsDetached ? op1 : op2;
+	    var shouldCallHook = !targetIsDetached && !vm._isAttached && !inDoc(vm.$el);
+	    if (vm._isFragment) {
+	      mapNodeRange(vm._fragmentStart, vm._fragmentEnd, function (node) {
+	        op(node, target, vm);
+	      });
+	      cb && cb();
+	    } else {
+	      op(vm.$el, target, vm, cb);
+	    }
+	    if (shouldCallHook) {
+	      vm._callHook('attached');
+	    }
+	    return vm;
+	  }
+	
+	  /**
+	   * Check for selectors
+	   *
+	   * @param {String|Element} el
+	   */
+	
+	  function query(el) {
+	    return typeof el === 'string' ? document.querySelector(el) : el;
+	  }
+	
+	  /**
+	   * Append operation that takes a callback.
+	   *
+	   * @param {Node} el
+	   * @param {Node} target
+	   * @param {Vue} vm - unused
+	   * @param {Function} [cb]
+	   */
+	
+	  function append(el, target, vm, cb) {
+	    target.appendChild(el);
+	    if (cb) cb();
+	  }
+	
+	  /**
+	   * InsertBefore operation that takes a callback.
+	   *
+	   * @param {Node} el
+	   * @param {Node} target
+	   * @param {Vue} vm - unused
+	   * @param {Function} [cb]
+	   */
+	
+	  function beforeWithCb(el, target, vm, cb) {
+	    before(el, target);
+	    if (cb) cb();
+	  }
+	
+	  /**
+	   * Remove operation that takes a callback.
+	   *
+	   * @param {Node} el
+	   * @param {Vue} vm - unused
+	   * @param {Function} [cb]
+	   */
+	
+	  function removeWithCb(el, vm, cb) {
+	    remove(el);
+	    if (cb) cb();
+	  }
+	}
+	
+	function eventsAPI (Vue) {
+	
+	  /**
+	   * Listen on the given `event` with `fn`.
+	   *
+	   * @param {String} event
+	   * @param {Function} fn
+	   */
+	
+	  Vue.prototype.$on = function (event, fn) {
+	    (this._events[event] || (this._events[event] = [])).push(fn);
+	    modifyListenerCount(this, event, 1);
+	    return this;
+	  };
+	
+	  /**
+	   * Adds an `event` listener that will be invoked a single
+	   * time then automatically removed.
+	   *
+	   * @param {String} event
+	   * @param {Function} fn
+	   */
+	
+	  Vue.prototype.$once = function (event, fn) {
+	    var self = this;
+	    function on() {
+	      self.$off(event, on);
+	      fn.apply(this, arguments);
+	    }
+	    on.fn = fn;
+	    this.$on(event, on);
+	    return this;
+	  };
+	
+	  /**
+	   * Remove the given callback for `event` or all
+	   * registered callbacks.
+	   *
+	   * @param {String} event
+	   * @param {Function} fn
+	   */
+	
+	  Vue.prototype.$off = function (event, fn) {
+	    var cbs;
+	    // all
+	    if (!arguments.length) {
+	      if (this.$parent) {
+	        for (event in this._events) {
+	          cbs = this._events[event];
+	          if (cbs) {
+	            modifyListenerCount(this, event, -cbs.length);
+	          }
+	        }
+	      }
+	      this._events = {};
+	      return this;
+	    }
+	    // specific event
+	    cbs = this._events[event];
+	    if (!cbs) {
+	      return this;
+	    }
+	    if (arguments.length === 1) {
+	      modifyListenerCount(this, event, -cbs.length);
+	      this._events[event] = null;
+	      return this;
+	    }
+	    // specific handler
+	    var cb;
+	    var i = cbs.length;
+	    while (i--) {
+	      cb = cbs[i];
+	      if (cb === fn || cb.fn === fn) {
+	        modifyListenerCount(this, event, -1);
+	        cbs.splice(i, 1);
+	        break;
+	      }
+	    }
+	    return this;
+	  };
+	
+	  /**
+	   * Trigger an event on self.
+	   *
+	   * @param {String} event
+	   * @return {Boolean} shouldPropagate
+	   */
+	
+	  Vue.prototype.$emit = function (event) {
+	    var cbs = this._events[event];
+	    var shouldPropagate = !cbs;
+	    if (cbs) {
+	      cbs = cbs.length > 1 ? toArray(cbs) : cbs;
+	      var args = toArray(arguments, 1);
+	      for (var i = 0, l = cbs.length; i < l; i++) {
+	        var res = cbs[i].apply(this, args);
+	        if (res === true) {
+	          shouldPropagate = true;
+	        }
+	      }
+	    }
+	    return shouldPropagate;
+	  };
+	
+	  /**
+	   * Recursively broadcast an event to all children instances.
+	   *
+	   * @param {String} event
+	   * @param {...*} additional arguments
+	   */
+	
+	  Vue.prototype.$broadcast = function (event) {
+	    // if no child has registered for this event,
+	    // then there's no need to broadcast.
+	    if (!this._eventsCount[event]) return;
+	    var children = this.$children;
+	    for (var i = 0, l = children.length; i < l; i++) {
+	      var child = children[i];
+	      var shouldPropagate = child.$emit.apply(child, arguments);
+	      if (shouldPropagate) {
+	        child.$broadcast.apply(child, arguments);
+	      }
+	    }
+	    return this;
+	  };
+	
+	  /**
+	   * Recursively propagate an event up the parent chain.
+	   *
+	   * @param {String} event
+	   * @param {...*} additional arguments
+	   */
+	
+	  Vue.prototype.$dispatch = function () {
+	    this.$emit.apply(this, arguments);
+	    var parent = this.$parent;
+	    while (parent) {
+	      var shouldPropagate = parent.$emit.apply(parent, arguments);
+	      parent = shouldPropagate ? parent.$parent : null;
+	    }
+	    return this;
+	  };
+	
+	  /**
+	   * Modify the listener counts on all parents.
+	   * This bookkeeping allows $broadcast to return early when
+	   * no child has listened to a certain event.
+	   *
+	   * @param {Vue} vm
+	   * @param {String} event
+	   * @param {Number} count
+	   */
+	
+	  var hookRE = /^hook:/;
+	  function modifyListenerCount(vm, event, count) {
+	    var parent = vm.$parent;
+	    // hooks do not get broadcasted so no need
+	    // to do bookkeeping for them
+	    if (!parent || !count || hookRE.test(event)) return;
+	    while (parent) {
+	      parent._eventsCount[event] = (parent._eventsCount[event] || 0) + count;
+	      parent = parent.$parent;
+	    }
+	  }
+	}
+	
+	function lifecycleAPI (Vue) {
+	
+	  /**
+	   * Set instance target element and kick off the compilation
+	   * process. The passed in `el` can be a selector string, an
+	   * existing Element, or a DocumentFragment (for block
+	   * instances).
+	   *
+	   * @param {Element|DocumentFragment|string} el
+	   * @public
+	   */
+	
+	  Vue.prototype.$mount = function (el) {
+	    if (this._isCompiled) {
+	      process.env.NODE_ENV !== 'production' && warn('$mount() should be called only once.');
+	      return;
+	    }
+	    el = query(el);
+	    if (!el) {
+	      el = document.createElement('div');
+	    }
+	    this._compile(el);
+	    this._initDOMHooks();
+	    if (inDoc(this.$el)) {
+	      this._callHook('attached');
+	      ready.call(this);
+	    } else {
+	      this.$once('hook:attached', ready);
+	    }
+	    return this;
+	  };
+	
+	  /**
+	   * Mark an instance as ready.
+	   */
+	
+	  function ready() {
+	    this._isAttached = true;
+	    this._isReady = true;
+	    this._callHook('ready');
+	  }
+	
+	  /**
+	   * Teardown the instance, simply delegate to the internal
+	   * _destroy.
+	   */
+	
+	  Vue.prototype.$destroy = function (remove, deferCleanup) {
+	    this._destroy(remove, deferCleanup);
+	  };
+	
+	  /**
+	   * Partially compile a piece of DOM and return a
+	   * decompile function.
+	   *
+	   * @param {Element|DocumentFragment} el
+	   * @param {Vue} [host]
+	   * @return {Function}
+	   */
+	
+	  Vue.prototype.$compile = function (el, host, scope, frag) {
+	    return compile(el, this.$options, true)(this, el, host, scope, frag);
+	  };
+	}
+	
+	/**
+	 * The exposed Vue constructor.
+	 *
+	 * API conventions:
+	 * - public API methods/properties are prefixed with `$`
+	 * - internal methods/properties are prefixed with `_`
+	 * - non-prefixed properties are assumed to be proxied user
+	 *   data.
+	 *
+	 * @constructor
+	 * @param {Object} [options]
+	 * @public
+	 */
+	
+	function Vue(options) {
+	  this._init(options);
+	}
+	
+	// install internals
+	initMixin(Vue);
+	stateMixin(Vue);
+	eventsMixin(Vue);
+	lifecycleMixin(Vue);
+	miscMixin(Vue);
+	
+	// install APIs
+	globalAPI(Vue);
+	dataAPI(Vue);
+	domAPI(Vue);
+	eventsAPI(Vue);
+	lifecycleAPI(Vue);
+	
+	var convertArray = vFor._postProcess;
+	
+	/**
+	 * Limit filter for arrays
+	 *
+	 * @param {Number} n
+	 * @param {Number} offset (Decimal expected)
+	 */
+	
+	function limitBy(arr, n, offset) {
+	  offset = offset ? parseInt(offset, 10) : 0;
+	  return typeof n === 'number' ? arr.slice(offset, offset + n) : arr;
+	}
+	
+	/**
+	 * Filter filter for arrays
+	 *
+	 * @param {String} search
+	 * @param {String} [delimiter]
+	 * @param {String} ...dataKeys
+	 */
+	
+	function filterBy(arr, search, delimiter) {
+	  arr = convertArray(arr);
+	  if (search == null) {
+	    return arr;
+	  }
+	  if (typeof search === 'function') {
+	    return arr.filter(search);
+	  }
+	  // cast to lowercase string
+	  search = ('' + search).toLowerCase();
+	  // allow optional `in` delimiter
+	  // because why not
+	  var n = delimiter === 'in' ? 3 : 2;
+	  // extract and flatten keys
+	  var keys = toArray(arguments, n).reduce(function (prev, cur) {
+	    return prev.concat(cur);
+	  }, []);
+	  var res = [];
+	  var item, key, val, j;
+	  for (var i = 0, l = arr.length; i < l; i++) {
+	    item = arr[i];
+	    val = item && item.$value || item;
+	    j = keys.length;
+	    if (j) {
+	      while (j--) {
+	        key = keys[j];
+	        if (key === '$key' && contains(item.$key, search) || contains(getPath(val, key), search)) {
+	          res.push(item);
+	          break;
+	        }
+	      }
+	    } else if (contains(item, search)) {
+	      res.push(item);
+	    }
+	  }
+	  return res;
+	}
+	
+	/**
+	 * Filter filter for arrays
+	 *
+	 * @param {String} sortKey
+	 * @param {String} reverse
+	 */
+	
+	function orderBy(arr, sortKey, reverse) {
+	  arr = convertArray(arr);
+	  if (!sortKey) {
+	    return arr;
+	  }
+	  var order = reverse && reverse < 0 ? -1 : 1;
+	  // sort on a copy to avoid mutating original array
+	  return arr.slice().sort(function (a, b) {
+	    if (sortKey !== '$key') {
+	      if (isObject(a) && '$value' in a) a = a.$value;
+	      if (isObject(b) && '$value' in b) b = b.$value;
+	    }
+	    a = isObject(a) ? getPath(a, sortKey) : a;
+	    b = isObject(b) ? getPath(b, sortKey) : b;
+	    return a === b ? 0 : a > b ? order : -order;
+	  });
+	}
+	
+	/**
+	 * String contain helper
+	 *
+	 * @param {*} val
+	 * @param {String} search
+	 */
+	
+	function contains(val, search) {
+	  var i;
+	  if (isPlainObject(val)) {
+	    var keys = Object.keys(val);
+	    i = keys.length;
+	    while (i--) {
+	      if (contains(val[keys[i]], search)) {
+	        return true;
+	      }
+	    }
+	  } else if (isArray(val)) {
+	    i = val.length;
+	    while (i--) {
+	      if (contains(val[i], search)) {
+	        return true;
+	      }
+	    }
+	  } else if (val != null) {
+	    return val.toString().toLowerCase().indexOf(search) > -1;
+	  }
+	}
+	
+	var digitsRE = /(\d{3})(?=\d)/g;
+	
+	// asset collections must be a plain object.
+	var filters = {
+	
+	  orderBy: orderBy,
+	  filterBy: filterBy,
+	  limitBy: limitBy,
+	
+	  /**
+	   * Stringify value.
+	   *
+	   * @param {Number} indent
+	   */
+	
+	  json: {
+	    read: function read(value, indent) {
+	      return typeof value === 'string' ? value : JSON.stringify(value, null, Number(indent) || 2);
+	    },
+	    write: function write(value) {
+	      try {
+	        return JSON.parse(value);
+	      } catch (e) {
+	        return value;
+	      }
+	    }
+	  },
+	
+	  /**
+	   * 'abc' => 'Abc'
+	   */
+	
+	  capitalize: function capitalize(value) {
+	    if (!value && value !== 0) return '';
+	    value = value.toString();
+	    return value.charAt(0).toUpperCase() + value.slice(1);
+	  },
+	
+	  /**
+	   * 'abc' => 'ABC'
+	   */
+	
+	  uppercase: function uppercase(value) {
+	    return value || value === 0 ? value.toString().toUpperCase() : '';
+	  },
+	
+	  /**
+	   * 'AbC' => 'abc'
+	   */
+	
+	  lowercase: function lowercase(value) {
+	    return value || value === 0 ? value.toString().toLowerCase() : '';
+	  },
+	
+	  /**
+	   * 12345 => $12,345.00
+	   *
+	   * @param {String} sign
+	   */
+	
+	  currency: function currency(value, _currency) {
+	    value = parseFloat(value);
+	    if (!isFinite(value) || !value && value !== 0) return '';
+	    _currency = _currency != null ? _currency : '$';
+	    var stringified = Math.abs(value).toFixed(2);
+	    var _int = stringified.slice(0, -3);
+	    var i = _int.length % 3;
+	    var head = i > 0 ? _int.slice(0, i) + (_int.length > 3 ? ',' : '') : '';
+	    var _float = stringified.slice(-3);
+	    var sign = value < 0 ? '-' : '';
+	    return _currency + sign + head + _int.slice(i).replace(digitsRE, '$1,') + _float;
+	  },
+	
+	  /**
+	   * 'item' => 'items'
+	   *
+	   * @params
+	   *  an array of strings corresponding to
+	   *  the single, double, triple ... forms of the word to
+	   *  be pluralized. When the number to be pluralized
+	   *  exceeds the length of the args, it will use the last
+	   *  entry in the array.
+	   *
+	   *  e.g. ['single', 'double', 'triple', 'multiple']
+	   */
+	
+	  pluralize: function pluralize(value) {
+	    var args = toArray(arguments, 1);
+	    return args.length > 1 ? args[value % 10 - 1] || args[args.length - 1] : args[0] + (value === 1 ? '' : 's');
+	  },
+	
+	  /**
+	   * Debounce a handler function.
+	   *
+	   * @param {Function} handler
+	   * @param {Number} delay = 300
+	   * @return {Function}
+	   */
+	
+	  debounce: function debounce(handler, delay) {
+	    if (!handler) return;
+	    if (!delay) {
+	      delay = 300;
+	    }
+	    return _debounce(handler, delay);
+	  }
+	};
+	
+	var partial = {
+	
+	  priority: 1750,
+	
+	  params: ['name'],
+	
+	  // watch changes to name for dynamic partials
+	  paramWatchers: {
+	    name: function name(value) {
+	      vIf.remove.call(this);
+	      if (value) {
+	        this.insert(value);
+	      }
+	    }
+	  },
+	
+	  bind: function bind() {
+	    this.anchor = createAnchor('v-partial');
+	    replace(this.el, this.anchor);
+	    this.insert(this.params.name);
+	  },
+	
+	  insert: function insert(id) {
+	    var partial = resolveAsset(this.vm.$options, 'partials', id);
+	    if (process.env.NODE_ENV !== 'production') {
+	      assertAsset(partial, 'partial', id);
+	    }
+	    if (partial) {
+	      this.factory = new FragmentFactory(this.vm, partial);
+	      vIf.insert.call(this);
+	    }
+	  },
+	
+	  unbind: function unbind() {
+	    if (this.frag) {
+	      this.frag.destroy();
+	    }
+	  }
+	};
+	
+	// This is the elementDirective that handles <content>
+	// transclusions. It relies on the raw content of an
+	// instance being stored as `$options._content` during
+	// the transclude phase.
+	
+	var slot = {
+	
+	  priority: 1750,
+	
+	  params: ['name'],
+	
+	  bind: function bind() {
+	    var host = this.vm;
+	    var raw = host.$options._content;
+	    var content;
+	    if (!raw) {
+	      this.fallback();
+	      return;
+	    }
+	    var context = host._context;
+	    var slotName = this.params.name;
+	    if (!slotName) {
+	      // Default content
+	      var self = this;
+	      var compileDefaultContent = function compileDefaultContent() {
+	        self.compile(extractFragment(raw.childNodes, raw, true), context, host);
+	      };
+	      if (!host._isCompiled) {
+	        // defer until the end of instance compilation,
+	        // because the default outlet must wait until all
+	        // other possible outlets with selectors have picked
+	        // out their contents.
+	        host.$once('hook:compiled', compileDefaultContent);
+	      } else {
+	        compileDefaultContent();
+	      }
+	    } else {
+	      var selector = '[slot="' + slotName + '"]';
+	      var nodes = raw.querySelectorAll(selector);
+	      if (nodes.length) {
+	        content = extractFragment(nodes, raw);
+	        if (content.hasChildNodes()) {
+	          this.compile(content, context, host);
+	        } else {
+	          this.fallback();
+	        }
+	      } else {
+	        this.fallback();
+	      }
+	    }
+	  },
+	
+	  fallback: function fallback() {
+	    this.compile(extractContent(this.el, true), this.vm);
+	  },
+	
+	  compile: function compile(content, context, host) {
+	    if (content && context) {
+	      var scope = host ? host._scope : this._scope;
+	      this.unlink = context.$compile(content, host, scope, this._frag);
+	    }
+	    if (content) {
+	      replace(this.el, content);
+	    } else {
+	      remove(this.el);
+	    }
+	  },
+	
+	  unbind: function unbind() {
+	    if (this.unlink) {
+	      this.unlink();
+	    }
+	  }
+	};
+	
+	/**
+	 * Extract qualified content nodes from a node list.
+	 *
+	 * @param {NodeList} nodes
+	 * @param {Element} parent
+	 * @param {Boolean} main
+	 * @return {DocumentFragment}
+	 */
+	
+	function extractFragment(nodes, parent, main) {
+	  var frag = document.createDocumentFragment();
+	  for (var i = 0, l = nodes.length; i < l; i++) {
+	    var node = nodes[i];
+	    // if this is the main outlet, we want to skip all
+	    // previously selected nodes;
+	    // otherwise, we want to mark the node as selected.
+	    // clone the node so the original raw content remains
+	    // intact. this ensures proper re-compilation in cases
+	    // where the outlet is inside a conditional block
+	    if (main && !node.__v_selected) {
+	      append(node);
+	    } else if (!main && node.parentNode === parent) {
+	      node.__v_selected = true;
+	      append(node);
+	    }
+	  }
+	  return frag;
+	
+	  function append(node) {
+	    if (isTemplate(node) && !node.hasAttribute('v-if') && !node.hasAttribute('v-for')) {
+	      node = parseTemplate(node);
+	    }
+	    node = cloneNode(node);
+	    frag.appendChild(node);
+	  }
+	}
+	
+	var elementDirectives = {
+	  slot: slot,
+	  partial: partial
+	};
+	
+	Vue.version = '1.0.10';
+	
+	/**
+	 * Vue and every constructor that extends Vue has an
+	 * associated options object, which can be accessed during
+	 * compilation steps as `this.constructor.options`.
+	 *
+	 * These can be seen as the default options of every
+	 * Vue instance.
+	 */
+	
+	Vue.options = {
+	  directives: publicDirectives,
+	  elementDirectives: elementDirectives,
+	  filters: filters,
+	  transitions: {},
+	  components: {},
+	  partials: {},
+	  replace: true
+	};
+	
+	// devtools global hook
+	/* istanbul ignore if */
+	if (process.env.NODE_ENV !== 'production') {
+	  if (inBrowser && window.__VUE_DEVTOOLS_GLOBAL_HOOK__) {
+	    window.__VUE_DEVTOOLS_GLOBAL_HOOK__.emit('init', Vue);
+	  }
+	}
+	
+	module.exports = Vue;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
+
+/***/ },
+/* 7 */
+/***/ function(module, exports) {
+
+	// shim for using process in browser
+	
+	var process = module.exports = {};
+	var queue = [];
+	var draining = false;
+	var currentQueue;
+	var queueIndex = -1;
+	
+	function cleanUpNextTick() {
+	    draining = false;
+	    if (currentQueue.length) {
+	        queue = currentQueue.concat(queue);
+	    } else {
+	        queueIndex = -1;
+	    }
+	    if (queue.length) {
+	        drainQueue();
+	    }
+	}
+	
+	function drainQueue() {
+	    if (draining) {
+	        return;
+	    }
+	    var timeout = setTimeout(cleanUpNextTick);
+	    draining = true;
+	
+	    var len = queue.length;
+	    while(len) {
+	        currentQueue = queue;
+	        queue = [];
+	        while (++queueIndex < len) {
+	            if (currentQueue) {
+	                currentQueue[queueIndex].run();
+	            }
+	        }
+	        queueIndex = -1;
+	        len = queue.length;
+	    }
+	    currentQueue = null;
+	    draining = false;
+	    clearTimeout(timeout);
+	}
+	
+	process.nextTick = function (fun) {
+	    var args = new Array(arguments.length - 1);
+	    if (arguments.length > 1) {
+	        for (var i = 1; i < arguments.length; i++) {
+	            args[i - 1] = arguments[i];
+	        }
+	    }
+	    queue.push(new Item(fun, args));
+	    if (queue.length === 1 && !draining) {
+	        setTimeout(drainQueue, 0);
+	    }
+	};
+	
+	// v8 likes predictible objects
+	function Item(fun, array) {
+	    this.fun = fun;
+	    this.array = array;
+	}
+	Item.prototype.run = function () {
+	    this.fun.apply(null, this.array);
+	};
+	process.title = 'browser';
+	process.browser = true;
+	process.env = {};
+	process.argv = [];
+	process.version = ''; // empty string to avoid regexp issues
+	process.versions = {};
+	
+	function noop() {}
+	
+	process.on = noop;
+	process.addListener = noop;
+	process.once = noop;
+	process.off = noop;
+	process.removeListener = noop;
+	process.removeAllListeners = noop;
+	process.emit = noop;
+	
+	process.binding = function (name) {
+	    throw new Error('process.binding is not supported');
+	};
+	
+	process.cwd = function () { return '/' };
+	process.chdir = function (dir) {
+	    throw new Error('process.chdir is not supported');
+	};
+	process.umask = function() { return 0; };
+
+
+/***/ },
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(9)
+	module.exports = __webpack_require__(13)
+	
+	if (module.exports.__esModule) module.exports = module.exports.default
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(24)
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "/home/zhouwei3-xy/vue-component/src/area/area.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+	  }
+	})()}
+
+/***/ },
+/* 9 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(10);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(12)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-71683e02&file=area.vue!./../../node_modules/sass-loader/index.js!./area.scss", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-71683e02&file=area.vue!./../../node_modules/sass-loader/index.js!./area.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 10 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(11)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".area-picker-wrap {\n  color: #666;\n  font-size: 12px;\n  width: 760px;\n  padding: 15px; }\n  .area-picker-wrap .area {\n    border-bottom: #ccc 1px dashed;\n    clear: both;\n    padding: 8px 0; }\n    .area-picker-wrap .area.last {\n      border-bottom: none;\n      margin-bottom: 10px; }\n    .area-picker-wrap .area .fl {\n      float: left;\n      height: 16px;\n      line-height: 16px;\n      margin-top: 2px; }\n    .area-picker-wrap .area dl {\n      width: auto;\n      margin-left: 40px; }\n    .area-picker-wrap .area dd {\n      width: 160px;\n      display: inline-block;\n      margin: 0 0 0 10px;\n      position: relative;\n      height: 16px;\n      line-height: 16px; }\n      .area-picker-wrap .area dd:hover .citys {\n        display: block; }\n  .area-picker-wrap .citys {\n    display: none;\n    width: 234%;\n    position: absolute;\n    z-index: 1;\n    background: #f2f2f2;\n    border: 1px solid #999; }\n    .area-picker-wrap .citys h4 {\n      border-bottom: 1px solid #999;\n      padding: 5px; }\n    .area-picker-wrap .citys ul {\n      overflow: hidden;\n      padding: 10px; }\n    .area-picker-wrap .citys li {\n      float: left;\n      margin: 0 10px 0 0;\n      min-width: 100px; }\n  .area-picker-wrap .submit-wrap {\n    text-align: center; }\n", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 11 */
+/***/ function(module, exports) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	// css base code, injected by the css-loader
+	module.exports = function() {
+		var list = [];
+	
+		// return the list of modules as css string
+		list.toString = function toString() {
+			var result = [];
+			for(var i = 0; i < this.length; i++) {
+				var item = this[i];
+				if(item[2]) {
+					result.push("@media " + item[2] + "{" + item[1] + "}");
+				} else {
+					result.push(item[1]);
+				}
+			}
+			return result.join("");
+		};
+	
+		// import a list of modules into the list
+		list.i = function(modules, mediaQuery) {
+			if(typeof modules === "string")
+				modules = [[null, modules, ""]];
+			var alreadyImportedModules = {};
+			for(var i = 0; i < this.length; i++) {
+				var id = this[i][0];
+				if(typeof id === "number")
+					alreadyImportedModules[id] = true;
+			}
+			for(i = 0; i < modules.length; i++) {
+				var item = modules[i];
+				// skip already imported module
+				// this implementation is not 100% perfect for weird media query combinations
+				//  when a module is imported multiple times with different media queries.
+				//  I hope this will never occur (Hey this way we have smaller bundles)
+				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+					if(mediaQuery && !item[2]) {
+						item[2] = mediaQuery;
+					} else if(mediaQuery) {
+						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+					}
+					list.push(item);
+				}
+			}
+		};
+		return list;
+	};
+
+
+/***/ },
+/* 12 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/*
+		MIT License http://www.opensource.org/licenses/mit-license.php
+		Author Tobias Koppers @sokra
+	*/
+	var stylesInDom = {},
+		memoize = function(fn) {
+			var memo;
+			return function () {
+				if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+				return memo;
+			};
+		},
+		isOldIE = memoize(function() {
+			return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
+		}),
+		getHeadElement = memoize(function () {
+			return document.head || document.getElementsByTagName("head")[0];
+		}),
+		singletonElement = null,
+		singletonCounter = 0,
+		styleElementsInsertedAtTop = [];
+	
+	module.exports = function(list, options) {
+		if(false) {
+			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+		}
+	
+		options = options || {};
+		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+		// tags it will allow on a page
+		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
+	
+		// By default, add <style> tags to the bottom of <head>.
+		if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
+	
+		var styles = listToStyles(list);
+		addStylesToDom(styles, options);
+	
+		return function update(newList) {
+			var mayRemove = [];
+			for(var i = 0; i < styles.length; i++) {
+				var item = styles[i];
+				var domStyle = stylesInDom[item.id];
+				domStyle.refs--;
+				mayRemove.push(domStyle);
+			}
+			if(newList) {
+				var newStyles = listToStyles(newList);
+				addStylesToDom(newStyles, options);
+			}
+			for(var i = 0; i < mayRemove.length; i++) {
+				var domStyle = mayRemove[i];
+				if(domStyle.refs === 0) {
+					for(var j = 0; j < domStyle.parts.length; j++)
+						domStyle.parts[j]();
+					delete stylesInDom[domStyle.id];
+				}
+			}
+		};
+	}
+	
+	function addStylesToDom(styles, options) {
+		for(var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+			if(domStyle) {
+				domStyle.refs++;
+				for(var j = 0; j < domStyle.parts.length; j++) {
+					domStyle.parts[j](item.parts[j]);
+				}
+				for(; j < item.parts.length; j++) {
+					domStyle.parts.push(addStyle(item.parts[j], options));
+				}
+			} else {
+				var parts = [];
+				for(var j = 0; j < item.parts.length; j++) {
+					parts.push(addStyle(item.parts[j], options));
+				}
+				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+			}
+		}
+	}
+	
+	function listToStyles(list) {
+		var styles = [];
+		var newStyles = {};
+		for(var i = 0; i < list.length; i++) {
+			var item = list[i];
+			var id = item[0];
+			var css = item[1];
+			var media = item[2];
+			var sourceMap = item[3];
+			var part = {css: css, media: media, sourceMap: sourceMap};
+			if(!newStyles[id])
+				styles.push(newStyles[id] = {id: id, parts: [part]});
+			else
+				newStyles[id].parts.push(part);
+		}
+		return styles;
+	}
+	
+	function insertStyleElement(options, styleElement) {
+		var head = getHeadElement();
+		var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
+		if (options.insertAt === "top") {
+			if(!lastStyleElementInsertedAtTop) {
+				head.insertBefore(styleElement, head.firstChild);
+			} else if(lastStyleElementInsertedAtTop.nextSibling) {
+				head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
+			} else {
+				head.appendChild(styleElement);
+			}
+			styleElementsInsertedAtTop.push(styleElement);
+		} else if (options.insertAt === "bottom") {
+			head.appendChild(styleElement);
+		} else {
+			throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
+		}
+	}
+	
+	function removeStyleElement(styleElement) {
+		styleElement.parentNode.removeChild(styleElement);
+		var idx = styleElementsInsertedAtTop.indexOf(styleElement);
+		if(idx >= 0) {
+			styleElementsInsertedAtTop.splice(idx, 1);
+		}
+	}
+	
+	function createStyleElement(options) {
+		var styleElement = document.createElement("style");
+		styleElement.type = "text/css";
+		insertStyleElement(options, styleElement);
+		return styleElement;
+	}
+	
+	function createLinkElement(options) {
+		var linkElement = document.createElement("link");
+		linkElement.rel = "stylesheet";
+		insertStyleElement(options, linkElement);
+		return linkElement;
+	}
+	
+	function addStyle(obj, options) {
+		var styleElement, update, remove;
+	
+		if (options.singleton) {
+			var styleIndex = singletonCounter++;
+			styleElement = singletonElement || (singletonElement = createStyleElement(options));
+			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
+			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
+		} else if(obj.sourceMap &&
+			typeof URL === "function" &&
+			typeof URL.createObjectURL === "function" &&
+			typeof URL.revokeObjectURL === "function" &&
+			typeof Blob === "function" &&
+			typeof btoa === "function") {
+			styleElement = createLinkElement(options);
+			update = updateLink.bind(null, styleElement);
+			remove = function() {
+				removeStyleElement(styleElement);
+				if(styleElement.href)
+					URL.revokeObjectURL(styleElement.href);
+			};
+		} else {
+			styleElement = createStyleElement(options);
+			update = applyToTag.bind(null, styleElement);
+			remove = function() {
+				removeStyleElement(styleElement);
+			};
+		}
+	
+		update(obj);
+	
+		return function updateStyle(newObj) {
+			if(newObj) {
+				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
+					return;
+				update(obj = newObj);
+			} else {
+				remove();
+			}
+		};
+	}
+	
+	var replaceText = (function () {
+		var textStore = [];
+	
+		return function (index, replacement) {
+			textStore[index] = replacement;
+			return textStore.filter(Boolean).join('\n');
+		};
+	})();
+	
+	function applyToSingletonTag(styleElement, index, remove, obj) {
+		var css = remove ? "" : obj.css;
+	
+		if (styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = replaceText(index, css);
+		} else {
+			var cssNode = document.createTextNode(css);
+			var childNodes = styleElement.childNodes;
+			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
+			if (childNodes.length) {
+				styleElement.insertBefore(cssNode, childNodes[index]);
+			} else {
+				styleElement.appendChild(cssNode);
+			}
+		}
+	}
+	
+	function applyToTag(styleElement, obj) {
+		var css = obj.css;
+		var media = obj.media;
+		var sourceMap = obj.sourceMap;
+	
+		if(media) {
+			styleElement.setAttribute("media", media)
+		}
+	
+		if(styleElement.styleSheet) {
+			styleElement.styleSheet.cssText = css;
+		} else {
+			while(styleElement.firstChild) {
+				styleElement.removeChild(styleElement.firstChild);
+			}
+			styleElement.appendChild(document.createTextNode(css));
+		}
+	}
+	
+	function updateLink(linkElement, obj) {
+		var css = obj.css;
+		var media = obj.media;
+		var sourceMap = obj.sourceMap;
+	
+		if(sourceMap) {
+			// http://stackoverflow.com/a/26603875
+			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+		}
+	
+		var blob = new Blob([css], { type: "text/css" });
+	
+		var oldSrc = linkElement.href;
+	
+		linkElement.href = URL.createObjectURL(blob);
+	
+		if(oldSrc)
+			URL.revokeObjectURL(oldSrc);
+	}
+
+
+/***/ },
+/* 13 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _stringify = __webpack_require__(14);
+	
+	var _stringify2 = _interopRequireDefault(_stringify);
+	
+	var _vue = __webpack_require__(6);
+	
+	var _vue2 = _interopRequireDefault(_vue);
+	
+	var _dialog = __webpack_require__(17);
+	
+	var _dialog2 = _interopRequireDefault(_dialog);
+	
+	var _areacode = __webpack_require__(23);
+	
+	var _areacode2 = _interopRequireDefault(_areacode);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	_vue2.default.filter('checkedLenFilter', function (arr) {
+	    return arr.filter(function (city) {
+	        return city.checked;
+	    }).length;
+	}); // <template>
+	// <div>
+	//     <a class="btn btn-primary" @click="showDialog" href="javascript:;">选择城市</a>
+	//     <dialog :visible.sync="dialogVisible" title="选择城市">
+	//         <div class="area-picker-wrap">
+	//             <div class="area-picker-ctn">
+	//                 <div class="area" v-for="area in areacode">
+	//                     <div class="fl">
+	//                         <label>
+	//                             <input @change="syncArea(area, $event)" v-model="checkedAreas" type="checkbox" value={{area.id}}>
+	//                             {{area.name}}
+	//                         </label>
+	//                     </div>
+	//                     <dl>
+	//                         <dd v-for="pro in area.province">
+	//                             <label>
+	//                                 <input @change="syncProvince(pro, $event)" v-model="checkedProvinces" type="checkbox" value={{pro.id}}>
+	//                                 {{pro.name}}(<span>{{pro.citys | checkedLenFilter}}</span>/<span>{{pro.citys.length}}</span>)
+	//                             </label>
+	//                             <div class="citys">
+	//                                 <h4>{{pro.name}}</h4>
+	//                                 <ul>
+	//                                     <li v-for="city in pro.citys">
+	//                                         <label>
+	//                                             <input @change="syncCity(city, $event)" v-model="checkedCitys" type="checkbox" value="{{city.id}}">
+	//                                             {{city.name}}
+	//                                         </label>
+	//                                     </li>
+	//                                 </ul>
+	//                             </div>
+	//                         </dd>
+	//                     </dl>
+	//                 </div>
+	//                 <div class="area last">
+	//                     <label>
+	//                         <input @change="init('0', $event)" type="checkbox" checked="{{checkedAll}}">
+	//                         全部
+	//                     </label>
+	//                 </div>
+	//             </div>
+	//             <div class="time-picker-submit-wrap">
+	//                 <a class="btn btn-primary" href="javascript:;" @click.prevent="confirm">确定</a>
+	//                 <a class="btn btn-default" href="javascript:;" @click.prevent="cancel">取消</a>
+	//             </div>
+	//         </div>
+	//     </dialog>
+	// </div>
+	// </template>
+	
+	// <script>
+	
+	exports.default = {
+	    props: {
+	        initcities: {
+	            default: '0' //0: select all citys, '1,3,34' array: select this citys
+	        }
+	    },
+	    computed: {
+	        checkedAll: function checkedAll() {
+	            return this.checkedAreas.length == this.areacode.length;
+	        }
+	    },
+	    data: function data() {
+	        return {
+	            dialogVisible: false, //组件Dialog默认不弹出
+	            areacode: JSON.parse((0, _stringify2.default)(_areacode2.default)),
+	            checkedAreas: [], //checked areas list
+	            checkedProvinces: [], //checked provinces list
+	            checkedCitys: [], //checked citys list
+	            backupCitys: '' //back up checked citys
+	        };
+	    },
+	
+	    components: {
+	        dialog: _dialog2.default //依赖组件Dialog
+	    },
+	    created: function created() {
+	        this.init(this.initcities); //初始化默认选中的城市
+	    },
+	
+	    methods: {
+	        init: function init(cityList, event) {
+	            //初始化选中城市，以及处理“全部”按钮的点击事件
+	            var me = this;
+	            var bool = event ? event.target.checked : true;
+	            var initAll = cityList == '0' && bool ? true : false;
+	            cityList = cityList.split(',');
+	            me.areacode.map(function (area) {
+	                var selectPros = 0;
+	                area.province.map(function (province) {
+	                    var selectCitys = 0;
+	                    province.citys.map(function (city) {
+	                        if (initAll || cityList.indexOf(city.id) > -1) {
+	                            me.syncCheckedList(me.checkedCitys, city, initAll ? bool : true);
+	                            selectCitys += 1;
+	                        } else {
+	                            me.syncCheckedList(me.checkedCitys, city, false);
+	                        }
+	                    });
+	                    if (selectCitys == province.citys.length) {
+	                        me.syncCheckedList(me.checkedProvinces, province, true);
+	                        selectPros += 1;
+	                    } else {
+	                        me.syncCheckedList(me.checkedProvinces, province, false);
+	                    }
+	                });
+	                me.syncCheckedList(me.checkedAreas, area, selectPros == area.province.length);
+	            });
+	            !event && (this.areacode = JSON.parse((0, _stringify2.default)(this.areacode))); //初始化之后，刷新数组
+	        },
+	        syncArea: function syncArea(carea, event) {
+	            //点击“华东”华北“等区域的事件处理函数
+	            var me = this;
+	            var bool = event ? event.target.checked : true;
+	            me.areacode.forEach(function (area) {
+	                if (area.id == carea.id) {
+	                    area.province.map(function (province) {
+	                        me.syncCheckedList(me.checkedProvinces, province, bool);
+	                        province.citys.map(function (city) {
+	                            type = "text/javascript";
+	                            me.syncCheckedList(me.checkedCitys, city, bool);
+	                        });
+	                    });
+	                }
+	            });
+	            this.areacode = JSON.parse((0, _stringify2.default)(this.areacode));
+	        },
+	        syncProvince: function syncProvince(cpro, event, proSelected) {
+	            //点击”省份“
+	            var me = this;
+	            var bool = event ? event.target.checked : proSelected;
+	            me.syncCheckedList(me.checkedProvinces, cpro, typeof proSelected != 'undefined' ? proSelected : bool);
+	            me.areacode.forEach(function (area) {
+	                var selectedPros = 0;
+	                area.province.forEach(function (province) {
+	                    if (province.id == cpro.id) {
+	                        if (typeof proSelected == 'undefined') {
+	                            province.citys.map(function (city) {
+	                                me.syncCheckedList(me.checkedCitys, city, bool);
+	                            });
+	                        }
+	                        province.checked = bool;
+	                    }
+	                    selectedPros += +province.checked;
+	                });
+	                me.syncCheckedList(me.checkedAreas, area, selectedPros == area.province.length);
+	            });
+	        },
+	        syncCity: function syncCity(ccity, event) {
+	            //点击”城市
+	            var me = this;
+	            var bool = event ? event.target.checked : true;
+	            me.areacode.forEach(function (area) {
+	                //判断该城市所属省份的其他城市是否都已选，若都已选则选中该省份的checkbox
+	                area.province.forEach(function (province) {
+	                    var selectedCitys = 0;
+	                    province.citys.forEach(function (city) {
+	                        if (city.id == ccity.id) {
+	                            me.syncCheckedList(me.checkedCitys, city, bool);
+	                        }
+	                        selectedCitys += +city.checked;
+	                    });
+	                    me.syncProvince(province, null, selectedCitys == province.citys.length);
+	                });
+	            });
+	        },
+	        syncCheckedList: function syncCheckedList(array, item, bool) {
+	            item.checked = bool;
+	            var index = array.indexOf(item.id);
+	            bool && index < 0 ? array.push(item.id) : '';
+	            !bool && index >= 0 ? array.splice(index, 1) : '';
+	        },
+	        showDialog: function showDialog() {
+	            this.dialogVisible = true;
+	            this.init(this.checkedCitys.join(','));
+	            this.backupCitys = JSON.parse((0, _stringify2.default)(this.checkedCitys));
+	        },
+	        confirm: function confirm() {
+	            this.dialogVisible = false;
+	            this.$dispatch('confirm', this.checkedCitys);
+	        },
+	        cancel: function cancel() {
+	            this.dialogVisible = false;
+	            this.checkedCitys = JSON.parse((0, _stringify2.default)(this.backupCitys));
+	        }
+	    }
+	};
+	// </script>
+
+	// <style lang="sass" src="./area.scss"></style>
+
+/***/ },
+/* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = { "default": __webpack_require__(15), __esModule: true };
+
+/***/ },
+/* 15 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var core = __webpack_require__(16);
+	module.exports = function stringify(it){ // eslint-disable-line no-unused-vars
+	  return (core.JSON && core.JSON.stringify || JSON.stringify).apply(JSON, arguments);
+	};
+
+/***/ },
+/* 16 */
+/***/ function(module, exports) {
+
+	var core = module.exports = {version: '1.2.6'};
+	if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
+
+/***/ },
+/* 17 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _vue = __webpack_require__(6);
+	
+	var _vue2 = _interopRequireDefault(_vue);
+	
+	var _dialog = __webpack_require__(18);
+	
+	var _dialog2 = _interopRequireDefault(_dialog);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	_vue2.default.component('dialog', _dialog2.default);
+	
+	var template = '\n    <dialog type="confirm" visible="true">\n        <div class="msg-wrap">\n            <i class="fa fa-exclamation-triangle icon icon-warn" v-if="type == \'warn\'"></i>\n            <i class="fa fa-exclamation-triangle icon icon-confirm" v-if="type == \'confirm\'"></i>\n            <span>{{msg}}</span>\n        </div>\n        <div class="btn-wrap">\n            <a href="javascript:void(0)" class="btn btn-primary dialog-confirm" @click="onclicked(true)">确定</a>\n            <a href="javascript:void(0)" class="btn btn-default dialog-cancel" @click="onclicked(false)" v-if="type == \'confirm\'">取消</a>\n        </div>\n    </dialog>\n';
+	
+	var openDialog = function openDialog(type, msg, callback) {
+	    var container = document.createElement('div');
+	    document.body.appendChild(container);
+	    var vm = new _vue2.default({
+	        el: container,
+	        replace: false,
+	        template: template,
+	        data: {
+	            msg: msg,
+	            type: type
+	        },
+	        methods: {
+	            onclicked: function onclicked(result) {
+	                callback && callback(result);
+	                document.body.removeChild(container);
+	                vm.$destroy();
+	            }
+	        }
+	    });
+	};
+	
+	_dialog2.default.confirm = function (msg, callback) {
+	    openDialog('confirm', msg, callback);
+	};
+	
+	_dialog2.default.warn = function (msg, callback) {
+	    openDialog('warn', msg, callback);
+	};
+	
+	_dialog2.default.alert = function (msg, callback) {
+	    openDialog('alert', msg, callback);
+	};
+	
+	exports.default = _dialog2.default;
+
+/***/ },
+/* 18 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(19)
+	module.exports = __webpack_require__(21)
+	
+	if (module.exports.__esModule) module.exports = module.exports.default
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(22)
+	if (false) {(function () {  module.hot.accept()
+	  var hotAPI = require("vue-hot-reload-api")
+	  hotAPI.install(require("vue"), true)
+	  if (!hotAPI.compatible) return
+	  var id = "/home/zhouwei3-xy/vue-component/src/dialog/_dialog.vue"
+	  if (!module.hot.data) {
+	    hotAPI.createRecord(id, module.exports)
+	  } else {
+	    hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
+	  }
+	})()}
+
+/***/ },
+/* 19 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+	
+	// load the styles
+	var content = __webpack_require__(20);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(12)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(false) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-19b4b120&file=_dialog.vue!./../../node_modules/sass-loader/index.js!./dialog.scss", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-19b4b120&file=_dialog.vue!./../../node_modules/sass-loader/index.js!./dialog.scss");
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(11)();
+	// imports
+	
+	
+	// module
+	exports.push([module.id, ".dialog {\n  position: fixed;\n  z-index: 101;\n  background: white;\n  top: 50%;\n  left: 50%;\n  border: 1px solid #acacac;\n  box-shadow: 0 0 3px #b3b3b3;\n  min-width: 200px;\n  margin-left: -50%; }\n  .dialog .dialog-hd {\n    border-bottom: 1px solid #e8e8e8;\n    height: 34px;\n    line-height: 34px;\n    position: relative;\n    padding: 0 15px;\n    font-weight: bold; }\n    .dialog .dialog-hd .close {\n      font-size: 16px;\n      right: 15px;\n      position: absolute;\n      top: 9px; }\n  .dialog .dialog-bd {\n    padding: 15px; }\n\n.dialog-mask {\n  background: black;\n  opacity: 0.6;\n  filter: alpha(opacity=60);\n  position: fixed;\n  z-index: 100;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0; }\n\n/* common dialog : alert, confirm, warn*/\n.public-dialog {\n  box-shadow: 0 0 16px #333;\n  border-color: #333;\n  z-index: 102; }\n  .public-dialog .dialog-bd {\n    padding: 0; }\n  .public-dialog .msg-wrap {\n    padding: 2em;\n    min-width: 15em; }\n    .public-dialog .msg-wrap span {\n      max-width: 40em; }\n  .public-dialog .btn-wrap {\n    text-align: center;\n    padding: 1em 2em;\n    background: #eee; }\n  .public-dialog .icon {\n    font-size: 16px; }\n  .public-dialog .icon-warn {\n    color: #ff4b21; }\n  .public-dialog .icon-confirm {\n    color: #FF9708; }\n\n.dialog-type-warn .icon-warn, .dialog-type-confirm .icon-confirm {\n  display: inline-block; }\n\n.dialog-type-alert .dialog-cancel, .dialog-type-warn .dialog-cancel {\n  display: none; }\n", ""]);
+	
+	// exports
+
+
+/***/ },
+/* 21 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _vue = __webpack_require__(6);
+	
+	var _vue2 = _interopRequireDefault(_vue);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = {
+	    props: {
+	        type: {
+	            default: 'dialog'
+	        },
+	        title: String,
+	        msg: String,
+	        visible: {
+	            default: false
+	        }
+	    },
+	    methods: {
+	        _centerDialog: function _centerDialog() {
+	            var elem = this.$el.querySelector('.dialog');
+	            var w = elem.offsetWidth;
+	            var h = elem.offsetHeight;
+	            elem.style.marginLeft = '-' + w / 2 + 'px';
+	            elem.style.marginTop = '-' + h / 2 + 'px';
+	        },
+	        _removeDialog: function _removeDialog() {
+	            this.$el.parentNode.removeChild(this.$el);
+	            //TODO: remove event handlers
+	        },
+	        show: function show() {
+	            this.visible = true;
+	            _vue2.default.nextTick(this._centerDialog);
+	        },
+	        hide: function hide() {
+	            this.visible = false;
+	        }
+	    },
+	    created: function created() {
+	        this.$watch('visible', function () {
+	            this.visible && _vue2.default.nextTick(this._centerDialog);
+	        });
+	    },
+	    ready: function ready() {
+	        this._centerDialog();
+	    },
+	    destroy: function destroy() {
+	        this._removeDialog();
+	    }
+	};
+	// </script>
+
+	// <style lang="sass" src="./dialog.scss"></style>
+	// <template lang="jade">
+	// .dialog-box(:style="{display: visible ? 'block' : 'none'}")
+	//     .dialog(:class="{'public-dialog': type!='dialog'}")
+	//         .dialog-hd(v-if='title')
+	//             | {{title}}
+	//             a.fa.fa-times.close(@click='hide')
+	//         .dialog-bd
+	//             slot
+	//     .dialog-mask
+	// </template>
+
+	// <script>
+
+/***/ },
+/* 22 */
+/***/ function(module, exports) {
+
+	module.exports = "<div :style=\"{display: visible ? 'block' : 'none'}\" class=\"dialog-box\"><div :class=\"{'public-dialog': type!='dialog'}\" class=\"dialog\"><div v-if=\"title\" class=\"dialog-hd\">{{title}}<a @click=\"hide\" class=\"fa fa-times close\"></a></div><div class=\"dialog-bd\"><slot></slot></div></div><div class=\"dialog-mask\"></div></div>";
+
+/***/ },
+/* 23 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = [{ "id": 1001, "name": "华北", "level": 1, "pid": 0, "province": [{ "id": "1", "name": "北京市", "level": 2, "pid": 1001, "citys": [{ "id": "1", "name": "北京市", "level": 3, "pid": "1" }] }, { "id": "3", "name": "天津市", "level": 2, "pid": 1001, "citys": [{ "id": "3", "name": "天津市", "level": 3, "pid": "3" }] }, { "id": "5", "name": "河北省", "level": 2, "pid": 1001, "citys": [{ "id": "35", "name": "石家庄市", "level": 3, "pid": "5" }, { "id": "36", "name": "邯郸市", "level": 3, "pid": "5" }, { "id": "37", "name": "邢台市", "level": 3, "pid": "5" }, { "id": "38", "name": "保定市", "level": 3, "pid": "5" }, { "id": "39", "name": "张家口市", "level": 3, "pid": "5" }, { "id": "40", "name": "承德市", "level": 3, "pid": "5" }, { "id": "41", "name": "廊坊市", "level": 3, "pid": "5" }, { "id": "42", "name": "唐山市", "level": 3, "pid": "5" }, { "id": "43", "name": "秦皇岛市", "level": 3, "pid": "5" }, { "id": "44", "name": "沧州市", "level": 3, "pid": "5" }, { "id": "365", "name": "衡水市", "level": 3, "pid": "5" }] }, { "id": "6", "name": "山西省", "level": 2, "pid": 1001, "citys": [{ "id": "45", "name": "太原市", "level": 3, "pid": "6" }, { "id": "46", "name": "大同市", "level": 3, "pid": "6" }, { "id": "47", "name": "阳泉市", "level": 3, "pid": "6" }, { "id": "48", "name": "长治市", "level": 3, "pid": "6" }, { "id": "49", "name": "晋城市", "level": 3, "pid": "6" }, { "id": "50", "name": "朔州市", "level": 3, "pid": "6" }, { "id": "51", "name": "吕梁市", "level": 3, "pid": "6" }, { "id": "52", "name": "忻州市", "level": 3, "pid": "6" }, { "id": "53", "name": "晋中市", "level": 3, "pid": "6" }, { "id": "54", "name": "临汾市", "level": 3, "pid": "6" }, { "id": "383", "name": "运城市", "level": 3, "pid": "6" }] }, { "id": "7", "name": "内蒙古自治区", "level": 2, "pid": 1001, "citys": [{ "id": "55", "name": "呼和浩特市", "level": 3, "pid": "7" }, { "id": "56", "name": "包头市", "level": 3, "pid": "7" }, { "id": "57", "name": "乌海市", "level": 3, "pid": "7" }, { "id": "58", "name": "赤峰市", "level": 3, "pid": "7" }, { "id": "59", "name": "呼伦贝尔市", "level": 3, "pid": "7" }, { "id": "60", "name": "阿拉善盟", "level": 3, "pid": "7" }, { "id": "62", "name": "兴安盟", "level": 3, "pid": "7" }, { "id": "63", "name": "乌兰察布市", "level": 3, "pid": "7" }, { "id": "64", "name": "锡林郭勒盟", "level": 3, "pid": "7" }, { "id": "65", "name": "巴彦淖尔市", "level": 3, "pid": "7" }, { "id": "355", "name": "鄂尔多斯市", "level": 3, "pid": "7" }, { "id": "356", "name": "通辽市", "level": 3, "pid": "7" }] }] }, { "id": 1002, "name": "东北", "level": 1, "pid": 0, "province": [{ "id": "8", "name": "辽宁省", "level": 2, "pid": 1002, "citys": [{ "id": "66", "name": "沈阳市", "level": 3, "pid": "8" }, { "id": "67", "name": "大连市", "level": 3, "pid": "8" }, { "id": "68", "name": "鞍山市", "level": 3, "pid": "8" }, { "id": "69", "name": "抚顺市", "level": 3, "pid": "8" }, { "id": "70", "name": "本溪市", "level": 3, "pid": "8" }, { "id": "71", "name": "丹东市", "level": 3, "pid": "8" }, { "id": "72", "name": "锦州市", "level": 3, "pid": "8" }, { "id": "73", "name": "营口市", "level": 3, "pid": "8" }, { "id": "74", "name": "阜新市", "level": 3, "pid": "8" }, { "id": "75", "name": "辽阳市", "level": 3, "pid": "8" }, { "id": "76", "name": "盘锦市", "level": 3, "pid": "8" }, { "id": "77", "name": "铁岭市", "level": 3, "pid": "8" }, { "id": "78", "name": "朝阳市", "level": 3, "pid": "8" }, { "id": "382", "name": "葫芦岛市", "level": 3, "pid": "8" }] }, { "id": "9", "name": "吉林省", "level": 2, "pid": 1002, "citys": [{ "id": "81", "name": "四平市", "level": 3, "pid": "9" }, { "id": "82", "name": "辽源市", "level": 3, "pid": "9" }, { "id": "79", "name": "长春市", "level": 3, "pid": "9" }, { "id": "80", "name": "吉林市", "level": 3, "pid": "9" }, { "id": "83", "name": "通化市", "level": 3, "pid": "9" }, { "id": "84", "name": "白山市", "level": 3, "pid": "9" }, { "id": "85", "name": "松原市", "level": 3, "pid": "9" }, { "id": "86", "name": "白城市", "level": 3, "pid": "9" }, { "id": "381", "name": "延边朝鲜族自治州", "level": 3, "pid": "9" }] }, { "id": "10", "name": "黑龙江省", "level": 2, "pid": 1002, "citys": [{ "id": "87", "name": "哈尔滨市", "level": 3, "pid": "10" }, { "id": "88", "name": "齐齐哈尔市", "level": 3, "pid": "10" }, { "id": "89", "name": "牡丹江市", "level": 3, "pid": "10" }, { "id": "90", "name": "佳木斯市", "level": 3, "pid": "10" }, { "id": "91", "name": "大庆市", "level": 3, "pid": "10" }, { "id": "92", "name": "绥化市", "level": 3, "pid": "10" }, { "id": "93", "name": "鹤岗市", "level": 3, "pid": "10" }, { "id": "94", "name": "鸡西市", "level": 3, "pid": "10" }, { "id": "95", "name": "黑河市", "level": 3, "pid": "10" }, { "id": "96", "name": "双鸭山市", "level": 3, "pid": "10" }, { "id": "97", "name": "伊春市", "level": 3, "pid": "10" }, { "id": "98", "name": "七台河市", "level": 3, "pid": "10" }, { "id": "358", "name": "大兴安岭地区", "level": 3, "pid": "10" }] }] }, { "id": 1003, "name": "华东", "level": 1, "pid": 0, "province": [{ "id": "2", "name": "上海市", "level": 2, "pid": 1003, "citys": [{ "id": "2", "name": "上海市", "level": 3, "pid": "2" }] }, { "id": "11", "name": "江苏省", "level": 2, "pid": 1003, "citys": [{ "id": "99", "name": "南京市", "level": 3, "pid": "11" }, { "id": "100", "name": "镇江市", "level": 3, "pid": "11" }, { "id": "101", "name": "苏州市", "level": 3, "pid": "11" }, { "id": "102", "name": "南通市", "level": 3, "pid": "11" }, { "id": "103", "name": "扬州市", "level": 3, "pid": "11" }, { "id": "104", "name": "盐城市", "level": 3, "pid": "11" }, { "id": "105", "name": "徐州市", "level": 3, "pid": "11" }, { "id": "106", "name": "连云港市", "level": 3, "pid": "11" }, { "id": "107", "name": "常州市", "level": 3, "pid": "11" }, { "id": "108", "name": "无锡市", "level": 3, "pid": "11" }, { "id": "109", "name": "宿迁市", "level": 3, "pid": "11" }, { "id": "110", "name": "泰州市", "level": 3, "pid": "11" }, { "id": "367", "name": "淮安市", "level": 3, "pid": "11" }] }, { "id": "12", "name": "浙江省", "level": 2, "pid": 1003, "citys": [{ "id": "111", "name": "杭州市", "level": 3, "pid": "12" }, { "id": "112", "name": "宁波市", "level": 3, "pid": "12" }, { "id": "113", "name": "温州市", "level": 3, "pid": "12" }, { "id": "114", "name": "嘉兴市", "level": 3, "pid": "12" }, { "id": "115", "name": "湖州市", "level": 3, "pid": "12" }, { "id": "116", "name": "绍兴市", "level": 3, "pid": "12" }, { "id": "117", "name": "金华市", "level": 3, "pid": "12" }, { "id": "118", "name": "衢州市", "level": 3, "pid": "12" }, { "id": "119", "name": "舟山市", "level": 3, "pid": "12" }, { "id": "120", "name": "台州市", "level": 3, "pid": "12" }, { "id": "379", "name": "丽水市", "level": 3, "pid": "12" }] }, { "id": "13", "name": "安徽省", "level": 2, "pid": 1003, "citys": [{ "id": "121", "name": "合肥市", "level": 3, "pid": "13" }, { "id": "122", "name": "芜湖市", "level": 3, "pid": "13" }, { "id": "123", "name": "蚌埠市", "level": 3, "pid": "13" }, { "id": "124", "name": "马鞍山市", "level": 3, "pid": "13" }, { "id": "125", "name": "淮北市", "level": 3, "pid": "13" }, { "id": "126", "name": "铜陵市", "level": 3, "pid": "13" }, { "id": "127", "name": "安庆市", "level": 3, "pid": "13" }, { "id": "128", "name": "黄山市", "level": 3, "pid": "13" }, { "id": "129", "name": "滁州市", "level": 3, "pid": "13" }, { "id": "130", "name": "宿州市", "level": 3, "pid": "13" }, { "id": "131", "name": "池州市", "level": 3, "pid": "13" }, { "id": "132", "name": "淮南市", "level": 3, "pid": "13" }, { "id": "133", "name": "巢湖市", "level": 3, "pid": "13" }, { "id": "134", "name": "阜阳市", "level": 3, "pid": "13" }, { "id": "135", "name": "六安市", "level": 3, "pid": "13" }, { "id": "136", "name": "宣城市", "level": 3, "pid": "13" }, { "id": "380", "name": "亳州市", "level": 3, "pid": "13" }] }, { "id": "14", "name": "福建省", "level": 2, "pid": 1003, "citys": [{ "id": "137", "name": "福州市", "level": 3, "pid": "14" }, { "id": "138", "name": "厦门市", "level": 3, "pid": "14" }, { "id": "139", "name": "莆田市", "level": 3, "pid": "14" }, { "id": "140", "name": "三明市", "level": 3, "pid": "14" }, { "id": "141", "name": "泉州市", "level": 3, "pid": "14" }, { "id": "142", "name": "漳州市", "level": 3, "pid": "14" }, { "id": "143", "name": "南平市", "level": 3, "pid": "14" }, { "id": "144", "name": "龙岩市", "level": 3, "pid": "14" }, { "id": "366", "name": "宁德市", "level": 3, "pid": "14" }] }, { "id": "15", "name": "江西省", "level": 2, "pid": 1003, "citys": [{ "id": "145", "name": "南昌市", "level": 3, "pid": "15" }, { "id": "146", "name": "景德镇市", "level": 3, "pid": "15" }, { "id": "147", "name": "九江市", "level": 3, "pid": "15" }, { "id": "148", "name": "鹰潭市", "level": 3, "pid": "15" }, { "id": "149", "name": "萍乡市", "level": 3, "pid": "15" }, { "id": "150", "name": "新余市", "level": 3, "pid": "15" }, { "id": "151", "name": "赣州市", "level": 3, "pid": "15" }, { "id": "152", "name": "吉安市", "level": 3, "pid": "15" }, { "id": "153", "name": "宜春市", "level": 3, "pid": "15" }, { "id": "154", "name": "抚州市", "level": 3, "pid": "15" }, { "id": "369", "name": "上饶市", "level": 3, "pid": "15" }, { "id": "370", "name": "新余市", "level": 3, "pid": "15" }] }, { "id": "16", "name": "山东省", "level": 2, "pid": 1003, "citys": [{ "id": "155", "name": "济南市", "level": 3, "pid": "16" }, { "id": "156", "name": "青岛市", "level": 3, "pid": "16" }, { "id": "157", "name": "淄博市", "level": 3, "pid": "16" }, { "id": "158", "name": "枣庄市", "level": 3, "pid": "16" }, { "id": "159", "name": "东营市", "level": 3, "pid": "16" }, { "id": "160", "name": "烟台市", "level": 3, "pid": "16" }, { "id": "161", "name": "潍坊市", "level": 3, "pid": "16" }, { "id": "162", "name": "济宁市", "level": 3, "pid": "16" }, { "id": "163", "name": "泰安市", "level": 3, "pid": "16" }, { "id": "164", "name": "威海市", "level": 3, "pid": "16" }, { "id": "165", "name": "日照市", "level": 3, "pid": "16" }, { "id": "166", "name": "莱芜市", "level": 3, "pid": "16" }, { "id": "167", "name": "临沂市", "level": 3, "pid": "16" }, { "id": "168", "name": "德州市", "level": 3, "pid": "16" }, { "id": "169", "name": "聊城市", "level": 3, "pid": "16" }, { "id": "170", "name": "滨州市", "level": 3, "pid": "16" }, { "id": "395", "name": "菏泽市", "level": 3, "pid": "16" }] }] }, { "id": 1004, "name": "华中", "level": 1, "pid": 0, "province": [{ "id": "17", "name": "河南省", "level": 2, "pid": 1004, "citys": [{ "id": "171", "name": "郑州市", "level": 3, "pid": "17" }, { "id": "172", "name": "开封市", "level": 3, "pid": "17" }, { "id": "173", "name": "洛阳市", "level": 3, "pid": "17" }, { "id": "174", "name": "平顶山市", "level": 3, "pid": "17" }, { "id": "175", "name": "安阳市", "level": 3, "pid": "17" }, { "id": "176", "name": "鹤壁市", "level": 3, "pid": "17" }, { "id": "177", "name": "新乡市", "level": 3, "pid": "17" }, { "id": "178", "name": "焦作市", "level": 3, "pid": "17" }, { "id": "179", "name": "濮阳市", "level": 3, "pid": "17" }, { "id": "180", "name": "许昌市", "level": 3, "pid": "17" }, { "id": "181", "name": "漯河市", "level": 3, "pid": "17" }, { "id": "182", "name": "三门峡市", "level": 3, "pid": "17" }, { "id": "183", "name": "南阳市", "level": 3, "pid": "17" }, { "id": "184", "name": "商丘市", "level": 3, "pid": "17" }, { "id": "185", "name": "信阳市", "level": 3, "pid": "17" }, { "id": "186", "name": "周口市", "level": 3, "pid": "17" }, { "id": "187", "name": "驻马店市", "level": 3, "pid": "17" }, { "id": "393", "name": "济源市", "level": 3, "pid": "17" }] }, { "id": "18", "name": "湖北省", "level": 2, "pid": 1004, "citys": [{ "id": "188", "name": "武汉市", "level": 3, "pid": "18" }, { "id": "189", "name": "宜昌市", "level": 3, "pid": "18" }, { "id": "190", "name": "荆州市", "level": 3, "pid": "18" }, { "id": "191", "name": "襄阳市", "level": 3, "pid": "18" }, { "id": "192", "name": "黄石市", "level": 3, "pid": "18" }, { "id": "193", "name": "荆门市", "level": 3, "pid": "18" }, { "id": "194", "name": "黄冈市", "level": 3, "pid": "18" }, { "id": "195", "name": "十堰市", "level": 3, "pid": "18" }, { "id": "196", "name": "恩施土家族苗族自治州", "level": 3, "pid": "18" }, { "id": "197", "name": "潜江市", "level": 3, "pid": "18" }, { "id": "198", "name": "天门市", "level": 3, "pid": "18" }, { "id": "199", "name": "仙桃市", "level": 3, "pid": "18" }, { "id": "200", "name": "随州市", "level": 3, "pid": "18" }, { "id": "201", "name": "咸宁市", "level": 3, "pid": "18" }, { "id": "202", "name": "孝感市", "level": 3, "pid": "18" }, { "id": "363", "name": "襄阳市", "level": 3, "pid": "18" }, { "id": "364", "name": "鄂州市", "level": 3, "pid": "18" }, { "id": "372", "name": "神农架林区", "level": 3, "pid": "18" }] }, { "id": "19", "name": "湖南省", "level": 2, "pid": 1004, "citys": [{ "id": "203", "name": "长沙市", "level": 3, "pid": "19" }, { "id": "204", "name": "常德市", "level": 3, "pid": "19" }, { "id": "205", "name": "株洲市", "level": 3, "pid": "19" }, { "id": "206", "name": "湘潭市", "level": 3, "pid": "19" }, { "id": "207", "name": "衡阳市", "level": 3, "pid": "19" }, { "id": "208", "name": "岳阳市", "level": 3, "pid": "19" }, { "id": "209", "name": "邵阳市", "level": 3, "pid": "19" }, { "id": "210", "name": "益阳市", "level": 3, "pid": "19" }, { "id": "211", "name": "娄底市", "level": 3, "pid": "19" }, { "id": "212", "name": "怀化市", "level": 3, "pid": "19" }, { "id": "213", "name": "郴州市", "level": 3, "pid": "19" }, { "id": "214", "name": "永州市", "level": 3, "pid": "19" }, { "id": "215", "name": "湘西土家族苗族自治州", "level": 3, "pid": "19" }, { "id": "371", "name": "张家界市", "level": 3, "pid": "19" }] }] }, { "id": 1005, "name": "华南", "level": 1, "pid": 0, "province": [{ "id": "20", "name": "广东省", "level": 2, "pid": 1005, "citys": [{ "id": "218", "name": "珠海市", "level": 3, "pid": "20" }, { "id": "219", "name": "汕头市", "level": 3, "pid": "20" }, { "id": "220", "name": "东莞市", "level": 3, "pid": "20" }, { "id": "221", "name": "中山市", "level": 3, "pid": "20" }, { "id": "222", "name": "佛山市", "level": 3, "pid": "20" }, { "id": "223", "name": "韶关市", "level": 3, "pid": "20" }, { "id": "224", "name": "江门市", "level": 3, "pid": "20" }, { "id": "225", "name": "湛江市", "level": 3, "pid": "20" }, { "id": "226", "name": "茂名市", "level": 3, "pid": "20" }, { "id": "227", "name": "肇庆市", "level": 3, "pid": "20" }, { "id": "228", "name": "惠州市", "level": 3, "pid": "20" }, { "id": "229", "name": "梅州市", "level": 3, "pid": "20" }, { "id": "230", "name": "汕尾市", "level": 3, "pid": "20" }, { "id": "231", "name": "河源市", "level": 3, "pid": "20" }, { "id": "232", "name": "阳江市", "level": 3, "pid": "20" }, { "id": "233", "name": "清远市", "level": 3, "pid": "20" }, { "id": "234", "name": "潮州市", "level": 3, "pid": "20" }, { "id": "235", "name": "揭阳市", "level": 3, "pid": "20" }, { "id": "216", "name": "广州市", "level": 3, "pid": "20" }, { "id": "217", "name": "深圳市", "level": 3, "pid": "20" }, { "id": "362", "name": "云浮市", "level": 3, "pid": "20" }] }, { "id": "21", "name": "广西壮族自治区", "level": 2, "pid": 1005, "citys": [{ "id": "236", "name": "南宁市", "level": 3, "pid": "21" }, { "id": "237", "name": "柳州市", "level": 3, "pid": "21" }, { "id": "238", "name": "桂林市", "level": 3, "pid": "21" }, { "id": "239", "name": "梧州市", "level": 3, "pid": "21" }, { "id": "240", "name": "北海市", "level": 3, "pid": "21" }, { "id": "241", "name": "防城港市", "level": 3, "pid": "21" }, { "id": "242", "name": "钦州市", "level": 3, "pid": "21" }, { "id": "243", "name": "贵港市", "level": 3, "pid": "21" }, { "id": "244", "name": "玉林市", "level": 3, "pid": "21" }, { "id": "245", "name": "贺州市", "level": 3, "pid": "21" }, { "id": "246", "name": "百色市", "level": 3, "pid": "21" }, { "id": "378", "name": "河池市", "level": 3, "pid": "21" }, { "id": "385", "name": "来宾市", "level": 3, "pid": "21" }, { "id": "394", "name": "崇左市", "level": 3, "pid": "21" }] }, { "id": "22", "name": "海南省", "level": 2, "pid": 1005, "citys": [{ "id": "247", "name": "海口市", "level": 3, "pid": "22" }, { "id": "384", "name": "三亚市", "level": 3, "pid": "22" }, { "id": "400", "name": "文昌市", "level": 3, "pid": "22" }, { "id": "401", "name": "儋州市", "level": 3, "pid": "22" }, { "id": "402", "name": "万宁市", "level": 3, "pid": "22" }, { "id": "403", "name": "琼海市", "level": 3, "pid": "22" }, { "id": "404", "name": "定安县", "level": 3, "pid": "22" }, { "id": "405", "name": "屯昌县", "level": 3, "pid": "22" }, { "id": "406", "name": "五指山市", "level": 3, "pid": "22" }, { "id": "407", "name": "澄迈县", "level": 3, "pid": "22" }, { "id": "408", "name": "临高县", "level": 3, "pid": "22" }, { "id": "409", "name": "东方市", "level": 3, "pid": "22" }] }] }, { "id": 1006, "name": "西南", "level": 1, "pid": 0, "province": [{ "id": "4", "name": "重庆市", "level": 2, "pid": 1006, "citys": [{ "id": "4", "name": "重庆市", "level": 3, "pid": "4" }] }, { "id": "23", "name": "四川省", "level": 2, "pid": 1006, "citys": [{ "id": "248", "name": "成都市", "level": 3, "pid": "23" }, { "id": "249", "name": "绵阳市", "level": 3, "pid": "23" }, { "id": "250", "name": "德阳市", "level": 3, "pid": "23" }, { "id": "251", "name": "自贡市", "level": 3, "pid": "23" }, { "id": "252", "name": "攀枝花市", "level": 3, "pid": "23" }, { "id": "253", "name": "广元市", "level": 3, "pid": "23" }, { "id": "254", "name": "内江市", "level": 3, "pid": "23" }, { "id": "255", "name": "乐山市", "level": 3, "pid": "23" }, { "id": "256", "name": "南充市", "level": 3, "pid": "23" }, { "id": "257", "name": "宜宾市", "level": 3, "pid": "23" }, { "id": "258", "name": "广安市", "level": 3, "pid": "23" }, { "id": "260", "name": "雅安市", "level": 3, "pid": "23" }, { "id": "261", "name": "眉山市", "level": 3, "pid": "23" }, { "id": "262", "name": "甘孜藏族自治州", "level": 3, "pid": "23" }, { "id": "263", "name": "凉山彝族自治州", "level": 3, "pid": "23" }, { "id": "373", "name": "遂宁市", "level": 3, "pid": "23" }, { "id": "374", "name": "巴中市", "level": 3, "pid": "23" }, { "id": "375", "name": "泸州市", "level": 3, "pid": "23" }, { "id": "376", "name": "资阳市", "level": 3, "pid": "23" }, { "id": "377", "name": "达州市", "level": 3, "pid": "23" }, { "id": "396", "name": "阿坝藏族羌族自治州", "level": 3, "pid": "23" }] }, { "id": "24", "name": "贵州省", "level": 2, "pid": 1006, "citys": [{ "id": "264", "name": "贵阳市", "level": 3, "pid": "24" }, { "id": "265", "name": "六盘水市", "level": 3, "pid": "24" }, { "id": "266", "name": "遵义市", "level": 3, "pid": "24" }, { "id": "267", "name": "安顺市", "level": 3, "pid": "24" }, { "id": "268", "name": "铜仁地区", "level": 3, "pid": "24" }, { "id": "269", "name": "黔西南布依族苗族自治州", "level": 3, "pid": "24" }, { "id": "270", "name": "毕节地区", "level": 3, "pid": "24" }, { "id": "271", "name": "黔东南苗族侗族自治州", "level": 3, "pid": "24" }, { "id": "357", "name": "黔南布依族苗族自治州", "level": 3, "pid": "24" }] }, { "id": "25", "name": "云南省", "level": 2, "pid": 1006, "citys": [{ "id": "272", "name": "昆明市", "level": 3, "pid": "25" }, { "id": "273", "name": "大理白族自治州", "level": 3, "pid": "25" }, { "id": "274", "name": "曲靖市", "level": 3, "pid": "25" }, { "id": "275", "name": "玉溪市", "level": 3, "pid": "25" }, { "id": "276", "name": "昭通市", "level": 3, "pid": "25" }, { "id": "277", "name": "楚雄彝族自治州", "level": 3, "pid": "25" }, { "id": "278", "name": "红河哈尼族彝族自治州", "level": 3, "pid": "25" }, { "id": "279", "name": "文山壮族苗族自治州", "level": 3, "pid": "25" }, { "id": "281", "name": "西双版纳傣族自治州", "level": 3, "pid": "25" }, { "id": "282", "name": "保山市", "level": 3, "pid": "25" }, { "id": "283", "name": "德宏傣族景颇族自治州", "level": 3, "pid": "25" }, { "id": "284", "name": "丽江市", "level": 3, "pid": "25" }, { "id": "285", "name": "怒江傈僳族自治州", "level": 3, "pid": "25" }, { "id": "286", "name": "迪庆藏族自治州", "level": 3, "pid": "25" }, { "id": "388", "name": "临沧市", "level": 3, "pid": "25" }] }, { "id": "26", "name": "西藏自治区", "level": 2, "pid": 1006, "citys": [{ "id": "287", "name": "拉萨市", "level": 3, "pid": "26" }, { "id": "288", "name": "日喀则地区", "level": 3, "pid": "26" }, { "id": "289", "name": "山南地区", "level": 3, "pid": "26" }, { "id": "290", "name": "林芝地区", "level": 3, "pid": "26" }, { "id": "291", "name": "昌都地区", "level": 3, "pid": "26" }, { "id": "292", "name": "阿里地区", "level": 3, "pid": "26" }, { "id": "398", "name": "那曲地区", "level": 3, "pid": "26" }] }] }, { "id": 1007, "name": "西北", "level": 1, "pid": 0, "province": [{ "id": "27", "name": "陕西省", "level": 2, "pid": 1007, "citys": [{ "id": "293", "name": "西安市", "level": 3, "pid": "27" }, { "id": "294", "name": "宝鸡市", "level": 3, "pid": "27" }, { "id": "295", "name": "咸阳市", "level": 3, "pid": "27" }, { "id": "296", "name": "铜川市", "level": 3, "pid": "27" }, { "id": "297", "name": "渭南市", "level": 3, "pid": "27" }, { "id": "298", "name": "延安市", "level": 3, "pid": "27" }, { "id": "299", "name": "榆林市", "level": 3, "pid": "27" }, { "id": "300", "name": "汉中市", "level": 3, "pid": "27" }, { "id": "301", "name": "安康市", "level": 3, "pid": "27" }, { "id": "359", "name": "商洛市", "level": 3, "pid": "27" }] }, { "id": "28", "name": "甘肃省", "level": 2, "pid": 1007, "citys": [{ "id": "302", "name": "兰州市", "level": 3, "pid": "28" }, { "id": "303", "name": "嘉峪关市", "level": 3, "pid": "28" }, { "id": "304", "name": "金昌市", "level": 3, "pid": "28" }, { "id": "305", "name": "白银市", "level": 3, "pid": "28" }, { "id": "306", "name": "天水市", "level": 3, "pid": "28" }, { "id": "307", "name": "酒泉市", "level": 3, "pid": "28" }, { "id": "308", "name": "张掖市", "level": 3, "pid": "28" }, { "id": "309", "name": "武威市", "level": 3, "pid": "28" }, { "id": "310", "name": "定西市", "level": 3, "pid": "28" }, { "id": "311", "name": "陇南市", "level": 3, "pid": "28" }, { "id": "312", "name": "平凉市", "level": 3, "pid": "28" }, { "id": "313", "name": "庆阳市", "level": 3, "pid": "28" }, { "id": "314", "name": "临夏回族自治州", "level": 3, "pid": "28" }, { "id": "389", "name": "甘南藏族自治州", "level": 3, "pid": "28" }] }, { "id": "29", "name": "宁夏回族自治区", "level": 2, "pid": 1007, "citys": [{ "id": "315", "name": "银川市", "level": 3, "pid": "29" }, { "id": "316", "name": "石嘴山市", "level": 3, "pid": "29" }, { "id": "317", "name": "吴忠市", "level": 3, "pid": "29" }, { "id": "360", "name": "固原市", "level": 3, "pid": "29" }, { "id": "361", "name": "中卫市", "level": 3, "pid": "29" }] }, { "id": "30", "name": "青海省", "level": 2, "pid": 1007, "citys": [{ "id": "318", "name": "西宁市", "level": 3, "pid": "30" }, { "id": "319", "name": "海东地区", "level": 3, "pid": "30" }, { "id": "321", "name": "海北藏族自治州", "level": 3, "pid": "30" }, { "id": "322", "name": "黄南藏族自治州", "level": 3, "pid": "30" }, { "id": "323", "name": "玉树藏族自治州", "level": 3, "pid": "30" }, { "id": "324", "name": "果洛藏族自治州", "level": 3, "pid": "30" }, { "id": "391", "name": "海西蒙古族藏族自治州", "level": 3, "pid": "30" }] }, { "id": "31", "name": "新疆维吾尔自治区", "level": 2, "pid": 1007, "citys": [{ "id": "325", "name": "乌鲁木齐市", "level": 3, "pid": "31" }, { "id": "326", "name": "石河子市", "level": 3, "pid": "31" }, { "id": "327", "name": "克拉玛依市", "level": 3, "pid": "31" }, { "id": "328", "name": "伊犁哈萨克自治州", "level": 3, "pid": "31" }, { "id": "330", "name": "昌吉回族自治州", "level": 3, "pid": "31" }, { "id": "331", "name": "克孜勒苏柯尔克孜自治州", "level": 3, "pid": "31" }, { "id": "332", "name": "博尔塔拉蒙古自治州", "level": 3, "pid": "31" }, { "id": "333", "name": "吐鲁番地区", "level": 3, "pid": "31" }, { "id": "334", "name": "哈密地区", "level": 3, "pid": "31" }, { "id": "335", "name": "喀什地区", "level": 3, "pid": "31" }, { "id": "336", "name": "和田地区", "level": 3, "pid": "31" }, { "id": "368", "name": "塔城地区", "level": 3, "pid": "31" }, { "id": "386", "name": "巴音郭楞蒙古自治州", "level": 3, "pid": "31" }, { "id": "387", "name": "阿克苏地区", "level": 3, "pid": "31" }, { "id": "390", "name": "阿勒泰地区", "level": 3, "pid": "31" }, { "id": "397", "name": "五家渠市", "level": 3, "pid": "31" }, { "id": "399", "name": "阿拉尔市", "level": 3, "pid": "31" }] }] }, { "id": 1008, "name": "其他", "level": 1, "pid": 0, "province": [{ "id": "32", "name": "香港特别行政区", "level": 2, "pid": 1008, "citys": [{ "id": "32", "name": "香港特别行政区", "level": 3, "pid": "32" }] }, { "id": "33", "name": "澳门特别行政区", "level": 2, "pid": 1008, "citys": [{ "id": "33", "name": "澳门特别行政区", "level": 3, "pid": "33" }] }, { "id": "34", "name": "台湾省", "level": 2, "pid": 1008, "citys": [{ "id": "337", "name": "台北市", "level": 3, "pid": "34" }, { "id": "339", "name": "台中市", "level": 3, "pid": "34" }, { "id": "340", "name": "台南市", "level": 3, "pid": "34" }, { "id": "341", "name": "高雄市", "level": 3, "pid": "34" }] }] }];
+
+/***/ },
+/* 24 */
+/***/ function(module, exports) {
+
+	module.exports = "<div>\n    <a class=\"btn btn-primary\" @click=\"showDialog\" href=\"javascript:;\">选择城市</a>\n    <dialog :visible.sync=\"dialogVisible\" title=\"选择城市\">\n        <div class=\"area-picker-wrap\">\n            <div class=\"area-picker-ctn\">\n                <div class=\"area\" v-for=\"area in areacode\">\n                    <div class=\"fl\">\n                        <label>\n                            <input @change=\"syncArea(area, $event)\" v-model=\"checkedAreas\" type=\"checkbox\" value={{area.id}}>\n                            {{area.name}}\n                        </label>\n                    </div>\n                    <dl>\n                        <dd v-for=\"pro in area.province\">\n                            <label>\n                                <input @change=\"syncProvince(pro, $event)\" v-model=\"checkedProvinces\" type=\"checkbox\" value={{pro.id}}>\n                                {{pro.name}}(<span>{{pro.citys | checkedLenFilter}}</span>/<span>{{pro.citys.length}}</span>)\n                            </label>\n                            <div class=\"citys\">\n                                <h4>{{pro.name}}</h4>\n                                <ul>\n                                    <li v-for=\"city in pro.citys\">\n                                        <label>\n                                            <input @change=\"syncCity(city, $event)\" v-model=\"checkedCitys\" type=\"checkbox\" value=\"{{city.id}}\">\n                                            {{city.name}}\n                                        </label>\n                                    </li>\n                                </ul>\n                            </div>\n                        </dd>\n                    </dl>\n                </div>\n                <div class=\"area last\">\n                    <label>\n                        <input @change=\"init('0', $event)\" type=\"checkbox\" checked=\"{{checkedAll}}\">\n                        全部\n                    </label>\n                </div>\n            </div>\n            <div class=\"time-picker-submit-wrap\">\n                <a class=\"btn btn-primary\" href=\"javascript:;\" @click.prevent=\"confirm\">确定</a>\n                <a class=\"btn btn-default\" href=\"javascript:;\" @click.prevent=\"cancel\">取消</a>\n            </div>\n        </div>\n    </dialog>\n</div>";
+
+/***/ }
+/******/ ]);
 //# sourceMappingURL=area.js.map

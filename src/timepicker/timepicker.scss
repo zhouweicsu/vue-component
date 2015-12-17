@@ -68,6 +68,7 @@ $white: white;
         display: inline-block;
         width: 18px;
         height: 18px;
+        line-height: 18px;
         //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
         border-radius: 3px;
         background: $color_mercury_approx;

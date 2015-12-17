@@ -12,7 +12,7 @@ module.exports = {
         global: "./demo/global.js"
     },
     output: {
-        filename: `.dist/js/[name].js`
+        filename: `./dist/js/[name].js`
     },
     module: {
         loaders: [
