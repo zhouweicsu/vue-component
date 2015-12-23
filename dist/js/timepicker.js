@@ -9851,7 +9851,7 @@
 	
 	_vue2.default.component('dialog', _dialog2.default);
 	
-	var template = '\n    <dialog type="confirm" visible="true">\n        <div class="msg-wrap">\n            <i class="fa fa-exclamation-triangle icon icon-warn" v-if="type == \'warn\'"></i>\n            <i class="fa fa-exclamation-triangle icon icon-confirm" v-if="type == \'confirm\'"></i>\n            <span>{{msg}}</span>\n        </div>\n        <div class="btn-wrap">\n            <a href="javascript:void(0)" class="btn btn-primary dialog-confirm" @click="onclicked(true)">确定</a>\n            <a href="javascript:void(0)" class="btn btn-default dialog-cancel" @click="onclicked(false)" v-if="type == \'confirm\'">取消</a>\n        </div>\n    </dialog>\n';
+	var template = '\n    <dialog type="confirm" visible="true">\n        <div class="msg-wrap">\n            <i class="fa fa-exclamation-triangle icon icon-warn" v-if="type == \'warn\'"></i>\n            <i class="fa fa-exclamation-triangle icon icon-confirm" v-if="type == \'confirm\'"></i>\n            <span>{{{msg}}}</span>\n        </div>\n        <div class="btn-wrap">\n            <a href="javascript:void(0)" class="btn btn-primary dialog-confirm" @click="onclicked(true)">确定</a>\n            <a href="javascript:void(0)" class="btn btn-default dialog-cancel" @click="onclicked(false)" v-if="type == \'confirm\'">取消</a>\n        </div>\n    </dialog>\n';
 	
 	var openDialog = function openDialog(type, msg, callback) {
 	    var container = document.createElement('div');
@@ -9901,7 +9901,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "/home/zhouwei3-xy/vue-component/src/dialog/_dialog.vue"
+	  var id = "/home/gaonan-iri/github/vue-component/src/dialog/_dialog.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -9925,8 +9925,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-19b4b120&file=_dialog.vue!./../../node_modules/sass-loader/index.js!./dialog.scss", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-19b4b120&file=_dialog.vue!./../../node_modules/sass-loader/index.js!./dialog.scss");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-20127069&file=_dialog.vue!./../../node_modules/sass-loader/index.js!./dialog.scss", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-20127069&file=_dialog.vue!./../../node_modules/sass-loader/index.js!./dialog.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -10065,7 +10065,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "/home/zhouwei3-xy/vue-component/src/timepicker/timepicker.vue"
+	  var id = "/home/gaonan-iri/github/vue-component/src/timepicker/timepicker.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -10089,8 +10089,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-df5f6282&file=timepicker.vue!./../../node_modules/sass-loader/index.js!./timepicker.scss", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-df5f6282&file=timepicker.vue!./../../node_modules/sass-loader/index.js!./timepicker.scss");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-91f90954&file=timepicker.vue!./../../node_modules/sass-loader/index.js!./timepicker.scss", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-91f90954&file=timepicker.vue!./../../node_modules/sass-loader/index.js!./timepicker.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -10108,7 +10108,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".time-picker-wrap {\n  padding: 15px; }\n\n.time-picker-hint {\n  float: right;\n  margin-top: 3px; }\n  .time-picker-hint span {\n    margin-left: 10px; }\n  .time-picker-hint i {\n    display: inline-block;\n    width: 18px;\n    height: 18px;\n    border-radius: 3px;\n    background: #e6e6e6;\n    vertical-align: middle;\n    position: relative;\n    top: -1px; }\n  .time-picker-hint .active i {\n    background: #81c13d; }\n  .time-picker-hint .forbidden i {\n    background: #ef9b6d; }\n\n.time-picker-ft {\n  padding-left: 70px;\n  color: #999;\n  margin-top: 5px; }\n  .time-picker-ft p {\n    margin-bottom: 0; }\n\n.time-picker-submit-wrap {\n  text-align: center;\n  margin-top: 10px; }\n\n.time-picker-shortcuts {\n  margin-bottom: 10px; }\n\n.time-picker-day {\n  width: 65px; }\n\n.time-picker-hour {\n  color: #e6e6e6;\n  cursor: pointer;\n  font-weight: bold;\n  font-size: 14px; }\n  .time-picker-hour.active {\n    color: #81c13d; }\n  .time-picker-hour.forbidden {\n    color: #ef9b6d; }\n\n.time-picker-btns {\n  padding: 3px; }\n  .time-picker-btns span {\n    display: inline-block;\n    width: 18px;\n    height: 18px;\n    border-radius: 3px;\n    background: #e6e6e6;\n    color: white;\n    text-align: center;\n    cursor: pointer; }\n  .time-picker-btns.active span {\n    background: #81c13d; }\n  .time-picker-btns.forbidden span {\n    background: #ef9b6d; }\n", ""]);
+	exports.push([module.id, ".time-picker-wrap {\n  padding: 15px; }\n\n.time-picker-hint {\n  float: right;\n  margin-top: 3px; }\n  .time-picker-hint span {\n    margin-left: 10px; }\n  .time-picker-hint i {\n    display: inline-block;\n    width: 18px;\n    height: 18px;\n    border-radius: 3px;\n    background: #e6e6e6;\n    vertical-align: middle;\n    position: relative;\n    top: -1px; }\n  .time-picker-hint .active i {\n    background: #81c13d; }\n  .time-picker-hint .forbidden i {\n    background: #ef9b6d; }\n\n.time-picker-ft {\n  padding-left: 70px;\n  color: #999;\n  margin-top: 5px; }\n  .time-picker-ft p {\n    margin-bottom: 0; }\n\n.time-picker-submit-wrap {\n  text-align: center;\n  margin-top: 10px; }\n\n.time-picker-shortcuts {\n  margin-bottom: 10px; }\n\n.time-picker-day {\n  width: 65px; }\n\n.time-picker-hour {\n  color: #e6e6e6;\n  cursor: pointer;\n  font-weight: bold;\n  font-size: 14px; }\n  .time-picker-hour.active {\n    color: #81c13d; }\n  .time-picker-hour.forbidden {\n    color: #ef9b6d; }\n\n.time-picker-btns {\n  padding: 3px; }\n  .time-picker-btns span {\n    display: inline-block;\n    width: 18px;\n    height: 18px;\n    line-height: 18px;\n    border-radius: 3px;\n    background: #e6e6e6;\n    color: white;\n    text-align: center;\n    cursor: pointer; }\n  .time-picker-btns.active span {\n    background: #81c13d; }\n  .time-picker-btns.forbidden span {\n    background: #ef9b6d; }\n", ""]);
 	
 	// exports
 
@@ -10137,63 +10137,59 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	// <template>
-	// <div>
-	//     <a class="btn btn-primary" href="javascript:;" @click="showDialog">选择时段</a>
-	//     <dialog :visible="dialogVisible" title="选择时段">
-	//     <div class="time-picker-wrap">
-	//         <div class="time-picker-hd">
-	//             <div class="time-picker-hint">
-	//                 <span class="active"><i></i>投放时间段</span>
-	//                 <span><i></i>暂停时间段</span>
-	//                 <span class="forbidden"><i></i>不可选时间段</span>
-	//             </div>
-	//             <div class="time-picker-shortcuts">
-	//                 <a class="time-picker-all btn btn-default" href="javascript:;" @click.prevent="selectSpecificDay('all')">全部时间</a>
-	//                 <a class="time-picker-work btn btn-default" href="javascript:;" @click.prevent="selectSpecificDay('weekday')">工作日</a>
-	//                 <a class="time-picker-weekend btn btn-default" href="javascript:;" @click.prevent="selectSpecificDay('weekend')">周末</a>
-	//             </div>
-	//         </div>
-	//         <table class="time-picker-bd">
-	//             <thead>
-	//                 <tr>
-	//                     <th class="time-picker-day"></th>
-	//                     <th v-for="hour in 24" class="time-picker-hour" :class="{active: isHourAllChecked[hour]}" @click="selectHour(hour)">
-	//                         <i class="fa fa-arrow-down"></i>
-	//                     </th>
-	//                 </tr>
-	//             </thead>
-	//             <tbody>
-	//                 <tr v-for="day in 7">
-	//                     <td class="time-picker-day">
-	//                         <label>
-	//                             <input type="checkbox" @change="selectDay(day, $event.target.checked)" v-model="isDayAllChecked[day]" :disabled="disabledWeekday[day]">
-	//                             {{weekDay[day]}}
-	//                         </label>
-	//                     </td>
-	//                     <td v-for="hour in 24" class="time-picker-btns" :class="{'forbidden': !!fbdArr[day][hour],'active': (!fbdArr[day][hour] && !!times[day][hour])}" @click="selectTime(day,hour)">
-	//                         <span>{{hour+1}}</span>
-	//                     </td>
-	//                 </tr>
-	//             </tbody>
-	//         </table>
-	//         <div class="time-picker-ft">
-	//             <p><strong>示例一：</strong>&nbsp;&nbsp;当你选择了星期一的【12】点，则推广时间段为星期一的12:00-12:59</p>
-	//             <p><strong>示例二：</strong>&nbsp;&nbsp;当你选择了星期一的【8、9、10、11】点，则推广时间段为星期一的8:00-11:59</p>
-	//         </div>
-	//         <div class="time-picker-submit-wrap">
-	//             <a class="btn btn-primary" href="javascript:;" @click.prevent="confirm">确定</a>
-	//             <a class="btn btn-default" href="javascript:;" @click.prevent="cancel">取消</a>
-	//         </div>
-	//     </div>
-	//     </dialog>
-	// </div>
+	// <template lang="jade">
+	// div
+	//   a.btn.btn-primary(href='javascript:;', @click='showDialog') 选择时段
+	//   dialog(:visible='dialogVisible', title='选择时段')
+	//     .time-picker-wrap
+	//       .time-picker-hd
+	//         .time-picker-hint
+	//           span.active
+	//             i
+	//             | 投放时间段
+	//           span
+	//             i
+	//             | 暂停时间段
+	//           span.forbidden
+	//             i
+	//             | 不可选时间段
+	//         .time-picker-shortcuts
+	//           a.time-picker-all.btn.btn-default(href='javascript:;', @click.prevent="selectSpecificDay('all')") 全部时间
+	//           a.time-picker-work.btn.btn-default(href='javascript:;', @click.prevent="selectSpecificDay('weekday')") 工作日
+	//           a.time-picker-weekend.btn.btn-default(href='javascript:;', @click.prevent="selectSpecificDay('weekend')") 周末
+	//       table.time-picker-bd
+	//         thead
+	//           tr
+	//             th.time-picker-day
+	//             th.time-picker-hour(v-for='hour in 24', :class='{active: isHourAllChecked[hour]}', @click='selectHour(hour)')
+	//               i.fa.fa-arrow-down
+	//         tbody
+	//           tr(v-for='day in 7')
+	//             td.time-picker-day
+	//               label
+	//                 input(type='checkbox', @change='selectDay(day, $event.target.checked)', v-model='isDayAllChecked[day]', :disabled='disabledWeekday[day]')
+	//                 | {{weekDay[day]}}
+	//             td.time-picker-btns(v-for='hour in 24', :class="{'forbidden': !!fbdArr[day][hour],'active': (!fbdArr[day][hour] && !!times[day][hour])}", @click='selectTime(day,hour)')
+	//               span {{hour+1}}
+	//       .time-picker-ft
+	//         p
+	//           strong 示例一：当你选择了星期一的【12】点，则推广时间段为星期一的12:00-12:59
+	//         p
+	//           strong 示例二：当你选择了星期一的【8、9、10、11】点，则推广时间段为星期一的8:00-11:59
+	//       .time-picker-submit-wrap
+	//         a.btn.btn-primary(href='javascript:;', @click.prevent='confirm') 确定
+	//         a.btn.btn-default(href='javascript:;', @click.prevent='cancel') 取消
 	// </template>
 	
 	// <script>
 	
 	String.prototype.repeat = String.prototype.repeat || function (n) {
 	    return Array(n + 1).join(this);
+	};
+	Array.prototype.fill = Array.prototype.fill || function (val) {
+	    for (var i = 0; i < this.length; i++) {
+	        this[i] = val;
+	    }
 	};
 	
 	exports.default = {
@@ -10222,118 +10218,169 @@
 	        dialog: _dialog2.default //依赖组件Dialog
 	    },
 	    computed: {
+	        /**
+	         * 将用户给定的禁止选择时间点的字符串转换为int数组
+	         */
+	
 	        fbdArr: function fbdArr() {
-	            //将用户给定的禁止选择时间点的字符串转换为int数组
 	            return this.forbidden.split(',').map(function (s) {
 	                return s.split('').map(function (f) {
 	                    return +f;
 	                });
 	            });
 	        },
+	
+	        /**
+	         * 若当天所以时间点都被禁止选择，则disabled该checkbox
+	         */
 	        disabledWeekday: function disabledWeekday() {
-	            //若当天所以时间点都被禁止选择，则disabled该checkbox
 	            return this.fbdArr.map(function (day) {
 	                return day.reduce(function (pre, next) {
 	                    return pre + next;
 	                }) == 24;
 	            });
 	        },
+	
+	        /**
+	         * 长度为7的一维bool数组，true表示该天所有时间点均被选中，false反之
+	         */
 	        isDayAllChecked: function isDayAllChecked() {
-	            //长度为7的一维bool数组，true表示该天所有时间点均被选中，false反之
-	            var me = this,
-	                temp = [];
-	            me.times.map(function (day) {
-	                return temp.push(day.reduce(function (pre, next) {
-	                    return pre + next;
-	                }));
-	            }); //将选中的时间点叠加
-	            me.fbdArr.map(function (day, di) {
-	                return temp[di] ? temp[di] += day.reduce(function (pre, next) {
-	                    return pre + next;
-	                }) : '';
-	            }); //若有选中的时间点，则再叠加被禁止选择的时间点
-	            temp.map(function (checked, i) {
-	                return temp.$set(i, checked == 24);
-	            }); //若选中的时间点与禁止选择的时间点加起来为24，则表明该天被全部选中
-	            return temp;
-	        },
-	        isHourAllChecked: function isHourAllChecked() {
 	            var _this = this;
 	
-	            //长度为24的一维int数组，7表示该时间点每天都被选中，小于7则表示未被全部选中
-	            var temp = [],
-	                fbdSum = [];
+	            return this.times.map(function (dayTimes) {
+	                return(
+	                    //将选中的时间点叠加，得到每天选中的时间总数
+	                    dayTimes.reduce(function (count, next) {
+	                        return count + next;
+	                    })
+	                );
+	            }).map(function (checkedCount, day) {
+	                //计算每天被禁止的时间数
+	                var fbdCount = _this.fbdArr[day].reduce(function (count, next) {
+	                    return count + next;
+	                });
+	                //如果有选中的时间数，则将其与禁止的时间数相加
+	                return checkedCount && checkedCount + fbdCount;
+	            }).map(function (total) {
+	                return(
+	                    //是否能选的都选中了
+	                    total == 24
+	                );
+	            });
+	        },
+	
+	        /**
+	         * 长度为24的一维int数组，7表示该时间点每天都被选中，小于7则表示未被全部选中
+	         */
+	        isHourAllChecked: function isHourAllChecked() {
+	            var _this2 = this;
+	
+	            var temp = new Array(24).fill(0),
+	                //temp存储该时间点被选中的天数（包括被禁止的）
+	            fbdSum = new Array(24).fill(0); //fbdSum存储该时间点被禁止选中的天数
 	            this.times.map(function (day, di) {
 	                day.map(function (hour, hi) {
-	                    fbdSum[hi] ? fbdSum[hi] += _this.fbdArr[di][hi] : fbdSum.push(_this.fbdArr[di][hi]); //fbdSum存储该时间点被禁止选中的天数
-	                    temp[hi] ? temp[hi] += hour + _this.fbdArr[di][hi] : temp.push(hour + _this.fbdArr[di][hi]); //temp存储该时间点被选中的天数（包括被禁止的）
+	                    fbdSum[hi] += _this2.fbdArr[di][hi];
+	                    temp[hi] += hour + _this2.fbdArr[di][hi];
 	                });
 	            });
 	            return temp.map(function (item, i) {
-	                return fbdSum[i] == 7 ? false : item == 7;
+	                return item == 7 && fbdSum[i] != 7;
 	            }); //若被禁止的天数为7，则不选中改
 	        }
 	    },
 	    created: function created() {
-	        var _this2 = this;
+	        var _this3 = this;
 	
+	        /**
+	         * 将用户选择的时间点字符串转换为int数组
+	         */
 	        this.times = this.timeString.split(',').map(function (day, dIndex) {
-	            //将用户选择的时间点字符串转换为int数组
 	            return day.split('').map(function (hour, hIndex) {
-	                return _this2.fbdArr[dIndex][hIndex] ? 0 : +hour;
+	                return _this3.fbdArr[dIndex][hIndex] ? 0 : +hour;
 	            });
 	        });
+	        /**
+	         * 监控forbidden，若有修改则更新times数组
+	         */
 	        this.$watch('forbidden', function () {
-	            var _this3 = this;
+	            var _this4 = this;
 	
 	            this.times = this.fbdArr.map(function (day, dIndex) {
-	                //将用户选择的时间点字符串转换为int数组
 	                return day.map(function (hour, hIndex) {
-	                    return _this3.fbdArr[dIndex][hIndex] && _this3.times[dIndex][hIndex];
+	                    return _this4.fbdArr[dIndex][hIndex] && _this4.times[dIndex][hIndex];
 	                });
 	            });
 	        });
 	    },
 	
 	    methods: {
+	        /**
+	         * 时间点选择事件，若未被禁止则
+	         */
+	
 	        selectTime: function selectTime(day, hour) {
-	            //时间点选择事件，若未被禁止则
 	            !this.fbdArr[day][hour] && this.times[day].$set(hour, +!this.times[day][hour]);
 	        },
-	        selectDay: function selectDay(day, bool) {
-	            var _this4 = this;
 	
-	            //选择整天24小时
-	            this.times[day].map(function (hour, hi) {
-	                return _this4.times[day].$set(hi, _this4.fbdArr[day][hi] ? 0 : +bool);
-	            });
-	        },
-	        selectHour: function selectHour(hour) {
+	        /**
+	         * 选择整天24小时
+	         */
+	        selectDay: function selectDay(day, bool) {
 	            var _this5 = this;
 	
-	            //选择整个时间点
-	            var checked = this.isHourAllChecked[hour] ? 0 : 1;
-	            this.times.map(function (day, di) {
-	                return day.$set(hour, _this5.fbdArr[di][hour] ? 0 : checked);
+	            this.times[day].map(function (hour, hi) {
+	                return _this5.times[day].$set(hi, _this5.fbdArr[day][hi] ? 0 : +bool);
 	            });
 	        },
-	        selectSpecificDay: function selectSpecificDay(type) {
+	
+	        /**
+	         * 选择整个时间点，7天全部选择
+	         */
+	        selectHour: function selectHour(hour) {
 	            var _this6 = this;
 	
-	            //选择指定的天数，全部、工作日、周末
-	            var selectDay = type == 'all' ? [1, 1, 1, 1, 1, 1, 1] : type == 'weekday' ? [0, 1, 1, 1, 1, 1, 0] : [1, 0, 0, 0, 0, 0, 1];
-	            selectDay.map(function (s, i) {
-	                return _this6.selectDay(i, s);
+	            var checked = this.isHourAllChecked[hour] ? 0 : 1;
+	            this.times.map(function (day, di) {
+	                return day.$set(hour, _this6.fbdArr[di][hour] ? 0 : checked);
 	            });
 	        },
+	
+	        /**
+	         * 选择指定的天数，全部、工作日、周末
+	         */
+	        selectSpecificDay: function selectSpecificDay(type) {
+	            var _this7 = this;
+	
+	            var selectDayMap = {
+	                all: [1, 1, 1, 1, 1, 1, 1],
+	                weekday: [0, 1, 1, 1, 1, 1, 0],
+	                weekend: [1, 0, 0, 0, 0, 0, 1]
+	            };
+	            selectDayMap[type].forEach(function (s, i) {
+	                return _this7.selectDay(i, s);
+	            });
+	        },
+	
+	        /**
+	         * 显示组件的Dialog，并备份当前所选时间点
+	         */
 	        showDialog: function showDialog() {
 	            this.dialogVisible = true;
 	            this.backupTimes = JSON.parse((0, _stringify2.default)(this.times));
 	        },
+	
+	        /**
+	         * 确定所选的时间点，触发父级注册的confirm事件
+	         */
 	        confirm: function confirm() {
 	            this.dialogVisible = false;
 	            this.$dispatch('confirm', this.times);
 	        },
+	
+	        /**
+	         * 取消所勾选的时间，恢复之前备份的times
+	         */
 	        cancel: function cancel() {
 	            this.times = JSON.parse((0, _stringify2.default)(this.backupTimes));
 	            this.dialogVisible = false;
@@ -10348,7 +10395,7 @@
 /* 49 */
 /***/ function(module, exports) {
 
-	module.exports = "<div>\n    <a class=\"btn btn-primary\" href=\"javascript:;\" @click=\"showDialog\">选择时段</a>\n    <dialog :visible=\"dialogVisible\" title=\"选择时段\">\n    <div class=\"time-picker-wrap\">\n        <div class=\"time-picker-hd\">\n            <div class=\"time-picker-hint\">\n                <span class=\"active\"><i></i>投放时间段</span>\n                <span><i></i>暂停时间段</span>\n                <span class=\"forbidden\"><i></i>不可选时间段</span>\n            </div>\n            <div class=\"time-picker-shortcuts\">\n                <a class=\"time-picker-all btn btn-default\" href=\"javascript:;\" @click.prevent=\"selectSpecificDay('all')\">全部时间</a>\n                <a class=\"time-picker-work btn btn-default\" href=\"javascript:;\" @click.prevent=\"selectSpecificDay('weekday')\">工作日</a>\n                <a class=\"time-picker-weekend btn btn-default\" href=\"javascript:;\" @click.prevent=\"selectSpecificDay('weekend')\">周末</a>\n            </div>\n        </div>\n        <table class=\"time-picker-bd\">\n            <thead>\n                <tr>\n                    <th class=\"time-picker-day\"></th>\n                    <th v-for=\"hour in 24\" class=\"time-picker-hour\" :class=\"{active: isHourAllChecked[hour]}\" @click=\"selectHour(hour)\">\n                        <i class=\"fa fa-arrow-down\"></i>\n                    </th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr v-for=\"day in 7\">\n                    <td class=\"time-picker-day\">\n                        <label>\n                            <input type=\"checkbox\" @change=\"selectDay(day, $event.target.checked)\" v-model=\"isDayAllChecked[day]\" :disabled=\"disabledWeekday[day]\">\n                            {{weekDay[day]}}\n                        </label>\n                    </td>\n                    <td v-for=\"hour in 24\" class=\"time-picker-btns\" :class=\"{'forbidden': !!fbdArr[day][hour],'active': (!fbdArr[day][hour] && !!times[day][hour])}\" @click=\"selectTime(day,hour)\">\n                        <span>{{hour+1}}</span>\n                    </td>\n                </tr>\n            </tbody>\n        </table>\n        <div class=\"time-picker-ft\">\n            <p><strong>示例一：</strong>&nbsp;&nbsp;当你选择了星期一的【12】点，则推广时间段为星期一的12:00-12:59</p>\n            <p><strong>示例二：</strong>&nbsp;&nbsp;当你选择了星期一的【8、9、10、11】点，则推广时间段为星期一的8:00-11:59</p>\n        </div>\n        <div class=\"time-picker-submit-wrap\">\n            <a class=\"btn btn-primary\" href=\"javascript:;\" @click.prevent=\"confirm\">确定</a>\n            <a class=\"btn btn-default\" href=\"javascript:;\" @click.prevent=\"cancel\">取消</a>\n        </div>\n    </div>\n    </dialog>\n</div>";
+	module.exports = "<div><a href=\"javascript:;\" @click=\"showDialog\" class=\"btn btn-primary\">选择时段</a><dialog :visible=\"dialogVisible\" title=\"选择时段\"><div class=\"time-picker-wrap\"><div class=\"time-picker-hd\"><div class=\"time-picker-hint\"><span class=\"active\"><i></i>投放时间段</span><span><i></i>暂停时间段</span><span class=\"forbidden\"><i></i>不可选时间段</span></div><div class=\"time-picker-shortcuts\"><a href=\"javascript:;\" @click.prevent=\"selectSpecificDay('all')\" class=\"time-picker-all btn btn-default\">全部时间</a><a href=\"javascript:;\" @click.prevent=\"selectSpecificDay('weekday')\" class=\"time-picker-work btn btn-default\">工作日</a><a href=\"javascript:;\" @click.prevent=\"selectSpecificDay('weekend')\" class=\"time-picker-weekend btn btn-default\">周末</a></div></div><table class=\"time-picker-bd\"><thead><tr><th class=\"time-picker-day\"></th><th v-for=\"hour in 24\" :class=\"{active: isHourAllChecked[hour]}\" @click=\"selectHour(hour)\" class=\"time-picker-hour\"><i class=\"fa fa-arrow-down\"></i></th></tr></thead><tbody><tr v-for=\"day in 7\"><td class=\"time-picker-day\"><label><input type=\"checkbox\" @change=\"selectDay(day, $event.target.checked)\" v-model=\"isDayAllChecked[day]\" :disabled=\"disabledWeekday[day]\"/>{{weekDay[day]}}</label></td><td v-for=\"hour in 24\" :class=\"{'forbidden': !!fbdArr[day][hour],'active': (!fbdArr[day][hour] &amp;&amp; !!times[day][hour])}\" @click=\"selectTime(day,hour)\" class=\"time-picker-btns\"><span>{{hour+1}}</span></td></tr></tbody></table><div class=\"time-picker-ft\"><p><strong>示例一：当你选择了星期一的【12】点，则推广时间段为星期一的12:00-12:59</strong></p><p><strong>示例二：当你选择了星期一的【8、9、10、11】点，则推广时间段为星期一的8:00-11:59</strong></p></div><div class=\"time-picker-submit-wrap\"><a href=\"javascript:;\" @click.prevent=\"confirm\" class=\"btn btn-primary\">确定</a><a href=\"javascript:;\" @click.prevent=\"cancel\" class=\"btn btn-default\">取消</a></div></div></dialog></div>";
 
 /***/ }
 /******/ ]);

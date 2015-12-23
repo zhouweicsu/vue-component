@@ -8,7 +8,7 @@ var template = `
         <div class="msg-wrap">
             <i class="fa fa-exclamation-triangle icon icon-warn" v-if="type == 'warn'"></i>
             <i class="fa fa-exclamation-triangle icon icon-confirm" v-if="type == 'confirm'"></i>
-            <span>{{msg}}</span>
+            <span>{{{msg}}}</span>
         </div>
         <div class="btn-wrap">
             <a href="javascript:void(0)" class="btn btn-primary dialog-confirm" @click="onclicked(true)">确定</a>
