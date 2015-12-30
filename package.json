@@ -4,7 +4,7 @@
   "description": "vue-component",
   "main": "webpack.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "./node_modules/karma/bin/karma start",
     "server": "webpack-dev-server --port 9876 --host 0.0.0.0"
   },
   "repository": {
@@ -34,6 +34,10 @@
     "babel-preset-stage-0": "^6.3.13",
     "extract-text-webpack-plugin": "^0.9.1",
     "jade": "^1.11.0",
+    "karma-mocha": "^0.2.1",
+    "karma-nyan-reporter": "^0.2.3",
+    "karma-webpack": "^1.7.0",
+    "mocha": "^2.3.4",
     "node-sass": "^3.4.2",
     "sass-loader": "^3.1.2",
     "template-html-loader": "0.0.3",
