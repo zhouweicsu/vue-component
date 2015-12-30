@@ -36,10 +36,12 @@
     "jade": "^1.11.0",
     "karma-mocha": "^0.2.1",
     "karma-nyan-reporter": "^0.2.3",
+    "karma-sinon": "^1.0.4",
     "karma-webpack": "^1.7.0",
     "mocha": "^2.3.4",
     "node-sass": "^3.4.2",
     "sass-loader": "^3.1.2",
+    "sinon": "^1.17.2",
     "template-html-loader": "0.0.3",
     "webpack": "^1.12.2"
   }

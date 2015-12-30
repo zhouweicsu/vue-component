@@ -12,14 +12,17 @@ describe('dialog 组件', function() {
      * 组件的显示、隐藏等
      */
     describe('the dialog', function() {
-        //set up
-        var content = '<p>test dialog</p>';
-        var template = `<dialog title="标题" v-ref:d>${content}</dialog>`;
-        var vm = util.createApp(template);
-        var el = vm.$el;
-        var box = el.querySelector('.dialog-box');
-        var hd = el.querySelector('.dialog-box .dialog-hd');
-        var bd = el.querySelector('.dialog-box .dialog-bd');
+        var content, template, vm, el, box, hd, bd;
+        it('setup test', function() {
+            content = '<p>test dialog</p>';
+            template = `<dialog title="标题" v-ref:d>${content}</dialog>`;
+            vm = util.createApp(template);
+            el = vm.$el;
+            box = el.querySelector('.dialog-box');
+            hd = el.querySelector('.dialog-box .dialog-hd');
+            bd = el.querySelector('.dialog-box .dialog-bd');
+            assert(true);
+        });
 
         it('should create the dom structure', function() {
             assert(box);
@@ -73,17 +76,19 @@ describe('dialog 组件', function() {
      * 组件的初始化显示，关闭按钮
      */
     describe('the dialog', function() {
-        //set up
-        var template = `<dialog :title="title" :visible="visible" v-ref:d><p>test</p></dialog>`;
-        var vm = util.createApp(template, {
-            data: {
-                title: '初始标题',
-                visible: true
-            }
+        var template, vm, el, box, hd;
+        it('set up test', function(){
+            template = `<dialog :title="title" :visible="visible" v-ref:d><p>test</p></dialog>`;
+            vm = util.createApp(template, {
+                data: {
+                    title: '初始标题',
+                    visible: true
+                }
+            });
+            el = vm.$el;
+            box = el.querySelector('.dialog-box');
+            hd = el.querySelector('.dialog-box .dialog-hd');
         });
-        var el = vm.$el;
-        var box = el.querySelector('.dialog-box');
-        var hd = el.querySelector('.dialog-box .dialog-hd');
 
         it('should be displayed at initial state', function() {
             assert.equal(box.style.display, 'block');

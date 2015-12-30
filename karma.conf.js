@@ -3,7 +3,8 @@ var webpackConfig = require("./webpack.config.js");
 module.exports = function(config) {
     config.set({
         basePath: '.',
-        frameworks: ['mocha'],
+        concurrency: 1,
+        frameworks: ['mocha', 'sinon'],
         reporters: ['nyan'],
         files: [
             'test/*_test.js',
@@ -25,6 +26,7 @@ module.exports = function(config) {
         plugins: [
             'karma-webpack',
             'karma-mocha',
+            'karma-sinon',
             'karma-nyan-reporter'
         ]
 
