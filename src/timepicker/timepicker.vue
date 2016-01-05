@@ -130,7 +130,7 @@ export default {
          */
         this.$watch('forbidden',function(){
             this.times = this.fbdArr.map((day,dIndex) => {
-                return day.map((hour, hIndex) => this.fbdArr[dIndex][hIndex] && this.times[dIndex][hIndex]);
+                return day.map((hour, hIndex) => this.fbdArr[dIndex][hIndex] ? 0 : this.times[dIndex][hIndex]);
             });
         });
     },
