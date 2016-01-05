@@ -8,7 +8,8 @@ var template = `
         <div class="msg-wrap">
             <i class="fa fa-exclamation-triangle icon icon-warn" v-if="type == 'warn'"></i>
             <i class="fa fa-exclamation-triangle icon icon-confirm" v-if="type == 'confirm'"></i>
-            <span>{{{msg}}}</span>
+            <span v-if="safe">{{{msg}}}</span>
+            <span v-else>{{msg}}</span>
         </div>
         <div class="btn-wrap">
             <a href="javascript:void(0)" class="btn btn-primary dialog-confirm" @click="onclicked(true)">确定</a>
@@ -17,7 +18,7 @@ var template = `
     </dialog>
 `;
 
-var openDialog = function(type, msg, callback) {
+var openDialog = function(type, msg, callback, safe) {
     var container = document.createElement('div');
     document.body.appendChild(container);
     var vm = new Vue({
@@ -26,7 +27,8 @@ var openDialog = function(type, msg, callback) {
         template: template,
         data: {
             msg: msg,
-            type: type
+            type: type,
+            safe: safe || false
         },
         methods: {
             onclicked(result) {
@@ -38,16 +40,16 @@ var openDialog = function(type, msg, callback) {
     });
 }
 
-Dialog.confirm = function(msg, callback) {
-    openDialog('confirm', msg, callback);
+Dialog.confirm = function(msg, callback, safe) {
+    openDialog('confirm', msg, callback, safe);
 }
 
-Dialog.warn = function(msg, callback) {
-    openDialog('warn', msg, callback);
+Dialog.warn = function(msg, callback, safe) {
+    openDialog('warn', msg, callback, safe);
 }
 
-Dialog.alert = function(msg, callback) {
-    openDialog('alert', msg, callback);
+Dialog.alert = function(msg, callback, safe) {
+    openDialog('alert', msg, callback, safe);
 }
 
 export default Dialog;
