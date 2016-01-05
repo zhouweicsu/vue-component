@@ -57,7 +57,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	document.querySelector("#confirm").addEventListener("click", function () {
-	    _dialog2.default.confirm('确定删除这个应用嘛？', function (result) {
+	    _dialog2.default.confirm('确定删除这个应用嘛？<p style="color:#999;">警告：一旦删除，不可恢复</p>', function (result) {
 	        alert('您点击了' + result + '按钮');
 	    });
 	}, false);
@@ -9832,7 +9832,7 @@
 	
 	_vue2.default.component('dialog', _dialog2.default);
 	
-	var template = '\n    <dialog type="confirm" visible="true">\n        <div class="msg-wrap">\n            <i class="fa fa-exclamation-triangle icon icon-warn" v-if="type == \'warn\'"></i>\n            <i class="fa fa-exclamation-triangle icon icon-confirm" v-if="type == \'confirm\'"></i>\n            <span>{{msg}}</span>\n        </div>\n        <div class="btn-wrap">\n            <a href="javascript:void(0)" class="btn btn-primary dialog-confirm" @click="onclicked(true)">确定</a>\n            <a href="javascript:void(0)" class="btn btn-default dialog-cancel" @click="onclicked(false)" v-if="type == \'confirm\'">取消</a>\n        </div>\n    </dialog>\n';
+	var template = '\n    <dialog type="confirm" visible="true">\n        <div class="msg-wrap">\n            <i class="fa fa-exclamation-triangle icon icon-warn" v-if="type == \'warn\'"></i>\n            <i class="fa fa-exclamation-triangle icon icon-confirm" v-if="type == \'confirm\'"></i>\n            <span>{{{msg}}}</span>\n        </div>\n        <div class="btn-wrap">\n            <a href="javascript:void(0)" class="btn btn-primary dialog-confirm" @click="onclicked(true)">确定</a>\n            <a href="javascript:void(0)" class="btn btn-default dialog-cancel" @click="onclicked(false)" v-if="type == \'confirm\'">取消</a>\n        </div>\n    </dialog>\n';
 	
 	var openDialog = function openDialog(type, msg, callback) {
 	    var container = document.createElement('div');
@@ -9882,7 +9882,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "/home/zhouwei3-xy/vue-component/src/dialog/_dialog.vue"
+	  var id = "/home/gaonan-iri/github/vue-component/src/dialog/_dialog.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -9906,8 +9906,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-19b4b120&file=_dialog.vue!./../../node_modules/sass-loader/index.js!./dialog.scss", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-19b4b120&file=_dialog.vue!./../../node_modules/sass-loader/index.js!./dialog.scss");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-20127069&file=_dialog.vue!./../../node_modules/sass-loader/index.js!./dialog.scss", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-20127069&file=_dialog.vue!./../../node_modules/sass-loader/index.js!./dialog.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
