@@ -9920,6 +9920,11 @@
 	        //Table表格数据列表
 	        list: {
 	            default: []
+	        },
+	        //初始化的时候是否默认执行一次getPageData
+	        initrequest: {
+	            default: true,
+	            type: Boolean
 	        }
 	    },
 	    data: function data() {
@@ -9935,7 +9940,9 @@
 	        this.$watch('url', function () {
 	            return _this.getPageData(0);
 	        });
-	        this.getPageData(0);
+	        if (this.initrequest) {
+	            this.getPageData(0);
+	        }
 	    },
 	
 	    components: {
@@ -9960,15 +9967,15 @@
 	            var params = me.needpagination ? (/\?/.test(me.url) ? '&' : '?') + 'pn=' + pn + '&ps=' + me.ps : '';
 	            var resource = me.$resource(me.url + params);
 	            resource.get(function (data, status, request) {
-	                if (typeof me.datafilter === 'function') {
-	                    //若传入数据处理函数，则处理该数据
-	                    data = me.datafilter(data); //数据处理函数返回的数据需满足上面的格式
-	                }
 	                if (data.errno) {
 	                    alert(data.errmsg);
 	                    me.list = [];
 	                    me.total = 0;
 	                    return false;
+	                }
+	                if (typeof me.datafilter === 'function') {
+	                    //若传入数据处理函数，则处理该数据
+	                    data = me.datafilter(data); //数据处理函数返回的数据需满足上面的格式
 	                }
 	                //规避错误：若在最后一页只有一条数据且将其删除，再次请求当前页就会出现错误，此时需要pn-1，请求上一页直到0
 	                if (me.pn > 0 && data.total <= me.ps * me.pn) {

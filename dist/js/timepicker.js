@@ -9851,9 +9851,9 @@
 	
 	_vue2.default.component('dialog', _dialog2.default);
 	
-	var template = '\n    <dialog type="confirm" visible="true">\n        <div class="msg-wrap">\n            <i class="fa fa-exclamation-triangle icon icon-warn" v-if="type == \'warn\'"></i>\n            <i class="fa fa-exclamation-triangle icon icon-confirm" v-if="type == \'confirm\'"></i>\n            <span>{{{msg}}}</span>\n        </div>\n        <div class="btn-wrap">\n            <a href="javascript:void(0)" class="btn btn-primary dialog-confirm" @click="onclicked(true)">确定</a>\n            <a href="javascript:void(0)" class="btn btn-default dialog-cancel" @click="onclicked(false)" v-if="type == \'confirm\'">取消</a>\n        </div>\n    </dialog>\n';
+	var template = '\n    <dialog type="confirm" visible="true">\n        <div class="msg-wrap">\n            <i class="fa fa-exclamation-triangle icon icon-warn" v-if="type == \'warn\'"></i>\n            <i class="fa fa-exclamation-triangle icon icon-confirm" v-if="type == \'confirm\'"></i>\n            <span v-if="safe">{{{msg}}}</span>\n            <span v-else>{{msg}}</span>\n        </div>\n        <div class="btn-wrap">\n            <a href="javascript:void(0)" class="btn btn-primary dialog-confirm" @click="onclicked(true)" id="dialogBtnDefault">确定</a>\n            <a href="javascript:void(0)" class="btn btn-default dialog-cancel" @click="onclicked(false)" v-if="type == \'confirm\'">取消</a>\n        </div>\n    </dialog>\n';
 	
-	var openDialog = function openDialog(type, msg, callback) {
+	var openDialog = function openDialog(type, msg, callback, safe) {
 	    var container = document.createElement('div');
 	    document.body.appendChild(container);
 	    var vm = new _vue2.default({
@@ -9862,7 +9862,8 @@
 	        template: template,
 	        data: {
 	            msg: msg,
-	            type: type
+	            type: type,
+	            safe: safe || false
 	        },
 	        methods: {
 	            onclicked: function onclicked(result) {
@@ -9870,20 +9871,24 @@
 	                document.body.removeChild(container);
 	                vm.$destroy();
 	            }
+	        },
+	        ready: function ready() {
+	            var btn = this.$el.querySelector('#dialogBtnDefault');
+	            btn.focus();
 	        }
 	    });
 	};
 	
-	_dialog2.default.confirm = function (msg, callback) {
-	    openDialog('confirm', msg, callback);
+	_dialog2.default.confirm = function (msg, callback, safe) {
+	    openDialog('confirm', msg, callback, safe);
 	};
 	
-	_dialog2.default.warn = function (msg, callback) {
-	    openDialog('warn', msg, callback);
+	_dialog2.default.warn = function (msg, callback, safe) {
+	    openDialog('warn', msg, callback, safe);
 	};
 	
-	_dialog2.default.alert = function (msg, callback) {
-	    openDialog('alert', msg, callback);
+	_dialog2.default.alert = function (msg, callback, safe) {
+	    openDialog('alert', msg, callback, safe);
 	};
 	
 	exports.default = _dialog2.default;
@@ -10308,7 +10313,7 @@
 	
 	            this.times = this.fbdArr.map(function (day, dIndex) {
 	                return day.map(function (hour, hIndex) {
-	                    return _this4.fbdArr[dIndex][hIndex] && _this4.times[dIndex][hIndex];
+	                    return _this4.fbdArr[dIndex][hIndex] ? 0 : _this4.times[dIndex][hIndex];
 	                });
 	            });
 	        });
