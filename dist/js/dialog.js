@@ -59,7 +59,7 @@
 	document.querySelector("#confirm").addEventListener("click", function () {
 	    _dialog2.default.confirm('确定删除这个应用嘛？<p style="color:#999;">警告：一旦删除，不可恢复</p>', function (result) {
 	        alert('您点击了' + result + '按钮');
-	    });
+	    }, { safe: true });
 	}, false);
 	
 	document.querySelector("#warn").addEventListener("click", function () {
@@ -9832,9 +9832,10 @@
 	
 	_vue2.default.component('dialog', _dialog2.default);
 	
-	var template = '\n    <dialog type="confirm" visible="true">\n        <div class="msg-wrap">\n            <i class="fa fa-exclamation-triangle icon icon-warn" v-if="type == \'warn\'"></i>\n            <i class="fa fa-exclamation-triangle icon icon-confirm" v-if="type == \'confirm\'"></i>\n            <span>{{{msg}}}</span>\n        </div>\n        <div class="btn-wrap">\n            <a href="javascript:void(0)" class="btn btn-primary dialog-confirm" @click="onclicked(true)">确定</a>\n            <a href="javascript:void(0)" class="btn btn-default dialog-cancel" @click="onclicked(false)" v-if="type == \'confirm\'">取消</a>\n        </div>\n    </dialog>\n';
+	var template = '\n    <dialog type="confirm" visible="true">\n        <div class="msg-wrap">\n            <i class="fa fa-exclamation-triangle icon icon-warn" v-if="type == \'warn\'"></i>\n            <i class="fa fa-exclamation-triangle icon icon-confirm" v-if="type == \'confirm\'"></i>\n            <span v-if="options.safe">{{{msg}}}</span>\n            <span v-else>{{msg}}</span>\n        </div>\n        <div class="btn-wrap">\n            <a href="javascript:void(0)" class="btn btn-primary dialog-confirm" @click="onclicked(true)">确定</a>\n            <a href="javascript:void(0)" class="btn btn-default dialog-cancel" @click="onclicked(false)" v-if="type == \'confirm\'">取消</a>\n        </div>\n    </dialog>\n';
 	
-	var openDialog = function openDialog(type, msg, callback) {
+	var openDialog = function openDialog(type, msg, callback, options) {
+	    options = options || {};
 	    var container = document.createElement('div');
 	    document.body.appendChild(container);
 	    var vm = new _vue2.default({
@@ -9843,7 +9844,10 @@
 	        template: template,
 	        data: {
 	            msg: msg,
-	            type: type
+	            type: type,
+	            options: {
+	                safe: options.safe || false
+	            }
 	        },
 	        methods: {
 	            onclicked: function onclicked(result) {
@@ -9855,16 +9859,16 @@
 	    });
 	};
 	
-	_dialog2.default.confirm = function (msg, callback) {
-	    openDialog('confirm', msg, callback);
+	_dialog2.default.confirm = function (msg, callback, options) {
+	    openDialog('confirm', msg, callback, options);
 	};
 	
-	_dialog2.default.warn = function (msg, callback) {
-	    openDialog('warn', msg, callback);
+	_dialog2.default.warn = function (msg, callback, options) {
+	    openDialog('warn', msg, callback, options);
 	};
 	
-	_dialog2.default.alert = function (msg, callback) {
-	    openDialog('alert', msg, callback);
+	_dialog2.default.alert = function (msg, callback, options) {
+	    openDialog('alert', msg, callback, options);
 	};
 	
 	exports.default = _dialog2.default;
@@ -9882,7 +9886,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "/home/gaonan-iri/github/vue-component/src/dialog/_dialog.vue"
+	  var id = "/home/zhouwei3-xy/vue-component/src/dialog/_dialog.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -9906,8 +9910,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-20127069&file=_dialog.vue!./../../node_modules/sass-loader/index.js!./dialog.scss", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-20127069&file=_dialog.vue!./../../node_modules/sass-loader/index.js!./dialog.scss");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-19b4b120&file=_dialog.vue!./../../node_modules/sass-loader/index.js!./dialog.scss", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-19b4b120&file=_dialog.vue!./../../node_modules/sass-loader/index.js!./dialog.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -9925,7 +9929,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".dialog {\n  position: fixed;\n  z-index: 101;\n  background: white;\n  top: 50%;\n  left: 50%;\n  border: 1px solid #acacac;\n  box-shadow: 0 0 3px #b3b3b3;\n  min-width: 200px;\n  margin-left: -50%; }\n  .dialog .dialog-hd {\n    border-bottom: 1px solid #e8e8e8;\n    height: 34px;\n    line-height: 34px;\n    position: relative;\n    padding: 0 15px;\n    font-weight: bold; }\n    .dialog .dialog-hd .close {\n      font-size: 16px;\n      right: 15px;\n      position: absolute;\n      top: 9px; }\n  .dialog .dialog-bd {\n    padding: 15px; }\n\n.dialog-mask {\n  background: black;\n  opacity: 0.6;\n  filter: alpha(opacity=60);\n  position: fixed;\n  z-index: 100;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0; }\n\n/* common dialog : alert, confirm, warn*/\n.public-dialog {\n  box-shadow: 0 0 16px #333;\n  border-color: #333;\n  z-index: 102; }\n  .public-dialog .dialog-bd {\n    padding: 0; }\n  .public-dialog .msg-wrap {\n    padding: 2em;\n    min-width: 15em; }\n    .public-dialog .msg-wrap span {\n      max-width: 40em; }\n  .public-dialog .btn-wrap {\n    text-align: center;\n    padding: 1em 2em;\n    background: #eee; }\n  .public-dialog .icon {\n    font-size: 16px; }\n  .public-dialog .icon-warn {\n    color: #ff4b21; }\n  .public-dialog .icon-confirm {\n    color: #FF9708; }\n\n.dialog-type-warn .icon-warn, .dialog-type-confirm .icon-confirm {\n  display: inline-block; }\n\n.dialog-type-alert .dialog-cancel, .dialog-type-warn .dialog-cancel {\n  display: none; }\n", ""]);
+	exports.push([module.id, ".dialog {\n  position: fixed;\n  z-index: 101;\n  background: white;\n  top: 50%;\n  left: 50%;\n  border: 1px solid #acacac;\n  box-shadow: 0 0 3px #b3b3b3;\n  min-width: 200px;\n  margin-left: -50%; }\n  .dialog .dialog-hd {\n    border-bottom: 1px solid #e8e8e8;\n    height: 34px;\n    line-height: 34px;\n    position: relative;\n    padding: 0 15px;\n    font-weight: bold; }\n    .dialog .dialog-hd .close {\n      font-size: 16px;\n      right: 15px;\n      position: absolute;\n      top: 9px; }\n\n.dialog-mask {\n  background: black;\n  opacity: 0.6;\n  filter: alpha(opacity=60);\n  position: fixed;\n  z-index: 100;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0; }\n\n/* common dialog : alert, confirm, warn*/\n.public-dialog {\n  box-shadow: 0 0 16px #333;\n  border-color: #333;\n  z-index: 102; }\n  .public-dialog .dialog-bd {\n    padding: 0; }\n  .public-dialog .msg-wrap {\n    padding: 2em;\n    min-width: 15em; }\n    .public-dialog .msg-wrap span {\n      max-width: 40em; }\n  .public-dialog .btn-wrap {\n    text-align: center;\n    padding: 1em 2em;\n    background: #eee; }\n  .public-dialog .icon {\n    font-size: 16px; }\n  .public-dialog .icon-warn {\n    color: #ff4b21; }\n  .public-dialog .icon-confirm {\n    color: #FF9708; }\n\n.dialog-type-warn .icon-warn, .dialog-type-confirm .icon-confirm {\n  display: inline-block; }\n\n.dialog-type-alert .dialog-cancel, .dialog-type-warn .dialog-cancel {\n  display: none; }\n", ""]);
 	
 	// exports
 

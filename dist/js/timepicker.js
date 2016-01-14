@@ -50,7 +50,7 @@
 	
 	var _vue2 = _interopRequireDefault(_vue);
 	
-	var _timepicker = __webpack_require__(45);
+	var _timepicker = __webpack_require__(43);
 	
 	var _timepicker2 = _interopRequireDefault(_timepicker);
 	
@@ -9851,9 +9851,10 @@
 	
 	_vue2.default.component('dialog', _dialog2.default);
 	
-	var template = '\n    <dialog type="confirm" visible="true">\n        <div class="msg-wrap">\n            <i class="fa fa-exclamation-triangle icon icon-warn" v-if="type == \'warn\'"></i>\n            <i class="fa fa-exclamation-triangle icon icon-confirm" v-if="type == \'confirm\'"></i>\n            <span>{{{msg}}}</span>\n        </div>\n        <div class="btn-wrap">\n            <a href="javascript:void(0)" class="btn btn-primary dialog-confirm" @click="onclicked(true)">确定</a>\n            <a href="javascript:void(0)" class="btn btn-default dialog-cancel" @click="onclicked(false)" v-if="type == \'confirm\'">取消</a>\n        </div>\n    </dialog>\n';
+	var template = '\n    <dialog type="confirm" visible="true">\n        <div class="msg-wrap">\n            <i class="fa fa-exclamation-triangle icon icon-warn" v-if="type == \'warn\'"></i>\n            <i class="fa fa-exclamation-triangle icon icon-confirm" v-if="type == \'confirm\'"></i>\n            <span v-if="options.safe">{{{msg}}}</span>\n            <span v-else>{{msg}}</span>\n        </div>\n        <div class="btn-wrap">\n            <a href="javascript:void(0)" class="btn btn-primary dialog-confirm" @click="onclicked(true)">确定</a>\n            <a href="javascript:void(0)" class="btn btn-default dialog-cancel" @click="onclicked(false)" v-if="type == \'confirm\'">取消</a>\n        </div>\n    </dialog>\n';
 	
-	var openDialog = function openDialog(type, msg, callback) {
+	var openDialog = function openDialog(type, msg, callback, options) {
+	    options = options || {};
 	    var container = document.createElement('div');
 	    document.body.appendChild(container);
 	    var vm = new _vue2.default({
@@ -9862,7 +9863,10 @@
 	        template: template,
 	        data: {
 	            msg: msg,
-	            type: type
+	            type: type,
+	            options: {
+	                safe: options.safe || false
+	            }
 	        },
 	        methods: {
 	            onclicked: function onclicked(result) {
@@ -9874,16 +9878,16 @@
 	    });
 	};
 	
-	_dialog2.default.confirm = function (msg, callback) {
-	    openDialog('confirm', msg, callback);
+	_dialog2.default.confirm = function (msg, callback, options) {
+	    openDialog('confirm', msg, callback, options);
 	};
 	
-	_dialog2.default.warn = function (msg, callback) {
-	    openDialog('warn', msg, callback);
+	_dialog2.default.warn = function (msg, callback, options) {
+	    openDialog('warn', msg, callback, options);
 	};
 	
-	_dialog2.default.alert = function (msg, callback) {
-	    openDialog('alert', msg, callback);
+	_dialog2.default.alert = function (msg, callback, options) {
+	    openDialog('alert', msg, callback, options);
 	};
 	
 	exports.default = _dialog2.default;
@@ -9901,7 +9905,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "/home/gaonan-iri/github/vue-component/src/dialog/_dialog.vue"
+	  var id = "/home/zhouwei3-xy/vue-component/src/dialog/_dialog.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -9925,8 +9929,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-20127069&file=_dialog.vue!./../../node_modules/sass-loader/index.js!./dialog.scss", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-20127069&file=_dialog.vue!./../../node_modules/sass-loader/index.js!./dialog.scss");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-19b4b120&file=_dialog.vue!./../../node_modules/sass-loader/index.js!./dialog.scss", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-19b4b120&file=_dialog.vue!./../../node_modules/sass-loader/index.js!./dialog.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -9944,7 +9948,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".dialog {\n  position: fixed;\n  z-index: 101;\n  background: white;\n  top: 50%;\n  left: 50%;\n  border: 1px solid #acacac;\n  box-shadow: 0 0 3px #b3b3b3;\n  min-width: 200px;\n  margin-left: -50%; }\n  .dialog .dialog-hd {\n    border-bottom: 1px solid #e8e8e8;\n    height: 34px;\n    line-height: 34px;\n    position: relative;\n    padding: 0 15px;\n    font-weight: bold; }\n    .dialog .dialog-hd .close {\n      font-size: 16px;\n      right: 15px;\n      position: absolute;\n      top: 9px; }\n  .dialog .dialog-bd {\n    padding: 15px; }\n\n.dialog-mask {\n  background: black;\n  opacity: 0.6;\n  filter: alpha(opacity=60);\n  position: fixed;\n  z-index: 100;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0; }\n\n/* common dialog : alert, confirm, warn*/\n.public-dialog {\n  box-shadow: 0 0 16px #333;\n  border-color: #333;\n  z-index: 102; }\n  .public-dialog .dialog-bd {\n    padding: 0; }\n  .public-dialog .msg-wrap {\n    padding: 2em;\n    min-width: 15em; }\n    .public-dialog .msg-wrap span {\n      max-width: 40em; }\n  .public-dialog .btn-wrap {\n    text-align: center;\n    padding: 1em 2em;\n    background: #eee; }\n  .public-dialog .icon {\n    font-size: 16px; }\n  .public-dialog .icon-warn {\n    color: #ff4b21; }\n  .public-dialog .icon-confirm {\n    color: #FF9708; }\n\n.dialog-type-warn .icon-warn, .dialog-type-confirm .icon-confirm {\n  display: inline-block; }\n\n.dialog-type-alert .dialog-cancel, .dialog-type-warn .dialog-cancel {\n  display: none; }\n", ""]);
+	exports.push([module.id, ".dialog {\n  position: fixed;\n  z-index: 101;\n  background: white;\n  top: 50%;\n  left: 50%;\n  border: 1px solid #acacac;\n  box-shadow: 0 0 3px #b3b3b3;\n  min-width: 200px;\n  margin-left: -50%; }\n  .dialog .dialog-hd {\n    border-bottom: 1px solid #e8e8e8;\n    height: 34px;\n    line-height: 34px;\n    position: relative;\n    padding: 0 15px;\n    font-weight: bold; }\n    .dialog .dialog-hd .close {\n      font-size: 16px;\n      right: 15px;\n      position: absolute;\n      top: 9px; }\n\n.dialog-mask {\n  background: black;\n  opacity: 0.6;\n  filter: alpha(opacity=60);\n  position: fixed;\n  z-index: 100;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0; }\n\n/* common dialog : alert, confirm, warn*/\n.public-dialog {\n  box-shadow: 0 0 16px #333;\n  border-color: #333;\n  z-index: 102; }\n  .public-dialog .dialog-bd {\n    padding: 0; }\n  .public-dialog .msg-wrap {\n    padding: 2em;\n    min-width: 15em; }\n    .public-dialog .msg-wrap span {\n      max-width: 40em; }\n  .public-dialog .btn-wrap {\n    text-align: center;\n    padding: 1em 2em;\n    background: #eee; }\n  .public-dialog .icon {\n    font-size: 16px; }\n  .public-dialog .icon-warn {\n    color: #ff4b21; }\n  .public-dialog .icon-confirm {\n    color: #FF9708; }\n\n.dialog-type-warn .icon-warn, .dialog-type-confirm .icon-confirm {\n  display: inline-block; }\n\n.dialog-type-alert .dialog-cancel, .dialog-type-warn .dialog-cancel {\n  display: none; }\n", ""]);
 	
 	// exports
 
@@ -10051,21 +10055,19 @@
 /* 40 */,
 /* 41 */,
 /* 42 */,
-/* 43 */,
-/* 44 */,
-/* 45 */
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(46)
-	module.exports = __webpack_require__(48)
+	__webpack_require__(44)
+	module.exports = __webpack_require__(46)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(49)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(47)
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "/home/gaonan-iri/github/vue-component/src/timepicker/timepicker.vue"
+	  var id = "/home/zhouwei3-xy/vue-component/src/timepicker/timepicker.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -10074,13 +10076,13 @@
 	})()}
 
 /***/ },
-/* 46 */
+/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(47);
+	var content = __webpack_require__(45);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(12)(content, {});
@@ -10089,8 +10091,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-91f90954&file=timepicker.vue!./../../node_modules/sass-loader/index.js!./timepicker.scss", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-91f90954&file=timepicker.vue!./../../node_modules/sass-loader/index.js!./timepicker.scss");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-df5f6282&file=timepicker.vue!./../../node_modules/sass-loader/index.js!./timepicker.scss", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-df5f6282&file=timepicker.vue!./../../node_modules/sass-loader/index.js!./timepicker.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -10100,7 +10102,7 @@
 	}
 
 /***/ },
-/* 47 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(11)();
@@ -10108,13 +10110,13 @@
 	
 	
 	// module
-	exports.push([module.id, ".time-picker-wrap {\n  padding: 15px; }\n\n.time-picker-hint {\n  float: right;\n  margin-top: 3px; }\n  .time-picker-hint span {\n    margin-left: 10px; }\n  .time-picker-hint i {\n    display: inline-block;\n    width: 18px;\n    height: 18px;\n    border-radius: 3px;\n    background: #e6e6e6;\n    vertical-align: middle;\n    position: relative;\n    top: -1px; }\n  .time-picker-hint .active i {\n    background: #81c13d; }\n  .time-picker-hint .forbidden i {\n    background: #ef9b6d; }\n\n.time-picker-ft {\n  padding-left: 70px;\n  color: #999;\n  margin-top: 5px; }\n  .time-picker-ft p {\n    margin-bottom: 0; }\n\n.time-picker-submit-wrap {\n  text-align: center;\n  margin-top: 10px; }\n\n.time-picker-shortcuts {\n  margin-bottom: 10px; }\n\n.time-picker-day {\n  width: 65px; }\n\n.time-picker-hour {\n  color: #e6e6e6;\n  cursor: pointer;\n  font-weight: bold;\n  font-size: 14px; }\n  .time-picker-hour.active {\n    color: #81c13d; }\n  .time-picker-hour.forbidden {\n    color: #ef9b6d; }\n\n.time-picker-btns {\n  padding: 3px; }\n  .time-picker-btns span {\n    display: inline-block;\n    width: 18px;\n    height: 18px;\n    line-height: 18px;\n    border-radius: 3px;\n    background: #e6e6e6;\n    color: white;\n    text-align: center;\n    cursor: pointer; }\n  .time-picker-btns.active span {\n    background: #81c13d; }\n  .time-picker-btns.forbidden span {\n    background: #ef9b6d; }\n", ""]);
+	exports.push([module.id, ".time-wrap {\n  display: inline-block; }\n\n.period-text {\n  padding-right: 5px; }\n\n.time-picker-wrap {\n  padding: 15px;\n  line-height: 1.5; }\n\n.time-picker-hint {\n  float: right;\n  margin-top: 3px; }\n  .time-picker-hint span {\n    margin-left: 10px; }\n  .time-picker-hint i {\n    display: inline-block;\n    width: 18px;\n    height: 18px;\n    border-radius: 3px;\n    background: #e6e6e6;\n    vertical-align: middle;\n    position: relative;\n    top: -1px; }\n  .time-picker-hint .active i {\n    background: #81c13d; }\n  .time-picker-hint .forbidden i {\n    background: #ef9b6d; }\n\n.time-picker-ft {\n  padding-left: 70px;\n  color: #999;\n  margin-top: 5px; }\n  .time-picker-ft p {\n    margin-bottom: 0; }\n\n.time-picker-submit-wrap {\n  text-align: center;\n  margin-top: 10px; }\n\n.time-picker-shortcuts {\n  margin-bottom: 10px; }\n\n.time-picker-day {\n  width: 65px; }\n\n.time-picker-hour {\n  color: #e6e6e6;\n  cursor: pointer;\n  font-weight: bold;\n  font-size: 14px; }\n  .time-picker-hour.active {\n    color: #81c13d; }\n  .time-picker-hour.forbidden {\n    color: #ef9b6d; }\n\n.time-picker-btns {\n  padding: 3px; }\n  .time-picker-btns span {\n    display: inline-block;\n    width: 18px;\n    height: 18px;\n    line-height: 18px;\n    border-radius: 3px;\n    background: #e6e6e6;\n    color: white;\n    text-align: center;\n    cursor: pointer; }\n  .time-picker-btns.active span {\n    background: #81c13d; }\n  .time-picker-btns.forbidden span {\n    background: #ef9b6d; }\n", ""]);
 	
 	// exports
 
 
 /***/ },
-/* 48 */
+/* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10138,9 +10140,13 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	// <template lang="jade">
-	// div
-	//   a.btn.btn-primary(href='javascript:;', @click='showDialog') 选择时段
-	//   dialog(:visible='dialogVisible', title='选择时段')
+	// div.time-wrap
+	//   span.period-text(v-show='!initState && checkedTimes == 7*24') 全部时段
+	//   span.period-text(v-show='!initState && checkedTimes > 0 && checkedTimes < 7*24') 部分时段
+	//   a.btn.btn-primary.btn-mini(href='javascript:;', @click='showDialog')
+	//       template(v-if="initState || checkedTimes == 0") 选择时段
+	//       template(v-else) 更改
+	//   dialog(:visible.sync='dialogVisible', title='选择时段')
 	//     .time-picker-wrap
 	//       .time-picker-hd
 	//         .time-picker-hint
@@ -10195,7 +10201,7 @@
 	exports.default = {
 	    props: {
 	        //默认选中的时间点，7*24的二维数组字符串，1表示选中，0表示未选中
-	        timeString: {
+	        timestring: {
 	            //默认值为全部选中，即7*24个1
 	            default: ('1'.repeat(24) + ',').repeat(7).slice(0, -1)
 	        },
@@ -10207,10 +10213,11 @@
 	    },
 	    data: function data() {
 	        return {
-	            times: [], //timeString初始化之后的数组
+	            times: [], //timestring初始化之后的数组
 	            weekDay: ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'], //星期
 	            dialogVisible: false, //组件Dialog默认不弹出
-	            backupTimes: [] //弹出Dialog时备份之前的选择，在cancel的时候恢复
+	            backupTimes: [], //弹出Dialog时备份之前的选择，在cancel的时候恢复
+	            initState: false //是否是初始状态
 	        };
 	    },
 	
@@ -10219,10 +10226,11 @@
 	    },
 	    computed: {
 	        /**
-	         * 将用户给定的禁止选择时间点的字符串转换为int数组
+	         * 将用户给定的禁止选择时间点的字符串转换为int数组，若为空则初始化为7*24个0
 	         */
 	
 	        fbdArr: function fbdArr() {
+	            if (!this.forbidden) this.forbidden = ('0'.repeat(24) + ',').repeat(7).slice(0, -1);
 	            return this.forbidden.split(',').map(function (s) {
 	                return s.split('').map(function (f) {
 	                    return +f;
@@ -10287,38 +10295,74 @@
 	            return temp.map(function (item, i) {
 	                return item == 7 && fbdSum[i] != 7;
 	            }); //若被禁止的天数为7，则不选中改
+	        },
+	
+	        /**
+	         * 若times中所有元素均为1则表示被全部选中
+	         */
+	        checkedTimes: function checkedTimes() {
+	            if (!this.timestring) {
+	                return 0;
+	            }
+	            var temp = 0;
+	            for (var i = 0; i < 7; i++) {
+	                for (var j = 0; j < 24; j++) {
+	                    temp += this.times[i][j];
+	                }
+	            }
+	            return temp;
 	        }
 	    },
 	    created: function created() {
-	        var _this3 = this;
-	
 	        /**
 	         * 将用户选择的时间点字符串转换为int数组
 	         */
-	        this.times = this.timeString.split(',').map(function (day, dIndex) {
-	            return day.split('').map(function (hour, hIndex) {
-	                return _this3.fbdArr[dIndex][hIndex] ? 0 : +hour;
-	            });
-	        });
+	        if (!this.timestring) {
+	            this.initState = true;
+	            this.timestring = ('1'.repeat(24) + ',').repeat(7).slice(0, -1);
+	        }
+	        this.parseTimeString();
+	        if (!this.times.length) {
+	            _dialog2.default.alert('选择时段组件初始化值不符合规范');
+	        }
 	        /**
 	         * 监控forbidden，若有修改则更新times数组
 	         */
 	        this.$watch('forbidden', function () {
-	            var _this4 = this;
+	            var _this3 = this;
 	
 	            this.times = this.fbdArr.map(function (day, dIndex) {
 	                return day.map(function (hour, hIndex) {
-	                    return _this4.fbdArr[dIndex][hIndex] && _this4.times[dIndex][hIndex];
+	                    return _this3.fbdArr[dIndex][hIndex] ? 0 : _this3.times[dIndex][hIndex];
 	                });
 	            });
+	        });
+	        /**
+	         * 监控timestring，若有修改则更新times数组
+	         */
+	        this.$watch('timestring', function () {
+	            if (!this.timestring) {
+	                return;
+	            }
+	            this.initState = false;
+	            this.parseTimeString();
 	        });
 	    },
 	
 	    methods: {
+	        parseTimeString: function parseTimeString() {
+	            var _this4 = this;
+	
+	            this.times = this.timestring.split(',').map(function (day, dIndex) {
+	                return day.split('').map(function (hour, hIndex) {
+	                    return _this4.fbdArr[dIndex][hIndex] ? 0 : +hour;
+	                });
+	            });
+	        },
+	
 	        /**
 	         * 时间点选择事件，若未被禁止则
 	         */
-	
 	        selectTime: function selectTime(day, hour) {
 	            !this.fbdArr[day][hour] && this.times[day].$set(hour, +!this.times[day][hour]);
 	        },
@@ -10375,6 +10419,7 @@
 	         */
 	        confirm: function confirm() {
 	            this.dialogVisible = false;
+	            this.initState = false;
 	            this.$dispatch('confirm', this.times);
 	        },
 	
@@ -10392,10 +10437,10 @@
 	// <style lang="sass" src="./timepicker.scss"></style>
 
 /***/ },
-/* 49 */
+/* 47 */
 /***/ function(module, exports) {
 
-	module.exports = "<div><a href=\"javascript:;\" @click=\"showDialog\" class=\"btn btn-primary\">选择时段</a><dialog :visible=\"dialogVisible\" title=\"选择时段\"><div class=\"time-picker-wrap\"><div class=\"time-picker-hd\"><div class=\"time-picker-hint\"><span class=\"active\"><i></i>投放时间段</span><span><i></i>暂停时间段</span><span class=\"forbidden\"><i></i>不可选时间段</span></div><div class=\"time-picker-shortcuts\"><a href=\"javascript:;\" @click.prevent=\"selectSpecificDay('all')\" class=\"time-picker-all btn btn-default\">全部时间</a><a href=\"javascript:;\" @click.prevent=\"selectSpecificDay('weekday')\" class=\"time-picker-work btn btn-default\">工作日</a><a href=\"javascript:;\" @click.prevent=\"selectSpecificDay('weekend')\" class=\"time-picker-weekend btn btn-default\">周末</a></div></div><table class=\"time-picker-bd\"><thead><tr><th class=\"time-picker-day\"></th><th v-for=\"hour in 24\" :class=\"{active: isHourAllChecked[hour]}\" @click=\"selectHour(hour)\" class=\"time-picker-hour\"><i class=\"fa fa-arrow-down\"></i></th></tr></thead><tbody><tr v-for=\"day in 7\"><td class=\"time-picker-day\"><label><input type=\"checkbox\" @change=\"selectDay(day, $event.target.checked)\" v-model=\"isDayAllChecked[day]\" :disabled=\"disabledWeekday[day]\"/>{{weekDay[day]}}</label></td><td v-for=\"hour in 24\" :class=\"{'forbidden': !!fbdArr[day][hour],'active': (!fbdArr[day][hour] &amp;&amp; !!times[day][hour])}\" @click=\"selectTime(day,hour)\" class=\"time-picker-btns\"><span>{{hour+1}}</span></td></tr></tbody></table><div class=\"time-picker-ft\"><p><strong>示例一：当你选择了星期一的【12】点，则推广时间段为星期一的12:00-12:59</strong></p><p><strong>示例二：当你选择了星期一的【8、9、10、11】点，则推广时间段为星期一的8:00-11:59</strong></p></div><div class=\"time-picker-submit-wrap\"><a href=\"javascript:;\" @click.prevent=\"confirm\" class=\"btn btn-primary\">确定</a><a href=\"javascript:;\" @click.prevent=\"cancel\" class=\"btn btn-default\">取消</a></div></div></dialog></div>";
+	module.exports = "<div class=\"time-wrap\"><span v-show=\"!initState &amp;&amp; checkedTimes == 7*24\" class=\"period-text\">全部时段</span><span v-show=\"!initState &amp;&amp; checkedTimes &gt; 0 &amp;&amp; checkedTimes &lt; 7*24\" class=\"period-text\">部分时段</span><a href=\"javascript:;\" @click=\"showDialog\" class=\"btn btn-primary btn-mini\"><template v-if=\"initState || checkedTimes == 0\">选择时段</template><template v-else=\"v-else\">更改</template></a><dialog :visible.sync=\"dialogVisible\" title=\"选择时段\"><div class=\"time-picker-wrap\"><div class=\"time-picker-hd\"><div class=\"time-picker-hint\"><span class=\"active\"><i></i>投放时间段</span><span><i></i>暂停时间段</span><span class=\"forbidden\"><i></i>不可选时间段</span></div><div class=\"time-picker-shortcuts\"><a href=\"javascript:;\" @click.prevent=\"selectSpecificDay('all')\" class=\"time-picker-all btn btn-default\">全部时间</a><a href=\"javascript:;\" @click.prevent=\"selectSpecificDay('weekday')\" class=\"time-picker-work btn btn-default\">工作日</a><a href=\"javascript:;\" @click.prevent=\"selectSpecificDay('weekend')\" class=\"time-picker-weekend btn btn-default\">周末</a></div></div><table class=\"time-picker-bd\"><thead><tr><th class=\"time-picker-day\"></th><th v-for=\"hour in 24\" :class=\"{active: isHourAllChecked[hour]}\" @click=\"selectHour(hour)\" class=\"time-picker-hour\"><i class=\"fa fa-arrow-down\"></i></th></tr></thead><tbody><tr v-for=\"day in 7\"><td class=\"time-picker-day\"><label><input type=\"checkbox\" @change=\"selectDay(day, $event.target.checked)\" v-model=\"isDayAllChecked[day]\" :disabled=\"disabledWeekday[day]\"/>{{weekDay[day]}}</label></td><td v-for=\"hour in 24\" :class=\"{'forbidden': !!fbdArr[day][hour],'active': (!fbdArr[day][hour] &amp;&amp; !!times[day][hour])}\" @click=\"selectTime(day,hour)\" class=\"time-picker-btns\"><span>{{hour+1}}</span></td></tr></tbody></table><div class=\"time-picker-ft\"><p><strong>示例一：当你选择了星期一的【12】点，则推广时间段为星期一的12:00-12:59</strong></p><p><strong>示例二：当你选择了星期一的【8、9、10、11】点，则推广时间段为星期一的8:00-11:59</strong></p></div><div class=\"time-picker-submit-wrap\"><a href=\"javascript:;\" @click.prevent=\"confirm\" class=\"btn btn-primary\">确定</a><a href=\"javascript:;\" @click.prevent=\"cancel\" class=\"btn btn-default\">取消</a></div></div></dialog></div>";
 
 /***/ }
 /******/ ]);

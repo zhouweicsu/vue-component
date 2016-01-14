@@ -1,7 +1,11 @@
 <template lang="jade">
-div
-  a.btn.btn-primary(href='javascript:;', @click='showDialog') 选择时段
-  dialog(:visible='dialogVisible', title='选择时段')
+div.time-wrap
+  span.period-text(v-show='!initState && checkedTimes == 7*24') 全部时段
+  span.period-text(v-show='!initState && checkedTimes > 0 && checkedTimes < 7*24') 部分时段
+  a.btn.btn-primary.btn-mini(href='javascript:;', @click='showDialog')
+      template(v-if="initState || checkedTimes == 0") 选择时段
+      template(v-else) 更改
+  dialog(:visible.sync='dialogVisible', title='选择时段')
     .time-picker-wrap
       .time-picker-hd
         .time-picker-hint
@@ -52,7 +56,7 @@ Array.prototype.fill = Array.prototype.fill || function(val) { for (var i = 0; i
 export default {
     props : {
         //默认选中的时间点，7*24的二维数组字符串，1表示选中，0表示未选中
-        timeString: {
+        timestring: {
             //默认值为全部选中，即7*24个1
             default: ('1'.repeat(24)+',').repeat(7).slice(0,-1)
         },
@@ -64,10 +68,11 @@ export default {
     },
     data () {
         return {
-            times: [],      //timeString初始化之后的数组
+            times: [],      //timestring初始化之后的数组
             weekDay : ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],       //星期
             dialogVisible : false,          //组件Dialog默认不弹出
-            backupTimes: []                 //弹出Dialog时备份之前的选择，在cancel的时候恢复
+            backupTimes: [],                //弹出Dialog时备份之前的选择，在cancel的时候恢复
+            initState: false                      //是否是初始状态
         }
     },
     components: {
@@ -75,9 +80,10 @@ export default {
     },
     computed : {
         /**
-         * 将用户给定的禁止选择时间点的字符串转换为int数组
+         * 将用户给定的禁止选择时间点的字符串转换为int数组，若为空则初始化为7*24个0
          */
         fbdArr(){
+            if(!this.forbidden)  this.forbidden = ('0'.repeat(24)+',').repeat(7).slice(0,-1);
             return this.forbidden.split(',').map(s => (s.split('').map(f => +f)));
         },
         /**
@@ -116,15 +122,35 @@ export default {
                 });
             });
             return temp.map((item, i) => item == 7 && fbdSum[i] != 7);   //若被禁止的天数为7，则不选中改
+        },
+        /**
+         * 若times中所有元素均为1则表示被全部选中
+         */
+        checkedTimes() {
+            if(!this.timestring) {
+                return 0;
+            }
+            var temp = 0;
+            for(let i = 0; i < 7; i++){
+                for(let j = 0; j < 24; j++){
+                    temp += this.times[i][j];
+                }
+            }
+            return temp;
         }
     },
     created(){
         /**
          * 将用户选择的时间点字符串转换为int数组
          */
-        this.times = this.timeString.split(',').map((day,dIndex) => {
-            return day.split('').map((hour, hIndex) => this.fbdArr[dIndex][hIndex] ? 0 : +hour);
-        });
+        if(!this.timestring){
+            this.initState = true;
+            this.timestring = ('1'.repeat(24)+',').repeat(7).slice(0,-1);
+        }
+        this.parseTimeString();
+        if(!this.times.length){
+            Dialog.alert('选择时段组件初始化值不符合规范');
+        }
         /**
          * 监控forbidden，若有修改则更新times数组
          */
@@ -133,8 +159,23 @@ export default {
                 return day.map((hour, hIndex) => this.fbdArr[dIndex][hIndex] ? 0 : this.times[dIndex][hIndex]);
             });
         });
+        /**
+         * 监控timestring，若有修改则更新times数组
+         */
+        this.$watch('timestring',function(){
+            if(!this.timestring){
+                return;
+            }
+            this.initState = false;
+            this.parseTimeString();
+        });
     },
     methods: {
+        parseTimeString(){
+            this.times = this.timestring.split(',').map((day,dIndex) => {
+                return day.split('').map((hour, hIndex) => this.fbdArr[dIndex][hIndex] ? 0 : +hour);
+            });
+        },
         /**
          * 时间点选择事件，若未被禁止则
          */
@@ -177,6 +218,7 @@ export default {
          */
         confirm(){
             this.dialogVisible = false;
+            this.initState = false;
             this.$dispatch('confirm', this.times);
         },
         /**

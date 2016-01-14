@@ -1,50 +1,41 @@
-<template>
-<div>
-    <a class="btn btn-primary" @click="showDialog" href="javascript:;">选择城市</a>
-    <dialog :visible.sync="dialogVisible" title="选择城市">
-        <div class="area-picker-wrap">
-            <div class="area-picker-ctn">
-                <div class="area" v-for="area in areacode">
-                    <div class="fl">
-                        <label>
-                            <input @change="syncArea(area, $event)" v-model="checkedAreas" type="checkbox" value={{area.id}}>
-                            {{area.name}}
-                        </label>
-                    </div>
-                    <dl>
-                        <dd v-for="pro in area.province">
-                            <label>
-                                <input @change="syncProvince(pro, $event)" v-model="checkedProvinces" type="checkbox" value={{pro.id}}>
-                                {{pro.name}}(<span>{{pro.citys | checkedLenFilter}}</span>/<span>{{pro.citys.length}}</span>)
-                            </label>
-                            <div class="citys">
-                                <h4>{{pro.name}}</h4>
-                                <ul>
-                                    <li v-for="city in pro.citys">
-                                        <label>
-                                            <input @change="syncCity(city, $event)" v-model="checkedCitys" type="checkbox" value="{{city.id}}">
-                                            {{city.name}}
-                                        </label>
-                                    </li>
-                                </ul>
-                            </div>
-                        </dd>
-                    </dl>
-                </div>
-                <div class="area last">
-                    <label>
-                        <input @change="init('0', $event)" type="checkbox" checked="{{checkedAll}}">
-                        全部
-                    </label>
-                </div>
-            </div>
-            <div class="time-picker-submit-wrap">
-                <a class="btn btn-primary" href="javascript:;" @click.prevent="confirm">确定</a>
-                <a class="btn btn-default" href="javascript:;" @click.prevent="cancel">取消</a>
-            </div>
-        </div>
-    </dialog>
-</div>
+<template lang="jade">
+div.area-wrap
+  span.area-text(v-show='checkedAll') 全部区域
+  span.area-text(v-show='!checkedAll && checkedCitys.length') 部分区域
+  a.btn.btn-primary.btn-mini(@click='showDialog', href='javascript:;')
+      template(v-if="!checkedCitys.length") 选择城市
+      template(v-else) 更改
+  dialog(:visible.sync='dialogVisible', title='选择城市')
+    .area-picker-wrap
+      .area-picker-ctn
+        .area(v-for='area in areacode' track-by="id")
+          .fl
+            label
+              input(@change='syncArea(area, $event)', v-model='checkedAreas', type='checkbox', value='{{area.id}}')
+              | {{area.name}}
+          dl
+            dd(v-for='pro in area.province' track-by="id")
+              label
+                input(@change='syncProvince(pro, $event)', v-model='checkedProvinces', type='checkbox', value='{{pro.id}}')
+                |{{pro.name}}(
+                span {{pro.citys | checkedLenFilter}}
+                | /
+                span {{pro.citys.length}}
+                | )
+              .citys
+                h4 {{pro.name}}
+                ul
+                  li(v-for='city in pro.citys' track-by="id")
+                    label
+                      input(@change='syncCity(city, $event)', v-model='checkedCitys', type='checkbox', value='{{city.id}}')
+                      | {{city.name}}
+        .area.last
+          label
+            input(@change="init('0', $event)", type='checkbox', checked='{{checkedAll}}')
+            | 全部
+      .time-picker-submit-wrap
+        a.btn.btn-primary(href='javascript:;', @click.prevent='confirm') 确定
+        a.btn.btn-default(href='javascript:;', @click.prevent='cancel') 取消
 </template>
 
 <script>
@@ -80,6 +71,12 @@ export default {
         },
         created(){
             this.init(this.initcities);           //初始化默认选中的城市
+            /**
+             * 监控initcities，若有修改则更新选中区域
+             */
+            this.$watch('initcities',function(){
+                this.init(this.initcities);
+            });
         },
         methods: {
             init (cityList, event){ //初始化选中城市，以及处理“全部”按钮的点击事件
@@ -117,7 +114,7 @@ export default {
                     if( area.id == carea.id ){
                         area.province.map(function(province){
                             me.syncCheckedList(me.checkedProvinces, province, bool);
-                            province.citys.map(function(city){ type="text/javascript"
+                            province.citys.map(function(city){
                                 me.syncCheckedList(me.checkedCitys, city, bool);
                             });
                         });

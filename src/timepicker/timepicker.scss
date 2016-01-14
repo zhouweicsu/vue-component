@@ -5,8 +5,16 @@ $color_forbidden_approx: #ef9b6d;
 $color_mountain_mist_approx: #999;
 $white: white;
 
+.time-wrap {
+    display: inline-block;
+}
+.period-text {
+    padding-right: 5px;
+}
+
 .time-picker-wrap {
     padding: 15px;
+    line-height: 1.5;
 }
 .time-picker-hint {
     float: right;

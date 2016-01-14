@@ -1,1 +1,1 @@
-import globalcss from '../css/global.scss'
+import globalcss from '../stylesheet/global.scss'

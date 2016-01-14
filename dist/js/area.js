@@ -9496,7 +9496,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "/home/gaonan-iri/github/vue-component/src/area/area.vue"
+	  var id = "/home/zhouwei3-xy/vue-component/src/area/area.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -9520,8 +9520,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-02b80fd4&file=area.vue!./../../node_modules/sass-loader/index.js!./area.scss", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-02b80fd4&file=area.vue!./../../node_modules/sass-loader/index.js!./area.scss");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-71683e02&file=area.vue!./../../node_modules/sass-loader/index.js!./area.scss", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-71683e02&file=area.vue!./../../node_modules/sass-loader/index.js!./area.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -9539,7 +9539,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".area-picker-wrap {\n  color: #666;\n  font-size: 12px;\n  width: 760px;\n  padding: 15px; }\n  .area-picker-wrap .area {\n    border-bottom: #ccc 1px dashed;\n    clear: both;\n    padding: 8px 0; }\n    .area-picker-wrap .area.last {\n      border-bottom: none;\n      margin-bottom: 10px; }\n    .area-picker-wrap .area .fl {\n      float: left;\n      height: 16px;\n      line-height: 16px;\n      margin-top: 2px; }\n    .area-picker-wrap .area dl {\n      width: auto;\n      margin-left: 40px; }\n    .area-picker-wrap .area dd {\n      width: 160px;\n      display: inline-block;\n      margin: 0 0 0 10px;\n      position: relative;\n      height: 16px;\n      line-height: 16px; }\n      .area-picker-wrap .area dd:hover .citys {\n        display: block; }\n  .area-picker-wrap .citys {\n    display: none;\n    width: 234%;\n    position: absolute;\n    z-index: 1;\n    background: #f2f2f2;\n    border: 1px solid #999; }\n    .area-picker-wrap .citys h4 {\n      border-bottom: 1px solid #999;\n      padding: 5px; }\n    .area-picker-wrap .citys ul {\n      overflow: hidden;\n      padding: 10px; }\n    .area-picker-wrap .citys li {\n      float: left;\n      margin: 0 10px 0 0;\n      min-width: 100px; }\n  .area-picker-wrap .submit-wrap {\n    text-align: center; }\n", ""]);
+	exports.push([module.id, ".area-wrap {\n  display: inline-block; }\n\n.area-text {\n  padding-right: 5px; }\n\n.area-picker-wrap {\n  color: #666;\n  font-size: 12px;\n  width: 760px;\n  padding: 15px;\n  line-height: 1.8; }\n  .area-picker-wrap .area {\n    border-bottom: #ccc 1px dashed;\n    clear: both;\n    padding: 8px 0; }\n    .area-picker-wrap .area.last {\n      border-bottom: none;\n      margin-bottom: 10px; }\n    .area-picker-wrap .area .fl {\n      float: left;\n      height: 16px;\n      line-height: 16px;\n      margin-top: 2px; }\n    .area-picker-wrap .area dl {\n      width: auto;\n      margin-left: 50px; }\n    .area-picker-wrap .area dd {\n      width: 160px;\n      display: inline-block;\n      margin: 0 0 0 10px;\n      position: relative;\n      height: 16px;\n      line-height: 16px; }\n      .area-picker-wrap .area dd:hover .citys {\n        display: block; }\n  .area-picker-wrap .citys {\n    display: none;\n    width: 234%;\n    position: absolute;\n    z-index: 1;\n    background: #f2f2f2;\n    border: 1px solid #999; }\n    .area-picker-wrap .citys h4 {\n      border-bottom: 1px solid #999;\n      padding: 5px; }\n    .area-picker-wrap .citys ul {\n      overflow: hidden;\n      padding: 10px; }\n    .area-picker-wrap .citys li {\n      float: left;\n      margin: 0 10px 0 0;\n      min-width: 100px; }\n  .area-picker-wrap .submit-wrap {\n    text-align: center; }\n", ""]);
 	
 	// exports
 
@@ -9886,53 +9886,44 @@
 	    return arr.filter(function (city) {
 	        return city.checked;
 	    }).length;
-	}); // <template>
-	// <div>
-	//     <a class="btn btn-primary" @click="showDialog" href="javascript:;">选择城市</a>
-	//     <dialog :visible.sync="dialogVisible" title="选择城市">
-	//         <div class="area-picker-wrap">
-	//             <div class="area-picker-ctn">
-	//                 <div class="area" v-for="area in areacode">
-	//                     <div class="fl">
-	//                         <label>
-	//                             <input @change="syncArea(area, $event)" v-model="checkedAreas" type="checkbox" value={{area.id}}>
-	//                             {{area.name}}
-	//                         </label>
-	//                     </div>
-	//                     <dl>
-	//                         <dd v-for="pro in area.province">
-	//                             <label>
-	//                                 <input @change="syncProvince(pro, $event)" v-model="checkedProvinces" type="checkbox" value={{pro.id}}>
-	//                                 {{pro.name}}(<span>{{pro.citys | checkedLenFilter}}</span>/<span>{{pro.citys.length}}</span>)
-	//                             </label>
-	//                             <div class="citys">
-	//                                 <h4>{{pro.name}}</h4>
-	//                                 <ul>
-	//                                     <li v-for="city in pro.citys">
-	//                                         <label>
-	//                                             <input @change="syncCity(city, $event)" v-model="checkedCitys" type="checkbox" value="{{city.id}}">
-	//                                             {{city.name}}
-	//                                         </label>
-	//                                     </li>
-	//                                 </ul>
-	//                             </div>
-	//                         </dd>
-	//                     </dl>
-	//                 </div>
-	//                 <div class="area last">
-	//                     <label>
-	//                         <input @change="init('0', $event)" type="checkbox" checked="{{checkedAll}}">
-	//                         全部
-	//                     </label>
-	//                 </div>
-	//             </div>
-	//             <div class="time-picker-submit-wrap">
-	//                 <a class="btn btn-primary" href="javascript:;" @click.prevent="confirm">确定</a>
-	//                 <a class="btn btn-default" href="javascript:;" @click.prevent="cancel">取消</a>
-	//             </div>
-	//         </div>
-	//     </dialog>
-	// </div>
+	}); // <template lang="jade">
+	// div.area-wrap
+	//   span.area-text(v-show='checkedAll') 全部区域
+	//   span.area-text(v-show='!checkedAll && checkedCitys.length') 部分区域
+	//   a.btn.btn-primary.btn-mini(@click='showDialog', href='javascript:;')
+	//       template(v-if="!checkedCitys.length") 选择城市
+	//       template(v-else) 更改
+	//   dialog(:visible.sync='dialogVisible', title='选择城市')
+	//     .area-picker-wrap
+	//       .area-picker-ctn
+	//         .area(v-for='area in areacode' track-by="id")
+	//           .fl
+	//             label
+	//               input(@change='syncArea(area, $event)', v-model='checkedAreas', type='checkbox', value='{{area.id}}')
+	//               | {{area.name}}
+	//           dl
+	//             dd(v-for='pro in area.province' track-by="id")
+	//               label
+	//                 input(@change='syncProvince(pro, $event)', v-model='checkedProvinces', type='checkbox', value='{{pro.id}}')
+	//                 |{{pro.name}}(
+	//                 span {{pro.citys | checkedLenFilter}}
+	//                 | /
+	//                 span {{pro.citys.length}}
+	//                 | )
+	//               .citys
+	//                 h4 {{pro.name}}
+	//                 ul
+	//                   li(v-for='city in pro.citys' track-by="id")
+	//                     label
+	//                       input(@change='syncCity(city, $event)', v-model='checkedCitys', type='checkbox', value='{{city.id}}')
+	//                       | {{city.name}}
+	//         .area.last
+	//           label
+	//             input(@change="init('0', $event)", type='checkbox', checked='{{checkedAll}}')
+	//             | 全部
+	//       .time-picker-submit-wrap
+	//         a.btn.btn-primary(href='javascript:;', @click.prevent='confirm') 确定
+	//         a.btn.btn-default(href='javascript:;', @click.prevent='cancel') 取消
 	// </template>
 	
 	// <script>
@@ -9964,6 +9955,12 @@
 	    },
 	    created: function created() {
 	        this.init(this.initcities); //初始化默认选中的城市
+	        /**
+	         * 监控initcities，若有修改则更新选中区域
+	         */
+	        this.$watch('initcities', function () {
+	            this.init(this.initcities);
+	        });
 	    },
 	
 	    methods: {
@@ -10005,7 +10002,6 @@
 	                    area.province.map(function (province) {
 	                        me.syncCheckedList(me.checkedProvinces, province, bool);
 	                        province.citys.map(function (city) {
-	                            type = "text/javascript";
 	                            me.syncCheckedList(me.checkedCitys, city, bool);
 	                        });
 	                    });
@@ -10121,9 +10117,10 @@
 	
 	_vue2.default.component('dialog', _dialog2.default);
 	
-	var template = '\n    <dialog type="confirm" visible="true">\n        <div class="msg-wrap">\n            <i class="fa fa-exclamation-triangle icon icon-warn" v-if="type == \'warn\'"></i>\n            <i class="fa fa-exclamation-triangle icon icon-confirm" v-if="type == \'confirm\'"></i>\n            <span>{{{msg}}}</span>\n        </div>\n        <div class="btn-wrap">\n            <a href="javascript:void(0)" class="btn btn-primary dialog-confirm" @click="onclicked(true)">确定</a>\n            <a href="javascript:void(0)" class="btn btn-default dialog-cancel" @click="onclicked(false)" v-if="type == \'confirm\'">取消</a>\n        </div>\n    </dialog>\n';
+	var template = '\n    <dialog type="confirm" visible="true">\n        <div class="msg-wrap">\n            <i class="fa fa-exclamation-triangle icon icon-warn" v-if="type == \'warn\'"></i>\n            <i class="fa fa-exclamation-triangle icon icon-confirm" v-if="type == \'confirm\'"></i>\n            <span v-if="options.safe">{{{msg}}}</span>\n            <span v-else>{{msg}}</span>\n        </div>\n        <div class="btn-wrap">\n            <a href="javascript:void(0)" class="btn btn-primary dialog-confirm" @click="onclicked(true)">确定</a>\n            <a href="javascript:void(0)" class="btn btn-default dialog-cancel" @click="onclicked(false)" v-if="type == \'confirm\'">取消</a>\n        </div>\n    </dialog>\n';
 	
-	var openDialog = function openDialog(type, msg, callback) {
+	var openDialog = function openDialog(type, msg, callback, options) {
+	    options = options || {};
 	    var container = document.createElement('div');
 	    document.body.appendChild(container);
 	    var vm = new _vue2.default({
@@ -10132,7 +10129,10 @@
 	        template: template,
 	        data: {
 	            msg: msg,
-	            type: type
+	            type: type,
+	            options: {
+	                safe: options.safe || false
+	            }
 	        },
 	        methods: {
 	            onclicked: function onclicked(result) {
@@ -10144,16 +10144,16 @@
 	    });
 	};
 	
-	_dialog2.default.confirm = function (msg, callback) {
-	    openDialog('confirm', msg, callback);
+	_dialog2.default.confirm = function (msg, callback, options) {
+	    openDialog('confirm', msg, callback, options);
 	};
 	
-	_dialog2.default.warn = function (msg, callback) {
-	    openDialog('warn', msg, callback);
+	_dialog2.default.warn = function (msg, callback, options) {
+	    openDialog('warn', msg, callback, options);
 	};
 	
-	_dialog2.default.alert = function (msg, callback) {
-	    openDialog('alert', msg, callback);
+	_dialog2.default.alert = function (msg, callback, options) {
+	    openDialog('alert', msg, callback, options);
 	};
 	
 	exports.default = _dialog2.default;
@@ -10171,7 +10171,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "/home/gaonan-iri/github/vue-component/src/dialog/_dialog.vue"
+	  var id = "/home/zhouwei3-xy/vue-component/src/dialog/_dialog.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -10195,8 +10195,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-20127069&file=_dialog.vue!./../../node_modules/sass-loader/index.js!./dialog.scss", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-20127069&file=_dialog.vue!./../../node_modules/sass-loader/index.js!./dialog.scss");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-19b4b120&file=_dialog.vue!./../../node_modules/sass-loader/index.js!./dialog.scss", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-19b4b120&file=_dialog.vue!./../../node_modules/sass-loader/index.js!./dialog.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -10214,7 +10214,7 @@
 	
 	
 	// module
-	exports.push([module.id, ".dialog {\n  position: fixed;\n  z-index: 101;\n  background: white;\n  top: 50%;\n  left: 50%;\n  border: 1px solid #acacac;\n  box-shadow: 0 0 3px #b3b3b3;\n  min-width: 200px;\n  margin-left: -50%; }\n  .dialog .dialog-hd {\n    border-bottom: 1px solid #e8e8e8;\n    height: 34px;\n    line-height: 34px;\n    position: relative;\n    padding: 0 15px;\n    font-weight: bold; }\n    .dialog .dialog-hd .close {\n      font-size: 16px;\n      right: 15px;\n      position: absolute;\n      top: 9px; }\n  .dialog .dialog-bd {\n    padding: 15px; }\n\n.dialog-mask {\n  background: black;\n  opacity: 0.6;\n  filter: alpha(opacity=60);\n  position: fixed;\n  z-index: 100;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0; }\n\n/* common dialog : alert, confirm, warn*/\n.public-dialog {\n  box-shadow: 0 0 16px #333;\n  border-color: #333;\n  z-index: 102; }\n  .public-dialog .dialog-bd {\n    padding: 0; }\n  .public-dialog .msg-wrap {\n    padding: 2em;\n    min-width: 15em; }\n    .public-dialog .msg-wrap span {\n      max-width: 40em; }\n  .public-dialog .btn-wrap {\n    text-align: center;\n    padding: 1em 2em;\n    background: #eee; }\n  .public-dialog .icon {\n    font-size: 16px; }\n  .public-dialog .icon-warn {\n    color: #ff4b21; }\n  .public-dialog .icon-confirm {\n    color: #FF9708; }\n\n.dialog-type-warn .icon-warn, .dialog-type-confirm .icon-confirm {\n  display: inline-block; }\n\n.dialog-type-alert .dialog-cancel, .dialog-type-warn .dialog-cancel {\n  display: none; }\n", ""]);
+	exports.push([module.id, ".dialog {\n  position: fixed;\n  z-index: 101;\n  background: white;\n  top: 50%;\n  left: 50%;\n  border: 1px solid #acacac;\n  box-shadow: 0 0 3px #b3b3b3;\n  min-width: 200px;\n  margin-left: -50%; }\n  .dialog .dialog-hd {\n    border-bottom: 1px solid #e8e8e8;\n    height: 34px;\n    line-height: 34px;\n    position: relative;\n    padding: 0 15px;\n    font-weight: bold; }\n    .dialog .dialog-hd .close {\n      font-size: 16px;\n      right: 15px;\n      position: absolute;\n      top: 9px; }\n\n.dialog-mask {\n  background: black;\n  opacity: 0.6;\n  filter: alpha(opacity=60);\n  position: fixed;\n  z-index: 100;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0; }\n\n/* common dialog : alert, confirm, warn*/\n.public-dialog {\n  box-shadow: 0 0 16px #333;\n  border-color: #333;\n  z-index: 102; }\n  .public-dialog .dialog-bd {\n    padding: 0; }\n  .public-dialog .msg-wrap {\n    padding: 2em;\n    min-width: 15em; }\n    .public-dialog .msg-wrap span {\n      max-width: 40em; }\n  .public-dialog .btn-wrap {\n    text-align: center;\n    padding: 1em 2em;\n    background: #eee; }\n  .public-dialog .icon {\n    font-size: 16px; }\n  .public-dialog .icon-warn {\n    color: #ff4b21; }\n  .public-dialog .icon-confirm {\n    color: #FF9708; }\n\n.dialog-type-warn .icon-warn, .dialog-type-confirm .icon-confirm {\n  display: inline-block; }\n\n.dialog-type-alert .dialog-cancel, .dialog-type-warn .dialog-cancel {\n  display: none; }\n", ""]);
 	
 	// exports
 
@@ -10315,7 +10315,7 @@
 /* 24 */
 /***/ function(module, exports) {
 
-	module.exports = "<div>\n    <a class=\"btn btn-primary\" @click=\"showDialog\" href=\"javascript:;\">选择城市</a>\n    <dialog :visible.sync=\"dialogVisible\" title=\"选择城市\">\n        <div class=\"area-picker-wrap\">\n            <div class=\"area-picker-ctn\">\n                <div class=\"area\" v-for=\"area in areacode\">\n                    <div class=\"fl\">\n                        <label>\n                            <input @change=\"syncArea(area, $event)\" v-model=\"checkedAreas\" type=\"checkbox\" value={{area.id}}>\n                            {{area.name}}\n                        </label>\n                    </div>\n                    <dl>\n                        <dd v-for=\"pro in area.province\">\n                            <label>\n                                <input @change=\"syncProvince(pro, $event)\" v-model=\"checkedProvinces\" type=\"checkbox\" value={{pro.id}}>\n                                {{pro.name}}(<span>{{pro.citys | checkedLenFilter}}</span>/<span>{{pro.citys.length}}</span>)\n                            </label>\n                            <div class=\"citys\">\n                                <h4>{{pro.name}}</h4>\n                                <ul>\n                                    <li v-for=\"city in pro.citys\">\n                                        <label>\n                                            <input @change=\"syncCity(city, $event)\" v-model=\"checkedCitys\" type=\"checkbox\" value=\"{{city.id}}\">\n                                            {{city.name}}\n                                        </label>\n                                    </li>\n                                </ul>\n                            </div>\n                        </dd>\n                    </dl>\n                </div>\n                <div class=\"area last\">\n                    <label>\n                        <input @change=\"init('0', $event)\" type=\"checkbox\" checked=\"{{checkedAll}}\">\n                        全部\n                    </label>\n                </div>\n            </div>\n            <div class=\"time-picker-submit-wrap\">\n                <a class=\"btn btn-primary\" href=\"javascript:;\" @click.prevent=\"confirm\">确定</a>\n                <a class=\"btn btn-default\" href=\"javascript:;\" @click.prevent=\"cancel\">取消</a>\n            </div>\n        </div>\n    </dialog>\n</div>";
+	module.exports = "<div class=\"area-wrap\"><span v-show=\"checkedAll\" class=\"area-text\">全部区域</span><span v-show=\"!checkedAll &amp;&amp; checkedCitys.length\" class=\"area-text\">部分区域</span><a @click=\"showDialog\" href=\"javascript:;\" class=\"btn btn-primary btn-mini\"><template v-if=\"!checkedCitys.length\">选择城市</template><template v-else=\"v-else\">更改</template></a><dialog :visible.sync=\"dialogVisible\" title=\"选择城市\"><div class=\"area-picker-wrap\"><div class=\"area-picker-ctn\"><div v-for=\"area in areacode\" track-by=\"id\" class=\"area\"><div class=\"fl\"><label><input @change=\"syncArea(area, $event)\" v-model=\"checkedAreas\" type=\"checkbox\" value=\"{{area.id}}\"/>{{area.name}}</label></div><dl><dd v-for=\"pro in area.province\" track-by=\"id\"><label><input @change=\"syncProvince(pro, $event)\" v-model=\"checkedProvinces\" type=\"checkbox\" value=\"{{pro.id}}\"/>{{pro.name}}(<span>{{pro.citys | checkedLenFilter}}</span>/<span>{{pro.citys.length}}</span>)</label><div class=\"citys\"><h4>{{pro.name}}</h4><ul><li v-for=\"city in pro.citys\" track-by=\"id\"><label><input @change=\"syncCity(city, $event)\" v-model=\"checkedCitys\" type=\"checkbox\" value=\"{{city.id}}\"/>{{city.name}}</label></li></ul></div></dd></dl></div><div class=\"area last\"><label><input @change=\"init('0', $event)\" type=\"checkbox\" checked=\"{{checkedAll}}\"/>全部</label></div></div><div class=\"time-picker-submit-wrap\"><a href=\"javascript:;\" @click.prevent=\"confirm\" class=\"btn btn-primary\">确定</a><a href=\"javascript:;\" @click.prevent=\"cancel\" class=\"btn btn-default\">取消</a></div></div></dialog></div>";
 
 /***/ }
 /******/ ]);
