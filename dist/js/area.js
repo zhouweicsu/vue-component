@@ -10117,7 +10117,7 @@
 	
 	_vue2.default.component('dialog', _dialog2.default);
 	
-	var template = '\n    <dialog type="confirm" visible="true">\n        <div class="msg-wrap">\n            <i class="fa fa-exclamation-triangle icon icon-warn" v-if="type == \'warn\'"></i>\n            <i class="fa fa-exclamation-triangle icon icon-confirm" v-if="type == \'confirm\'"></i>\n            <span v-if="options.safe">{{{msg}}}</span>\n            <span v-else>{{msg}}</span>\n        </div>\n        <div class="btn-wrap">\n            <a href="javascript:void(0)" class="btn btn-primary dialog-confirm" @click="onclicked(true)">确定</a>\n            <a href="javascript:void(0)" class="btn btn-default dialog-cancel" @click="onclicked(false)" v-if="type == \'confirm\'">取消</a>\n        </div>\n    </dialog>\n';
+	var template = '\n    <dialog type="confirm" visible="true">\n        <div class="msg-wrap">\n            <i class="fa fa-exclamation-triangle icon icon-warn" v-if="type == \'warn\'"></i>\n            <i class="fa fa-exclamation-triangle icon icon-confirm" v-if="type == \'confirm\'"></i>\n            <span v-if="options.safe">{{{msg}}}</span>\n            <span v-else>{{msg}}</span>\n        </div>\n        <div class="btn-wrap">\n            <a href="javascript:void(0)" class="btn btn-primary dialog-confirm" @click="onclicked(true)" id="dialogBtnDefault">确定</a>\n            <a href="javascript:void(0)" class="btn btn-default dialog-cancel" @click="onclicked(false)" v-if="type == \'confirm\'">取消</a>\n        </div>\n    </dialog>\n';
 	
 	var openDialog = function openDialog(type, msg, callback, options) {
 	    options = options || {};
@@ -10140,6 +10140,10 @@
 	                document.body.removeChild(container);
 	                vm.$destroy();
 	            }
+	        },
+	        ready: function ready() {
+	            var btn = this.$el.querySelector('#dialogBtnDefault');
+	            btn.focus();
 	        }
 	    });
 	};

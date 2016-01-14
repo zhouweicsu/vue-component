@@ -50,7 +50,7 @@
 	
 	var _vue2 = _interopRequireDefault(_vue);
 	
-	var _timepicker = __webpack_require__(43);
+	var _timepicker = __webpack_require__(45);
 	
 	var _timepicker2 = _interopRequireDefault(_timepicker);
 	
@@ -9851,7 +9851,7 @@
 	
 	_vue2.default.component('dialog', _dialog2.default);
 	
-	var template = '\n    <dialog type="confirm" visible="true">\n        <div class="msg-wrap">\n            <i class="fa fa-exclamation-triangle icon icon-warn" v-if="type == \'warn\'"></i>\n            <i class="fa fa-exclamation-triangle icon icon-confirm" v-if="type == \'confirm\'"></i>\n            <span v-if="options.safe">{{{msg}}}</span>\n            <span v-else>{{msg}}</span>\n        </div>\n        <div class="btn-wrap">\n            <a href="javascript:void(0)" class="btn btn-primary dialog-confirm" @click="onclicked(true)">确定</a>\n            <a href="javascript:void(0)" class="btn btn-default dialog-cancel" @click="onclicked(false)" v-if="type == \'confirm\'">取消</a>\n        </div>\n    </dialog>\n';
+	var template = '\n    <dialog type="confirm" visible="true">\n        <div class="msg-wrap">\n            <i class="fa fa-exclamation-triangle icon icon-warn" v-if="type == \'warn\'"></i>\n            <i class="fa fa-exclamation-triangle icon icon-confirm" v-if="type == \'confirm\'"></i>\n            <span v-if="options.safe">{{{msg}}}</span>\n            <span v-else>{{msg}}</span>\n        </div>\n        <div class="btn-wrap">\n            <a href="javascript:void(0)" class="btn btn-primary dialog-confirm" @click="onclicked(true)" id="dialogBtnDefault">确定</a>\n            <a href="javascript:void(0)" class="btn btn-default dialog-cancel" @click="onclicked(false)" v-if="type == \'confirm\'">取消</a>\n        </div>\n    </dialog>\n';
 	
 	var openDialog = function openDialog(type, msg, callback, options) {
 	    options = options || {};
@@ -9874,6 +9874,10 @@
 	                document.body.removeChild(container);
 	                vm.$destroy();
 	            }
+	        },
+	        ready: function ready() {
+	            var btn = this.$el.querySelector('#dialogBtnDefault');
+	            btn.focus();
 	        }
 	    });
 	};
@@ -10055,14 +10059,16 @@
 /* 40 */,
 /* 41 */,
 /* 42 */,
-/* 43 */
+/* 43 */,
+/* 44 */,
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(44)
-	module.exports = __webpack_require__(46)
+	__webpack_require__(46)
+	module.exports = __webpack_require__(48)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(47)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(49)
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
@@ -10076,13 +10082,13 @@
 	})()}
 
 /***/ },
-/* 44 */
+/* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(45);
+	var content = __webpack_require__(47);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(12)(content, {});
@@ -10102,7 +10108,7 @@
 	}
 
 /***/ },
-/* 45 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(11)();
@@ -10116,7 +10122,7 @@
 
 
 /***/ },
-/* 46 */
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10437,7 +10443,7 @@
 	// <style lang="sass" src="./timepicker.scss"></style>
 
 /***/ },
-/* 47 */
+/* 49 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"time-wrap\"><span v-show=\"!initState &amp;&amp; checkedTimes == 7*24\" class=\"period-text\">全部时段</span><span v-show=\"!initState &amp;&amp; checkedTimes &gt; 0 &amp;&amp; checkedTimes &lt; 7*24\" class=\"period-text\">部分时段</span><a href=\"javascript:;\" @click=\"showDialog\" class=\"btn btn-primary btn-mini\"><template v-if=\"initState || checkedTimes == 0\">选择时段</template><template v-else=\"v-else\">更改</template></a><dialog :visible.sync=\"dialogVisible\" title=\"选择时段\"><div class=\"time-picker-wrap\"><div class=\"time-picker-hd\"><div class=\"time-picker-hint\"><span class=\"active\"><i></i>投放时间段</span><span><i></i>暂停时间段</span><span class=\"forbidden\"><i></i>不可选时间段</span></div><div class=\"time-picker-shortcuts\"><a href=\"javascript:;\" @click.prevent=\"selectSpecificDay('all')\" class=\"time-picker-all btn btn-default\">全部时间</a><a href=\"javascript:;\" @click.prevent=\"selectSpecificDay('weekday')\" class=\"time-picker-work btn btn-default\">工作日</a><a href=\"javascript:;\" @click.prevent=\"selectSpecificDay('weekend')\" class=\"time-picker-weekend btn btn-default\">周末</a></div></div><table class=\"time-picker-bd\"><thead><tr><th class=\"time-picker-day\"></th><th v-for=\"hour in 24\" :class=\"{active: isHourAllChecked[hour]}\" @click=\"selectHour(hour)\" class=\"time-picker-hour\"><i class=\"fa fa-arrow-down\"></i></th></tr></thead><tbody><tr v-for=\"day in 7\"><td class=\"time-picker-day\"><label><input type=\"checkbox\" @change=\"selectDay(day, $event.target.checked)\" v-model=\"isDayAllChecked[day]\" :disabled=\"disabledWeekday[day]\"/>{{weekDay[day]}}</label></td><td v-for=\"hour in 24\" :class=\"{'forbidden': !!fbdArr[day][hour],'active': (!fbdArr[day][hour] &amp;&amp; !!times[day][hour])}\" @click=\"selectTime(day,hour)\" class=\"time-picker-btns\"><span>{{hour+1}}</span></td></tr></tbody></table><div class=\"time-picker-ft\"><p><strong>示例一：当你选择了星期一的【12】点，则推广时间段为星期一的12:00-12:59</strong></p><p><strong>示例二：当你选择了星期一的【8、9、10、11】点，则推广时间段为星期一的8:00-11:59</strong></p></div><div class=\"time-picker-submit-wrap\"><a href=\"javascript:;\" @click.prevent=\"confirm\" class=\"btn btn-primary\">确定</a><a href=\"javascript:;\" @click.prevent=\"cancel\" class=\"btn btn-default\">取消</a></div></div></dialog></div>";

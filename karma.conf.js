@@ -1,4 +1,6 @@
 var webpackConfig = require("./webpack.config.js");
+var singleTestFile = process.argv[4];
+
 
 module.exports = function(config) {
     config.set({
@@ -6,7 +8,7 @@ module.exports = function(config) {
         concurrency: 1,
         frameworks: ['mocha', 'sinon'],
         reporters: ['nyan'],
-        files: [
+        files: singleTestFile ? [singleTestFile] : [
             'test/*_test.js',
             'test/**/*_test.js'
         ],

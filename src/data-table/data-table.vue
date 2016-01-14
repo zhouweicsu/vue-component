@@ -26,7 +26,12 @@
             },
             //Table表格数据列表
             list: {
-                default: ''
+                default: []
+            },
+            //初始化的时候是否默认执行一次getPageData
+            initrequest: {
+                default: true,
+                type: Boolean
             }
         },
         data () {
@@ -38,7 +43,9 @@
         },
         ready () {
             this.$watch('url', () => this.getPageData(0));
-            this.getPageData(0);
+            if(this.initrequest){
+                this.getPageData(0);
+            }
         },
         components: {
             'pagination': Pagination

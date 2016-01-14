@@ -12,7 +12,7 @@ var template = `
             <span v-else>{{msg}}</span>
         </div>
         <div class="btn-wrap">
-            <a href="javascript:void(0)" class="btn btn-primary dialog-confirm" @click="onclicked(true)">确定</a>
+            <a href="javascript:void(0)" class="btn btn-primary dialog-confirm" @click="onclicked(true)" id="dialogBtnDefault">确定</a>
             <a href="javascript:void(0)" class="btn btn-default dialog-cancel" @click="onclicked(false)" v-if="type == 'confirm'">取消</a>
         </div>
     </dialog>
@@ -39,6 +39,10 @@ var openDialog = function(type, msg, callback, options) {
                 document.body.removeChild(container);
                 vm.$destroy();
             }
+        },
+        ready(){
+            var btn = this.$el.querySelector('#dialogBtnDefault');
+            btn.focus();
         }
     });
 }

@@ -47,7 +47,7 @@
 
 	'use strict';
 
-	var _global = __webpack_require__(48);
+	var _global = __webpack_require__(43);
 
 	var _global2 = _interopRequireDefault(_global);
 
@@ -55,7 +55,7 @@
 
 /***/ },
 
-/***/ 48:
+/***/ 43:
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
