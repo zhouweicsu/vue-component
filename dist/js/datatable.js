@@ -9818,7 +9818,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "/home/gaonan-iri/github/vue-component/src/data-table/data-table.vue"
+	  var id = "/home/zhouwei3-xy/vue-component/src/data-table/data-table.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -9842,8 +9842,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-f7542d54&file=data-table.vue!./../../node_modules/sass-loader/index.js!./data-table.scss", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-f7542d54&file=data-table.vue!./../../node_modules/sass-loader/index.js!./data-table.scss");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-5da2bcbf&file=data-table.vue!./../../node_modules/sass-loader/index.js!./data-table.scss", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-5da2bcbf&file=data-table.vue!./../../node_modules/sass-loader/index.js!./data-table.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -9961,15 +9961,15 @@
 	            var params = me.needpagination ? (/\?/.test(me.url) ? '&' : '?') + 'pn=' + pn + '&ps=' + me.ps : '';
 	            var resource = me.$resource(me.url + params);
 	            resource.get(function (data, status, request) {
+	                if (typeof me.datafilter === 'function') {
+	                    //若传入数据处理函数，则处理该数据
+	                    data = me.datafilter(data); //数据处理函数返回的数据需满足上面的格式
+	                }
 	                if (data.errno) {
 	                    alert(data.errmsg);
 	                    me.list = [];
 	                    me.total = 0;
 	                    return false;
-	                }
-	                if (typeof me.datafilter === 'function') {
-	                    //若传入数据处理函数，则处理该数据
-	                    data = me.datafilter(data); //数据处理函数返回的数据需满足上面的格式
 	                }
 	                //规避错误：若在最后一页只有一条数据且将其删除，再次请求当前页就会出现错误，此时需要pn-1，请求上一页直到0
 	                if (me.pn > 0 && data.total <= me.ps * me.pn) {
@@ -10014,7 +10014,7 @@
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
 	  if (!hotAPI.compatible) return
-	  var id = "/home/gaonan-iri/github/vue-component/src/pagination/pagination.vue"
+	  var id = "/home/zhouwei3-xy/vue-component/src/pagination/pagination.vue"
 	  if (!module.hot.data) {
 	    hotAPI.createRecord(id, module.exports)
 	  } else {
@@ -10038,8 +10038,8 @@
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-8ee57414&file=pagination.vue!./../../node_modules/sass-loader/index.js!./pagination.scss", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-8ee57414&file=pagination.vue!./../../node_modules/sass-loader/index.js!./pagination.scss");
+			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-dc4bcd42&file=pagination.vue!./../../node_modules/sass-loader/index.js!./pagination.scss", function() {
+				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-dc4bcd42&file=pagination.vue!./../../node_modules/sass-loader/index.js!./pagination.scss");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
