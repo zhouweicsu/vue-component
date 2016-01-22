@@ -40,8 +40,9 @@
 /******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -84,12 +85,8 @@
 	});
 
 /***/ },
-/* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */
+
+/***/ 6:
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/*!
@@ -9397,7 +9394,8 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ },
-/* 7 */
+
+/***/ 7:
 /***/ function(module, exports) {
 
 	// shim for using process in browser
@@ -9494,10 +9492,8 @@
 
 
 /***/ },
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */
+
+/***/ 11:
 /***/ function(module, exports) {
 
 	/*
@@ -9553,7 +9549,8 @@
 
 
 /***/ },
-/* 12 */
+
+/***/ 12:
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -9807,14 +9804,15 @@
 
 
 /***/ },
-/* 13 */,
-/* 14 */
+
+/***/ 14:
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = { "default": __webpack_require__(15), __esModule: true };
 
 /***/ },
-/* 15 */
+
+/***/ 15:
 /***/ function(module, exports, __webpack_require__) {
 
 	var core = __webpack_require__(16);
@@ -9823,242 +9821,16 @@
 	};
 
 /***/ },
-/* 16 */
+
+/***/ 16:
 /***/ function(module, exports) {
 
 	var core = module.exports = {version: '1.2.6'};
 	if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
 
 /***/ },
-/* 17 */
-/***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _vue = __webpack_require__(6);
-	
-	var _vue2 = _interopRequireDefault(_vue);
-	
-	var _dialog = __webpack_require__(18);
-	
-	var _dialog2 = _interopRequireDefault(_dialog);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	_vue2.default.component('dialog', _dialog2.default);
-	
-	var template = '\n    <dialog type="confirm" visible="true">\n        <div class="msg-wrap">\n            <i class="fa fa-exclamation-triangle icon icon-warn" v-if="type == \'warn\'"></i>\n            <i class="fa fa-exclamation-triangle icon icon-confirm" v-if="type == \'confirm\'"></i>\n            <span v-if="safe">{{{msg}}}</span>\n            <span v-else>{{msg}}</span>\n        </div>\n        <div class="btn-wrap">\n            <a href="javascript:void(0)" class="btn btn-primary dialog-confirm" @click="onclicked(true)" id="dialogBtnDefault">确定</a>\n            <a href="javascript:void(0)" class="btn btn-default dialog-cancel" @click="onclicked(false)" v-if="type == \'confirm\'">取消</a>\n        </div>\n    </dialog>\n';
-	
-	var openDialog = function openDialog(type, msg, callback, safe) {
-	    var container = document.createElement('div');
-	    document.body.appendChild(container);
-	    var vm = new _vue2.default({
-	        el: container,
-	        replace: false,
-	        template: template,
-	        data: {
-	            msg: msg,
-	            type: type,
-	            safe: safe || false
-	        },
-	        methods: {
-	            onclicked: function onclicked(result) {
-	                callback && callback(result);
-	                document.body.removeChild(container);
-	                vm.$destroy();
-	            }
-	        },
-	        ready: function ready() {
-	            var btn = this.$el.querySelector('#dialogBtnDefault');
-	            btn.focus();
-	        }
-	    });
-	};
-	
-	_dialog2.default.confirm = function (msg, callback, safe) {
-	    openDialog('confirm', msg, callback, safe);
-	};
-	
-	_dialog2.default.warn = function (msg, callback, safe) {
-	    openDialog('warn', msg, callback, safe);
-	};
-	
-	_dialog2.default.alert = function (msg, callback, safe) {
-	    openDialog('alert', msg, callback, safe);
-	};
-	
-	exports.default = _dialog2.default;
-
-/***/ },
-/* 18 */
-/***/ function(module, exports, __webpack_require__) {
-
-	__webpack_require__(19)
-	module.exports = __webpack_require__(21)
-	
-	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(22)
-	if (false) {(function () {  module.hot.accept()
-	  var hotAPI = require("vue-hot-reload-api")
-	  hotAPI.install(require("vue"), true)
-	  if (!hotAPI.compatible) return
-	  var id = "/home/gaonan-iri/github/vue-component/src/dialog/_dialog.vue"
-	  if (!module.hot.data) {
-	    hotAPI.createRecord(id, module.exports)
-	  } else {
-	    hotAPI.update(id, module.exports, (typeof module.exports === "function" ? module.exports.options : module.exports).template)
-	  }
-	})()}
-
-/***/ },
-/* 19 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-	
-	// load the styles
-	var content = __webpack_require__(20);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(12)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-20127069&file=_dialog.vue!./../../node_modules/sass-loader/index.js!./dialog.scss", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/vue-loader/lib/style-rewriter.js?id=_v-20127069&file=_dialog.vue!./../../node_modules/sass-loader/index.js!./dialog.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 20 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(11)();
-	// imports
-	
-	
-	// module
-	exports.push([module.id, ".dialog {\n  position: fixed;\n  z-index: 101;\n  background: white;\n  top: 50%;\n  left: 50%;\n  border: 1px solid #acacac;\n  box-shadow: 0 0 3px #b3b3b3;\n  min-width: 200px;\n  margin-left: -50%; }\n  .dialog .dialog-hd {\n    border-bottom: 1px solid #e8e8e8;\n    height: 34px;\n    line-height: 34px;\n    position: relative;\n    padding: 0 15px;\n    font-weight: bold; }\n    .dialog .dialog-hd .close {\n      font-size: 16px;\n      right: 15px;\n      position: absolute;\n      top: 9px; }\n  .dialog .dialog-bd {\n    padding: 15px; }\n\n.dialog-mask {\n  background: black;\n  opacity: 0.6;\n  filter: alpha(opacity=60);\n  position: fixed;\n  z-index: 100;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0; }\n\n/* common dialog : alert, confirm, warn*/\n.public-dialog {\n  box-shadow: 0 0 16px #333;\n  border-color: #333;\n  z-index: 102; }\n  .public-dialog .dialog-bd {\n    padding: 0; }\n  .public-dialog .msg-wrap {\n    padding: 2em;\n    min-width: 15em; }\n    .public-dialog .msg-wrap span {\n      max-width: 40em; }\n  .public-dialog .btn-wrap {\n    text-align: center;\n    padding: 1em 2em;\n    background: #eee; }\n  .public-dialog .icon {\n    font-size: 16px; }\n  .public-dialog .icon-warn {\n    color: #ff4b21; }\n  .public-dialog .icon-confirm {\n    color: #FF9708; }\n\n.dialog-type-warn .icon-warn, .dialog-type-confirm .icon-confirm {\n  display: inline-block; }\n\n.dialog-type-alert .dialog-cancel, .dialog-type-warn .dialog-cancel {\n  display: none; }\n", ""]);
-	
-	// exports
-
-
-/***/ },
-/* 21 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	
-	var _vue = __webpack_require__(6);
-	
-	var _vue2 = _interopRequireDefault(_vue);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	exports.default = {
-	    props: {
-	        type: {
-	            default: 'dialog'
-	        },
-	        title: String,
-	        msg: String,
-	        visible: {
-	            default: false
-	        }
-	    },
-	    methods: {
-	        _centerDialog: function _centerDialog() {
-	            var elem = this.$el.querySelector('.dialog');
-	            var w = elem.offsetWidth;
-	            var h = elem.offsetHeight;
-	            elem.style.marginLeft = '-' + w / 2 + 'px';
-	            elem.style.marginTop = '-' + h / 2 + 'px';
-	        },
-	        _removeDialog: function _removeDialog() {
-	            this.$el.parentNode.removeChild(this.$el);
-	            //TODO: remove event handlers
-	        },
-	        show: function show() {
-	            this.visible = true;
-	            _vue2.default.nextTick(this._centerDialog);
-	        },
-	        hide: function hide() {
-	            this.visible = false;
-	        }
-	    },
-	    created: function created() {
-	        this.$watch('visible', function () {
-	            this.visible && _vue2.default.nextTick(this._centerDialog);
-	        });
-	    },
-	    ready: function ready() {
-	        this._centerDialog();
-	    },
-	    destroy: function destroy() {
-	        this._removeDialog();
-	    }
-	};
-	// </script>
-
-	// <style lang="sass" src="./dialog.scss"></style>
-	// <template lang="jade">
-	// .dialog-box(:style="{display: visible ? 'block' : 'none'}")
-	//     .dialog(:class="{'public-dialog': type!='dialog'}")
-	//         .dialog-hd(v-if='title')
-	//             | {{title}}
-	//             a.fa.fa-times.close(@click='hide')
-	//         .dialog-bd
-	//             slot
-	//     .dialog-mask
-	// </template>
-
-	// <script>
-
-/***/ },
-/* 22 */
-/***/ function(module, exports) {
-
-	module.exports = "<div :style=\"{display: visible ? 'block' : 'none'}\" class=\"dialog-box\"><div :class=\"{'public-dialog': type!='dialog'}\" class=\"dialog\"><div v-if=\"title\" class=\"dialog-hd\">{{title}}<a @click=\"hide\" class=\"fa fa-times close\"></a></div><div class=\"dialog-bd\"><slot></slot></div></div><div class=\"dialog-mask\"></div></div>";
-
-/***/ },
-/* 23 */,
-/* 24 */,
-/* 25 */,
-/* 26 */,
-/* 27 */,
-/* 28 */,
-/* 29 */,
-/* 30 */,
-/* 31 */,
-/* 32 */,
-/* 33 */,
-/* 34 */,
-/* 35 */,
-/* 36 */,
-/* 37 */,
-/* 38 */,
-/* 39 */,
-/* 40 */,
-/* 41 */,
-/* 42 */,
-/* 43 */,
-/* 44 */,
-/* 45 */
+/***/ 45:
 /***/ function(module, exports, __webpack_require__) {
 
 	__webpack_require__(46)
@@ -10079,7 +9851,8 @@
 	})()}
 
 /***/ },
-/* 46 */
+
+/***/ 46:
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
@@ -10105,7 +9878,8 @@
 	}
 
 /***/ },
-/* 47 */
+
+/***/ 47:
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(11)();
@@ -10119,7 +9893,8 @@
 
 
 /***/ },
-/* 48 */
+
+/***/ 48:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10136,7 +9911,7 @@
 	
 	var _vue2 = _interopRequireDefault(_vue);
 	
-	var _dialog = __webpack_require__(17);
+	var _dialog = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../dialog/dialog.js\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 	
 	var _dialog2 = _interopRequireDefault(_dialog);
 	
@@ -10397,11 +10172,13 @@
 	// <style lang="sass" src="./timepicker.scss"></style>
 
 /***/ },
-/* 49 */
+
+/***/ 49:
 /***/ function(module, exports) {
 
 	module.exports = "<div><a href=\"javascript:;\" @click=\"showDialog\" class=\"btn btn-primary\">选择时段</a><dialog :visible=\"dialogVisible\" title=\"选择时段\"><div class=\"time-picker-wrap\"><div class=\"time-picker-hd\"><div class=\"time-picker-hint\"><span class=\"active\"><i></i>投放时间段</span><span><i></i>暂停时间段</span><span class=\"forbidden\"><i></i>不可选时间段</span></div><div class=\"time-picker-shortcuts\"><a href=\"javascript:;\" @click.prevent=\"selectSpecificDay('all')\" class=\"time-picker-all btn btn-default\">全部时间</a><a href=\"javascript:;\" @click.prevent=\"selectSpecificDay('weekday')\" class=\"time-picker-work btn btn-default\">工作日</a><a href=\"javascript:;\" @click.prevent=\"selectSpecificDay('weekend')\" class=\"time-picker-weekend btn btn-default\">周末</a></div></div><table class=\"time-picker-bd\"><thead><tr><th class=\"time-picker-day\"></th><th v-for=\"hour in 24\" :class=\"{active: isHourAllChecked[hour]}\" @click=\"selectHour(hour)\" class=\"time-picker-hour\"><i class=\"fa fa-arrow-down\"></i></th></tr></thead><tbody><tr v-for=\"day in 7\"><td class=\"time-picker-day\"><label><input type=\"checkbox\" @change=\"selectDay(day, $event.target.checked)\" v-model=\"isDayAllChecked[day]\" :disabled=\"disabledWeekday[day]\"/>{{weekDay[day]}}</label></td><td v-for=\"hour in 24\" :class=\"{'forbidden': !!fbdArr[day][hour],'active': (!fbdArr[day][hour] &amp;&amp; !!times[day][hour])}\" @click=\"selectTime(day,hour)\" class=\"time-picker-btns\"><span>{{hour+1}}</span></td></tr></tbody></table><div class=\"time-picker-ft\"><p><strong>示例一：当你选择了星期一的【12】点，则推广时间段为星期一的12:00-12:59</strong></p><p><strong>示例二：当你选择了星期一的【8、9、10、11】点，则推广时间段为星期一的8:00-11:59</strong></p></div><div class=\"time-picker-submit-wrap\"><a href=\"javascript:;\" @click.prevent=\"confirm\" class=\"btn btn-primary\">确定</a><a href=\"javascript:;\" @click.prevent=\"cancel\" class=\"btn btn-default\">取消</a></div></div></dialog></div>";
 
 /***/ }
-/******/ ]);
+
+/******/ });
 //# sourceMappingURL=timepicker.js.map

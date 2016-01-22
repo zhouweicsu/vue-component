@@ -44,7 +44,7 @@ div
 
 <script>
 import Vue from 'vue'
-import Dialog from '../dialog/dialog.js'
+import Dialog from '../dialog'
 
 String.prototype.repeat = String.prototype.repeat || function(n) { return Array(n+1).join(this) };
 Array.prototype.fill = Array.prototype.fill || function(val) { for (var i = 0; i < this.length; i++) this[i] = val };

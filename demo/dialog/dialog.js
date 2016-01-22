@@ -1,4 +1,4 @@
-import Dialog from '../../src/dialog/dialog.js'
+import Dialog from '../../src/dialog'
 import Vue from 'vue'
 
 document.querySelector("#confirm").addEventListener("click",function(){

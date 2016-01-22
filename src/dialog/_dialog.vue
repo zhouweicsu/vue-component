@@ -1,5 +1,5 @@
 <template lang="jade">
-.dialog-box(:style="{display: visible ? 'block' : 'none'}")
+.dialog-box(v-show='visible')
     .dialog(:class="{'public-dialog': type!='dialog'}")
         .dialog-hd(v-if='title')
             | {{title}}

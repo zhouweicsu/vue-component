@@ -50,7 +50,7 @@
 	
 	var _vue2 = _interopRequireDefault(_vue);
 	
-	var _pagination = __webpack_require__(29);
+	var _pagination = __webpack_require__(23);
 	
 	var _pagination2 = _interopRequireDefault(_pagination);
 	
@@ -9796,20 +9796,14 @@
 /* 20 */,
 /* 21 */,
 /* 22 */,
-/* 23 */,
-/* 24 */,
-/* 25 */,
-/* 26 */,
-/* 27 */,
-/* 28 */,
-/* 29 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(30)
-	module.exports = __webpack_require__(32)
+	__webpack_require__(24)
+	module.exports = __webpack_require__(26)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(33)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(27)
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
@@ -9823,13 +9817,13 @@
 	})()}
 
 /***/ },
-/* 30 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(31);
+	var content = __webpack_require__(25);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(12)(content, {});
@@ -9849,7 +9843,7 @@
 	}
 
 /***/ },
-/* 31 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(11)();
@@ -9863,7 +9857,7 @@
 
 
 /***/ },
-/* 32 */
+/* 26 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -9951,7 +9945,7 @@
 	// <style lang="sass" src="./pagination.scss"></style>
 
 /***/ },
-/* 33 */
+/* 27 */
 /***/ function(module, exports) {
 
 	module.exports = "<div class=\"ui-pagination\"><span class=\"total\">共<em>{{total}}</em>条</span><span @click.prevent=\"go\" v-show=\"pageCount &gt; 1\" class=\"pages\"><a href=\"#\" :class=\"{disabled: pn == 0}\" data-page=\"{{pn-1}}\" class=\"ui-page\">上一页</a><a href=\"#\" :class=\"{current: pn == 0}\" data-page=\"0\" class=\"ui-page\">1</a><em v-show=\"spanRange[0] &gt; 1\" class=\"ui-page ellipsis\">⋯</em><a v-for=\"n in spanRange\" href=\"#\" :class=\"{current: n == pn}\" data-page=\"{{n}}\" class=\"ui-page\">{{n+1}}</a><em v-show=\"showEndEllipse\" class=\"ui-page ellipsis\">⋯</em><a href=\"#\" :class=\"{current: pn == pageCount-1}\" data-page=\"{{pageCount - 1}}\" class=\"ui-page\">{{pageCount}}</a><a href=\"#\" :class=\"{disabled: pn == pageCount-1}\" data-page=\"{{pn+1}}\" class=\"ui-page\">下一页</a></span></div>";

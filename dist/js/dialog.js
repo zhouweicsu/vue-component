@@ -40,13 +40,14 @@
 /******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	var _dialog = __webpack_require__(17);
+	var _dialog = __webpack_require__(37);
 	
 	var _dialog2 = _interopRequireDefault(_dialog);
 	
@@ -84,12 +85,8 @@
 	});
 
 /***/ },
-/* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */
+
+/***/ 6:
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/*!
@@ -9397,7 +9394,8 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(7)))
 
 /***/ },
-/* 7 */
+
+/***/ 7:
 /***/ function(module, exports) {
 
 	// shim for using process in browser
@@ -9494,10 +9492,8 @@
 
 
 /***/ },
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */
+
+/***/ 11:
 /***/ function(module, exports) {
 
 	/*
@@ -9553,7 +9549,8 @@
 
 
 /***/ },
-/* 12 */
+
+/***/ 12:
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -9807,11 +9804,8 @@
 
 
 /***/ },
-/* 13 */,
-/* 14 */,
-/* 15 */,
-/* 16 */,
-/* 17 */
+
+/***/ 37:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9824,7 +9818,7 @@
 	
 	var _vue2 = _interopRequireDefault(_vue);
 	
-	var _dialog = __webpack_require__(18);
+	var _dialog = __webpack_require__(38);
 	
 	var _dialog2 = _interopRequireDefault(_dialog);
 	
@@ -9875,14 +9869,15 @@
 	exports.default = _dialog2.default;
 
 /***/ },
-/* 18 */
+
+/***/ 38:
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(19)
-	module.exports = __webpack_require__(21)
+	__webpack_require__(39)
+	module.exports = __webpack_require__(41)
 	
 	if (module.exports.__esModule) module.exports = module.exports.default
-	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(22)
+	;(typeof module.exports === "function" ? module.exports.options : module.exports).template = __webpack_require__(42)
 	if (false) {(function () {  module.hot.accept()
 	  var hotAPI = require("vue-hot-reload-api")
 	  hotAPI.install(require("vue"), true)
@@ -9896,13 +9891,14 @@
 	})()}
 
 /***/ },
-/* 19 */
+
+/***/ 39:
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 	
 	// load the styles
-	var content = __webpack_require__(20);
+	var content = __webpack_require__(40);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(12)(content, {});
@@ -9922,7 +9918,8 @@
 	}
 
 /***/ },
-/* 20 */
+
+/***/ 40:
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(11)();
@@ -9936,7 +9933,8 @@
 
 
 /***/ },
-/* 21 */
+
+/***/ 41:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9998,7 +9996,7 @@
 
 	// <style lang="sass" src="./dialog.scss"></style>
 	// <template lang="jade">
-	// .dialog-box(:style="{display: visible ? 'block' : 'none'}")
+	// .dialog-box(v-show='visible')
 	//     .dialog(:class="{'public-dialog': type!='dialog'}")
 	//         .dialog-hd(v-if='title')
 	//             | {{title}}
@@ -10011,11 +10009,13 @@
 	// <script>
 
 /***/ },
-/* 22 */
+
+/***/ 42:
 /***/ function(module, exports) {
 
-	module.exports = "<div :style=\"{display: visible ? 'block' : 'none'}\" class=\"dialog-box\"><div :class=\"{'public-dialog': type!='dialog'}\" class=\"dialog\"><div v-if=\"title\" class=\"dialog-hd\">{{title}}<a @click=\"hide\" class=\"fa fa-times close\"></a></div><div class=\"dialog-bd\"><slot></slot></div></div><div class=\"dialog-mask\"></div></div>";
+	module.exports = "<div v-show=\"visible\" class=\"dialog-box\"><div :class=\"{'public-dialog': type!='dialog'}\" class=\"dialog\"><div v-if=\"title\" class=\"dialog-hd\">{{title}}<a @click=\"hide\" class=\"fa fa-times close\"></a></div><div class=\"dialog-bd\"><slot></slot></div></div><div class=\"dialog-mask\"></div></div>";
 
 /***/ }
-/******/ ]);
+
+/******/ });
 //# sourceMappingURL=dialog.js.map
